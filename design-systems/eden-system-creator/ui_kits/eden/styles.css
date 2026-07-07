@@ -1,0 +1,455 @@
+/* ==========================================================================
+   Éden System Creator — Product UI kit styles
+   Built on colors_and_type.css (Voltage tokens + Éden domain extensions).
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: var(--bg-0);
+  color: var(--fg-0);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lead-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   App shell
+   ========================================================================== */
+.eden-app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-rows: var(--header-h) 1fr;
+  grid-template-areas: "sidebar topbar" "sidebar main";
+  height: 100vh;
+}
+.eden-sidebar { grid-area: sidebar; border-right: 1px solid var(--border); background: var(--bg-1); display: flex; flex-direction: column; }
+.eden-topbar  { grid-area: topbar; border-bottom: 1px solid var(--border); background: var(--bg-overlay); backdrop-filter: blur(12px); display: flex; align-items: center; padding: 0 var(--s-5); gap: var(--s-4); }
+.eden-main    { grid-area: main; overflow: auto; background: var(--bg-0); }
+
+/* ——— Sidebar ——— */
+.eden-brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 18px 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.eden-brand__mark {
+  width: 22px; height: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--cyan-brand);
+}
+.eden-brand__mark svg { width: 100%; height: 100%; }
+.eden-brand__name {
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em; color: var(--fg-0);
+}
+.eden-brand__sub {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2);
+  margin-top: 2px;
+}
+
+.eden-nav { padding: 12px 8px; flex: 1; overflow: auto; display: flex; flex-direction: column; gap: 2px; }
+.eden-nav__section {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-3);
+  padding: 14px 12px 6px;
+}
+.eden-nav__item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px;
+  font-size: 13px; color: var(--fg-1);
+  border-radius: 2px; border: 0; background: transparent;
+  cursor: pointer; text-align: left; width: 100%;
+  transition: color 120ms var(--ease), background 120ms var(--ease);
+}
+.eden-nav__item:hover { background: var(--bg-2); color: var(--fg-0); }
+.eden-nav__item.is-active { background: var(--bg-2); color: var(--fg-0); box-shadow: inset 2px 0 0 var(--cyan-brand); }
+.eden-nav__item svg { width: 15px; height: 15px; stroke: currentColor; }
+.eden-nav__item .count {
+  margin-left: auto; font-family: var(--font-mono); font-size: 10px;
+  color: var(--fg-3); letter-spacing: 0.04em;
+}
+
+.eden-systems {
+  border-top: 1px solid var(--border); padding: 10px 8px;
+}
+.eden-systems .eden-nav__section { padding: 6px 12px 6px; }
+.eden-system-item {
+  display: grid; grid-template-columns: 8px 1fr auto; align-items: center; gap: 10px;
+  padding: 6px 12px;
+  font-size: 12px; color: var(--fg-1);
+  cursor: pointer; border-radius: 2px;
+  font-family: var(--font-sans);
+}
+.eden-system-item:hover { background: var(--bg-2); color: var(--fg-0); }
+.eden-system-item .pip { width: 6px; height: 6px; border-radius: 50%; }
+.eden-system-item .ready { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+
+/* ——— Topbar ——— */
+.eden-crumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--fg-2); letter-spacing: 0.04em;
+  white-space: nowrap; overflow: hidden; min-width: 0;
+}
+.eden-crumb > * { flex: 0 0 auto; }
+.eden-crumb a, .eden-crumb span { color: inherit; }
+.eden-crumb .sep { color: var(--fg-3); }
+.eden-crumb .here { color: var(--fg-0); }
+.eden-topbar__spacer { flex: 1; }
+.eden-topbar__group { display: flex; align-items: center; gap: 8px; }
+.eden-topbar__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--fg-1); padding: 4px 8px;
+  border: 1px solid var(--border); border-radius: 2px; background: var(--bg-1);
+}
+.eden-topbar__chip .pip { width: 5px; height: 5px; border-radius: 50%; }
+.eden-topbar__user {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--bg-3); border: 1px solid var(--border-strong);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px; color: var(--fg-0); letter-spacing: 0.04em;
+}
+.eden-kbd {
+  font-family: var(--font-mono); font-size: 10px; color: var(--fg-2);
+  padding: 2px 5px; border: 1px solid var(--border); border-radius: 2px; background: var(--bg-1);
+}
+
+/* ==========================================================================
+   Page chrome
+   ========================================================================== */
+.eden-page { padding: var(--s-6) var(--s-7); max-width: 1440px; }
+.eden-page__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s-5); margin-bottom: var(--s-6); padding-bottom: var(--s-5); border-bottom: 1px solid var(--border); }
+.eden-page__title { font-weight: 300; font-size: 36px; letter-spacing: -0.015em; line-height: 1.15; margin: 0; max-width: 760px; }
+.eden-page__eyebrow { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); margin-bottom: 6px; }
+.eden-page__actions { display: flex; gap: 8px; align-items: center; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.eden-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 12px;
+  font: 500 13px/1.2 var(--font-sans);
+  background: var(--bg-2); color: var(--fg-0);
+  border: 1px solid var(--border-strong); border-radius: 2px;
+  cursor: pointer; transition: all var(--dur) var(--ease);
+  white-space: nowrap;
+}
+.eden-btn:hover { border-color: var(--cyan-brand); color: var(--cyan-brand); }
+.eden-btn--primary { background: var(--cyan-signal); color: var(--bg-0); border-color: var(--cyan-signal); }
+.eden-btn--primary:hover { background: var(--cyan-brand); border-color: var(--cyan-brand); color: var(--bg-0); }
+.eden-btn--ghost { background: transparent; border-color: transparent; color: var(--fg-1); }
+.eden-btn--ghost:hover { color: var(--cyan-brand); }
+.eden-btn--danger { border-color: var(--err); color: var(--err); }
+.eden-btn--danger:hover { background: var(--err); border-color: var(--err); color: var(--bg-0); }
+.eden-btn[disabled], .eden-btn.is-disabled { opacity: 0.5; pointer-events: none; }
+.eden-btn svg { width: 14px; height: 14px; stroke: currentColor; }
+.eden-btn--sm { padding: 5px 9px; font-size: 11px; }
+
+/* ==========================================================================
+   Common card / panel
+   ========================================================================== */
+.eden-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: var(--s-5);
+}
+.eden-card--bracket { position: relative; }
+.eden-card--bracket::before, .eden-card--bracket--bracket::after {}
+.eden-card--bracket::before, .eden-card--bracket::after {
+  content: ''; position: absolute; width: 10px; height: 10px;
+  border: 1.5px solid var(--cyan-brand); opacity: 0.5; pointer-events: none;
+}
+.eden-card--bracket::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.eden-card--bracket::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+.eden-card__eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--fg-2); margin-bottom: 8px; font-weight: 500;
+}
+.eden-card__title { font-size: 18px; font-weight: 500; margin: 0 0 12px; letter-spacing: -0.01em; color: var(--fg-0); }
+.eden-card__body  { font-size: 13px; line-height: 1.55; color: var(--fg-1); }
+
+/* ==========================================================================
+   Eyebrows / labels / pip / mono helpers
+   ========================================================================== */
+.eden-eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--fg-2); font-weight: 500;
+}
+.eden-label {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--fg-2); font-weight: 500;
+}
+.eden-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.eden-pip  { display: inline-block; width: 6px; height: 6px; border-radius: 50%; flex: 0 0 6px; }
+.eden-pip--pulse { animation: eden-pulse 1.6s cubic-bezier(0.2,0,0,1) infinite; }
+@keyframes eden-pulse {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  70% { box-shadow: 0 0 0 6px transparent; opacity: 0.85; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+/* ==========================================================================
+   Chip / Badge
+   ========================================================================== */
+.eden-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--fg-0); padding: 3px 7px;
+  border: 1px solid var(--border); border-radius: 2px;
+  font-weight: 500; white-space: nowrap;
+}
+.eden-chip--tint { background: var(--bg-2); }
+.eden-chip--risk { border-color: currentColor; }
+
+/* ==========================================================================
+   Mission cards (grid)
+   ========================================================================== */
+.eden-grid { display: grid; gap: 12px; }
+.eden-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.eden-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.eden-grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+.eden-stat {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: 4px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;
+}
+.eden-stat__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+.eden-stat__value { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 26px; font-weight: 500; color: var(--fg-0); letter-spacing: -0.01em; }
+.eden-stat__sub   { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+
+.eden-mission-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: 4px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+  cursor: pointer; transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.eden-mission-card:hover { border-color: var(--border-strong); background: var(--bg-2); }
+.eden-mission-card__top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.eden-mission-card__id { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+.eden-mission-card__title { font-size: 14px; font-weight: 500; color: var(--fg-0); margin-top: 4px; line-height: 1.35; }
+.eden-mission-card__meta { display: flex; flex-wrap: wrap; gap: 14px; font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); }
+.eden-mission-card__meta .num { color: var(--fg-0); font-variant-numeric: tabular-nums; }
+.eden-mission-card__bar { height: 2px; background: var(--bg-3); position: relative; overflow: hidden; border-radius: 1px; }
+.eden-mission-card__bar::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: var(--p, 0%); background: var(--cyan-brand); }
+
+/* ==========================================================================
+   Dense table
+   ========================================================================== */
+.eden-table { width: 100%; border-collapse: collapse; background: var(--bg-1); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.eden-table th { text-align: left; padding: 10px 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); border-bottom: 1px solid var(--border); font-weight: 500; }
+.eden-table td { padding: 10px 14px; font-size: 12px; color: var(--fg-1); border-top: 1px solid var(--border); }
+.eden-table tbody tr { cursor: pointer; transition: background var(--dur) var(--ease); }
+.eden-table tbody tr:hover { background: var(--bg-2); }
+.eden-table .id { font-family: var(--font-mono); color: var(--fg-0); letter-spacing: 0.04em; }
+.eden-table .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--fg-0); }
+
+/* ==========================================================================
+   Agent card (council)
+   ========================================================================== */
+.eden-agent {
+  position: relative; background: var(--bg-1); border: 1px solid var(--border);
+  border-radius: 4px; padding: 12px 14px 12px 18px;
+}
+.eden-agent__rail { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; }
+.eden-agent__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.eden-agent__role { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); }
+.eden-agent__name { font-size: 14px; font-weight: 500; color: var(--fg-0); margin-top: 2px; }
+.eden-agent__meta { display: flex; gap: 12px; align-items: center; font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); }
+.eden-agent__meta .num { color: var(--fg-0); font-variant-numeric: tabular-nums; }
+.eden-agent__body { font-size: 13px; color: var(--fg-1); margin-top: 10px; line-height: 1.55; }
+.eden-agent__refs { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.eden-agent__ref {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+  color: var(--fg-1); padding: 2px 6px; border: 1px solid var(--border); border-radius: 2px;
+  background: var(--bg-2);
+}
+.eden-agent__footer {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+  display: flex; gap: 14px; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 10px; color: var(--fg-3);
+}
+.eden-agent__footer-info { display: flex; gap: 14px; }
+
+/* ==========================================================================
+   Split view (council + artifacts)
+   ========================================================================== */
+.eden-split {
+  display: grid; grid-template-columns: 1fr var(--rail-w);
+  border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+  min-height: 580px; background: var(--bg-1);
+}
+.eden-split__left  { padding: var(--s-5); border-right: 1px solid var(--border); overflow: auto; }
+.eden-split__right { padding: var(--s-5); background: var(--bg-1); overflow: auto; }
+.eden-split__head  { display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--s-4); margin-bottom: var(--s-4); border-bottom: 1px solid var(--border); }
+.eden-split__head h3 { margin: 0; font-size: 16px; font-weight: 500; letter-spacing: -0.01em; }
+
+/* ==========================================================================
+   Timeline (decision trace)
+   ========================================================================== */
+.eden-timeline { position: relative; padding-left: 18px; }
+.eden-timeline::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+.eden-tl-row { position: relative; padding: 8px 0; display: grid; grid-template-columns: 70px 1fr; gap: 14px; align-items: baseline; }
+.eden-tl-row::before { content: ''; position: absolute; left: -18px; top: 13px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg-3); border: 1px solid var(--border-strong); }
+.eden-tl-row[data-state="approved"]::before { background: var(--ok); border-color: var(--ok); }
+.eden-tl-row[data-state="council"]::before  { background: var(--cyan-brand); border-color: var(--cyan-brand); }
+.eden-tl-row[data-state="blocked"]::before  { background: var(--err); border-color: var(--err); }
+.eden-tl-row[data-state="review"]::before   { background: var(--warn); border-color: var(--warn); }
+.eden-tl-row .when { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.04em; }
+.eden-tl-row .what .title { font-size: 13px; color: var(--fg-0); margin-bottom: 2px; }
+.eden-tl-row .what .who   { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); }
+
+/* ==========================================================================
+   Form field (Create Mission)
+   ========================================================================== */
+.eden-field { display: flex; flex-direction: column; gap: 6px; }
+.eden-field > label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); }
+.eden-input, .eden-select, .eden-textarea {
+  width: 100%; background: var(--bg-1); color: var(--fg-0);
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 9px 11px; font: 400 13px var(--font-sans); outline: none;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.eden-input:focus, .eden-select:focus, .eden-textarea:focus {
+  border-color: var(--cyan-brand); box-shadow: 0 0 0 1px var(--cyan-brand);
+}
+.eden-input::placeholder, .eden-textarea::placeholder { color: var(--fg-3); }
+.eden-field__hint { font-size: 11px; color: var(--fg-3); }
+.eden-textarea { font-family: var(--font-sans); resize: vertical; min-height: 84px; line-height: 1.55; }
+
+/* Radio cards (autonomy / risk) */
+.eden-radio-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.eden-radio-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: 2px;
+  padding: 10px 12px; cursor: pointer;
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.eden-radio-card:hover { border-color: var(--border-strong); background: var(--bg-2); }
+.eden-radio-card.is-active { border-color: var(--cyan-brand); background: rgba(34, 229, 229, 0.04); box-shadow: inset 2px 0 0 var(--cyan-brand); }
+.eden-radio-card__label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-0); }
+.eden-radio-card__hint  { font-size: 11px; color: var(--fg-2); line-height: 1.45; }
+
+/* Multi-select chip */
+.eden-chipset { display: flex; flex-wrap: wrap; gap: 6px; }
+.eden-chipset__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 9px; font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-1);
+  border: 1px solid var(--border); border-radius: 2px; background: var(--bg-1);
+  cursor: pointer; transition: all var(--dur) var(--ease);
+}
+.eden-chipset__chip:hover { color: var(--fg-0); border-color: var(--border-strong); }
+.eden-chipset__chip.is-on { color: var(--cyan-brand); border-color: var(--cyan-brand); background: rgba(34, 229, 229, 0.04); }
+
+/* ==========================================================================
+   Status rail / approval / readiness
+   ========================================================================== */
+.eden-rail-row {
+  position: relative; background: var(--bg-1); border: 1px solid var(--border);
+  border-radius: 2px; padding: 12px 14px 12px 22px; margin-bottom: 6px;
+}
+.eden-rail-row__rail { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; }
+
+.eden-approval {
+  background: var(--bg-1); border: 1px solid var(--cyan-dim); border-radius: 4px;
+  padding: 16px; position: relative;
+}
+.eden-approval::before {
+  content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan-brand), transparent);
+  opacity: 0.5;
+}
+.eden-approval__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.eden-approval__title { font-size: 14px; font-weight: 500; color: var(--fg-0); }
+.eden-approval__actions { display: flex; gap: 8px; }
+
+.eden-readiness { display: flex; align-items: baseline; gap: 12px; }
+.eden-readiness__score { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 40px; font-weight: 500; color: var(--fg-0); letter-spacing: -0.01em; }
+.eden-readiness__unit  { font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); }
+.eden-readiness__list  { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; }
+.eden-readiness__item  { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; gap: 10px; padding: 6px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--fg-1); }
+.eden-readiness__item:first-child { border-top: 0; }
+.eden-readiness__item svg { width: 14px; height: 14px; }
+.eden-readiness__item .num { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+
+/* ==========================================================================
+   System Map (SVG container)
+   ========================================================================== */
+.eden-map { position: relative; background: var(--bg-1); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.eden-map__legend { position: absolute; top: 12px; right: 12px; background: var(--bg-0); border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; color: var(--fg-1); display: flex; flex-direction: column; gap: 6px; min-width: 150px; }
+.eden-map__legend .row { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+
+/* ==========================================================================
+   Empty / loading / error
+   ========================================================================== */
+.eden-empty {
+  border: 1px dashed var(--border-strong); border-radius: 4px;
+  padding: 48px 24px; text-align: center; color: var(--fg-2);
+  background: var(--bg-1);
+}
+.eden-empty h4 { font-size: 14px; font-weight: 500; color: var(--fg-0); margin: 8px 0; }
+.eden-empty p { font-size: 13px; max-width: 420px; margin: 0 auto 16px; }
+.eden-empty svg { width: 28px; height: 28px; color: var(--fg-3); }
+
+/* ==========================================================================
+   Command palette (modal)
+   ========================================================================== */
+.eden-palette-scrim { position: fixed; inset: 0; background: var(--bg-overlay); z-index: 50; }
+.eden-palette {
+  position: fixed; top: 22%; left: 50%; transform: translateX(-50%);
+  width: 560px; max-width: 92vw;
+  background: var(--bg-1); border: 1px solid var(--border-strong);
+  border-radius: 4px; box-shadow: var(--shadow-overlay); z-index: 51; overflow: hidden;
+}
+.eden-palette__input {
+  width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--border);
+  color: var(--fg-0); font: 400 16px var(--font-sans); padding: 16px 20px; outline: none;
+}
+.eden-palette__input::placeholder { color: var(--fg-3); }
+.eden-palette__list { max-height: 320px; overflow: auto; padding: 8px 0; }
+.eden-palette__item {
+  display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center;
+  padding: 8px 20px; cursor: pointer; font-size: 13px; color: var(--fg-1);
+}
+.eden-palette__item:hover { background: var(--bg-2); color: var(--fg-0); }
+.eden-palette__item svg { width: 14px; height: 14px; color: var(--fg-3); }
+.eden-palette__item .scope { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.14em; }
+.eden-palette__group {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-3);
+  padding: 10px 20px 4px;
+}
+
+/* ==========================================================================
+   Diff (artifact review)
+   ========================================================================== */
+.eden-diff { background: var(--bg-0); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: 12px; }
+.eden-diff__head { padding: 8px 12px; background: var(--bg-1); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--fg-2); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+.eden-diff__body { padding: 8px 0; }
+.eden-diff__row { padding: 0 12px; display: grid; grid-template-columns: 36px 1fr; gap: 12px; line-height: 1.7; color: var(--fg-1); }
+.eden-diff__row .ln { color: var(--fg-3); text-align: right; }
+.eden-diff__row.add  { background: rgba(127,183,126,0.06); color: var(--ok); }
+.eden-diff__row.rm   { background: rgba(197,106,106,0.06); color: var(--err); }
+.eden-diff__row.add .ln { color: var(--ok); }
+.eden-diff__row.rm  .ln { color: var(--err); }
+
+/* ==========================================================================
+   Audit log
+   ========================================================================== */
+.eden-audit { background: var(--bg-1); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.eden-audit__row { display: grid; grid-template-columns: 130px 90px 1fr 200px 80px; align-items: center; gap: 14px; padding: 9px 16px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11px; color: var(--fg-1); }
+.eden-audit__row:first-child { border-top: 0; background: var(--bg-2); color: var(--fg-2); text-transform: uppercase; letter-spacing: 0.14em; font-size: 10px; padding: 10px 16px; }
+.eden-audit__row .actor { color: var(--fg-0); }
+.eden-audit__row .action { color: var(--fg-0); letter-spacing: 0.04em; }
+.eden-audit__row .when { color: var(--fg-3); }

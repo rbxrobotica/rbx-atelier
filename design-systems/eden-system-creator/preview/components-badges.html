@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Badges & Pips</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; }
+  .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); margin: 0 0 8px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-0); padding: 4px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .chip .pip { width: 6px; height: 6px; border-radius: 50%; }
+  .chip.tinted { background: var(--bg-2); }
+  .risk { padding: 2px 6px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; border: 1px solid currentColor; border-radius: 2px; }
+</style></head>
+<body>
+  <div class="label">Status (pip + mono uppercase)</div>
+  <div class="row">
+    <span class="chip" style="color:#00FFFF"><span class="pip" style="background:#00FFFF; box-shadow:0 0 6px #00FFFF;"></span>RUNNING</span>
+    <span class="chip" style="color:#22E5E5"><span class="pip" style="background:#22E5E5"></span>COUNCIL</span>
+    <span class="chip" style="color:#D9B55A"><span class="pip" style="background:#D9B55A"></span>REVIEW</span>
+    <span class="chip" style="color:#7FB77E"><span class="pip" style="background:#7FB77E"></span>APPROVED</span>
+    <span class="chip" style="color:#C56A6A"><span class="pip" style="background:#C56A6A"></span>BLOCKED</span>
+    <span class="chip" style="color:#7A7F87"><span class="pip" style="background:#7A7F87"></span>ARCHIVED</span>
+  </div>
+
+  <div class="label">Risk tier</div>
+  <div class="row">
+    <span class="risk" style="color:#7FB77E">LOW</span>
+    <span class="risk" style="color:#D9B55A">MEDIUM</span>
+    <span class="risk" style="color:#C56A6A">HIGH</span>
+    <span class="risk" style="color:#00FFFF">CRITICAL</span>
+  </div>
+
+  <div class="label">Model / cost / policy chips</div>
+  <div class="row">
+    <span class="chip tinted">claude-opus-4</span>
+    <span class="chip tinted">$0.41</span>
+    <span class="chip tinted">12,840 tok</span>
+    <span class="chip tinted">policy / production</span>
+    <span class="chip tinted">autonomy / propose</span>
+  </div>
+</body></html>

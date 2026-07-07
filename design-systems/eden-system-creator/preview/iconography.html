@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .cell { background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  i { color: var(--fg-1); width: 22px; height: 22px; }
+  .label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-2); text-align: center; line-height: 1.2; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="cell"><i data-lucide="layers"></i><div class="label">system</div></div>
+    <div class="cell"><i data-lucide="target"></i><div class="label">mission</div></div>
+    <div class="cell"><i data-lucide="cpu"></i><div class="label">agent</div></div>
+    <div class="cell"><i data-lucide="radio-tower"></i><div class="label">council</div></div>
+    <div class="cell"><i data-lucide="database"></i><div class="label">context vault</div></div>
+    <div class="cell"><i data-lucide="file-text"></i><div class="label">artifact</div></div>
+    <div class="cell"><i data-lucide="git-pull-request"></i><div class="label">decision</div></div>
+    <div class="cell"><i data-lucide="triangle-alert"></i><div class="label">risk</div></div>
+    <div class="cell"><i data-lucide="shield"></i><div class="label">policy</div></div>
+    <div class="cell"><i data-lucide="eye"></i><div class="label">audit</div></div>
+    <div class="cell"><i data-lucide="gauge"></i><div class="label">readiness</div></div>
+    <div class="cell"><i data-lucide="circle-dollar-sign"></i><div class="label">cost</div></div>
+    <div class="cell"><i data-lucide="play"></i><div class="label">run</div></div>
+    <div class="cell"><i data-lucide="check"></i><div class="label">approve</div></div>
+    <div class="cell"><i data-lucide="x"></i><div class="label">reject</div></div>
+    <div class="cell"><i data-lucide="arrow-up-from-line"></i><div class="label">promote</div></div>
+    <div class="cell"><i data-lucide="command"></i><div class="label">palette</div></div>
+    <div class="cell"><i data-lucide="user-cog"></i><div class="label">orchestrator</div></div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body></html>

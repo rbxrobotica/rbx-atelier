@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Colors · Agent Identity</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px; }
+  .row { display: grid; grid-template-columns: 12px 1fr 70px 80px; align-items: center; gap: 12px; padding: 8px 12px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; position: relative; }
+  .rail { position: absolute; top: 0; left: 0; bottom: 0; width: 4px; }
+  .role { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-0); }
+  .icon { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); }
+  .hex  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); justify-self: end; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="row"><div class="rail" style="background:#B49AD4"></div><div></div><div class="role">Architect</div><div class="icon">compass</div><div class="hex">#B49AD4</div></div>
+    <div class="row"><div class="rail" style="background:#7FB77E"></div><div></div><div class="role">Backend</div><div class="icon">server</div><div class="hex">#7FB77E</div></div>
+    <div class="row"><div class="rail" style="background:#7AB5D9"></div><div></div><div class="role">Frontend</div><div class="icon">layout</div><div class="hex">#7AB5D9</div></div>
+    <div class="row"><div class="rail" style="background:#D9B55A"></div><div></div><div class="role">Infra</div><div class="icon">box</div><div class="hex">#D9B55A</div></div>
+    <div class="row"><div class="rail" style="background:#C56A6A"></div><div></div><div class="role">Security</div><div class="icon">shield</div><div class="hex">#C56A6A</div></div>
+    <div class="row"><div class="rail" style="background:#B0B0B0"></div><div></div><div class="role">QA</div><div class="icon">check-c</div><div class="hex">#B0B0B0</div></div>
+    <div class="row"><div class="rail" style="background:#A6A48C"></div><div></div><div class="role">Docs</div><div class="icon">file</div><div class="hex">#A6A48C</div></div>
+    <div class="row"><div class="rail" style="background:#D9CBA3"></div><div></div><div class="role">Reviewer</div><div class="icon">eye</div><div class="hex">#D9CBA3</div></div>
+    <div class="row"><div class="rail" style="background:#06B6B6"></div><div></div><div class="role">Governance</div><div class="icon">gavel</div><div class="hex">#06B6B6</div></div>
+    <div class="row"><div class="rail" style="background:#22E5E5"></div><div></div><div class="role">Orchestrator</div><div class="icon">user-cog</div><div class="hex">#22E5E5</div></div>
+  </div>
+</body></html>

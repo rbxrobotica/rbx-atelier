@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Éden System Creator</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="primitives.jsx"></script>
+<script type="text/babel" src="Shell.jsx"></script>
+<script type="text/babel" src="Dashboard.jsx"></script>
+<script type="text/babel" src="SystemView.jsx"></script>
+<script type="text/babel" src="CreateMission.jsx"></script>
+<script type="text/babel" src="AgentCouncil.jsx"></script>
+<script type="text/babel" src="ArtifactReview.jsx"></script>
+<script type="text/babel" src="Governance.jsx"></script>
+<script type="text/babel" src="SystemMap.jsx"></script>
+<script type="text/babel" src="CommandPalette.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function App() {
+  const [route, setRoute] = useState('dashboard');
+  const [palette, setPalette] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault(); setPalette(p => !p);
+      }
+      if (e.key === 'Escape') setPalette(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => { lucide.createIcons(); }, [route, palette]);
+
+  const go = (next) => setRoute(next);
+  const openSystem = () => setRoute('system');
+
+  const crumbMap = {
+    dashboard:   ['rbx', 'production', 'dashboard'],
+    missions:    ['rbx', 'production', 'missions'],
+    create:      ['rbx', 'production', 'missions', 'new'],
+    council:     ['rbx', 'strategos', 'mission · 4HN-021', 'council · run #214'],
+    artifact:    ['rbx', 'strategos', 'mission · 4HN-021', 'artifact · ADR-014'],
+    system:      ['rbx', 'production', 'system · strategos'],
+    governance:  ['rbx', 'governance', 'audit · 24h'],
+    audit:       ['rbx', 'governance', 'audit · 24h'],
+    decisions:   ['rbx', 'governance', 'decisions'],
+    map:         ['rbx', 'production', 'system map'],
+    artifacts:   ['rbx', 'production', 'artifacts'],
+    vault:       ['rbx', 'context vault'],
+  };
+
+  let screen;
+  switch (route) {
+    case 'dashboard':  screen = <Dashboard go={go} />; break;
+    case 'missions':   screen = <Dashboard go={go} />; break;
+    case 'create':     screen = <CreateMission go={go} />; break;
+    case 'council':    screen = <AgentCouncil go={go} />; break;
+    case 'artifact':   screen = <ArtifactReview go={go} />; break;
+    case 'system':     screen = <SystemView go={go} />; break;
+    case 'governance': screen = <Governance go={go} />; break;
+    case 'audit':      screen = <Governance go={go} />; break;
+    case 'decisions':  screen = <Governance go={go} />; break;
+    case 'map':        screen = <SystemMap go={go} />; break;
+    case 'artifacts':  screen = <ArtifactReview go={go} />; break;
+    case 'vault':      screen = (
+      <div className="eden-page" data-screen-label="vault">
+        <div className="eden-page__head">
+          <div><div className="eden-page__eyebrow">ORG · rbx</div><h1 className="eden-page__title">Context Vault</h1></div>
+        </div>
+        <Empty icon="database" title="No vault scope selected." body="Attach repos, ADRs, runbooks, evals and policies. Vault content drives agent reasoning during a mission run." action={<Button variant="primary" icon="plus">Attach source</Button>} />
+      </div>
+    ); break;
+    default: screen = <Dashboard go={go} />;
+  }
+
+  return (
+    <div className="eden-app" data-screen-label="eden-app">
+      <Sidebar route={route} setRoute={setRoute} openSystem={openSystem} palette={() => setPalette(true)} />
+      <Topbar crumb={crumbMap[route] || crumbMap.dashboard} palette={() => setPalette(true)} env="production" user={EDEN_DATA.user} />
+      <main className="eden-main">{screen}</main>
+      <CommandPalette open={palette} onClose={() => setPalette(false)} go={go} />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

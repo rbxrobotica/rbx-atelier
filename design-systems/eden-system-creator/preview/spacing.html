@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Spacing scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; }
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 11px; }
+  td { padding: 6px 8px; border-top: 1px solid var(--border); vertical-align: middle; }
+  tr:first-child td { border-top: 0; }
+  .token { color: var(--fg-0); letter-spacing: 0.04em; width: 70px; }
+  .val   { color: var(--fg-2); width: 90px; }
+  .bar   { background: var(--cyan-dim); height: 8px; border-radius: 2px; }
+</style></head>
+<body>
+  <table>
+    <tr><td class="token">--s-1</td><td class="val">4px / .25rem</td><td><div class="bar" style="width:4px"></div></td></tr>
+    <tr><td class="token">--s-2</td><td class="val">8px / .5rem</td><td><div class="bar" style="width:8px"></div></td></tr>
+    <tr><td class="token">--s-3</td><td class="val">12px / .75rem</td><td><div class="bar" style="width:12px"></div></td></tr>
+    <tr><td class="token">--s-4</td><td class="val">16px / 1rem</td><td><div class="bar" style="width:16px"></div></td></tr>
+    <tr><td class="token">--s-5</td><td class="val">24px / 1.5rem</td><td><div class="bar" style="width:24px"></div></td></tr>
+    <tr><td class="token">--s-6</td><td class="val">32px / 2rem</td><td><div class="bar" style="width:32px"></div></td></tr>
+    <tr><td class="token">--s-7</td><td class="val">48px / 3rem</td><td><div class="bar" style="width:48px"></div></td></tr>
+    <tr><td class="token">--s-8</td><td class="val">64px / 4rem</td><td><div class="bar" style="width:64px"></div></td></tr>
+    <tr><td class="token">--s-9</td><td class="val">96px / 6rem</td><td><div class="bar" style="width:96px"></div></td></tr>
+    <tr><td class="token">--s-10</td><td class="val">128px / 8rem</td><td><div class="bar" style="width:128px"></div></td></tr>
+  </table>
+</body></html>

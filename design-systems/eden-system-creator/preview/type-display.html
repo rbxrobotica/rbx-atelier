@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Type · Display</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 28px 32px; }
+  .row { display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--border); }
+  .row:first-child { border-top: 0; }
+  .meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+  .h1 { font-weight: 300; font-size: 56px; line-height: 1.05; letter-spacing: -0.015em; }
+  .h2 { font-weight: 400; font-size: 30px; line-height: 1.2;  letter-spacing: -0.015em; }
+  .h3 { font-weight: 500; font-size: 20px; line-height: 1.25; }
+  .lead { font-weight: 300; font-size: 18px; line-height: 1.45; color: var(--fg-1); }
+</style></head>
+<body>
+  <div class="row"><div class="meta">H1 · 64 · 300</div><div class="h1">Systems, governed.</div></div>
+  <div class="row"><div class="meta">H2 · 36 · 400</div><div class="h2">Convene the council before execution.</div></div>
+  <div class="row"><div class="meta">H3 · 22 · 500</div><div class="h3">Mission 4HN-021 · auth module</div></div>
+  <div class="row"><div class="meta">Lead · 18 · 300</div><div class="lead">The orchestrator defines intent. Specialized agents reason and produce artifacts under governance.</div></div>
+</body></html>

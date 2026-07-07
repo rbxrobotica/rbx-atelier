@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Decision & Artifact cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; }
+  .id { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+  .title { font-size: 14px; font-weight: 500; color: var(--fg-0); margin-top: 4px; line-height: 1.3; }
+  .meta { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 6px; border: 1px solid var(--border); border-radius: 2px; color: var(--fg-1); }
+  .row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+  .ok  { color: var(--ok); }
+  .icon { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="id">DECISION · D-0042 · ADOPTED</div>
+    <div class="title">Adopt rbx-identity as authentication source for Strategos.</div>
+    <div class="meta">
+      <span class="chip">consensus 5 / 6</span>
+      <span class="chip">conf 0.84</span>
+      <span class="chip">risk MEDIUM</span>
+    </div>
+    <div class="row"><span>aurelio · iza · thalamus · vena · pedra · reviewer</span><span class="ok">approved 12:41 UTC</span></div>
+  </div>
+
+  <div class="card">
+    <div class="id">DECISION · D-0041 · DEFERRED</div>
+    <div class="title">Defer migration of session refresh until SAML integration is validated.</div>
+    <div class="meta">
+      <span class="chip">consensus 3 / 6</span>
+      <span class="chip">conf 0.62</span>
+      <span class="chip">risk HIGH</span>
+    </div>
+    <div class="row"><span>iza · aurelio</span><span>deferred · awaiting review</span></div>
+  </div>
+
+  <div class="card">
+    <div class="id">ARTIFACT · ADR-014 · DRAFT</div>
+    <div class="title">Architectural Decision Record. Auth via rbx-identity.</div>
+    <div class="meta">
+      <span class="chip">.md · 2.4kb</span>
+      <span class="chip">authored by aurelio</span>
+      <span class="chip">cites 8 sources</span>
+    </div>
+    <div class="row"><span>4 sections · 2 alternatives compared</span><span>open</span></div>
+  </div>
+
+  <div class="card">
+    <div class="id">ARTIFACT · PR-PLAN · READY</div>
+    <div class="title">Implementation plan for rbx-identity adapter package.</div>
+    <div class="meta">
+      <span class="chip">7 PR steps</span>
+      <span class="chip">3 tests</span>
+      <span class="chip">2 docs updates</span>
+    </div>
+    <div class="row"><span>strategos · auth/* · feature/identity</span><span>ready to brief</span></div>
+  </div>
+</body></html>

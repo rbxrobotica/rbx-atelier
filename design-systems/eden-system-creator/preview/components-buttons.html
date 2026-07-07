@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; }
+  .group { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; font: 500 13px/1 var(--font-sans); border-radius: 2px; cursor: pointer; transition: all 160ms cubic-bezier(0.2,0,0,1); background: var(--bg-2); color: var(--fg-0); border: 1px solid var(--border-strong); }
+  .btn:hover { border-color: var(--cyan-brand); color: var(--cyan-brand); }
+  .btn.primary { background: var(--cyan-signal); color: #07080A; border-color: var(--cyan-signal); }
+  .btn.primary:hover { background: var(--cyan-brand); border-color: var(--cyan-brand); }
+  .btn.ghost { background: transparent; border-color: transparent; color: var(--fg-1); }
+  .btn.ghost:hover { color: var(--cyan-brand); }
+  .btn.danger { border-color: var(--err); color: var(--err); }
+  .btn.danger:hover { background: var(--err); color: #07080A; }
+  .btn[disabled] { opacity: 0.5; pointer-events: none; }
+  .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); margin: 0 0 8px; }
+  .ic { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+</style></head>
+<body>
+  <div class="label">primary · secondary · ghost · destructive · disabled</div>
+  <div class="group">
+    <button class="btn primary"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Create mission</button>
+    <button class="btn">Save brief</button>
+    <button class="btn ghost">Open artifact</button>
+    <button class="btn danger">Abort run</button>
+    <button class="btn" disabled>Promote to production</button>
+  </div>
+  <div class="label" style="margin-top: 16px;">small · institutional verbs</div>
+  <div class="group">
+    <button class="btn">Attach context</button>
+    <button class="btn">Assign agents</button>
+    <button class="btn">Trace decision</button>
+    <button class="btn">Validate readiness</button>
+  </div>
+</body></html>

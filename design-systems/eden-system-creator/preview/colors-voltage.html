@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Colors · Voltage Cyan</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { border: 1px solid var(--border); border-radius: 2px; padding: 12px; background: var(--bg-2); }
+  .chip { width: 100%; height: 56px; border-radius: 2px; margin-bottom: 8px; }
+  .name { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-1); }
+  .hex  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); margin-top: 2px; }
+  .use  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); margin-top: 6px; line-height: 1.4; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#00FFFF"></div><div class="name">signal</div><div class="hex">#00FFFF</div><div class="use">primary CTA, focus, kill-switch</div></div>
+    <div class="sw"><div class="chip" style="background:#22E5E5"></div><div class="name">brand</div><div class="hex">#22E5E5</div><div class="use">logo, eyebrow rules, council-active</div></div>
+    <div class="sw"><div class="chip" style="background:#06B6B6"></div><div class="name">muted</div><div class="hex">#06B6B6</div><div class="use">hover, links</div></div>
+    <div class="sw"><div class="chip" style="background:#0B6E6E"></div><div class="name">dim</div><div class="hex">#0B6E6E</div><div class="use">tick rulers, eyebrow underline</div></div>
+    <div class="sw"><div class="chip" style="background:rgba(0,255,255,0.08); border:1px solid var(--border)"></div><div class="name">subtle</div><div class="hex">rgba(0,255,255,.08)</div><div class="use">tints, card highlights</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); }
+  input, select, textarea { width: 100%; background: var(--bg-2); color: var(--fg-0); border: 1px solid var(--border); border-radius: 2px; padding: 8px 10px; font: 400 13px var(--font-sans); outline: none; }
+  input::placeholder { color: var(--fg-3); }
+  input:focus, select:focus, textarea:focus { border-color: var(--cyan-brand); box-shadow: 0 0 0 1px var(--cyan-brand); }
+  .mono { font-family: var(--font-mono); letter-spacing: 0.02em; }
+  .hint { font-size: 11px; color: var(--fg-3); }
+  .err  { font-size: 11px; color: var(--err); }
+  .field.is-error input { border-color: var(--err); box-shadow: 0 0 0 1px rgba(197,106,106,0.4); }
+  .input-row { display: flex; align-items: stretch; }
+  .input-row .prefix { display: inline-flex; align-items: center; padding: 0 10px; background: var(--bg-3); border: 1px solid var(--border); border-right: 0; font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); border-radius: 2px 0 0 2px; }
+  .input-row input { border-radius: 0 2px 2px 0; }
+</style></head>
+<body>
+  <div class="field">
+    <label>Mission objective</label>
+    <input placeholder="Replace auth module with rbx-identity" />
+  </div>
+  <div class="field">
+    <label>Target system</label>
+    <select><option>Strategos</option><option>Thalamus</option><option>Robson</option><option>TruthMetal</option></select>
+  </div>
+  <div class="field">
+    <label>Cost envelope</label>
+    <div class="input-row"><span class="prefix">USD</span><input class="mono" value="2.50" /></div>
+  </div>
+  <div class="field is-error">
+    <label>Autonomy level</label>
+    <input value="EXECUTE" class="mono" />
+    <div class="err">Policy denied. Reviewer approval required for EXECUTE.</div>
+  </div>
+</body></html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Mission States</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .cell { background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 10px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-0); padding: 4px 8px; border: 1px solid var(--border); border-radius: 2px; align-self: flex-start; }
+  .pip { width: 6px; height: 6px; border-radius: 50%; }
+  .pulse { box-shadow: 0 0 0 0 currentColor; animation: pulse 1.6s cubic-bezier(0.2,0,0,1) infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 currentColor;opacity:1;} 70%{box-shadow:0 0 0 6px transparent;opacity:0.85;} 100%{box-shadow:0 0 0 0 transparent;opacity:1;}}
+  .desc { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); line-height: 1.5; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="cell"><span class="chip" style="color:#7A7F87"><span class="pip" style="background:#7A7F87"></span>DRAFTING</span><div class="desc">brief in progress</div></div>
+    <div class="cell"><span class="chip" style="color:#7A93B0"><span class="pip" style="background:#7A93B0"></span>BRIEFING</span><div class="desc">context attached, agents idle</div></div>
+    <div class="cell"><span class="chip" style="color:#00FFFF"><span class="pip pulse" style="background:#00FFFF; color:#00FFFF"></span>RUNNING</span><div class="desc">agents producing artifacts</div></div>
+    <div class="cell"><span class="chip" style="color:#22E5E5"><span class="pip pulse" style="background:#22E5E5; color:#22E5E5"></span>COUNCIL</span><div class="desc">deliberation in progress</div></div>
+    <div class="cell"><span class="chip" style="color:#D9B55A"><span class="pip" style="background:#D9B55A"></span>REVIEW</span><div class="desc">awaiting orchestrator</div></div>
+    <div class="cell"><span class="chip" style="color:#7FB77E"><span class="pip" style="background:#7FB77E"></span>APPROVED</span><div class="desc">authorized for execution</div></div>
+    <div class="cell"><span class="chip" style="color:#C56A6A"><span class="pip" style="background:#C56A6A"></span>BLOCKED</span><div class="desc">policy or risk halt</div></div>
+    <div class="cell"><span class="chip" style="color:#4A4F56"><span class="pip" style="background:#4A4F56"></span>ARCHIVED</span><div class="desc">closed, trace preserved</div></div>
+  </div>
+</body></html>

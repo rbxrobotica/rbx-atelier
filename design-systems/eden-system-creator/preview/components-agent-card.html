@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Agent Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card { position: relative; background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px; padding: 12px 14px 14px 18px; }
+  .rail { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .role { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); }
+  .name { font-size: 14px; font-weight: 500; color: var(--fg-0); margin-top: 2px; }
+  .meta { display: flex; gap: 12px; align-items: center; font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); letter-spacing: 0.04em; }
+  .pip { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+  .conf { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--fg-0); }
+  .body { font-size: 12px; color: var(--fg-1); margin-top: 8px; line-height: 1.5; }
+  .footer { margin-top: 10px; display: flex; gap: 12px; font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+  .footer span { display: inline-flex; align-items: center; gap: 6px; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="rail" style="background:#B49AD4"></div>
+    <div class="head">
+      <div><div class="role">Architect</div><div class="name">Aurelio</div></div>
+      <div class="meta"><span><span class="pip" style="background:#7FB77E"></span>ACTIVE</span><span class="conf">conf 0.86</span></div>
+    </div>
+    <div class="body">Recommends extracting auth into rbx-identity. Cites ADR-014. Two open trade-offs around session refresh and SAML.</div>
+    <div class="footer"><span>opus-4</span><span>$0.18</span><span>5,402 tok</span><span>ctx · 8 sources</span></div>
+  </div>
+
+  <div class="card">
+    <div class="rail" style="background:#C56A6A"></div>
+    <div class="head">
+      <div><div class="role">Security</div><div class="name">Iza</div></div>
+      <div class="meta"><span><span class="pip" style="background:#D9B55A"></span>REVIEW</span><span class="conf">conf 0.71</span></div>
+    </div>
+    <div class="body">Flags secret-rotation gap on Robson edge worker. Threat model unchanged; risk MEDIUM, mitigations available.</div>
+    <div class="footer"><span>sonnet-4</span><span>$0.04</span><span>1,902 tok</span><span>policy · prod-sec</span></div>
+  </div>
+
+  <div class="card">
+    <div class="rail" style="background:#06B6B6"></div>
+    <div class="head">
+      <div><div class="role">Governance</div><div class="name">Thalamus</div></div>
+      <div class="meta"><span><span class="pip" style="background:#7A93B0"></span>OBSERVE</span><span class="conf">conf 0.93</span></div>
+    </div>
+    <div class="body">Autonomy locked at PROPOSE pending Reviewer concurrence. Cost envelope 38% consumed.</div>
+    <div class="footer"><span>policy v4.2</span><span>4 checks</span><span>0 violations</span></div>
+  </div>
+
+  <div class="card">
+    <div class="rail" style="background:#7AB5D9"></div>
+    <div class="head">
+      <div><div class="role">Frontend</div><div class="name">Vena</div></div>
+      <div class="meta"><span><span class="pip" style="background:#7A7F87"></span>IDLE</span><span class="conf">conf —</span></div>
+    </div>
+    <div class="body">Awaiting council outcome. Will draft surface changes once approach is fixed.</div>
+    <div class="footer"><span>not yet run</span></div>
+  </div>
+</body></html>

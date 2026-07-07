@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dense table</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 22px 24px; }
+  table { width: 100%; border-collapse: collapse; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+  th { text-align: left; padding: 10px 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); border-bottom: 1px solid var(--border); font-weight: 500; }
+  td { padding: 8px 14px; font-size: 12px; color: var(--fg-1); border-top: 1px solid var(--border); }
+  tbody tr:hover { background: var(--bg-3); }
+  .id { font-family: var(--font-mono); color: var(--fg-0); letter-spacing: 0.04em; }
+  .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--fg-0); }
+  .chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 6px; border: 1px solid var(--border); border-radius: 2px; }
+  .pip { width: 5px; height: 5px; border-radius: 50%; }
+</style></head>
+<body>
+  <table>
+    <thead><tr>
+      <th>Mission</th><th>System</th><th>State</th><th>Agents</th><th>Run</th><th>Cost</th><th>Updated</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="id">4HN-021</td><td>Strategos</td><td><span class="chip" style="color:#22E5E5"><span class="pip" style="background:#22E5E5"></span>COUNCIL</span></td><td class="num">6</td><td class="num">#214</td><td class="num">$0.41</td><td class="num">00:42</td></tr>
+      <tr><td class="id">4HN-020</td><td>Thalamus</td><td><span class="chip" style="color:#7FB77E"><span class="pip" style="background:#7FB77E"></span>APPROVED</span></td><td class="num">3</td><td class="num">#212</td><td class="num">$1.18</td><td class="num">2h ago</td></tr>
+      <tr><td class="id">4HN-019</td><td>Robson</td><td><span class="chip" style="color:#C56A6A"><span class="pip" style="background:#C56A6A"></span>BLOCKED</span></td><td class="num">5</td><td class="num">#208</td><td class="num">$0.92</td><td class="num">4h ago</td></tr>
+      <tr><td class="id">4HN-018</td><td>rbx-infra</td><td><span class="chip" style="color:#D9B55A"><span class="pip" style="background:#D9B55A"></span>REVIEW</span></td><td class="num">4</td><td class="num">#205</td><td class="num">$0.27</td><td class="num">1d</td></tr>
+      <tr><td class="id">4HN-017</td><td>TruthMetal</td><td><span class="chip" style="color:#7A7F87"><span class="pip" style="background:#7A7F87"></span>ARCHIVED</span></td><td class="num">2</td><td class="num">#198</td><td class="num">$0.07</td><td class="num">3d</td></tr>
+    </tbody>
+  </table>
+</body></html>

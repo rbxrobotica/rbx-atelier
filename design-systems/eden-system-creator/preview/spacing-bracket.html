@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>L-bracket card signature</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; }
+  .card { position: relative; background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px; padding: 22px 24px; }
+  .card::before, .card::after {
+    content: ''; position: absolute; width: 10px; height: 10px;
+    border: 1.5px solid var(--cyan-brand); opacity: 0.5;
+  }
+  .card::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .card::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); font-weight: 500; margin-bottom: 8px; }
+  h3 { margin: 0 0 16px; font-weight: 400; font-size: 20px; letter-spacing: -0.01em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); }
+  .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 500; margin-top: 4px; }
+  .ok { color: var(--ok); }
+</style></head>
+<body>
+  <div class="card">
+    <div class="eyebrow">MISSION · 4HN-021 · STRATEGOS</div>
+    <h3>Replace auth module with rbx-identity</h3>
+    <div class="grid">
+      <div><div class="label">Run</div><div class="v">#214</div></div>
+      <div><div class="label">Council confidence</div><div class="v ok">0.82</div></div>
+      <div><div class="label">Readiness</div><div class="v">72%</div></div>
+    </div>
+  </div>
+</body></html>

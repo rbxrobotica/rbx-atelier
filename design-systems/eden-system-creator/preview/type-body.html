@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Type · Body</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 28px 32px; }
+  .row { display: grid; grid-template-columns: 88px 1fr; gap: 24px; align-items: baseline; padding: 9px 0; border-top: 1px solid var(--border); }
+  .row:first-child { border-top: 0; }
+  .meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+  p { margin: 0; }
+  .body { font-size: 15px; line-height: 1.55; color: var(--fg-1); }
+  .caption { font-size: 13px; color: var(--fg-2); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-2); font-weight: 500; }
+  .hint { font-size: 12px; color: var(--fg-3); }
+  .link { color: var(--fg-0); border-bottom: 1px solid var(--border-strong); text-decoration: none; }
+  .link:hover { color: var(--cyan-brand); border-bottom-color: var(--cyan-brand); }
+</style></head>
+<body>
+  <div class="row"><div class="meta">Eyebrow · 11</div><div class="eyebrow">SECTION · POSITIONING</div></div>
+  <div class="row"><div class="meta">Body · 15</div><p class="body">The platform provides the room, the score, the instruments, the memory, the rules and the production path.</p></div>
+  <div class="row"><div class="meta">Caption · 13</div><p class="caption">Last update 4s ago · run #214 of 219</p></div>
+  <div class="row"><div class="meta">Hint · 12</div><p class="hint">Optional. Visible only inside form fields.</p></div>
+  <div class="row"><div class="meta">Link</div><p class="body">Open the <a class="link" href="#">mission brief</a> to attach context.</p></div>
+</body></html>

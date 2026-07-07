@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Colors · Foreground</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg-1); color: var(--fg-0); font-family: var(--font-sans); padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { border: 1px solid var(--border); border-radius: 2px; padding: 12px; background: var(--bg-2); }
+  .chip { width: 28px; height: 28px; border-radius: 2px; margin-bottom: 10px; }
+  .sample { font-size: 14px; line-height: 1.4; margin-bottom: 8px; }
+  .name { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-1); }
+  .hex  { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); margin-top: 2px; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#ECECEC"></div><div class="sample" style="color:#ECECEC">Primary text</div><div class="name">fg-0</div><div class="hex">#ECECEC</div></div>
+    <div class="sw"><div class="chip" style="background:#B8BCC2"></div><div class="sample" style="color:#B8BCC2">Secondary</div><div class="name">fg-1</div><div class="hex">#B8BCC2</div></div>
+    <div class="sw"><div class="chip" style="background:#7A7F87"></div><div class="sample" style="color:#7A7F87">Meta / labels</div><div class="name">fg-2</div><div class="hex">#7A7F87</div></div>
+    <div class="sw"><div class="chip" style="background:#4A4F56"></div><div class="sample" style="color:#4A4F56">Placeholder</div><div class="name">fg-3</div><div class="hex">#4A4F56</div></div>
+  </div>
+</body></html>
