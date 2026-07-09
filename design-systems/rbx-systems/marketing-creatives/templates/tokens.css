@@ -1,0 +1,124 @@
+/* RBX Voltage tokens · self-contained for creative rendering.
+   Canonical source: rbx-atelier/brand-voltage/colors_and_type.css
+   Dark-first, warm-dark backgrounds, single-accent cyan. Inter + JetBrains Mono. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-0: #07080A;
+  --bg-1: #0D0F12;
+  --bg-2: #13161A;
+  --bg-3: #1A1E23;
+  --fg-0: #ECECEC;
+  --fg-1: #B8BCC2;
+  --fg-2: #7A7F87;
+  --fg-3: #4A4F56;
+  --border: #24282E;
+  --border-strong: #3A4048;
+  --cyan-signal: #00FFFF;
+  --cyan-brand: #22E5E5;
+  --cyan-muted: #06B6B6;
+  --cyan-dim: #0B6E6E;
+  --ok: #7FB77E;
+  --warn: #D9B55A;
+  --err: #C56A6A;
+  --info: #7A93B0;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --track-label: 0.14em;
+  --track-tight: -0.015em;
+  --lead-tight: 1.1;
+  --lead-body: 1.45;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-0);
+  color: var(--fg-0);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Creative stage: fixed viewport, centered canvas */
+.stage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+/* Eyebrow / label · uppercase mono, cyan-dim */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+  color: var(--cyan-brand);
+  font-weight: 500;
+}
+
+/* Headline · thin, tight tracking */
+h1.headline {
+  font-weight: 300;
+  letter-spacing: var(--track-tight);
+  line-height: var(--lead-tight);
+  color: var(--fg-0);
+}
+
+/* Body · secondary */
+p.body {
+  color: var(--fg-1);
+  line-height: var(--lead-body);
+  font-weight: 400;
+}
+
+/* Mono · metrics, status */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* L-corner brackets · voltage signature */
+.bracket {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--cyan-brand);
+  border-style: solid;
+}
+.bracket.tl { top: 32px; left: 32px; border-width: 2px 0 0 2px; }
+.bracket.tr { top: 32px; right: 32px; border-width: 2px 2px 0 0; }
+.bracket.bl { bottom: 32px; left: 32px; border-width: 0 0 2px 2px; }
+.bracket.br { bottom: 32px; right: 32px; border-width: 0 2px 2px 0; }
+
+/* Hairline divider (structural, not decorative) */
+.hair { border-top: 1px solid var(--border); }
+
+/* Tick ruler · data mark */
+.tick {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-2);
+  letter-spacing: 0.06em;
+}
+
+/* Mark (wordmark small) */
+.mark {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--cyan-brand);
+}
