@@ -1,0 +1,46 @@
+{
+  "insight-card": {
+    "b2b-mod-001": {
+      "EYEBROW": "DIAGNOSTICO TECNICO",
+      "HEADLINE": "Software que precisa durar anos.",
+      "TICK": "01 / FUNDACAO",
+      "BODY": "Diagnosticamos antes de propor. Estabilizamos a fundacao antes de expandir features. Engenharia de produto com responsabilidade operacional de longo prazo.",
+      "META": "2026 H2",
+      "UTM": "utm_content=b2b_ad_racional_001"
+    },
+    "b2b-aigov-002": {
+      "EYEBROW": "IA GOVERNADA",
+      "HEADLINE": "IA sem governanca e divida.",
+      "TICK": "02 / CONTROLE",
+      "BODY": "Construímos o control plane, a avaliacao e a observabilidade que transformam POC em producao auditavel. Nao IA teatro.",
+      "META": "2026 H2",
+      "UTM": "utm_content=b2b_ad_racional_002"
+    }
+  },
+  "carousel-cover": {
+    "b2b-car-001": {
+      "EYEBROW": "METODO RBX",
+      "BIG": "01",
+      "HEADLINE": "Diagnostico antes de codigo.",
+      "SLIDE_N": "01",
+      "SLIDE_TOTAL": "08",
+      "FOOTER": "Diagnosticamos. Depois propomos.",
+      "UTM": "utm_content=b2b_carousel_001"
+    }
+  },
+  "post-vertical": {
+    "b2b-mod-001": {
+      "EYEBROW": "ENGENHARIA DE PRODUTO",
+      "HEADLINE": "Seu produto cresceu. A engenharia nao.",
+      "LEAD": "Padroes que encontramos em SaaS vertical founder-led. E como destravamos.",
+      "BULLETS": [
+        "Bus factor 1 e 0% de cobertura de testes em producao.",
+        "Deploy SSH manual, sem staging nem CI.",
+        "Dois frontends divergentes, sem design system nem tokens."
+      ],
+      "CTA": "Solicitar avaliacao tecnica",
+      "FOOTER": "rbxsystems.ch",
+      "UTM": "utm_content=b2b_ad_problema_001"
+    }
+  }
+}
