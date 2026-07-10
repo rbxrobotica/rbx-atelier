@@ -50,14 +50,21 @@ async function renderOne(browser, template, variantName, vars) {
   const tplPath = join(ROOT, 'templates', `${template}.html`);
   if (!existsSync(tplPath)) throw new Error(`template not found: ${tplPath}`);
   const html = fill(readFileSync(tplPath, 'utf8'), vars);
+  // Inline tokens.css: under setContent (about:blank) a relative <link href> does
+  // not resolve to a fetchable URL, so the route intercept never served the file
+  // and the stage rendered unsized (0 height). Inlining guarantees the CSS loads.
+  const tokens = readFileSync(join(ROOT, 'templates', 'tokens.css'), 'utf8');
+  const selfContained = html.replace(
+    /<link[^>]*href=["']tokens\.css["'][^>]*>/g,
+    `<style>${tokens}</style>`,
+  );
 
   const viewports = VIEWPORTS[template];
   if (!viewports) throw new Error(`no viewports declared for template ${template}`);
 
   for (const vp of viewports) {
     const page = await browser.newPage({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2 });
-    await page.route('**/tokens.css', route => route.fulfill({ body: readFileSync(join(ROOT, 'templates', 'tokens.css'), 'utf8'), contentType: 'text/css' }));
-    await page.setContent(html, { waitUntil: 'networkidle' });
+    await page.setContent(selfContained, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
 
     // Validate rendered dimensions match the declared viewport.
