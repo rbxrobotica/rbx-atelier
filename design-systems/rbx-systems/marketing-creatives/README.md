@@ -71,6 +71,12 @@ Extend the template's `VIEWPORTS` entry with `{ w, h, tag }`. Required campaign 
 
 ## Governance
 
+- **Publication boundary:** approved creatives are published only via
+  `rbx-creatives-assets` (private repo; ADR-0602 governed flow → Contabo
+  `rbx-creatives` bucket). Renders in `exports/` are candidates, never finals.
+- **This repo is public:** keep real pre-launch campaign copy OUT of
+  `scripts/variants.json` — use placeholder/sample copy only; real copy lives
+  in `rbx-growth` and is injected at render time.
 - Copy in variants must pass claim/brand/compliance evals (rbx-growth automation/). No publish without approval.
 - Robson/Briefing creatives require the financial-content policy gate (disclaimer, no promise).
 - See `rbx-growth/marketing/2026-h2-growth/governance/release-checklist.md`.
