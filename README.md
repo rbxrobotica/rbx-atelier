@@ -11,6 +11,7 @@ Este repositório reúne a marca canônica (Brand Voltage) e os sistemas visuais
 ```
 rbx-atelier/
 ├── brand-voltage/              ← Identidade Visual RBX (source of truth)
+├── brand-voice/                ← Sistema de Escrita RBX (source of truth)
 ├── design-systems/             ← Design Systems por produto
 │   ├── rbx-systems/            ← RBX Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)
@@ -36,7 +37,21 @@ Source of truth para a identidade visual da RBX: marca, wordmarks, cores e tipog
 
 ---
 
-## 2. Design Systems por produto
+## 2. Brand Voice — Sistema de Escrita (Zurich-coded)
+
+`brand-voice/`
+
+Source of truth para a voz verbal da RBX: princípios universais de escrita, tokens de voz, registros por contexto (institucional, marketing, UI, documentação, briefings, outputs de agentes) e regras de enforcement. Complementa o Brand Voltage: o Voltage define como a RBX se parece; o Voice define como a RBX soa.
+
+| Arquivo | Conteúdo |
+|---|---|
+| `rbx-voice-system.md` | Sistema completo: princípios, tokens, registros, anti-padrões, enforcement |
+
+Wiring para agentes: skill `rbx-voice-system` no repositório `rbx-agent-layer`.
+
+---
+
+## 3. Design Systems por produto
 
 ### `design-systems/rbx-systems/` — RBX Systems
 Design system institucional, derivado do site `rbxsystems.ch`. Tom **Zurich-coded**: escuro, institucional, engenharia acima de decoração.
@@ -79,7 +94,7 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 
 ---
 
-## 3. Documentação de alinhamento
+## 4. Documentação de alinhamento
 
 `docs/`
 
@@ -91,9 +106,10 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 ## Como usar
 
 1. **Identidade visual:** comece em `brand-voltage/`.
-2. **Design system de produto:** escolha a pasta correspondente em `design-systems/`.
-3. **Tokens:** cada pasta tem seu `colors_and_type.css`.
-4. **Componentes:** cada design system tem `ui_kits/` com exemplos executáveis (abrir `index.html` no navegador).
+2. **Escrita e tom de voz:** leia `brand-voice/rbx-voice-system.md` antes de produzir copy, docs ou posts.
+3. **Design system de produto:** escolha a pasta correspondente em `design-systems/`.
+4. **Tokens:** cada pasta tem seu `colors_and_type.css`.
+5. **Componentes:** cada design system tem `ui_kits/` com exemplos executáveis (abrir `index.html` no navegador).
 
 ---
 
