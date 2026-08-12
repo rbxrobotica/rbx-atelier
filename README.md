@@ -1,8 +1,8 @@
 # RBX Atelier
 
-Repositório central da **Identidade Visual** e dos **Design Systems** do ecossistema RBX.
+Repositório central da **Identidade Visual**, da **Voz Verbal** e dos **Design Systems** do ecossistema RBX.
 
-Este repositório reúne a marca canônica (Brand Voltage) e os sistemas visuais dos produtos RBX em um único lugar, pronto para consulta, handoff e publicação.
+Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita (Brand Voice) e os sistemas visuais dos produtos RBX em um único lugar, pronto para consulta, handoff e publicação.
 
 ---
 

@@ -3,9 +3,10 @@
 **Version:** 0.1
 **Date:** 2026-08-12
 **Status:** Approved direction
-**Source of truth:** This file (`rbx-atelier/brand-voice/rbx-voice-system.md`). A pointer mirror exists at `~/docs/rbx-voice-system.md` on the operator workstation.
+**Source of truth:** This file (`rbx-atelier/brand-voice/rbx-voice-system.md`).
 **Companion:** `brand-voltage/` in this repository (visual identity). Voltage defines how RBX looks; Voice defines how RBX sounds.
-**Agent wiring:** skill `rbx-voice-system` in `rbxrobotica/rbx-agent-layer` (`.agents/skills/rbx-voice-system/SKILL.md`), referenced from `rbx-agent-operating-rules.md` §8.
+**Agent wiring:** skill `rbx-voice-system` in the RBX agent operating layer repository, referenced from its operating rules.
+**Precedence:** safety, truthfulness, evidence, legal and compliance text, and repository technical conventions override voice rules. Voice never changes meaning, never removes stated uncertainty, and never invents certainty. Product design systems in this repository may define semantic glyph exceptions for data displays; those rules win inside their product surfaces.
 
 ---
 
@@ -24,29 +25,31 @@ A doc page never gets an aphorism. A LinkedIn post never gets two CTAs. The gram
 
 ## Principles (apply everywhere)
 
-1. **Fact before emotion.** Events, features, and failures are stated in the present indicative, without adjectives and without defense. Hard news is registered, not explained away.
+1. **Fact before emotion.** Events, features, and failures are stated in the indicative, without evaluative adjectives that lack evidence, and without defense. Hard news is registered, not explained away.
 2. **Confidence lives in grammar, not vocabulary.** No "we believe", "we strive", "buscamos", "acreditamos". Declare or omit.
 3. **Enumerate, do not narrate.** Visible structure is the argument: named layers, numbered lists, taxonomies. Order signals competence.
 4. **Scarcity of emphasis.** At most one superlative per piece, phrased as if auditable. Zero exclamation marks. Energy concentrated in exactly one point.
 5. **Governance is the signature.** External pieces end in compliance, registry, or legal reference, not in marketing.
-6. **Poetic containment.** At most one aphorism per piece: short, final position, about the collective or a principle, never self-praise.
+6. **Poetic containment.** At most one aphorism per piece: short, the final editorial sentence (before the CTA and the governance footer), about the collective or a principle, never self-praise. Component order in external pieces: body, optional aphorism, CTA, governance footer.
 7. **The bans define the style.** What the system forbids matters as much as what it prescribes.
 
 ---
 
 ## Voice tokens (constants)
 
+Tokens are defaults per register, not absolutes; the stated exceptions are part of the token.
+
 | Token | Value |
 |-------|-------|
-| Tense | Present indicative |
-| Person | Institutional "we" (brand), impersonal (docs), first person direct (agent reports) |
+| Tense | Present indicative by default; past for completed events; imperative for UI controls |
+| Person | Institutional "we" (brand), impersonal (docs), first person direct (agent reports); product persona rules override (Strategos AI never speaks in first person) |
 | Exclamation marks | 0 |
-| Question marks | Max 1 per piece, only as CTA |
+| Question marks | External copy: max 1 per piece, only as conversion CTA. UI confirmation prompts and internal docs exempt |
 | Superlative budget | 1 per piece, auditable phrasing; 0 in docs, UI, agent outputs |
-| Aphorism budget | Max 1 per piece, final position; institutional and marketing only |
+| Aphorism budget | Max 1 per piece, final editorial sentence before CTA and footer; institutional and marketing only |
 | CTA budget | Max 1 per piece |
-| Em-dashes | Forbidden (org policy, operating rules §8) |
-| Arrow glyphs | Forbidden in copy, UI, reports (org policy, operating rules §8) |
+| Em-dashes | Forbidden in prose (org policy). Data displays governed by a product design system are exempt (Strategos unavailable-value em dash) |
+| Arrow glyphs | Forbidden in prose, UI labels, reports (org policy). Semantic data glyphs in product tables (Robson) and diagrams are exempt |
 | Emoji | Forbidden in external copy; tolerated only in internal chat |
 | Numbers | Exact. Never "several", "many", "vários", "diversos" when a number exists |
 | Hedging | Forbidden as tone ("should work", "deve funcionar"). Uncertainty is stated as fact with its verification path |
@@ -59,6 +62,8 @@ revolutionary, disruptive, game-changing, cutting-edge, seamless, powerful, supe
 
 ## Registers (components per context)
 
+Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is an overlay that applies on top of the destination register whenever the text is agent-authored, adding the outcome-first and evidence duties. A PR body written by an agent is R7 with the R6 overlay; a landing page drafted by an agent is R2 with the R6 overlay.
+
 | Register | Applies to | Components allowed |
 |----------|-----------|--------------------|
 | R1 Institutional | site about, LinkedIn page, PR, company profiles | Full system: superlative, taxonomy, aphorism, 1 CTA, legal footer |
@@ -66,14 +71,14 @@ revolutionary, disruptive, game-changing, cutting-edge, seamless, powerful, supe
 | R3 Product UI | microcopy, buttons, empty states, errors | Fact + imperative verbs; no superlative, no aphorism, no CTA rhetoric; errors state cause and next action |
 | R4 Documentation | READMEs, runbooks, ADRs, guides | Impersonal, enumerated, exact; zero marketing vocabulary; zero superlatives |
 | R5 Briefings and reports | Briefing BTC, exec reports, portal | Facts numbered, one thesis per edition, uncertainty quantified, sources named |
-| R6 Agent outputs | reports, PR descriptions, summaries any RBX agent emits | Outcome first, indicative, no hedging tone; failures declared as fact with evidence; project and model named (journal policy) |
+| R6 Agent overlay | any text an RBX agent authors, on top of its destination register | Outcome first, indicative, no hedging tone; failures declared as fact with evidence; project and model named (journal policy) |
 | R7 Internal | commits, issues, chat | Principles only; format follows repo conventions |
 
 ### Register examples
 
-**R1 Institutional (reference boilerplate):**
+**R1 Institutional (illustrative structure, not publishable as-is):** every claim below must pass the review checklist against real evidence, the `[link]` must resolve, and the legal page must be live before external use.
 
-> RBX Systems opera sistemas autônomos de negociação e infraestrutura soberana de execução. Operamos através de três camadas: Execução (Robson), Governança (Thalamus) e Distribuição (Merovelis). Cada decisão de capital é registrada, auditável e reversível.
+> RBX Systems opera sistemas autônomos de negociação e infraestrutura soberana de execução. Operamos através de três camadas: Execução (Robson), Governança (Thalamus) e Distribuição (Merovelis). Cada decisão de capital é registrada e auditável.
 >
 > Sistemas confiáveis não nascem de pressa. Nascem de invariantes.
 >
@@ -115,21 +120,22 @@ revolutionary, disruptive, game-changing, cutting-edge, seamless, powerful, supe
 
 1. **Mechanical lint** before publishing any external piece:
    ```bash
-   grep -nE '—|→|←|↑|↓|▼|!' <file>
-   grep -niE 'revolucionar|disrupt|seamless|game.chang|cutting.edge|effortless|supercharge|poderoso' <file>
+   grep -nE '—|→|←|↑|↓|▼|⇒|▲|!' <file>
+   grep -niE 'revolutionar|revolucion|disrupt|game[- ]chang|cutting[- ]edge|seamless|powerful|supercharge|unlock|10x|world[- ]class|effortless|poderoso|sem esforço' <file>
    ```
+   The greps cover glyphs and banned vocabulary only. Hits inside quoted bad examples and regex literals are expected; judge hits in real copy. Superlative, CTA, aphorism, and question budgets are semantic checks done by reading. A versioned Markdown-aware linter with fixtures is the v0.2 roadmap item; until it exists, enforcement is grep plus checklist.
 2. **Review checklist** (5 items): one superlative max; ends in governance (R1/R2); zero exclamation; one CTA max; every claim has a number or mechanism.
-3. **Agent wiring:** skill `rbx-voice-system` in `rbx-agent-layer`, loaded by any agent producing external copy, docs, or reports; referenced by the `rbx-marketing-content-production` workflow.
+3. **Agent wiring:** skill `rbx-voice-system` in the agent operating layer repository, loaded by any agent producing external copy, docs, or reports; referenced by the marketing content production workflow.
 4. **CI (optional, later):** run the lint grep on frontend content and marketing repos.
 
 ---
 
 ## Open gaps
 
-- `rbxsystems.ch/legal` returned 404 on 2026-08-12. A `/legal` route PR is open in `rbx-systems-frontend`; the page content carries an operator placeholder for the registered legal entity data before external use of the R1 footer.
+- The R1 governance footer depends on the `/legal` page being live on rbxsystems.ch; tracked in `rbx-systems-frontend` PR #69.
 
 ---
 
 ## Test
 
-Before publishing, read the piece and ask: could a Zurich private bank have signed this? If it sounds excited, it fails. If it sounds certain, it passes.
+Before publishing, apply the test: a Zurich private bank could have signed the piece. If it sounds excited, it fails. If it sounds certain, it passes.
