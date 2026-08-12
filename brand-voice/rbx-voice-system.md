@@ -42,7 +42,7 @@ Tokens are defaults per register, not absolutes; the stated exceptions are part 
 | Token | Value |
 |-------|-------|
 | Tense | Present indicative by default; past for completed events; imperative for UI controls |
-| Person | Institutional "we" (brand), impersonal (docs), first person direct (agent reports); product persona rules override (Strategos AI never speaks in first person) |
+| Person | Institutional "we" (brand), impersonal (docs and agent deliveries); product persona rules override (Strategos AI never speaks in first person) |
 | Exclamation marks | 0 |
 | Question marks | External copy: max 1 per piece, only as conversion CTA. UI confirmation prompts and internal docs exempt |
 | Superlative budget | 1 per piece, auditable phrasing; 0 in docs, UI, agent outputs |
@@ -62,16 +62,16 @@ revolutionary, disruptive, game-changing, cutting-edge, seamless, powerful, supe
 
 ## Registers (components per context)
 
-Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is an overlay that applies on top of the destination register whenever the text is agent-authored, adding the outcome-first and evidence duties. A PR body written by an agent is R7 with the R6 overlay; a landing page drafted by an agent is R2 with the R6 overlay.
+Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is an overlay for agent-authored text. The overlay adds duties without changing the destination's grammar (tense and person always follow the destination register): outcome stated first where the destination is prose, failures declared as fact with evidence, no hedging tone, and provenance (project and first-party model, per the journal policy) recorded in the delivery metadata, not forced into the text. A pull request body written by an agent is R7 with the R6 overlay; a landing page drafted by an agent is R2 with the R6 overlay; UI microcopy stays imperative R3 even when an agent writes it.
 
 | Register | Applies to | Components allowed |
 |----------|-----------|--------------------|
-| R1 Institutional | site about, LinkedIn page, PR, company profiles | Full system: superlative, taxonomy, aphorism, 1 CTA, legal footer |
+| R1 Institutional | site about, LinkedIn page, press releases, company profiles | Full system: superlative, taxonomy, aphorism, 1 CTA, legal footer |
 | R2 Marketing | posts, ads, landing copy, creative text (SVG-as-Code) | Principles + 1 CTA; aphorism optional; legal footer when a claim is made; superlative budget 1 |
 | R3 Product UI | microcopy, buttons, empty states, errors | Fact + imperative verbs; no superlative, no aphorism, no CTA rhetoric; errors state cause and next action |
 | R4 Documentation | READMEs, runbooks, ADRs, guides | Impersonal, enumerated, exact; zero marketing vocabulary; zero superlatives |
 | R5 Briefings and reports | Briefing BTC, exec reports, portal | Facts numbered, one thesis per edition, uncertainty quantified, sources named |
-| R6 Agent overlay | any text an RBX agent authors, on top of its destination register | Outcome first, indicative, no hedging tone; failures declared as fact with evidence; project and model named (journal policy) |
+| R6 Agent overlay | any text an RBX agent authors, on top of its destination register | Outcome first in prose destinations; failures declared as fact with evidence; no hedging tone; grammar follows the destination; provenance (project, model) in delivery metadata per journal policy |
 | R7 Internal | commits, issues, chat | Principles only; format follows repo conventions |
 
 ### Register examples
@@ -96,7 +96,7 @@ Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is 
 - Bad: "This powerful script makes deployment effortless."
 - Good: "This script deploys the service to k3s. It runs three steps: build, push, apply."
 
-**R6 Agent output:**
+**R6 overlay on R7 (pull request body; provenance recorded in the delivery metadata):**
 
 - Bad: "I made some improvements and everything should work now!"
 - Good: "Deploy concluído. 3 arquivos alterados, 12 testes passam, smoke test em prod retorna 200."
@@ -120,10 +120,11 @@ Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is 
 
 1. **Mechanical lint** before publishing any external piece:
    ```bash
-   grep -nE '—|→|←|↑|↓|▼|⇒|▲|!' <file>
+   grep -nE '—|→|←|↑|↓|▼|⇒|▲|↔|⇄|➜|⟶|»|!' <file>
+   grep -nP '[\x{1F000}-\x{1FAFF}\x{2190}-\x{21FF}\x{2600}-\x{27BF}\x{2B00}-\x{2BFF}]' <file>
    grep -niE 'revolutionar|revolucion|disrupt|game[- ]chang|cutting[- ]edge|seamless|powerful|supercharge|unlock|10x|world[- ]class|effortless|poderoso|sem esforço' <file>
    ```
-   The greps cover glyphs and banned vocabulary only. Hits inside quoted bad examples and regex literals are expected; judge hits in real copy. Superlative, CTA, aphorism, and question budgets are semantic checks done by reading. A versioned Markdown-aware linter with fixtures is the v0.2 roadmap item; until it exists, enforcement is grep plus checklist.
+   The second grep needs GNU grep (`-P`) and sweeps emoji plus the Unicode arrow blocks. The greps cover glyphs and banned vocabulary only. Hits inside quoted bad examples and regex literals are expected; judge hits in real copy. Superlative, CTA, aphorism, and question budgets are semantic checks done by reading. A versioned Markdown-aware linter with fixtures is the v0.2 roadmap item; until it exists, enforcement is grep plus checklist.
 2. **Review checklist** (5 items): one superlative max; ends in governance (R1/R2); zero exclamation; one CTA max; every claim has a number or mechanism.
 3. **Agent wiring:** skill `rbx-voice-system` in the agent operating layer repository, loaded by any agent producing external copy, docs, or reports; referenced by the marketing content production workflow.
 4. **CI (optional, later):** run the lint grep on frontend content and marketing repos.
@@ -138,4 +139,4 @@ Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is 
 
 ## Test
 
-Before publishing, apply the test: a Zurich private bank could have signed the piece. If it sounds excited, it fails. If it sounds certain, it passes.
+Before publishing, apply the test: would a Zurich private bank have signed the piece. If it sounds excited, it fails. If every sentence is either evidenced or names its verification path, it passes.
