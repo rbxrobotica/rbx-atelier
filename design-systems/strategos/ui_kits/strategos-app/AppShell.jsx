@@ -17,11 +17,8 @@ const AppShell = ({ active, onNavigate, children, title, subtitle, breadcrumb })
       <aside className="shell__sidebar">
         <div className="shell__brand">
           <div className="shell__brand-mark">
-            <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
-              <rect x="2.5" y="2.5" width="35" height="35" rx="3" stroke="var(--cyan-brand)" strokeWidth="1"/>
-              <path d="M28 13 H17 a4 4 0 0 0 0 8 h6 a4 4 0 0 1 0 8 H12" stroke="var(--ink-0)" strokeWidth="1.5" fill="none"/>
-              <path d="M2.5 8.5 V2.5 H8.5" stroke="var(--cyan-brand)" strokeWidth="1.2" fill="none"/>
-              <path d="M37.5 31.5 V37.5 H31.5" stroke="var(--cyan-brand)" strokeWidth="1.2" fill="none"/>
+            <svg width="22" height="22" viewBox="0 0 1000 1000" role="img" aria-label="Strategos">
+              <path fill="var(--ink-0)" fillRule="evenodd" d="M792.7 262.4L477 262.4A253.5 242.6 0 1 0 730.5 511C730.5 450 706 405 665.9 369.2L652.3 384.4L596.5 323L626.5 323L653.1 353.5L679.4 323L747.2 323ZM474.9 344.2A148.3 163.5 0 1 1 474.9 671.2A148.3 163.5 0 1 1 474.9 344.2Z"/>
             </svg>
           </div>
           <div className="shell__brand-text">
