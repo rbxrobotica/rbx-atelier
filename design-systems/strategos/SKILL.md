@@ -10,7 +10,7 @@ Reference files:
 
 - `colors_and_type.css` — every token, ready to copy into `globals.css` of a Tailwind project.
 - `implementation_guide.md` — how to replace tokens in the live `strategos-ui` repo and update `tailwind.config.ts`.
-- `assets/` — Strategos placeholder mark (SVG) and agent-class glyphs.
+- `assets/` — official Strategos mark (SVG, currentColor) and agent-class glyphs. Usage rules: `BRAND-MARK.md`.
 - `ui_kits/strategos-app/` — high-fidelity React (JSX) recreations of the cockpit, decision-pending screen, timeline, and risk landscape; lift these as the canonical visual reference.
 - `preview/` — per-card specimens that populate the Design System tab.
 

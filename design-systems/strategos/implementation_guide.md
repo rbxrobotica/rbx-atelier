@@ -123,7 +123,7 @@ Tailwind utilities remain available for layout (`flex`, `grid`, `gap-*`, `space-
   - [ ] Replace `src/lib/design/strategos.css`.
 - [ ] Update `tailwind.config.ts`.
 - [ ] Run the dev server (`npm run dev`) — every existing component should render unchanged thanks to the legacy-name shims.
-- [ ] Migrate `src/components/layout/sidebar.tsx`: replace the placeholder `Users` icon with `assets/strategos-mark.svg`, swap `bg-[var(--accent-blue)] text-white` active state for `.btn-primary` look (cyan border, cyan-subtle background, no white fill).
+- [ ] Migrate `src/components/layout/sidebar.tsx`: replace the placeholder `Users` icon with the official mark rendered inline (copy the path from `assets/strategos-mark.svg` into a component so `currentColor`/`--ink-0` applies; an `<img>` embed will not inherit `color` — see `BRAND-MARK.md`), swap `bg-[var(--accent-blue)] text-white` active state for `.btn-primary` look (cyan border, cyan-subtle background, no white fill).
 - [ ] Migrate `src/components/painel/decision-list.tsx`: import the new `DecisionCard`, `ConfidenceBar`, `AgentStatusBadge`, `AuditTrailItem` from this kit.
 - [ ] Replace `cockpit-grid.tsx` left-border-only accents with full hairlines + L-corner signature on the active quadrant only.
 - [ ] Verify no component creates strategic values client-side (per Rule 1).
