@@ -182,7 +182,7 @@ Full token CSS: [`colors_and_type.css`](./colors_and_type.css).
   - Confidence indicator → built from primitive bars, not an icon
 - **No emoji anywhere**, including loading states, empty states, and error messages.
 - **No PNG icons**, no Material Icons, no Font Awesome.
-- **Logo / wordmark.** Strategos has no committed brand mark yet (the codebase currently uses the generic Lucide `Users` icon as a placeholder in `sidebar.tsx`). We provide a **placeholder mark** in `assets/strategos-mark.svg` — a hairline obsidian "S" inside a chamfered square, mono-weight, drawn to live next to RBX wordmarks at the same optical weight. **Flag to user**: please supply final mark; until then, the placeholder is used.
+- **Logo / wordmark.** The **official Strategos mark** lives in `assets/strategos-mark.svg`: a customized lowercase Greek sigma with a hawk-beak terminal, single `path`, `fill="currentColor"`, square `viewBox 0 0 1000 1000`. Supplied by the founder on 2026-08-20 (drafted with ChatGPT, Claude, and Claude Design), replacing the earlier placeholder "S in a chamfered square". Render it in `--ink-0` on obsidian surfaces (accent tints such as `--aurum` are allowed via `color`). Canonical usage doc: `~/docs/strategos-brand-mark.md`; reference implementations: `strategos-site/src/components/StrategosMark.tsx` (React) and `strategos-ui/src/lib/components/LogoStrategos.svelte` (Svelte).
 - The user provided three reference image files in `strategos-ui` (`ChatGPT Image Mar 28, 2026, 04_*.png`, ~2 MB each) — these appear to be moodboard / direction references and are not bundled here to avoid bloat. They can be re-attached if a particular detail should be lifted into the system.
 
 ---
