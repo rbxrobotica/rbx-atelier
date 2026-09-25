@@ -1,0 +1,105 @@
+/* Satwake design tokens v0.1.0 · mirrors tokens.json; change both in the same commit */
+:root {
+  --sw-bg: #F7F5F0;
+  --sw-surface: #FFFFFF;
+  --sw-sunken: #EEEAE1;
+  --sw-ink: #1E2227;
+  --sw-ink-2: #474D56;
+  --sw-ink-3: #626873;
+  --sw-line: #DAD5CA;
+  --sw-field: #8A8375;
+  --sw-action: #B4461A;
+  --sw-action-strong: #963815;
+  --sw-action-soft: #F6E3D6;
+  --sw-sunrise: #E07A3F;
+  --sw-first-light: #E8B04A;
+  --sw-predawn: #26456B;
+  --sw-predawn-soft: #DCE5EF;
+  --sw-ok: #2F6B45;
+  --sw-ok-soft: #E6F1EA;
+  --sw-warn: #8A5A00;
+  --sw-warn-soft: #FBF1DC;
+  --sw-err: #A3283A;
+  --sw-err-soft: #FBEDEF;
+  --sw-night: #1E2227;
+  --sw-font-display: Newsreader, Georgia, serif;
+  --sw-font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --sw-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --sw-text-display-xl-size: 64px;
+  --sw-text-display-xl-line: 1.05;
+  --sw-text-display-xl-weight: 500;
+  --sw-text-display-xl-family: var(--sw-font-display);
+  --sw-text-display-l-size: 48px;
+  --sw-text-display-l-line: 1.1;
+  --sw-text-display-l-weight: 500;
+  --sw-text-display-l-family: var(--sw-font-display);
+  --sw-text-title-1-size: 36px;
+  --sw-text-title-1-line: 1.2;
+  --sw-text-title-1-weight: 500;
+  --sw-text-title-1-family: var(--sw-font-display);
+  --sw-text-title-2-size: 26px;
+  --sw-text-title-2-line: 1.25;
+  --sw-text-title-2-weight: 600;
+  --sw-text-title-2-family: var(--sw-font-display);
+  --sw-text-body-l-size: 19px;
+  --sw-text-body-l-line: 1.6;
+  --sw-text-body-l-weight: 400;
+  --sw-text-body-l-family: var(--sw-font-sans);
+  --sw-text-body-size: 16px;
+  --sw-text-body-line: 1.6;
+  --sw-text-body-weight: 400;
+  --sw-text-body-family: var(--sw-font-sans);
+  --sw-text-small-size: 14px;
+  --sw-text-small-line: 1.55;
+  --sw-text-small-weight: 400;
+  --sw-text-small-family: var(--sw-font-sans);
+  --sw-text-label-size: 12px;
+  --sw-text-label-line: 1.4;
+  --sw-text-label-weight: 400;
+  --sw-text-label-family: var(--sw-font-mono);
+  --sw-space-1: 4px;
+  --sw-space-2: 8px;
+  --sw-space-3: 12px;
+  --sw-space-4: 16px;
+  --sw-space-5: 24px;
+  --sw-space-6: 32px;
+  --sw-space-7: 48px;
+  --sw-space-8: 64px;
+  --sw-space-9: 96px;
+  --sw-space-10: 128px;
+  --sw-radius-s: 6px;
+  --sw-radius-m: 8px;
+  --sw-radius-l: 16px;
+  --sw-radius-pill: 999px;
+  --sw-shadow-1: 0 1px 2px rgba(30,34,39,0.06);
+  --sw-shadow-2: 0 12px 32px rgba(30,34,39,0.08);
+  --sw-dur-fast: 120ms;
+  --sw-dur: 200ms;
+  --sw-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --sw-focus-ring: 2px solid #26456B;
+  --sw-focus-offset: 2px;
+  --sw-container: 1200px;
+  --sw-gutter: 24px;
+  --sw-measure: 68ch;
+  --sw-touch-target: 44px;
+  --sw-label-transform: uppercase;
+  --sw-label-tracking: 0.08em;
+  --sw-bp-s: 640px;
+  --sw-bp-m: 960px;
+  --sw-bp-l: 1200px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --sw-text-display-xl-size: 40px;
+    --sw-text-display-l-size: 32px;
+    --sw-text-title-1-size: 28px;
+    --sw-text-title-2-size: 22px;
+    --sw-text-body-l-size: 17px;
+    --sw-gutter: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --sw-dur-fast: 0ms; --sw-dur: 0ms; }
+}

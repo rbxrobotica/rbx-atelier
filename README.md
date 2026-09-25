@@ -16,7 +16,8 @@ rbx-atelier/
 │   ├── rbx-systems/            ← RBX Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)
 │   ├── eden-system-creator/    ← Éden System Creator
-│   └── strategos/              ← Strategos (situation room)
+│   ├── strategos/              ← Strategos (situation room)
+│   └── satwake/                ← Satwake (leitura diária BTC, antes Briefing BTC)
 └── docs/                       ← Documentação de alinhamento e decisões
 ```
 
@@ -92,6 +93,13 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 - `preview/` — cartões de amostra
 - `ui_kits/strategos-app/` — kit de UI da aplicação Strategos
 
+### `design-systems/satwake/` · Satwake
+Brand e design system do Satwake, nome público do antigo Briefing BTC. Direção clara e editorial: papel claro, texto grafite, acentos de amanhecer.
+
+- `README.md`: marca, cores com contraste medido, tipografia, voz e imagem
+- `tokens.json`: fonte dos tokens (formato inspirado no W3C DTCG, sem conformidade total); `colors_and_type.css` traduz em variáveis `--sw-`
+- `assets/`: símbolo, lockups claro e escuro, ícone de app
+
 ---
 
 ## 4. Documentação de alinhamento
@@ -109,7 +117,7 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 2. **Escrita e tom de voz:** leia `brand-voice/rbx-voice-system.md` antes de produzir copy, docs ou posts.
 3. **Design system de produto:** escolha a pasta correspondente em `design-systems/`.
 4. **Tokens:** cada pasta tem seu `colors_and_type.css`.
-5. **Componentes:** cada design system tem `ui_kits/` com exemplos executáveis (abrir `index.html` no navegador).
+5. **Componentes:** os design systems que têm `ui_kits/` trazem exemplos executáveis (abrir `index.html` no navegador); os do Satwake estão no canvas de design citado no README dele.
 
 ---
 
