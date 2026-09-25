@@ -59,7 +59,7 @@ Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo finan
 - nada de exclamação, emoji, travessão ou urgência;
 - nada de sinal de compra e venda, alvo de preço ou promessa de retorno;
 - nada de depoimento, resultado ou número de assinantes sem evidência;
-- o aviso legal aparece sempre, com este texto exato, o mesmo que o pipeline de geração exige literalmente na seção 10 de cada edição e que a landing atual do produto já publica:
+- o aviso legal obrigatório aparece sempre, com este texto exato:
 
   > Este briefing é material de preparação operacional e governança. Não constitui recomendação de investimento, sinal de trading ou orientação financeira. A decisão de operar é exclusiva do operador humano. Este produto não gera ordens, não recomenda compra/venda e não aciona sistemas de execução.
 
