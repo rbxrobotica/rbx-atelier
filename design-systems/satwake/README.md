@@ -1,6 +1,6 @@
 # Satwake · Brand and Design System
 
-Satwake é o nome público do produto antes chamado Briefing BTC: a leitura diária do mercado de Futuros BTC/USDT da RBX Systems. Identificadores internos (`briefing-btc`) não mudam.
+Satwake é o nome público do produto antes chamado Briefing BTC: a leitura diária do mercado de Futuros BTC/USDT da RBX Systems.
 
 - **Status:** v0.1.0, proposta para revisão do owner, 2026-09-24.
 - **Canvas de design (Claude Design):** https://claude.ai/artifact/WZDWeNUrovcJkFVKUbzbZW, com brand system, tokens e componentes, landing desktop e mobile, estados do checkout, modelo de campanhas, anúncios e especificação.
@@ -20,7 +20,7 @@ Clara, editorial, técnica e acessível. Tem que parecer um jornal bem editado, 
 | `assets/satwake-mark-dark.svg` | Só o símbolo, fundo escuro |
 | `assets/satwake-app-icon.svg` | Ícone de app e favicon |
 
-O símbolo é um horizonte com régua: o sol nasce sobre um eixo de gráfico. O arco é a única parte na cor de amanhecer.
+O símbolo é um horizonte com régua: o sol nasce sobre um eixo de gráfico. O arco e o raio são as únicas partes na cor de amanhecer.
 
 O wordmark é Newsreader 600, sempre em minúsculas. Nos lockups ele está como texto SVG. Antes de imprimir ou de usar num lugar sem a fonte, converta em contornos.
 
@@ -29,7 +29,7 @@ O wordmark é Newsreader 600, sempre em minúsculas. Nos lockups ele está como 
 
 ## Tokens
 
-`tokens.json` é a fonte, no formato W3C design tokens. `colors_and_type.css` espelha esse arquivo com o prefixo `--sw-`. Mude os dois no mesmo commit e não use cor literal nos componentes.
+`tokens.json` é a fonte, num formato inspirado no W3C Design Tokens (DTCG), sem conformidade total: cores têm `$type` e `$value`, os demais grupos são valores simples. `colors_and_type.css` traduz esse arquivo em variáveis com o prefixo `--sw-`: cada estilo de texto vira `size`, `line` e `weight`, e a família de cada estilo fica na regra do componente. Mude os dois no mesmo commit e não use cor literal nos componentes.
 
 Contraste (WCAG 2.2) medido sobre o papel `#F7F5F0`:
 
@@ -54,12 +54,15 @@ Em produção, sirva as fontes pelo próprio domínio.
 
 ## Voz e conteúdo
 
-Segue `brand-voice/rbx-voice-system.md` e a política de conteúdo financeiro da RBX:
+Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo financeiro da RBX (não publicada neste repositório):
 
 - nada de exclamação, emoji, travessão ou urgência;
 - nada de sinal de compra e venda, alvo de preço ou promessa de retorno;
 - nada de depoimento, resultado ou número de assinantes sem evidência;
-- o aviso legal validado aparece sempre;
+- o aviso legal validado aparece sempre, com este texto exato:
+
+  > Este briefing é material de preparação operacional e governança. Não constitui recomendação de investimento, sinal de trading ou orientação financeira. A decisão de operar é exclusiva do operador humano. Este produto não gera ordens, não recomenda compra/venda e não aciona sistemas de execução.
+
 - trechos do produto aparecem como publicados, e qualquer corte é dito na legenda.
 
 ## Imagem e gráficos

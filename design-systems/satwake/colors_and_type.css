@@ -73,6 +73,12 @@
   --sw-container: 1200px;
   --sw-gutter: 24px;
   --sw-measure: 68ch;
+  --sw-touch-target: 44px;
+  --sw-label-transform: uppercase;
+  --sw-label-tracking: 0.08em;
+  --sw-bp-s: 640px;
+  --sw-bp-m: 960px;
+  --sw-bp-l: 1200px;
 }
 
 @media (max-width: 640px) {
