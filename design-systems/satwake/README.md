@@ -29,7 +29,7 @@ O wordmark é Newsreader 600, sempre em minúsculas. Nos lockups ele está como 
 
 ## Tokens
 
-`tokens.json` é a fonte, num formato inspirado no W3C Design Tokens (DTCG), sem conformidade total: cores têm `$type` e `$value`, os demais grupos são valores simples. `colors_and_type.css` traduz esse arquivo em variáveis com o prefixo `--sw-`: cada estilo de texto vira `size`, `line` e `weight`, e a família de cada estilo fica na regra do componente. Mude os dois no mesmo commit e não use cor literal nos componentes.
+`tokens.json` é a fonte, num formato inspirado no W3C Design Tokens (DTCG), sem conformidade total: cores têm `$type` e `$value`, os demais grupos são valores simples. `colors_and_type.css` traduz esse arquivo em variáveis com o prefixo `--sw-`: cada estilo de texto vira `size`, `line`, `weight` e `family`. Mude os dois no mesmo commit e não use cor literal nos componentes.
 
 Contraste (WCAG 2.2) medido sobre o papel `#F7F5F0`:
 
@@ -59,7 +59,7 @@ Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo finan
 - nada de exclamação, emoji, travessão ou urgência;
 - nada de sinal de compra e venda, alvo de preço ou promessa de retorno;
 - nada de depoimento, resultado ou número de assinantes sem evidência;
-- o aviso legal validado aparece sempre, com este texto exato:
+- o aviso legal aparece sempre, com este texto exato, o mesmo que o pipeline de geração exige literalmente na seção 10 de cada edição e que a landing atual do produto já publica:
 
   > Este briefing é material de preparação operacional e governança. Não constitui recomendação de investimento, sinal de trading ou orientação financeira. A decisão de operar é exclusiva do operador humano. Este produto não gera ordens, não recomenda compra/venda e não aciona sistemas de execução.
 

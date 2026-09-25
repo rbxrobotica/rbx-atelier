@@ -97,7 +97,7 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 Brand e design system do Satwake, nome público do antigo Briefing BTC. Direção clara e editorial: papel claro, texto grafite, acentos de amanhecer.
 
 - `README.md`: marca, cores com contraste medido, tipografia, voz e imagem
-- `tokens.json`: fonte dos tokens (formato W3C); `colors_and_type.css` espelha com prefixo `--sw-`
+- `tokens.json`: fonte dos tokens (formato inspirado no W3C DTCG, sem conformidade total); `colors_and_type.css` traduz em variáveis `--sw-`
 - `assets/`: símbolo, lockups claro e escuro, ícone de app
 
 ---
@@ -117,7 +117,7 @@ Brand e design system do Satwake, nome público do antigo Briefing BTC. Direçã
 2. **Escrita e tom de voz:** leia `brand-voice/rbx-voice-system.md` antes de produzir copy, docs ou posts.
 3. **Design system de produto:** escolha a pasta correspondente em `design-systems/`.
 4. **Tokens:** cada pasta tem seu `colors_and_type.css`.
-5. **Componentes:** cada design system tem `ui_kits/` com exemplos executáveis (abrir `index.html` no navegador).
+5. **Componentes:** os design systems que têm `ui_kits/` trazem exemplos executáveis (abrir `index.html` no navegador); os do Satwake estão no canvas de design citado no README dele.
 
 ---
 
