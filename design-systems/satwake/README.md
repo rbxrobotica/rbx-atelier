@@ -65,9 +65,29 @@ Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo finan
 
 - trechos do produto aparecem como publicados, e qualquer corte é dito na legenda.
 
+## Fatos de produto que limitam a copy
+
+Estado em 2026-09-25. Onde o canvas divergir destes fatos, valem estes, e o canvas precisa ser revisado antes de virar peça pública.
+
+- **Nome e identificadores.** Satwake é só o nome público. A chave interna `briefing-btc`, os planos `briefing-*` e os registros existentes não mudam.
+- **Preço.** Pro mensal em BRL é R$ 39 por Pix (Asaas), plano `briefing-pro-monthly-brl` no catálogo do servidor do Commerce. O checkout usa o preço resolvido pelo servidor; qualquer preço exibido antes dele precisa de teste de paridade com esse catálogo.
+- **Horário.** A geração está configurada para todo dia às 09:00 UTC (06:00 de Brasília), fins de semana incluídos. O horário de entrega não foi verificado. A copy não promete coleta às 03:00, entrega só em dias úteis, envio pontual nem horário de chegada.
+- **Canal.** A copy só cita um canal de entrega que esteja implementado e verificado. Não há reenvio por e-mail implementado; não prometa e-mail como alternativa.
+- **Free.** Mostra as sete edições mais recentes, incluindo a do dia quando já publicada. A data 2026-05-01 é só um limite técnico de consulta, não uma promessa de arquivo.
+
+## Retorno do Pix
+
+A página de retorno consulta o status no servidor do Commerce e mostra três estados distintos, cada um com ícone e texto:
+
+1. **Pagamento pendente:** o Pix ainda não foi confirmado; o acesso continua no Free.
+2. **Pagamento confirmado:** o Commerce recebeu a confirmação do provedor; o acesso Pro ainda está sendo liberado.
+3. **Acesso liberado:** o direito de acesso foi concedido; mostra o botão para entrar no produto.
+
+O navegador nunca marca um pagamento como confirmado por conta própria, e a copy de um estado nunca antecipa o seguinte.
+
 ## Imagem e gráficos
 
-**Usar:** o próprio produto (a mensagem de WhatsApp, a tabela de cenários, as regras de não-operação) e luz de manhã cedo.
+**Usar:** o próprio produto (a mensagem no canal de entrega verificado, a tabela de cenários, as regras de não-operação) e luz de manhã cedo.
 
 **Evitar:** foguetes, lua, dinheiro, gráficos que só sobem, ordens na tela e degradês neon.
 
