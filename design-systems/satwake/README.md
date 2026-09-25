@@ -71,7 +71,7 @@ Estado em 2026-09-25. Onde o canvas divergir destes fatos, valem estes, e o canv
 
 - **Nome e identificadores.** Satwake é só o nome público. A chave interna `briefing-btc`, os planos `briefing-*` e os registros existentes não mudam.
 - **Preço.** Pro mensal em BRL é R$ 39 por Pix (Asaas), plano `briefing-pro-monthly-brl` no catálogo do servidor do Commerce. O checkout usa o preço resolvido pelo servidor; qualquer preço exibido antes dele precisa de teste de paridade com esse catálogo.
-- **Horário.** A geração está configurada para todo dia às 09:00 UTC (06:00 de Brasília), fins de semana incluídos. O horário de entrega não foi verificado. A copy não promete coleta às 03:00, entrega só em dias úteis, envio pontual nem horário de chegada.
+- **Horário.** O CronJob de produção está configurado para segunda a sexta às 09:00 UTC (06:00 de Brasília), mas as execuções de 23 a 25/09/2026 falharam. A configuração não comprova edição ou entrega. A copy não promete coleta às 03:00, entrega em todos os dias úteis, envio pontual nem horário de chegada.
 - **Canal.** A copy só cita um canal de entrega que esteja implementado e verificado. Não há reenvio por e-mail implementado; não prometa e-mail como alternativa.
 - **Free.** Mostra as sete edições mais recentes, incluindo a do dia quando já publicada. A data 2026-05-01 é só um limite técnico de consulta, não uma promessa de arquivo.
 
