@@ -16,7 +16,8 @@ rbx-atelier/
 │   ├── rbx-systems/            ← RBX Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)
 │   ├── eden-system-creator/    ← Éden System Creator
-│   └── strategos/              ← Strategos (situation room)
+│   ├── strategos/              ← Strategos (situation room)
+│   └── satwake/                ← Satwake (leitura diária BTC, antes Briefing BTC)
 └── docs/                       ← Documentação de alinhamento e decisões
 ```
 
@@ -91,6 +92,13 @@ Design system do Strategos: *war room* para liderança estratégica com IA. Supe
 - `assets/` — marcas (inclui placeholder do mark Strategos)
 - `preview/` — cartões de amostra
 - `ui_kits/strategos-app/` — kit de UI da aplicação Strategos
+
+### `design-systems/satwake/` · Satwake
+Brand e design system do Satwake, nome público do antigo Briefing BTC. Direção clara e editorial: papel claro, texto grafite, acentos de amanhecer.
+
+- `README.md`: marca, cores com contraste medido, tipografia, voz e imagem
+- `tokens.json`: fonte dos tokens (formato W3C); `colors_and_type.css` espelha com prefixo `--sw-`
+- `assets/`: símbolo, lockups claro e escuro, ícone de app
 
 ---
 
