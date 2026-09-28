@@ -1,0 +1,16 @@
+{
+  "name": "satwake-creative-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "creative": "node scripts/creative.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/ibm-plex-sans": "^5.2.7",
+    "@fontsource/newsreader": "^5.2.7",
+    "playwright": "^1.48.0"
+  }
+}

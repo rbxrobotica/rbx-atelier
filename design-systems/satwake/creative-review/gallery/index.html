@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Satwake · revisão de criativos</title><link rel="stylesheet" href="/app.css"></head>
+<body>
+  <header class="top"><div class="brand"><span class="brand-mark">◡</span><span>satwake</span><span class="brand-sep">/</span><span class="brand-caption">Revisão de criativos</span></div><div class="local">AMBIENTE LOCAL · SEM PUBLICAÇÃO</div></header>
+  <main>
+    <section class="intro"><p class="eyebrow">LOTE DE CANDIDATOS</p><h1 id="batch-title">Carregando lote…</h1><p id="batch-subtitle"></p><div id="stats" class="stats"></div></section>
+    <section class="toolbar"><div class="filters"><label>Estado<select id="filter-status"><option value="all">Todos</option><option value="pending">Pendente</option><option value="approve">Aprovado</option><option value="reject">Reprovado</option><option value="adjust">Ajustes</option><option value="changed">Alterado</option><option value="invalid">Validação falhou</option></select></label><label>Conceito<select id="filter-concept"><option value="all">Todos</option></select></label><label>Formato<select id="filter-format"><option value="all">Todos</option><option value="1x1">1:1</option><option value="4x5">4:5</option><option value="9x16">9:16</option></select></label></div><div class="selection"><label><input id="select-visible" type="checkbox"> Selecionar visíveis</label><span id="selected-count">0 selecionadas</span></div></section>
+    <section class="decision-bar"><label>Revisor<input id="reviewer" type="text" maxlength="120" placeholder="Seu nome" autocomplete="name"></label><label class="comment-field">Comentário<textarea id="comment" rows="2" maxlength="2000" placeholder="Obrigatório ao solicitar ajustes"></textarea></label><div class="actions"><button data-action="approve" class="primary">Aprovar seleção</button><button data-action="adjust">Solicitar ajustes</button><button data-action="reject">Reprovar</button><button data-action="comment">Comentar</button></div></section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <section id="cards" class="cards" aria-label="Peças do lote"></section>
+    <aside class="review-note"><h2>Limites da revisão automática</h2><p>O sistema verifica arquivo, dimensões, hash, fontes, texto visível, sobreposição, tokens, copy, disclaimer e UTMs. Revise manualmente clareza, leitura em celular, tom, política financeira, direitos de uso e destino final. Aprovar aqui não publica anúncio nem autoriza gasto.</p></aside>
+  </main>
+  <dialog id="preview"><button id="close-preview" aria-label="Fechar imagem">Fechar ×</button><img id="preview-image" alt="Prévia ampliada"><p id="preview-caption"></p></dialog>
+  <script type="module" src="/app.js"></script>
+</body></html>
