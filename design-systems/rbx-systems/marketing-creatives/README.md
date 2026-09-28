@@ -80,3 +80,12 @@ Extend the template's `VIEWPORTS` entry with `{ w, h, tag }`. Required campaign 
 - Copy in variants must pass claim/brand/compliance evals (rbx-growth automation/). No publish without approval.
 - Robson/Briefing creatives require the financial-content policy gate (disclaimer, no promise).
 - See `rbx-growth/marketing/2026-h2-growth/governance/release-checklist.md`.
+
+### Input validation regression checks
+
+Run `node --test scripts/render-input.test.mjs` with Node.js 20 or newer.
+Both `--template insight-card` and `--template=insight-card` are supported.
+Template values are plain text; `BULLETS` is an array rendered as separate
+escaped list items. Missing required fields fail instead of exporting an
+unresolved placeholder. This input test does not validate final image layout
+or provide a Satwake batch review/approval workflow.
