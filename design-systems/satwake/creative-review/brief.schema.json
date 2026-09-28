@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Satwake creative batch brief",
+  "type": "object",
+  "required": ["schemaVersion", "campaign", "audience", "objective", "offer", "destination", "formats", "maxVariants", "sources", "facts", "editorial", "identity", "attribution", "concepts"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "campaign": {"type": "object", "required": ["id", "version", "hypothesisId"], "properties": {"id": {"type": "string"}, "version": {"type": "string"}, "hypothesisId": {"type": "string"}}},
+    "audience": {"type": "object", "required": ["id", "description"], "properties": {"id": {"type": "string"}, "description": {"type": "string"}}},
+    "objective": {"type": "string"},
+    "offer": {"type": "string"},
+    "destination": {"type": "string", "format": "uri"},
+    "formats": {"type": "array", "minItems": 1, "items": {"enum": ["1x1", "4x5", "9x16"]}, "uniqueItems": true},
+    "maxVariants": {"type": "integer", "minimum": 1, "maximum": 30},
+    "sources": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "path"], "properties": {"id": {"type": "string"}, "path": {"type": "string"}}}},
+    "facts": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "text", "sourceIds"], "properties": {"id": {"type": "string"}, "text": {"type": "string"}, "sourceIds": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}},
+    "editorial": {"type": "object", "required": ["requiredDisclaimer", "prohibitedClaims"], "properties": {"requiredDisclaimer": {"type": "string"}, "prohibitedClaims": {"type": "array", "items": {"type": "string"}}}},
+    "identity": {"type": "object", "required": ["system", "version"], "properties": {"system": {"const": "satwake"}, "version": {"type": "string"}}},
+    "attribution": {"type": "object", "required": ["source", "medium", "term"], "properties": {"source": {"enum": ["instagram", "facebook"]}, "medium": {"const": "social_paid"}, "term": {"const": "btc_preparacao"}}},
+    "concepts": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "hypothesis", "factIds", "messages", "visuals"], "properties": {"id": {"type": "string"}, "hypothesis": {"type": "string"}, "factIds": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "messages": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "eyebrow", "headline", "body", "primaryText", "cta", "utmContent"], "properties": {"id": {"type": "string"}, "eyebrow": {"type": "string"}, "headline": {"type": "string"}, "body": {"type": "string"}, "primaryText": {"type": "string"}, "cta": {"type": "string"}, "utmContent": {"type": "string"}, "utmContentByVisual": {"type":"object","additionalProperties":{"type":"string"}}}}}, "visuals": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "layout"], "properties": {"id": {"type": "string"}, "layout": {"enum": ["horizon", "index", "rule"]}}}}}}
+  }
+}
