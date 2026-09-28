@@ -15,7 +15,8 @@
 // Requires: npx playwright install chromium  (see README)
 
 import { chromium } from 'playwright';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { parseArgs, fill } from './render-input.mjs';
+import { readFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
@@ -45,19 +46,6 @@ function loadVariants() {
   const p = join(__dirname, 'variants.json');
   if (!existsSync(p)) { console.warn('no variants.json; using defaults from templates'); return {}; }
   return JSON.parse(readFileSync(p, 'utf8'));
-}
-
-function fill(html, vars) {
-  let out = html;
-  for (const [k, v] of Object.entries(vars)) {
-    out = out.replaceAll(`{{${k}}}`, String(v ?? ''));
-  }
-  // Turn a bullets array into <li> rows.
-  if (Array.isArray(vars.BULLETS)) {
-    const lis = vars.BULLETS.map(b => `<li style="display:flex; gap:24px; align-items:flex-start;"><span style="color:var(--cyan-brand); font-family:var(--font-mono); font-size:28px; line-height:1.3;">/</span><span class="body" style="font-size:32px; max-width:780px;">${b}</span></li>`).join('\n      ');
-    out = out.replaceAll('{{BULLETS}}', lis);
-  }
-  return out;
 }
 
 async function renderOne(browser, channel, template, variantName, vars) {
@@ -105,10 +93,7 @@ async function renderOne(browser, channel, template, variantName, vars) {
 }
 
 async function main() {
-  const args = Object.fromEntries(process.argv.slice(2).map(a => {
-    const [k, ...v] = a.replace(/^--/, '').split('=');
-    return [k, v.join('=') || true];
-  }));
+  const args = parseArgs(process.argv.slice(2));
   const variants = loadVariants();
 
   const channels = args.channel ? [String(args.channel)] : CHANNELS;
