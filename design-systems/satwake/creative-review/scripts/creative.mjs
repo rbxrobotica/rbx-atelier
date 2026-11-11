@@ -8,6 +8,7 @@ import { serve } from './server.mjs';
 
 const [command,...argv] = process.argv.slice(2);
 const {values:args} = parseArgs({args:argv,options:{brief:{type:'string'},batch:{type:'string'},out:{type:'string'},port:{type:'string'},resume:{type:'boolean'}},strict:true,allowPositionals:false});
+// eslint-disable-next-line security/detect-object-injection -- name is a literal at each call below
 function required(name) { if (!args[name]) throw new Error(`--${name} is required`); return resolve(args[name]); }
 
 async function generate() {

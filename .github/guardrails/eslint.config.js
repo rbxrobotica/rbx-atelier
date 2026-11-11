@@ -117,5 +117,21 @@ export default [
     // the inline scripts that are not modules.
     files: ['design-systems/*/ui_kits/**/*.{js,jsx}', '**/*.[hH][tT][mM]/*.js', '**/*.[hH][tT][mM][lL]/*.js'],
     languageOptions: { sourceType: 'script' }
+  },
+  {
+    // These command-line scripts and tests of the two pnpm projects read and
+    // write the paths the operator gives them and the files of their own
+    // project. No request names a path there. The list is closed: a script
+    // that is not on it is linted in full, and server.mjs, which answers HTTP
+    // requests, is not on it.
+    files: [
+      'design-systems/rbx-systems/marketing-creatives/scripts/render.mjs',
+      'design-systems/rbx-systems/marketing-creatives/scripts/render-input.test.mjs',
+      'design-systems/satwake/creative-review/scripts/core.mjs',
+      'design-systems/satwake/creative-review/scripts/creative.mjs',
+      'design-systems/satwake/creative-review/scripts/render.mjs',
+      'design-systems/satwake/creative-review/tests/flow.test.mjs'
+    ],
+    rules: { 'security/detect-non-literal-fs-filename': 'off' }
   }
 ];

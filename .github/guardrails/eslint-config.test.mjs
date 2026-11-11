@@ -151,6 +151,34 @@ test('an inline script is linted whatever its type says, unless the type holds J
   }
 });
 
+test('a file read by a computed path passes only in the six listed scripts and tests', async () => {
+  const code = "import { readFileSync } from 'node:fs'; readFileSync(input);";
+  const rule = 'security/detect-non-literal-fs-filename';
+  for (const file of [
+    'design-systems/rbx-systems/marketing-creatives/scripts/render.mjs',
+    'design-systems/rbx-systems/marketing-creatives/scripts/render-input.test.mjs',
+    'design-systems/satwake/creative-review/scripts/core.mjs',
+    'design-systems/satwake/creative-review/scripts/creative.mjs',
+    'design-systems/satwake/creative-review/scripts/render.mjs',
+    'design-systems/satwake/creative-review/tests/flow.test.mjs'
+  ]) {
+    assert.deepEqual(await rules(code, file), [], file);
+  }
+  for (const file of [
+    'design-systems/satwake/creative-review/scripts/server.mjs',
+    'design-systems/satwake/creative-review/scripts/new-tool.mjs',
+    'design-systems/satwake/creative-review/scripts/sub/core.mjs',
+    'design-systems/satwake/creative-review/tests/other.test.mjs',
+    'design-systems/rbx-systems/marketing-creatives/scripts/render-input.mjs',
+    'design-systems/another-product/service/scripts/server.mjs',
+    'design-systems/eden-system-creator/ui_kits/scripts/server.mjs',
+    '.github/guardrails/cdn-scripts.mjs',
+    'sample.mjs'
+  ]) {
+    assert.deepEqual(await rules(code, file), [rule], file);
+  }
+});
+
 test('a disable directive that disables nothing is an error', async () => {
   const [{ messages }] = await eslint.lintText('// eslint-disable-next-line no-eval -- nothing to disable here\nexport const one = 1;', { filePath: 'sample.mjs' });
   assert.equal(messages.length, 1);

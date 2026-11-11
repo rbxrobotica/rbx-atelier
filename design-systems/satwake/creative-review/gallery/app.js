@@ -20,6 +20,7 @@ function render(){
 function card(p){
   const article=node('article','card');
   const head=node('div','card-head'),titleWrap=node('div'),title=node('div','card-title',p.conceptId),sub=node('div','card-sub',`${p.messageId} / ${p.visualId} / ${p.format.replace('x',':')}`);titleWrap.append(title,sub);
+  // eslint-disable-next-line security/detect-object-injection -- labels is the literal map above and the result is set as text
   const state=p.validation.pass?p.review.status:'invalid';const badge=node('span',`badge ${state}`,labels[state]);head.append(titleWrap,badge);
   const preview=node('button','card-preview');preview.type='button';preview.setAttribute('aria-label',`Ampliar ${p.id}`);const img=node('img');img.src=`/files/${encodeURIComponent(p.file.name)}`;img.alt=`Peça ${p.conceptId}, formato ${p.format}`;preview.append(img);preview.onclick=()=>{$('#preview-image').src=img.src;$('#preview-caption').textContent=p.id;$('#preview').showModal();};
   const body=node('div','card-body');body.append(node('h2','',p.copy.headline),node('p','',p.copy.body),node('p','meta',`Campanha: ${p.campaignId} · Hipótese: ${p.hypothesisId} · Público: ${p.audience.id}`),node('p','meta',p.hypothesis),node('p','meta',`Oferta: ${p.offer}`));
@@ -41,6 +42,7 @@ for(const button of document.querySelectorAll('[data-action]'))button.onclick=as
   if(!selected.size)return showNotice('Selecione explicitamente uma ou mais peças.',true);
   if(action==='adjust'&&!comment)return showNotice('Explique o ajuste solicitado no comentário.',true);
   button.disabled=true;
+  // eslint-disable-next-line security/detect-object-injection -- labels is the literal map above and the result is set as text
   try{const response=await fetch('/api/decisions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({actor,action,comment,pieceIds:[...selected]})});const data=await response.json();if(!response.ok)throw new Error(data.error);batch=data;selected.clear();$('#comment').value='';render();showNotice(`Decisão registrada: ${labels[action]||action}.`);}catch(e){showNotice(e.message,true);}finally{button.disabled=false;}
 };
 $('#close-preview').onclick=()=>$('#preview').close();
