@@ -6,13 +6,27 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* The wordmark font is pinned to one release: Archivo v25 as Google Fonts serves it,
+   weight 700 at 125% width, Latin range. The versioned file does not change when the
+   family is updated, so a new release reaches the wordmark only through a reviewed edit
+   of this URL. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 125%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q8EsJaRE-NWIDdgffTT0zRZ9xdp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* ——— Backgrounds (warm-dark tiers; never pure black, never cool-blue) ——— */
   --bg-0: #07080A;          /* page, deepest surface */
   --bg-1: #0D0F12;          /* raised surface */
   --bg-2: #13161A;          /* card, panel */
   --bg-3: #1A1E23;          /* hover, nested */
-  --bg-overlay: rgba(7, 8, 10, 0.72);  /* sticky nav, scrim */
+  --bg-overlay: rgba(7, 8, 10, 0.72);  /* scrim behind modals and drawers; the site header is opaque */
 
   /* ——— Foreground (off-whites; warm-neutral, never pure white) ——— */
   --fg-0: #ECECEC;          /* primary text, headings */
@@ -32,6 +46,10 @@
   --cyan-dim:     #0B6E6E;  /* eyebrows, emphasized borders, tick rulers */
   --cyan-subtle:  rgba(0, 255, 255, 0.08);  /* tints, card highlights */
 
+  /* ——— Actions (the one filled element of a header: the contact CTA) ——— */
+  --cta:     var(--cyan-brand);   /* fill at rest; hover moves to --cyan-signal */
+  --on-cta:  var(--bg-0);         /* text and icon on the fill, at rest and on hover */
+
   /* ——— Semantic (status only; never chrome) ——— */
   --ok:    #7FB77E;
   --warn:  #D9B55A;
@@ -45,6 +63,8 @@
   /* ——— Type families ——— */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* Wordmark only: the "RBX" beside the mark. Never in interface text. See BRAND-MARK.md */
+  --font-wordmark: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* ——— Type scale (rem; 1rem = 16px) ——— */
   --text-xs:     0.6875rem;   /* 11px — micro labels, status chips */
@@ -108,7 +128,14 @@
   --content-w:  72rem;    /* 1152px — institutional content */
   --prose-w:    42rem;    /* 672px — editorial prose */
   --gutter:     1.5rem;   /* 24px */
-  --header-h:   4rem;     /* 64px */
+  --header-h:   4rem;     /* 64px — legacy single-bar header; the site now uses the rows below */
+  --nav-w:      80rem;    /* 1280px — header, section band, footer */
+  /* Site header in three rows: brand, primary navigation, section band.
+     In px on purpose: the site root is 15px and these heights do not follow the rem. */
+  --header-row:        72px;
+  --header-row-mobile: 60px;
+  --nav-row:           48px;
+  --band-row:          44px;
 }
 
 /* ==========================================================================
@@ -160,6 +187,16 @@
   letter-spacing: var(--track-wide);
   text-transform: uppercase;
   font-weight: 500;
+}
+/* The "RBX" of the lockup, set in type beside the mark. Size comes from the lockup:
+   17px in the desktop header, 16px on mobile. See BRAND-MARK.md */
+.rbx-wordmark {
+  font-family: var(--font-wordmark);
+  font-weight: 700;
+  font-stretch: 125%;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--fg-0);
 }
 
 /* ==========================================================================

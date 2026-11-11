@@ -7,9 +7,11 @@ Operating instructions for any designer or engineer working inside this system. 
 ## Stack
 
 - **Tokens** live in `colors_and_type.css` as CSS variables under the `.rbx` class. All kits apply `class="rbx"` to `<body>`.
-- **Shared components** live in `ui_kits/_shared/` — `RbxPrimitives.jsx` (Container, Button, Icon, Card, StatusPill, PhaseTag, Field, RbxLogo) and `ChromeComponents.jsx` (TopNav, Footer).
+- **Shared components** live in `ui_kits/_shared/`: `RbxPrimitives.jsx` (Container, Button, Icon, Card, StatusPill, PhaseTag, Field, RbxMark, RbxLogo) and `ChromeComponents.jsx` (TopNav, Breadcrumb, Footer).
 - **Kits** live in `ui_kits/<name>/`. Each kit is a standalone HTML file + its own sections JSX.
-- **Type**: Inter (sans) + JetBrains Mono (code/data). Both self-hosted; no Google Fonts runtime dependency.
+- **Type**: Inter (sans) + JetBrains Mono (code/data), plus Archivo 700 at 125% width for the "RBX" of the lockup and nothing else. `colors_and_type.css` loads the three from Google Fonts.
+- **Mark**: `RbxMark` draws the RBX mark inline; `RbxLogo` sets the wordmark in type beside it (`stacked`, `compact`, `horizontal`). Never use a letter as the mark and never redraw it. Rules in `brand-voltage/BRAND-MARK.md`.
+- **Header**: `TopNav` is three rows (brand, primary, section band), opaque and not sticky. The active item is underlined in `--rbx-brand`; the contact CTA is the only filled element. `Breadcrumb` sits between the header and the title of the page, on every page except the home page. Both take `active` and `leaf` and read `resolveNav`. Specimen in `ui_kits/header/`.
 
 ## Non-negotiable rules
 
@@ -19,8 +21,7 @@ Operating instructions for any designer or engineer working inside this system. 
    - "Institutionalized" phase tags
    - Active sidebar nav indicator (left border)
    - Live chart line / headline telemetry
-   - The word "Atelier" in the top nav
-   Never use it for decorative flourishes, hover states, or to "liven up" a section.
+   Never use it for decorative flourishes, hover states, or to "liven up" a section. The header takes no brass: its one accent is `--rbx-brand`.
 
 3. **Numbers are data.** Any numeric output — metrics, prices, percentages, times, latency, counts — uses:
    - `font-family: var(--rbx-font-mono)`
@@ -47,7 +48,8 @@ Operating instructions for any designer or engineer working inside this system. 
 
 - Body minimum 13px. Mono meta minimum 10px — only on short labels, never on running text.
 - All interactive elements ≥ 32px hit target. Buttons at the default `md` size are 36px tall.
-- Focus ring: use `--rbx-line-strong` on border, never remove outlines on keyboard focus.
+- Focus ring: use `--rbx-line-strong` on border, never remove outlines on keyboard focus. In the header and the breadcrumb the ring is a 2px outline in `--rbx-brand`.
+- Rest text of the header and the breadcrumb uses `--rbx-chrome-fg`; `--rbx-fg-dim` does not reach 4.5:1 there.
 
 ## Files to read, in order
 

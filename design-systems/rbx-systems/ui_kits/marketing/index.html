@@ -26,6 +26,7 @@ const App = () => {
   return (
     <>
       <TopNav active={active} onNav={setActive} />
+      <Container><Breadcrumb active={active} onNav={setActive} /></Container>
       <main>
         <Hero />
         <PositioningRow />

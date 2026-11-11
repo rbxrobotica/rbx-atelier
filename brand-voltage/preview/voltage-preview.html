@@ -5,6 +5,19 @@
 <title>RBX Voltage — Brand System Preview</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  /* The wordmark font is pinned to one release: Archivo v25 as Google Fonts serves it,
+     weight 700 at 125% width, Latin range. The versioned file does not change when the
+     family is updated, so a new release reaches the wordmark only through a reviewed edit
+     of this URL. */
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: 125%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q8EsJaRE-NWIDdgffTT0zRZ9xdp.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
 
   :root {
     /* ——— Voltage System tokens ——— */
@@ -29,6 +42,7 @@
     --info:  #7A93B0;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+    --font-wordmark: 'Archivo', 'Inter', system-ui, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -111,9 +125,29 @@
   .ticks { display: flex; gap: 30px; padding: 8px 0; border-top: 1px solid var(--cyan-dim); }
   .ticks .t { width: 1px; height: 6px; background: var(--cyan-dim); }
 
-  /* Logo preview area */
-  .logo-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .logo-preview img { width: 100%; height: auto; background: var(--bg-0); border: 1px solid var(--border); }
+  /* Mark and lockups */
+  .mark-files { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .mark-files figure { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .mark-files .ground { height: 140px; display: flex; align-items: center; justify-content: center; }
+  .mark-files .ground.dark { background: var(--bg-0); }
+  .mark-files .ground.light { background: #FFFFFF; }
+  .mark-files figcaption { padding: 10px 12px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+  .mark-sizes { display: flex; align-items: flex-end; gap: 28px; padding: 24px; border: 1px solid var(--border); border-radius: 4px; }
+  .mark-sizes div { display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+  .lockups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .lockups > div { border: 1px solid var(--border); border-radius: 4px; padding: 28px 24px 16px; display: flex; flex-direction: column; gap: 24px; }
+  .lockup { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; }
+  .lockup svg { display: block; flex: none; fill: var(--cyan-brand); }
+  .lockup .stack { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+  .lockup .wm { font-family: var(--font-wordmark); font-weight: 700; font-stretch: 125%; font-size: 17px; line-height: 1; letter-spacing: -0.02em; color: var(--fg-0); }
+  .lockup .sys { font-family: var(--font-mono); font-size: 9px; line-height: 1; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-2); }
+  .lockup .sys-h { font-family: var(--font-sans); font-weight: 300; font-size: 17px; line-height: 1; letter-spacing: -0.01em; color: var(--fg-1); }
+  .lockup.compact { gap: 10px; }
+  .lockup.compact .wm { font-size: 16px; }
+  .retired { display: flex; gap: 16px; align-items: center; }
+  .retired img { width: 72px; height: 72px; border: 1px solid var(--border); opacity: 0.6; }
+  .exports { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .exports img { border: 1px solid var(--border); }
 
   .footer-sig {
     margin-top: 64px; padding-top: 24px;
@@ -166,24 +200,78 @@
   <div class="swatch"><div class="chip" style="background:transparent; border:1px dashed var(--border-strong)"></div><div class="name">transparent</div><div class="hex">—</div></div>
 </div>
 
-<h2>Logo marks — B refined vs C structural</h2>
-<div class="logo-preview">
+<h2>Mark</h2>
+<p style="color: var(--fg-1); max-width: 42rem; margin-bottom: 16px;">Adopted 2026-11-08. A square with two opposite corners cut at 45°, each cut 46% of the side. Single ink. Rules in <span class="mono">BRAND-MARK.md</span>.</p>
+<div class="mark-files">
+  <figure>
+    <div class="ground dark"><img src="../marks/rbx-mark.svg" alt="RBX mark" width="72" height="72"/></div>
+    <figcaption>rbx-mark.svg · dark grounds</figcaption>
+  </figure>
+  <figure>
+    <div class="ground light"><img src="../marks/rbx-mark-on-light.svg" alt="RBX mark on a light ground" width="72" height="72"/></div>
+    <figcaption>rbx-mark-on-light.svg · #0F8F8F</figcaption>
+  </figure>
+  <figure>
+    <div class="ground dark"><img src="../marks/rbx-mark-tile.svg" alt="RBX mark on its tile" width="72" height="72" style="border: 1px solid var(--border);"/></div>
+    <figcaption>rbx-mark-tile.svg · favicon, avatar</figcaption>
+  </figure>
+  <figure>
+    <div class="ground dark"><img src="../marks/rbx-app-icon.svg" alt="RBX app icon" width="72" height="72" style="border-radius: 16px;"/></div>
+    <figcaption>rbx-app-icon.svg · app icon</figcaption>
+  </figure>
+</div>
+
+<h3>Sizes · minimum 12px</h3>
+<div class="mark-sizes">
+  <div><img src="../marks/rbx-mark.svg" alt="" width="12" height="12"/>12</div>
+  <div><img src="../marks/rbx-mark.svg" alt="" width="16" height="16"/>16</div>
+  <div><img src="../marks/rbx-mark.svg" alt="" width="24" height="24"/>24</div>
+  <div><img src="../marks/rbx-mark.svg" alt="" width="28" height="28"/>28</div>
+  <div><img src="../marks/rbx-mark.svg" alt="" width="48" height="48"/>48</div>
+  <div><img src="../marks/rbx-mark.svg" alt="" width="96" height="96"/>96</div>
+</div>
+
+<h2>Lockups · set in type</h2>
+<p style="color: var(--fg-1); max-width: 42rem; margin-bottom: 16px;">The wordmark is text beside the mark, never a drawing. Archivo 700 at 125% width is used for "RBX" and nowhere else.</p>
+<div class="lockups">
   <div>
-    <div class="eyebrow">Option B · refined bitmap.svg</div>
-    <img src="../marks/rbx-mark-B-refined.svg" alt="RBX Mark B"/>
+    <span class="lockup">
+      <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true"><path d="M30 8 H56 V34 L34 56 H8 V30 Z"/></svg>
+      <span class="stack"><span class="wm">RBX</span><span class="sys">Systems</span></span>
+    </span>
+    <div class="eyebrow">Stacked · desktop header · 28 / 17 / 9</div>
   </div>
   <div>
-    <div class="eyebrow">Option C · geometric R monogram</div>
-    <img src="../marks/rbx-mark-C-geometric.svg" alt="RBX Mark C"/>
+    <span class="lockup compact">
+      <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><path d="M30 8 H56 V34 L34 56 H8 V30 Z"/></svg>
+      <span class="wm">RBX</span>
+    </span>
+    <div class="eyebrow">Compact · mobile header · 24 / 16</div>
+  </div>
+  <div>
+    <span class="lockup">
+      <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true"><path d="M30 8 H56 V34 L34 56 H8 V30 Z"/></svg>
+      <span class="wm">RBX</span><span class="sys-h">Systems</span>
+    </span>
+    <div class="eyebrow">Horizontal · footer, documents</div>
   </div>
 </div>
 
-<h2>Wordmark lockups</h2>
-<div style="display:grid; grid-template-columns: 1fr; gap: 12px;">
-  <img src="../wordmarks/rbx-wordmark-holding.svg"    alt="RBX"         style="max-width: 300px;"/>
-  <img src="../wordmarks/rbx-wordmark-systems.svg"    alt="RBX Systems" style="max-width: 400px;"/>
-  <img src="../wordmarks/rbx-wordmark-robson.svg"     alt="RBX Robson"  style="max-width: 400px;"/>
+<h3>Lockup files</h3>
+<p style="color: var(--fg-1); max-width: 42rem;"><span class="mono">wordmarks/rbx-wordmark-systems-stacked.svg</span> and <span class="mono">wordmarks/rbx-wordmark-systems.svg</span> carry the lockups above as SVG text. They render as designed only where Archivo, Inter and JetBrains Mono are installed, or when the SVG is inlined in a page that loads them. As an image elsewhere the browser swaps the fonts, so they are not shown here.</p>
+
+<h3>Earlier lockups · not revised after 2026-11-08</h3>
+<div class="exports">
+  <img src="../wordmarks/rbx-wordmark-holding.svg"    alt="RBX"            style="max-width: 300px;"/>
+  <img src="../wordmarks/rbx-wordmark-robson.svg"     alt="RBX Robson"     style="max-width: 400px;"/>
   <img src="../wordmarks/rbx-wordmark-truthmetal.svg" alt="RBX TruthMetal" style="max-width: 460px;"/>
+</div>
+
+<h3>Retired marks · record only</h3>
+<div class="retired">
+  <img src="../marks/archive/rbx-mark-B-refined.svg" alt="Retired RBX mark: disc with three diagonal cuts"/>
+  <img src="../marks/archive/rbx-mark-C-geometric.svg" alt="Retired study: geometric R monogram"/>
+  <span class="eyebrow">marks/archive · do not use</span>
 </div>
 
 <h2>Signature — Card with L-corner brackets</h2>
@@ -232,7 +320,7 @@
 
 <div class="footer-sig">
   <div>RBX · VOLTAGE · v0.1 · BRAINSTORM</div>
-  <div>2026-04-23</div>
+  <div>2026-04-23 · MARK 2026-11-08</div>
 </div>
 
 </body>

@@ -31,9 +31,11 @@ Source of truth para a identidade visual da RBX: marca, wordmarks, cores e tipog
 
 | Arquivo / Pasta | Conteúdo |
 |---|---|
-| `colors_and_type.css` | Tokens de cor e tipografia da marca |
-| `marks/` | Símbolos/monogramas RBX (`rbx-mark-B-refined.svg`, `rbx-mark-C-geometric.svg`) |
-| `wordmarks/` | Lockups textuais (Holding, Systems, Robson, TruthMetal) |
+| `BRAND-MARK.md` | A marca RBX adotada em 8 de novembro de 2026: geometria, arquivos, wordmark e regras de uso |
+| `colors_and_type.css` | Tokens de cor e tipografia da marca, incluindo a fonte do wordmark e as faixas do header do site |
+| `marks/` | A marca: `rbx-mark.svg` (fundos escuros), `rbx-mark-on-light.svg`, `rbx-mark-tile.svg` (favicon, avatar) e `rbx-app-icon.svg` |
+| `marks/archive/` | Marcas aposentadas, só para registro. Não usar |
+| `wordmarks/` | Lockups textuais. Systems segue a marca nova, em versão horizontal e empilhada. Holding, Robson e TruthMetal ainda seguem o desenho anterior |
 | `preview/voltage-preview.html` | Amostra visual da marca |
 
 ---
@@ -57,11 +59,14 @@ Wiring para agentes: skill `rbx-voice-system` no repositório `rbx-agent-layer`.
 ### `design-systems/rbx-systems/` — RBX Systems
 Design system institucional, derivado do site `rbxsystems.ch`. Tom **Zurich-coded**: escuro, institucional, engenharia acima de decoração.
 
-- `README.md` — fundamentos visuais e editoriais
-- `colors_and_type.css` — tokens completos
-- `assets/` — logos, patterns e hero graphics
-- `preview/` — cartões de amostra (cores, tipografia, componentes)
-- `ui_kits/{marketing,atelier,product}/` — kits de UI por superfície
+- `README.md`: fundamentos visuais e editoriais
+- `colors_and_type.css`: tokens completos
+- `assets/`: a marca, patterns e hero graphics
+- `preview/`: cartões de amostra (cores, tipografia, componentes)
+- `ui_kits/{marketing,atelier,product}/`: kits de UI por superfície
+- `ui_kits/header/`: o header e o breadcrumb sozinhos, em página que acompanha a largura da janela
+
+Alinhado ao site em 11 de novembro de 2026 em três pontos: a marca e o lockup, o header em três faixas (marca, navegação principal, faixa da seção), opaco e não fixo, e o breadcrumb visível. A paleta do kit ainda é a da geração anterior do site; o README da pasta diz o que mudou e o que não mudou.
 
 ### `design-systems/rbx-design-system/` — Robson
 Design system do produto Robson (execução e risco em trading). Interfaces que parecem painéis de instrumentos: quietas, determinísticas, auditáveis.

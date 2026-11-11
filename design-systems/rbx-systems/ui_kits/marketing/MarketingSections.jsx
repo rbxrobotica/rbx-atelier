@@ -24,12 +24,8 @@ const Hero = () => (
             <Button variant="outline">Products</Button>
           </div>
         </div>
-        <div style={{
-          aspectRatio: '1/1', width: '100%', maxWidth: 460, marginLeft: 'auto',
-          position: 'relative',
-        }}>
-          <img src="../../assets/bitmap.svg" alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0.92 }} />
+        <div style={{ marginLeft: 'auto' }}>
+          <RbxMark size={176} />
         </div>
       </div>
     </Container>
