@@ -1,0 +1,15 @@
+{
+  "name": "rbx-atelier-guardrails",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tools of the Guardrails workflow of rbx-atelier: the security lint, the CDN script check and pnpm for the lockfile check (RBX engineering guardrail 2).",
+  "type": "module",
+  "devDependencies": {
+    "eslint": "10.14.0",
+    "eslint-plugin-no-unsanitized": "4.1.5",
+    "eslint-plugin-security": "4.2.1",
+    "globals": "17.14.0",
+    "parse5": "8.1.1",
+    "pnpm": "10.34.9"
+  }
+}

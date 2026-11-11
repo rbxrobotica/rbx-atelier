@@ -1,0 +1,14 @@
+# Exceptions for the vulnerability scan of package-lock.json in this directory.
+# osv-scanner reads this file for that lockfile only.
+
+# minimatch 10.2.6, a dependency of ESLint 10.14.0 (the newest release on
+# 2026-11-11), can be made to burn CPU and memory by a hostile glob pattern
+# (CVE-2026-118764). Here minimatch only reads the patterns of
+# .github/guardrails/eslint.config.js and of the workflow, which are reviewed
+# repository files. The fix is minimatch 11.0.1; ESLint already requires it on
+# its main branch (eslint/eslint#21492) and has not released that yet. When
+# this exception expires the scan fails again: update ESLint and delete it.
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+ignoreUntil = 2026-12-11
+reason = "Dev-only glob matcher fed by this repository's own lint configuration; no fixed ESLint release exists yet."

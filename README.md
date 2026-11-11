@@ -111,6 +111,31 @@ Brand e design system do Satwake, nome público do antigo Briefing BTC. Direçã
 
 ---
 
+## 5. Verificações de segurança
+
+`.github/workflows/guardrails.yml`
+
+O workflow `Guardrails` roda em todo pull request e em todo push na `main`. Ele aplica a seção 2 dos guardrails de engenharia da RBX (`rbx-engineering-guardrails.md`, no repositório `rbx-agent-layer`) em três jobs.
+
+| Job | O que verifica |
+|---|---|
+| `secret-scan` | Segredos no histórico do Git, com gitleaks. No pull request, os commits do próprio pull request. No push na `main`, o histórico completo. Commits de merge entram na leitura |
+| `dependency-scan` | Vulnerabilidades conhecidas, com osv-scanner, em todo lockfile do repositório e nas versões de React, ReactDOM e Babel que as páginas dos kits carregam do unpkg. Todo `package.json` precisa de um lockfile ao lado, em dia com ele. Uma página reprova quando carrega script de outra origem sem versão exata ou sem um atributo `integrity` que o navegador de fato aplique, quando carrega um arquivo do repositório que o lint não lê, quando usa `<base href>`, quando declara um import map e quando não está em UTF-8 de forma inequívoca. Link simbólico no repositório também reprova |
+| `security-lint` | Regras de segurança do ESLint nos arquivos `.js`, `.mjs`, `.cjs` e `.jsx` e nos scripts embutidos nas páginas `.html` e `.htm`: `eval` e equivalentes, texto inserido como HTML, arquivo ou propriedade acessados por nome calculado, expressão regular insegura, módulo importado de outra origem |
+
+Tudo o que o workflow executa tem versão fixa: as actions pelo SHA do commit, gitleaks e osv-scanner pela versão e pelo SHA-256 do binário, o Node pela versão exata, os pacotes npm por `.github/guardrails/package-lock.json`.
+
+Um achado do lint se resolve no código ou com uma justificativa na própria linha: `// eslint-disable-next-line <regra> -- <motivo>`. Uma exceção do osv-scanner fica em um `osv-scanner.toml` ao lado do lockfile, com motivo e data de validade.
+
+As verificações apoiam a revisão e não a substituem. Um pull request pode alterar o próprio workflow, as ferramentas e as exceções, e essas alterações aparecem no diff. Quatro coisas ficam fora do alcance:
+
+1. Código escrito em atributo HTML (`onclick`, endereço `javascript:`, `srcdoc`).
+2. Script dentro de arquivo SVG ou de qualquer arquivo que não seja página `.html` ou `.htm`.
+3. O que o código carrega ou executa em tempo de execução.
+4. O que o servidor decide ao servir um arquivo, como a codificação ou o tipo anunciados em cabeçalho HTTP.
+
+---
+
 ## Como usar
 
 1. **Identidade visual:** comece em `brand-voltage/`.
