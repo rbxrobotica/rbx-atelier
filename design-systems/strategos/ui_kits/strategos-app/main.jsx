@@ -17,6 +17,7 @@ const App = () => {
   const goto = (id) => { setZone(id); setDecisionId(null); };
   const openDecision = (id) => { setDecisionId(id); setZone("decision"); };
 
+  // eslint-disable-next-line security/detect-object-injection -- zone is state this kit sets from its own literals
   const meta = TITLES[zone];
 
   return (

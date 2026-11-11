@@ -61,6 +61,7 @@ async function renderOne(browser, channel, template, variantName, vars) {
     `<style>${tokens}</style>`,
   );
 
+  // eslint-disable-next-line security/detect-object-injection -- channel is checked in main() and the file of this template was read above
   const viewports = CHANNEL_VIEWPORTS[channel][template];
   if (!viewports) {
     console.warn(`skip  ${channel}/${template}/${variantName}: no viewports declared`);
@@ -98,7 +99,7 @@ async function main() {
 
   const channels = args.channel ? [String(args.channel)] : CHANNELS;
   for (const ch of channels) {
-    if (!CHANNEL_VIEWPORTS[ch]) throw new Error(`unknown channel: ${ch} (expected ${CHANNELS.join('|')})`);
+    if (!Object.hasOwn(CHANNEL_VIEWPORTS, ch)) throw new Error(`unknown channel: ${ch} (expected ${CHANNELS.join('|')})`);
   }
 
   const browser = await chromium.launch();
@@ -114,6 +115,7 @@ async function main() {
     } else if (args.template) {
       const tpl = String(args.template);
       const name = args.variant ? String(args.variant) : 'default';
+      // eslint-disable-next-line security/detect-object-injection -- both names passed parseArgs, and whatever this yields, fill() reads only its own properties and refuses a missing field
       const vars = (variants[tpl] && variants[tpl][name]) || {};
       for (const channel of channels) {
         await renderOne(browser, channel, tpl, name, vars);

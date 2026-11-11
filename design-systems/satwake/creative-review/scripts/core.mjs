@@ -56,7 +56,7 @@ export function loadBrief(path) {
   if (!UTM_CAMPAIGN.test(brief.campaign.id)) throw new Error('campaign ID violates UTM taxonomy');
   id(brief.audience?.id, 'audience.id'); need(brief.audience?.description, 'audience.description');
   need(brief.objective, 'objective'); need(brief.offer, 'offer'); need(brief.destination, 'destination');
-  if (!Array.isArray(brief.formats) || !brief.formats.length || brief.formats.some(f => !FORMATS[f])) throw new Error('invalid formats');
+  if (!Array.isArray(brief.formats) || !brief.formats.length || brief.formats.some(f => !Object.hasOwn(FORMATS, f))) throw new Error('invalid formats');
   unique(brief.formats, 'format');
   if (!Number.isInteger(brief.maxVariants) || brief.maxVariants < 1 || brief.maxVariants > 30) throw new Error('invalid maxVariants');
   if (brief.identity?.system !== 'satwake' || !brief.identity.version) throw new Error('invalid identity');
@@ -86,6 +86,7 @@ export function loadBrief(path) {
     unique(concept.messages.map(m => id(m.id, 'message.id')), 'message ID');
     unique(concept.visuals.map(v => id(v.id, 'visual.id')), 'visual ID');
     for (const m of concept.messages) {
+      // eslint-disable-next-line security/detect-object-injection -- k comes from the list on this line
       for (const k of ['eyebrow','headline','body','primaryText','cta','utmContent']) need(m[k], `message.${k}`);
       if (!UTM_CONTENT.test(m.utmContent)) throw new Error(`invalid utmContent: ${m.utmContent}`);
       if (!m.primaryText.includes(brief.editorial.requiredDisclaimer)) throw new Error(`missing required disclaimer: ${concept.id}/${m.id}`);
@@ -118,6 +119,7 @@ export function makeManifest(input) {
     const utmContent = contentFor(message,visual,concept.visuals.length);
     const variantId = `${batchId}__${concept.id}__${message.id}__${visual.id}`;
     const pieceId = `${variantId}__${format}`;
+    // eslint-disable-next-line security/detect-object-injection -- format comes from a brief that loadBrief accepted: an own key of FORMATS
     const [width,height] = FORMATS[format];
     pieces.push({
       id: pieceId, variantId, conceptId: concept.id, conceptUid: `${batchId}__${concept.id}`, messageId: message.id, visualId: visual.id, format,
