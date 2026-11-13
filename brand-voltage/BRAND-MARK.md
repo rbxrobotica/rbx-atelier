@@ -17,10 +17,10 @@ Este bloco registra a geometria. Quem precisar do traçado copia o `d` sem alter
 
 | Arquivo | Tinta e fundo | Uso |
 |---|---|---|
-| `marks/rbx-mark.svg` | `cyan-brand` #22E5E5, sem fundo | Header, documentos e qualquer superfície escura |
-| `marks/rbx-mark-on-light.svg` | #0F8F8F, sem fundo | Fundos claros: papel, materiais institucionais |
-| `marks/rbx-mark-tile.svg` | `cyan-brand` sobre `bg-0` #07080A | Favicon, avatar, logo da organização em dados estruturados |
-| `marks/rbx-app-icon.svg` | `bg-0` sobre `cyan-brand` | Ícone de app e de tela inicial |
+| `marks/merovelis-mark.svg` | `cyan-brand` #22E5E5, sem fundo | Header, documentos e qualquer superfície escura |
+| `marks/merovelis-mark-on-light.svg` | #0F8F8F, sem fundo | Fundos claros: papel, materiais institucionais |
+| `marks/merovelis-mark-tile.svg` | `cyan-brand` sobre `bg-0` #07080A | Favicon, avatar, logo da organização em dados estruturados |
+| `marks/merovelis-app-icon.svg` | `bg-0` sobre `cyan-brand` | Ícone de app e de tela inicial |
 | `marks/archive/` | | Marcas aposentadas, só para registro |
 
 Em tinta única de impressão ou gravação, use a cor de texto principal do tema: `fg-0`.

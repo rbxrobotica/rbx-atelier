@@ -28,7 +28,7 @@ RBX Systems develops software and AI systems for financial and high-reliability 
 
 The RBX mark changed on 2026-11-08 and the site header was rebuilt. The site is now `rbxrobotica/rbx-systems-frontend` (SvelteKit). This kit follows it in three places, read from `src/lib/design/components/{Logo,NavBar,Breadcrumb}.svelte` and `src/lib/design/tokens.css`:
 
-- **Mark and lockup.** `assets/rbx-mark.svg`, `RbxMark`, `RbxLogo`. Rules in `brand-voltage/BRAND-MARK.md`.
+- **Mark and lockup.** `assets/merovelis-mark.svg`, `RbxMark`, `RbxLogo`. Rules in `brand-voltage/BRAND-MARK.md`.
 - **Header.** `TopNav` is three rows, opaque, not sticky. See Layout rules.
 - **Breadcrumb.** New `Breadcrumb` component. See Layout rules.
 

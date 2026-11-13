@@ -33,7 +33,7 @@ Source of truth para a identidade visual da RBX: marca, wordmarks, cores e tipog
 |---|---|
 | `BRAND-MARK.md` | A marca RBX adotada em 8 de novembro de 2026: geometria, arquivos, wordmark e regras de uso |
 | `colors_and_type.css` | Tokens de cor e tipografia da marca, incluindo a fonte do wordmark e as faixas do header do site |
-| `marks/` | A marca: `rbx-mark.svg` (fundos escuros), `rbx-mark-on-light.svg`, `rbx-mark-tile.svg` (favicon, avatar) e `rbx-app-icon.svg` |
+| `marks/` | A marca: `merovelis-mark.svg` (fundos escuros), `merovelis-mark-on-light.svg`, `merovelis-mark-tile.svg` (favicon, avatar) e `merovelis-app-icon.svg` |
 | `marks/archive/` | Marcas aposentadas, só para registro. Não usar |
 | `wordmarks/` | Lockups textuais. Systems segue a marca nova, em versão horizontal e empilhada. Holding, Robson e TruthMetal ainda seguem o desenho anterior |
 | `preview/voltage-preview.html` | Amostra visual da marca |

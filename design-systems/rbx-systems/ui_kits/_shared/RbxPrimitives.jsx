@@ -125,7 +125,7 @@ const Card = ({ children, style, padding = 22 }) => (
 
 // ——— RBX mark and lockup ———
 // The mark is a square with two opposite corners cut at 45° (brand-voltage/BRAND-MARK.md).
-// It is inline so it takes the brand ink from the token; the file copy is assets/rbx-mark.svg.
+// It is inline so it takes the brand ink from the token; the file copy is assets/merovelis-mark.svg.
 // Decorative by default; pass `title` when the mark stands alone as the identifier.
 const RbxMark = ({ size = 28, color = 'var(--rbx-brand)', title }) => (
   <svg viewBox="0 0 64 64" width={size} height={size}
