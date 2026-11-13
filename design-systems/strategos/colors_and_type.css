@@ -1,12 +1,12 @@
 /* =============================================================================
    Strategos Design System — "Obsidian Council"
-   A variant of the RBX Voltage System for an AI-augmented strategic war room.
+   A variant of the Voltage System for an AI-augmented strategic war room.
 
    Drop this file into src/lib/design/strategos.css of strategos-ui and update
    tailwind.config.ts per implementation_guide.md.
 
    Inheritance:
-   - RBX Voltage tokens (warm-dark, hairline, single-accent cyan)
+   - Voltage tokens (warm-dark, hairline, single-accent cyan)
    - Robson type rhythm (Inter + JetBrains Mono + tabular numerals)
    New to Strategos:
    - Aurum accent (cold dim gold) reserved for human-decided artifacts
@@ -49,7 +49,7 @@
   --hairline-aurum:   rgba(201, 168, 106, 0.55);
   --border:           var(--hairline);
 
-  /* ----- Cyan family — AI reasoning, focus, links, RBX inheritance ----- */
+  /* ----- Cyan family — AI reasoning, focus, links, Voltage inheritance ----- */
   --cyan-signal:  #00FFFF;
   --cyan-brand:   #22E5E5;
   --cyan-muted:   #06B6B6;
@@ -171,7 +171,7 @@
   --content-w: 72rem;     /* 1152px — editorial */
   --canvas-w:  100%;      /* war-room is full-bleed */
   --gutter:    1.5rem;    /* 24 */
-  --header-h:  3.5rem;    /* 56 — slightly tighter than RBX hero (4rem) */
+  --header-h:  3.5rem;    /* 56 — slightly tighter than the Merovelis hero (4rem) */
   --sidebar-w: 16rem;     /* 256 */
 }
 

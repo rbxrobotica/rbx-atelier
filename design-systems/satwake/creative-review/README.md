@@ -2,7 +2,7 @@
 
 This is a deterministic, local candidate generator and browser review gallery. It reads a versioned JSON brief, creates message × visual variants, adapts each to declared formats, validates PNGs, records human decisions, and exports only exact approved versions. It does not call an AI provider, publish ads, or authorize spending.
 
-The engine lives with the Satwake design system because it uses the canonical tokens, CSS, and lockup in `design-systems/satwake/`. The private H1 example brief lives in `rbx-growth/marketing/2026-h2-growth/creatives/satwake/satwake-h1-batch-brief-v1.json`; this public repository contains only the engine and contract. The existing RBX Systems renderer remains in `design-systems/rbx-systems/marketing-creatives/` for that separate visual identity. Both use Playwright; the Satwake layouts use Satwake tokens and locally bundled fonts.
+The engine lives with the Satwake design system because it uses the canonical tokens, CSS, and lockup in `design-systems/satwake/`. The private H1 example brief lives in `rbx-growth/marketing/2026-h2-growth/creatives/satwake/satwake-h1-batch-brief-v1.json`; this public repository contains only the engine and contract. The existing Merovelis Systems renderer remains in `design-systems/rbx-systems/marketing-creatives/` for that separate visual identity. Both use Playwright; the Satwake layouts use Satwake tokens and locally bundled fonts.
 
 ## Setup and commands
 

@@ -1,6 +1,6 @@
 ---
 name: eden-system-creator-design
-description: Use this skill to generate well-branded interfaces and assets for Éden System Creator (RBX Systems' agentic system-creation platform), either for production or throwaway prototypes/mocks. Contains the design tokens, the editorial voice, the brand assets, the iconography rules, and a full product UI kit for Dashboard, Agent Council, Create Mission, Artifact Review, Governance & Audit and System Map. Dark-first, Zurich-coded, institutional. Built on the accepted RBX Voltage brand system.
+description: Use this skill to generate well-branded interfaces and assets for Éden System Creator (Merovelis Systems' agentic system-creation platform), either for production or throwaway prototypes/mocks. Contains the design tokens, the editorial voice, the brand assets, the iconography rules, and a full product UI kit for Dashboard, Agent Council, Create Mission, Artifact Review, Governance & Audit and System Map. Dark-first, Zurich-coded, institutional. Built on the accepted Voltage brand system.
 user-invocable: true
 ---
 
@@ -11,8 +11,8 @@ Read `README.md` first, then explore the other files in this skill folder.
 ## Files
 
 - `README.md` — full visual + content foundations, microcopy primitives, iconography rules, what to avoid.
-- `colors_and_type.css` — all design tokens. Built on RBX Voltage, extended with Éden domain tokens (mission states, risk tiers, autonomy levels, agent role identity).
-- `assets/` — logos, marks, wordmarks (RBX, RBX Systems, Robson, TruthMetal), brand patterns.
+- `colors_and_type.css` — all design tokens. Built on Voltage, extended with Éden domain tokens (mission states, risk tiers, autonomy levels, agent role identity).
+- `assets/` — the house mark and lockups (copies of `brand-voltage/`) and brand patterns. Earlier pieces are in `assets/archive/`.
 - `preview/` — foundation cards rendered as HTML. Cross-reference these when building new surfaces.
 - `ui_kits/eden/` — product UI kit (React + JSX via Babel). Lift components from here for new screens.
 

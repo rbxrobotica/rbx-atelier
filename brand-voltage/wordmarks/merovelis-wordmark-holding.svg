@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merovelis Holding horizontal lockup (2026-11-13), reserved: the Holding descriptor is not used before that entity exists: mark + "Merovelis" in Archivo 700 expanded +
+     "Holding" in Inter 300, on one line. Drawn at twice the footer size, with the positions the lockup has
+     when set in type. Convenience export: the text depends on installed fonts. The reference is the
+     lockup set in type, see ../BRAND-MARK.md. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 72" width="448" height="72" role="img" aria-label="Merovelis Holding">
+  <rect width="448" height="72" fill="#07080A"/>
+  <path fill="#22E5E5" transform="translate(20 12) scale(0.75)" d="M30 8 H56 V34 L34 56 H8 V30 Z"/>
+  <text x="92" y="47" font-family="Archivo, Inter, system-ui, sans-serif" font-size="34" font-weight="700" font-stretch="expanded" letter-spacing="-0.68" fill="#ECECEC">Merovelis</text>
+  <text x="306.5" y="48" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="300" letter-spacing="-0.34" fill="#B8BCC2">Holding</text>
+</svg>

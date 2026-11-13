@@ -1,5 +1,5 @@
 // Robson control plane — a dense, operational product surface.
-// Shows how RBX primitives compose into a real product UI.
+// Shows how Merovelis primitives compose into a real product UI.
 
 const ProductShell = ({ children }) => (
   <div style={{
@@ -42,7 +42,7 @@ const ProductSidebar = () => {
           <RbxMark size={28} />
           <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--rbx-fg)', letterSpacing: '-0.01em' }}>Robson</span>
-            <span style={{ fontFamily: 'var(--rbx-font-mono)', fontSize: 9, color: 'var(--rbx-fg-dim)', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 3 }}>RBX / Control Plane</span>
+            <span style={{ fontFamily: 'var(--rbx-font-mono)', fontSize: 9, color: 'var(--rbx-fg-dim)', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 3 }}>Merovelis / Control Plane</span>
           </div>
         </div>
       </div>

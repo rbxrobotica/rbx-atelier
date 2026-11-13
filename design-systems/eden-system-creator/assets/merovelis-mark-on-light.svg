@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merovelis mark for light grounds: same geometry as merovelis-mark.svg, ink #0F8F8F (contrast above 3:1 on a white page).
+     No background. Copy of brand-voltage/marks/merovelis-mark-on-light.svg. Rules: brand-voltage/BRAND-MARK.md -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Merovelis">
+  <path fill="#0F8F8F" d="M30 8 H56 V34 L34 56 H8 V30 Z"/>
+</svg>

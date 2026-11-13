@@ -23,7 +23,7 @@ const AppShell = ({ active, onNavigate, children, title, subtitle, breadcrumb })
           </div>
           <div className="shell__brand-text">
             <div className="shell__brand-name">STRATEGOS</div>
-            <div className="shell__brand-sub">RBX · Council</div>
+            <div className="shell__brand-sub">Merovelis · Council</div>
           </div>
         </div>
 

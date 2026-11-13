@@ -1,4 +1,4 @@
-/* SystemMap.jsx — sober dependency map of the RBX ecosystem. */
+/* SystemMap.jsx — sober dependency map of the Merovelis ecosystem. */
 
 function SystemMap({ go }) {
   /* Hand-laid SVG. Nodes positioned for a sober, asymmetric layout. */

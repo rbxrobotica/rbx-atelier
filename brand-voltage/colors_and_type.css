@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RBX Voltage System — Design Tokens
+   Voltage System — Design Tokens
    Dark-first, Zurich/Zug-coded. Single-accent cyan family.
    Unified across brand (marketing) and product (apps).
    ========================================================================== */
@@ -63,7 +63,7 @@
   /* ——— Type families ——— */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  /* Wordmark only: the "RBX" beside the mark. Never in interface text. See BRAND-MARK.md */
+  /* Wordmark only: the "Merovelis" beside the mark. Never in interface text. See BRAND-MARK.md */
   --font-wordmark: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* ——— Type scale (rem; 1rem = 16px) ——— */
@@ -188,7 +188,7 @@
   text-transform: uppercase;
   font-weight: 500;
 }
-/* The "RBX" of the lockup, set in type beside the mark. Size comes from the lockup:
+/* The "Merovelis" of the lockup, set in type beside the mark. Size comes from the lockup:
    17px in the desktop header, 16px on mobile. See BRAND-MARK.md */
 .rbx-wordmark {
   font-family: var(--font-wordmark);

@@ -12,7 +12,7 @@ A clickable React+Babel mock of the Éden System Creator product. Tokens come fr
 | Agent Council | `AgentCouncil.jsx` | Flagship · structured deliberation (left) + approval & artifacts (right) |
 | Artifact Review | `ArtifactReview.jsx` | ADR body, diff, plan, decision trace |
 | Governance & Audit | `Governance.jsx` | Decision queue, policy, audit log |
-| System Map | `SystemMap.jsx` | Sober SVG dependency map of the RBX ecosystem |
+| System Map | `SystemMap.jsx` | Sober SVG dependency map of the Merovelis ecosystem |
 | Command Palette | `CommandPalette.jsx` | ⌘K · actions, systems, missions |
 
 ## Atoms

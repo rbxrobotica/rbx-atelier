@@ -1,8 +1,8 @@
-# RBX Systems — Design System
+# Merovelis Systems Design System
 
 > Institutional. Zurich-coded. Dark-first. Engineered, not decorated.
 
-RBX Systems develops software and AI systems for financial and high-reliability environments: trading engines, decision platforms, and data validation systems. This design system encodes the visual and editorial language used across the marketing site, product surfaces, and institutional materials.
+Merovelis Systems develops software and AI systems for financial and high-reliability environments: trading engines, decision platforms, and data validation systems. This design system encodes the visual and editorial language used across the marketing site, product surfaces, and institutional materials.
 
 **Principles**
 - Structural, not decorative. Every element serves a purpose.
@@ -26,7 +26,7 @@ RBX Systems develops software and AI systems for financial and high-reliability 
 
 ### Alignment of 2026-11-11
 
-The RBX mark changed on 2026-11-08 and the site header was rebuilt. The site is now `rbxrobotica/rbx-systems-frontend` (SvelteKit). This kit follows it in three places, read from `src/lib/design/components/{Logo,NavBar,Breadcrumb}.svelte` and `src/lib/design/tokens.css`:
+The Merovelis mark changed on 2026-11-08 and the site header was rebuilt. The site is now `rbxrobotica/rbx-systems-frontend` (SvelteKit). This kit follows it in three places, read from `src/lib/design/components/{Logo,NavBar,Breadcrumb}.svelte` and `src/lib/design/tokens.css`:
 
 - **Mark and lockup.** `assets/merovelis-mark.svg`, `RbxMark`, `RbxLogo`. Rules in `brand-voltage/BRAND-MARK.md`.
 - **Header.** `TopNav` is three rows, opaque, not sticky. See Layout rules.
@@ -49,16 +49,16 @@ Not changed: the palette. This kit still carries the brass accent and the cool-n
 | `preview/` | Rendered cards (typography, color, components, spacing, brand) |
 | `ui_kits/marketing/` | Marketing site UI kit (header, breadcrumb, hero, about, products, footer) |
 | `ui_kits/header/` | The header and the breadcrumb on their own, on a page that follows the window width |
-| `ui_kits/atelier/` | RBX Atelier surface — the most Zurich-coded reference |
+| `ui_kits/atelier/` | Merovelis Atelier surface — the most Zurich-coded reference |
 | `ui_kits/product/` | Product / operations UI kit (TruthMetal-style control plane) |
 
 ---
 
 ## Content Fundamentals
 
-The RBX voice is **institutional, engineering-led, Zurich-coded**. It reads like a Swiss B2B systems firm: sober, structural, precise. It explicitly rejects agency speak.
+The Merovelis voice is **institutional, engineering-led, Zurich-coded**. It reads like a Swiss B2B systems firm: sober, structural, precise. It explicitly rejects agency speak.
 
-**Persona.** Write as *"RBX Systems"* or *"the RBX engineering team"* — never as a faceless brand, never as a single individual. Use first-person plural sparingly; prefer declarative system statements.
+**Persona.** Write as *"Merovelis Systems"* or *"the Merovelis engineering team"* — never as a faceless brand, never as a single individual. Use first-person plural sparingly; prefer declarative system statements.
 
 **Tone tests.** Before shipping a sentence, ask: *Does this sound like it could come from a Swiss engineering firm?* If not, rewrite.
 
@@ -128,7 +128,7 @@ The system is **dark-first**. Light mode exists in the codebase but is de-priori
 
 **Hierarchy.** Weight, not size, does most of the work. Display (H1) at `300` weight for a thin, institutional presence. Body at `400`. Labels at `500`. Never `700+` in interface text.
 
-**Wordmark.** The one exception to the families and the weight rule: the "RBX" of the lockup is set in Archivo 700 at 125% width (`--rbx-font-wordmark`). Archivo is for the wordmark only.
+**Wordmark.** The one exception to the families and the weight rule: the "Merovelis" of the lockup is set in Archivo 700 at 125% width (`--rbx-font-wordmark`). Archivo is for the wordmark only.
 
 - H1 64 / 300 / -0.015em
 - H2 36 / 400 / -0.015em
@@ -189,8 +189,8 @@ Scale: `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128`.
 - **Rest text** of the header and the breadcrumb is `--rbx-chrome-fg`, not `--rbx-fg-dim`: at these sizes `--rbx-fg-dim` falls under 4.5:1 on `--rbx-ink` and on `--rbx-surface-1`.
 - **Focus** in the header and the breadcrumb is a solid `2px` ring in `--rbx-brand`, drawn as an outline. The site draws the same ring with a box-shadow.
 - **Click areas.** Every link and button of the header and the breadcrumb takes the click on an area at least `32px` high: primary links fill their row, band links fill theirs, the language links and the CTA have a minimum height, the brand link is `44px` high, and the breadcrumb links extend their area without growing on screen. The site is tighter on the language links, the CTA, the band links and the breadcrumb links.
-- **Under 768px:** the brand row drops to `60px` with the compact lockup (mark and "RBX"); the CTA becomes a `44px` icon button with a label for assistive technology; the primary row moves into a menu opened by a button, placed after the band; the band becomes one row with the section, `›` and the current page, which opens the list of pages. Every control of the header and the breadcrumb is then at least `44px` high; the two language links are narrower than `44px`.
-- **Breadcrumb** on every page except the home page, between the site header and the title of the page. `TopNav` and `Breadcrumb` read one resolution, `resolveNav(active, leaf)`, so the band, the mobile label and the trail cannot disagree. Eyebrow style in `--rbx-chrome-fg`: a home icon, `›` separators in `--rbx-fg-faint`, ancestors as links, the current page in `--rbx-fg` with `1px` of `--rbx-brand-dim` below and `aria-current="page"`. A section's landing page shows the section alone. A page known only by its parent (a post, a service, a person) is named by its title; under a landing page the band then highlights nothing. A long title stays on one line and is cut with an ellipsis; the full title is the page heading right below. A title that carries the site name (`LLMOps — RBX Systems`) loses that suffix in the crumb. Contact and Legal Notice have a breadcrumb and no band.
+- **Under 768px:** the brand row drops to `60px` with the compact lockup (mark and "Merovelis"), and under `364px` with the mark alone, the name staying in the accessible label of the link; the CTA becomes a `44px` icon button with a label for assistive technology; the primary row moves into a menu opened by a button, placed after the band; the band becomes one row with the section, `›` and the current page, which opens the list of pages. Every control of the header and the breadcrumb is then at least `44px` high; the two language links are narrower than `44px`.
+- **Breadcrumb** on every page except the home page, between the site header and the title of the page. `TopNav` and `Breadcrumb` read one resolution, `resolveNav(active, leaf)`, so the band, the mobile label and the trail cannot disagree. Eyebrow style in `--rbx-chrome-fg`: a home icon, `›` separators in `--rbx-fg-faint`, ancestors as links, the current page in `--rbx-fg` with `1px` of `--rbx-brand-dim` below and `aria-current="page"`. A section's landing page shows the section alone. A page known only by its parent (a post, a service, a person) is named by its title; under a landing page the band then highlights nothing. A long title stays on one line and is cut with an ellipsis; the full title is the page heading right below. A title that carries the site name (`LLMOps — Merovelis Systems`) loses that suffix in the crumb. Contact and Legal Notice have a breadcrumb and no band.
 - **On the site only:** the same resolution feeds the BreadcrumbList structured data, so the visible trail and the structured data cannot disagree. The kits emit no structured data. On the site the breadcrumb sits inside the page padding with `--s-7` below it; in the kits it has a `32px` top margin and the sections bring their own padding. The language switch of the site links to the other host; in the kits it shows the control and its active state and translates nothing.
 - Footer is a solid darker surface (`#1D1D22`) separated by hairline.
 - Content columns: 72rem max (1152px). Prose columns: 42rem max.

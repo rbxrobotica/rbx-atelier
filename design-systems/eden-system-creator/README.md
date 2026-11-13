@@ -2,9 +2,9 @@
 
 > A platform for creating, evolving and governing real systems through agentic orchestration. The interface is sober, dark, precise and institutional. Zurich-coded. Control room over canvas.
 
-Éden System Creator is RBX Systems' creation layer: where humans define intent and constraints, and specialized AI agents reason, debate, produce artifacts and prepare systems for production. The user is **the orchestrator** (the maestro). The agents are specialized **musicians**. The platform is **the room, the score, the memory, the rules and the production path**.
+Éden System Creator is Merovelis Systems' creation layer: where humans define intent and constraints, and specialized AI agents reason, debate, produce artifacts and prepare systems for production. The user is **the orchestrator** (the maestro). The agents are specialized **musicians**. The platform is **the room, the score, the memory, the rules and the production path**.
 
-This design system encodes the visual and editorial language used across the Éden product surfaces. It builds on the accepted **RBX Voltage** brand system: dark-first, cyan single-accent, Inter + JetBrains Mono, hairline structure, no decoration.
+This design system encodes the visual and editorial language used across the Éden product surfaces. It builds on the accepted **Voltage** brand system: dark-first, cyan single-accent, Inter + JetBrains Mono, hairline structure, no decoration.
 
 ---
 
@@ -14,11 +14,11 @@ This system is rooted in material the user attached. If you have access, explore
 
 - **Product manifesto.** `rbxrobotica/rbx-eden-system-creator` → `MANIFEST.md`. The 16-section foundation document. Read it before designing anything new.
   https://github.com/rbxrobotica/rbx-eden-system-creator
-- **Accepted brand assets — RBX Voltage.** `rbxrobotica/rbx-eden-system-creator/atelier/brand-voltage/`. Marks, wordmarks, tokens, preview. Imported into `assets/` and `colors_and_type.css`.
+- **Accepted brand assets — Voltage.** `rbxrobotica/rbx-eden-system-creator/atelier/brand-voltage/`. Marks, wordmarks, tokens, preview. Imported into `assets/` and `colors_and_type.css`.
 - **Prior systems explored (archived).** `atelier/RBX Systems Design System/` and `atelier/RBX Design System/`. The README for *RBX Systems* is the most thorough write-up of the editorial / visual posture and was used directly to seed this document.
 - **Existing aligned products.** `rbxrobotica/robson` and `ldamasio/strategos-ui` already render against the Voltage tokens. Use those repos as reference implementations.
 
-The RBX ecosystem Éden integrates with:
+The Merovelis ecosystem Éden integrates with:
 - **Strategos** — strategy, planning, situation room
 - **Thalamus** — AI policy, evaluation, semantic governance
 - **Robson** — trading execution (a *consumer* of governed evolution)

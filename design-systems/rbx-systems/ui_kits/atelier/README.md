@@ -1,6 +1,6 @@
 # Atelier UI Kit
 
-A public "lab view" of RBX's systems — the atelier functions as a living index of experiments, telemetry and activity.
+A public "lab view" of Merovelis's systems — the atelier functions as a living index of experiments, telemetry and activity.
 
 **Screens / sections**
 - `AtelierHero` — status pill + brass accent line (accent reserved for "institutionalized" / live state)

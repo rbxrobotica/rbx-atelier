@@ -1,6 +1,6 @@
 # Marketing UI Kit
 
-Full recreation of the `rbxsystems.ch` homepage flow, built with the RBX design tokens.
+Full recreation of the `rbxsystems.ch` homepage flow, built with the Merovelis design tokens.
 
 **Screens / sections**
 - `TopNav`: header in three rows (brand row, primary navigation, section band). Opaque, not sticky. Click a section to see its band and the breadcrumb. This page is a desktop composition; for the header under 768px open `../header/`

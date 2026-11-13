@@ -7,6 +7,7 @@
 //   3. section band   44px  on surface-1: the pages of the active section, 1px dividers
 // Under 768px the brand row drops to 60px with the compact lockup, the primary row moves
 // into a menu and the band becomes a "Section › Page" button that opens the list.
+// Under 364px the brand is the mark alone.
 //
 // Sizes are the nominal token values on a 16px root. The site runs on a 15px root, so its
 // rem-based sizes compute 6.25% smaller; the row heights are in px and are the same.
@@ -44,12 +45,12 @@ const STANDALONE_PAGES = [
 ];
 
 // A page title as a crumb: trimmed, and without the site name that CMS titles of service
-// and product pages carry ("LLMOps — RBX Systems" reads "LLMOps").
+// and product pages carry ("LLMOps — Merovelis Systems" reads "LLMOps").
 const crumbTitle = (title) => {
   if (typeof title !== 'string') return undefined;
   const trimmed = title.trim();
   if (!trimmed) return undefined;
-  return trimmed.replace(/\s+[—–·|-]\s+RBX Systems$/, '') || trimmed;
+  return trimmed.replace(/\s+[—–·|-]\s+Merovelis Systems$/, '') || trimmed;
 };
 
 // One resolution for the header and the breadcrumb, so the two cannot disagree.
@@ -105,6 +106,7 @@ const CHROME_CSS = `
 /* Links are at least 32px high, 44px for the brand: the box grows, the artwork does not. */
 .rbx-hd-brand { display: inline-flex; align-items: center; min-height: 44px; }
 .rbx-hd-brand-mobile { display: none; }
+.rbx-hd-brand-narrow { display: none; }
 .rbx-hd-tools { display: flex; align-items: center; gap: 24px; }
 .rbx-hd-eyebrow {
   font-family: var(--rbx-font-mono); font-size: 11px; font-weight: 500;
@@ -232,6 +234,13 @@ const CHROME_CSS = `
   .rbx-hd .rbx-hd-menu ul { padding-left: 16px; }
   .rbx .rbx-crumbs a::after { width: max(100%, 44px); height: 44px; }
 }
+
+/* Under 364px the compact lockup no longer leaves 12px before the controls, so the brand
+   is the mark alone. The link keeps its accessible name. */
+@media (max-width: 363px) {
+  .rbx-hd-brand-mobile { display: none; }
+  .rbx-hd-brand-narrow { display: inline-flex; }
+}
 `;
 
 // `active` is a page id, `leaf` the title of a detail page under it (see resolveNav).
@@ -257,9 +266,10 @@ const TopNav = ({ active = 'home', onNav, leaf, locale = 'en' }) => {
       <style>{CHROME_CSS}</style>
       <header className="rbx-hd-header">
         <div className="rbx-hd-row rbx-hd-brand-row">
-          <a href="#" className="rbx-hd-brand" aria-label="RBX Systems" onClick={go('home')}>
+          <a href="#" className="rbx-hd-brand" aria-label="Merovelis Systems" onClick={go('home')}>
             <span className="rbx-hd-brand-desktop"><RbxLogo variant="stacked" /></span>
             <span className="rbx-hd-brand-mobile"><RbxLogo variant="compact" /></span>
+            <span className="rbx-hd-brand-narrow"><RbxMark size={24} /></span>
           </a>
 
           <div className="rbx-hd-tools">
@@ -440,7 +450,7 @@ const Footer = () => (
         <div style={{
           fontFamily: 'var(--rbx-font-mono)', fontSize: 11,
           color: 'var(--rbx-fg-dim)', letterSpacing: '0.04em',
-        }}>© 2026 RBX SYSTEMS · ALL RIGHTS RESERVED</div>
+        }}>© 2026 MEROVELIS SYSTEMS · ALL RIGHTS RESERVED</div>
         <div style={{ display: 'flex', gap: 16, color: 'var(--rbx-fg-dim)' }}>
           <Icon name="github" size={18} /><Icon name="linkedin" size={18} />
         </div>

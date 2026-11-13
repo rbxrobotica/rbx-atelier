@@ -1,4 +1,4 @@
-# RBX Systems Design System — SKILL
+# Merovelis Systems Design System — SKILL
 
 Operating instructions for any designer or engineer working inside this system. Read this first.
 
@@ -9,8 +9,8 @@ Operating instructions for any designer or engineer working inside this system. 
 - **Tokens** live in `colors_and_type.css` as CSS variables under the `.rbx` class. All kits apply `class="rbx"` to `<body>`.
 - **Shared components** live in `ui_kits/_shared/`: `RbxPrimitives.jsx` (Container, Button, Icon, Card, StatusPill, PhaseTag, Field, RbxMark, RbxLogo) and `ChromeComponents.jsx` (TopNav, Breadcrumb, Footer).
 - **Kits** live in `ui_kits/<name>/`. Each kit is a standalone HTML file + its own sections JSX.
-- **Type**: Inter (sans) + JetBrains Mono (code/data), plus Archivo 700 at 125% width for the "RBX" of the lockup and nothing else. `colors_and_type.css` loads the three from Google Fonts.
-- **Mark**: `RbxMark` draws the RBX mark inline; `RbxLogo` sets the wordmark in type beside it (`stacked`, `compact`, `horizontal`). Never use a letter as the mark and never redraw it. Rules in `brand-voltage/BRAND-MARK.md`.
+- **Type**: Inter (sans) + JetBrains Mono (code/data), plus Archivo 700 at 125% width for the "Merovelis" of the lockup and nothing else. `colors_and_type.css` loads the three from Google Fonts.
+- **Mark**: `RbxMark` draws the Merovelis mark inline; `RbxLogo` sets the wordmark in type beside it (`stacked`, `compact`, `horizontal`). Never use a letter as the mark and never redraw it. Rules in `brand-voltage/BRAND-MARK.md`.
 - **Header**: `TopNav` is three rows (brand, primary, section band), opaque and not sticky. The active item is underlined in `--rbx-brand`; the contact CTA is the only filled element. `Breadcrumb` sits between the header and the title of the page, on every page except the home page. Both take `active` and `leaf` and read `resolveNav`. Specimen in `ui_kits/header/`.
 
 ## Non-negotiable rules

@@ -1,4 +1,4 @@
-/* RBX Systems — Colors & Type
+/* Merovelis Systems — Colors & Type
    Zurich-coded: dark-first, restrained, high-contrast, institutional.
    Primary font Inter. Fallback: system-ui, sans-serif.
    Monospace: JetBrains Mono (for data/code/status).
@@ -42,7 +42,7 @@
   --rbx-cyan:        #01FFFF;   /* legacy product accent — use sparingly */
   --rbx-cyan-dim:    #01A6A6;
 
-  /* ——— Brand (RBX Voltage) ———
+  /* ——— Brand (Voltage) ———
      The mark, the header and the breadcrumb follow brand-voltage/colors_and_type.css,
      aligned on 2026-11-11 with the site as shipped. The rest of this palette (brass
      accent, cool-neutral surfaces) predates that alignment and was not re-skinned. */
@@ -69,7 +69,7 @@
   /* ——— Type families ——— */
   --rbx-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --rbx-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  /* Wordmark only: the "RBX" beside the mark. Never in interface text. */
+  /* Wordmark only: the "Merovelis" beside the mark. Never in interface text. */
   --rbx-font-wordmark: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* ——— Type scale (1rem = 16px) ——— */

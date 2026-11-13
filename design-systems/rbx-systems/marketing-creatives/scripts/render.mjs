@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// render.mjs · Programmatic creative renderer for RBX Voltage.
+// render.mjs · Programmatic creative renderer for Voltage.
 // Loads an HTML template, replaces {{PLACEHOLDER}} tokens from a variants file,
 // renders at declared viewports per channel via Playwright, screenshots to
 // exports/<channel>/, validates dimensions.

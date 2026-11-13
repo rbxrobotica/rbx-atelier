@@ -1,10 +1,10 @@
 # Satwake · Brand and Design System
 
-Satwake é o nome público do produto antes chamado Briefing BTC: a leitura diária do mercado de Futuros BTC/USDT da RBX Systems.
+Satwake é o nome público do produto antes chamado Briefing BTC: a leitura diária do mercado de Futuros BTC/USDT da Merovelis Systems.
 
 - **Status:** v0.1.0, proposta para revisão do owner, 2026-09-24.
 - **Canvas de design (Claude Design):** https://claude.ai/artifact/WZDWeNUrovcJkFVKUbzbZW, com brand system, tokens e componentes, landing desktop e mobile, estados do checkout, modelo de campanhas, anúncios e especificação.
-- **Decisões duráveis:** ficam nas ADRs de governança da RBX (produto, domínios, campanhas e mensuração). Os detalhes visuais ficam aqui e no canvas.
+- **Decisões duráveis:** ficam nas ADRs de governança da Merovelis (produto, domínios, campanhas e mensuração). Os detalhes visuais ficam aqui e no canvas.
 
 ## Direção
 
@@ -54,7 +54,7 @@ Em produção, sirva as fontes pelo próprio domínio.
 
 ## Voz e conteúdo
 
-Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo financeiro da RBX (não publicada neste repositório):
+Segue `brand-voice/rbx-voice-system.md` e a política interna de conteúdo financeiro da Merovelis (não publicada neste repositório):
 
 - nada de exclamação, emoji, travessão ou urgência;
 - nada de sinal de compra e venda, alvo de preço ou promessa de retorno;

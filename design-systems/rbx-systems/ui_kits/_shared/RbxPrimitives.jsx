@@ -1,4 +1,4 @@
-// Shared RBX primitives. Babel JSX. Exports to window so other files can use them.
+// Shared Merovelis primitives. Babel JSX. Exports to window so other files can use them.
 // Depends on colors_and_type.css being loaded on the page.
 
 const { useState, useEffect, useRef, useMemo } = React;
@@ -123,7 +123,7 @@ const Card = ({ children, style, padding = 22 }) => (
   }}>{children}</div>
 );
 
-// ——— RBX mark and lockup ———
+// ——— Merovelis mark and lockup ———
 // The mark is a square with two opposite corners cut at 45° (brand-voltage/BRAND-MARK.md).
 // It is inline so it takes the brand ink from the token; the file copy is assets/merovelis-mark.svg.
 // Decorative by default; pass `title` when the mark stands alone as the identifier.
@@ -136,9 +136,9 @@ const RbxMark = ({ size = 28, color = 'var(--rbx-brand)', title }) => (
 );
 
 // The wordmark is set in type beside the mark, never drawn.
-// - stacked: mark + "RBX" over the subtitle in mono caps (desktop header)
-// - compact: mark + "RBX" (mobile header)
-// - horizontal: mark + "RBX" + subtitle on one line (footer, documents)
+// - stacked: mark + "Merovelis" over the subtitle in mono caps (desktop header)
+// - compact: mark + "Merovelis" (mobile header)
+// - horizontal: mark + "Merovelis" + subtitle on one line (footer, documents)
 const RbxLogo = ({ variant = 'stacked', subtitle = 'Systems', markSize }) => {
   const compact = variant === 'compact';
   const wordmark = {
@@ -150,17 +150,17 @@ const RbxLogo = ({ variant = 'stacked', subtitle = 'Systems', markSize }) => {
       <RbxMark size={markSize || (compact ? 24 : 28)} />
       {variant === 'stacked' && (
         <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 3 }}>
-          <span style={wordmark}>RBX</span>
+          <span style={wordmark}>Merovelis</span>
           <span style={{
             fontFamily: 'var(--rbx-font-mono)', fontSize: 9, lineHeight: 1, fontWeight: 500,
             textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--rbx-chrome-fg)',
           }}>{subtitle}</span>
         </span>
       )}
-      {compact && <span style={wordmark}>RBX</span>}
+      {compact && <span style={wordmark}>Merovelis</span>}
       {variant === 'horizontal' && (
         <>
-          <span style={wordmark}>RBX</span>
+          <span style={wordmark}>Merovelis</span>
           <span style={{
             fontFamily: 'var(--rbx-font-sans)', fontWeight: 300, fontSize: 17, lineHeight: 1,
             letterSpacing: '-0.01em', color: 'var(--rbx-fg-muted)',
