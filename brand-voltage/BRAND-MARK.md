@@ -40,6 +40,8 @@ No header de celular, o lockup compacto precisa de 364px de tela para manter 12p
 
 O descritor da casa é `Systems`. O descritor `Holding` é reservado e não é usado antes de essa entidade existir.
 
+Em fundo claro, a marca usa a tinta `#0F8F8F`, o nome usa o `fg-0` do tema claro, `#20201C`, e o descritor usa o `fg-2` do tema claro, `#666056`. O tema claro está em `TEMA-CLARO.md`.
+
 Archivo existe só para o wordmark. Não use Archivo em texto de interface. A fonte e a classe `.rbx-wordmark` estão em `colors_and_type.css`, que fixa a versão v25 da Archivo: uma versão nova só chega ao wordmark por uma edição revisada daquela URL.
 
 Os 12px entre marca e texto são o valor nominal de `s-3`, em raiz de 16px. O site usa raiz de 15px, e lá esse intervalo mede 11,25px. Os tamanhos da marca e do texto estão em px e são os mesmos.

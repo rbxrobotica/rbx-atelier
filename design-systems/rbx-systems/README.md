@@ -100,7 +100,7 @@ The Merovelis voice is **institutional, engineering-led, Zurich-coded**. It read
 
 ### Color
 
-The system is **dark-first**. Light mode exists in the codebase but is de-prioritized — institutional surfaces run dark.
+The system is **dark-first**. Institutional surfaces run dark. A light theme is defined in Voltage (`brand-voltage/TEMA-CLARO.md`) and is opt-in; this kit has not adopted it.
 
 **Surfaces (dark scale).** Near-black, cool-neutral, narrow step.
 `#050507` page → `#0A0A0B` primary → `#0F1012` raised → `#15161A` card → `#1D1D22` footer → `#26272C` hairline → `#33343A` strong divider.

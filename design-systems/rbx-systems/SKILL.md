@@ -15,7 +15,7 @@ Operating instructions for any designer or engineer working inside this system. 
 
 ## Non-negotiable rules
 
-1. **Dark first.** The system is designed on `--rbx-ink` (#0A0A0B). Light surfaces do not exist yet. Do not invent them.
+1. **Dark first.** The system is designed on `--rbx-ink` (#0A0A0B). This kit has no light surfaces. A light theme is defined in Voltage (`brand-voltage/TEMA-CLARO.md`); do not invent another one here.
 
 2. **Brass is earned.** `--rbx-accent` (#B08D3C) is reserved for:
    - "Institutionalized" phase tags

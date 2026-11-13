@@ -32,7 +32,8 @@ Source of truth para a identidade visual da Merovelis: marca, wordmarks, cores e
 | Arquivo / Pasta | Conteúdo |
 |---|---|
 | `BRAND-MARK.md` | A marca Merovelis adotada em 8 de novembro de 2026: geometria, arquivos, wordmark e regras de uso |
-| `colors_and_type.css` | Tokens de cor e tipografia da marca, incluindo a fonte do wordmark e as faixas do header do site |
+| `colors_and_type.css` | Tokens de cor e tipografia da marca, incluindo a fonte do wordmark, as faixas do header do site e o tema claro, que é opcional |
+| `TEMA-CLARO.md` | O tema claro em marfim com ciano: tokens, regras de uso e contraste |
 | `marks/` | A marca: `merovelis-mark.svg` (fundos escuros), `merovelis-mark-on-light.svg`, `merovelis-mark-tile.svg` (favicon, avatar) e `merovelis-app-icon.svg` |
 | `marks/archive/` | Marcas aposentadas, só para registro. Não usar |
 | `wordmarks/` | Lockups textuais. Os arquivos `merovelis-wordmark-*` trazem o nome novo, com os descritores Systems e Holding, em versão horizontal e empilhada. Os arquivos `rbx-wordmark-*` trazem o nome anterior e ficam até os sites trocarem de nome |
@@ -162,7 +163,7 @@ Materiais consolidados a partir dos repositórios internos da Merovelis, com sou
 
 Duas identidades anteriores não foram copiadas para cá. Ficam nos projetos de origem, só para registro:
 
-- A identidade anterior do Merovelis, em marfim e argila, com Fraunces e Hanken Grotesk. Os arquivos estão no repositório do site antigo do Merovelis.
+- A identidade anterior do Merovelis, em marfim e argila, com Fraunces e Hanken Grotesk. Os arquivos estão no repositório do site antigo do Merovelis. O marfim das superfícies foi reaproveitado no tema claro do Voltage, descrito em `brand-voltage/TEMA-CLARO.md`.
 - A identidade verde de Informat e Iteruno, que fica com o projeto de origem.
 
 As marcas aposentadas desta casa estão em `brand-voltage/marks/archive/`.
