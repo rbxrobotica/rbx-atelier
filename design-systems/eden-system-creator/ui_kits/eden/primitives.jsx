@@ -8,6 +8,7 @@ function Pip({ tone = 'fg-2', pulse = false, color }) {
     blocked:  'var(--err)', archived: 'var(--fg-3)',
     ok: 'var(--ok)', warn: 'var(--warn)', err: 'var(--err)', info: 'var(--info)',
   };
+  // eslint-disable-next-line security/detect-object-injection -- tone is a prop set from the literals of this kit
   const c = color || colorMap[tone] || 'var(--fg-2)';
   return <span className={`eden-pip ${pulse ? 'eden-pip--pulse' : ''}`} style={{ background: c, color: c }} />;
 }
@@ -20,10 +21,12 @@ function Chip({ tone, children, dot = true, className = '', style = {} }) {
     blocked:  'var(--err)', archived: 'var(--fg-3)',
     ok: 'var(--ok)', warn: 'var(--warn)', err: 'var(--err)', info: 'var(--info)',
   };
+  // eslint-disable-next-line security/detect-object-injection -- tone is a prop set from the literals of this kit
   const color = palette[tone];
   const pulseStates = { running: true, council: true };
   return (
     <span className={`eden-chip ${className}`} style={{ color, ...style }}>
+      {/* eslint-disable-next-line security/detect-object-injection -- tone is a prop set from the literals of this kit */}
       {dot && tone && <Pip tone={tone} pulse={!!pulseStates[tone]} />}
       {children}
     </span>

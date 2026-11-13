@@ -6,6 +6,7 @@ import { FORMATS, fileHash, pngDimensions, atomicJSON, piecePath, validatePiece,
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BRAND = resolve(ROOT, '..');
+// eslint-disable-next-line security/detect-object-injection -- c is one of the five characters the pattern matches
 const escape = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const font = (family, packageName, weight) => {
   const bytes = readFileSync(join(ROOT,'node_modules','@fontsource',packageName,'files',`${packageName}-latin-${weight}-normal.woff2`));
@@ -73,7 +74,9 @@ export async function renderPending(batchDir, manifest, {resume=false}={}) {
           });
           let noOverlap = true;
           for (let i=0;i<boxes.length;i++) for (let j=i+1;j<boxes.length;j++) {
+            // eslint-disable-next-line security/detect-object-injection -- i and j are the indexes of the two loops
             const a=boxes[i].rect,b=boxes[j].rect;
+            // eslint-disable-next-line security/detect-object-injection -- i and j are the indexes of the two loops
             if (Math.min(a.right,b.right)-Math.max(a.left,b.left)>3 && Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>3) { noOverlap=false;details.push(`overlap: ${boxes[i].label} / ${boxes[j].label}`); }
           }
           const fontsLoaded = document.fonts.check('500 64px Newsreader') && document.fonts.check('400 24px "IBM Plex Sans"') && document.fonts.check('400 18px "IBM Plex Mono"');

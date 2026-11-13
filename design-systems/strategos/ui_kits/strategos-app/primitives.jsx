@@ -27,7 +27,9 @@ const ConfidenceBar = ({ value, label }) => {
 
 const RiskBadge = ({ severity, P, I, score, trend }) => {
   const map = { CRITICAL: "risk", ELEVATED: "warn", MONITORED: "info", RESOLVED: "ok" };
+  // eslint-disable-next-line security/detect-object-injection -- severity is a prop set from the seed data of this kit
   const tone = map[severity] || "info";
+  // eslint-disable-next-line security/detect-object-injection -- trend is a prop set from the seed data of this kit
   const arrow = { up: "↑", down: "↓", flat: "→" }[trend] || "→";
   const arrowTone = trend === "up" ? "risk" : trend === "down" ? "ok" : "ink-2";
   return (

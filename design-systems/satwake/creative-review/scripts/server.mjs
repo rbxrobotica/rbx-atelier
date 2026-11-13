@@ -37,6 +37,7 @@ export function serve(batchDir,port=4173) {
       if (req.method==='GET' && path.startsWith('/files/')) {
         const name=decodeURIComponent(path.slice(7));
         if (name!==basename(name) || !readManifest(batchDir).pieces.some(p=>p.file.name===name)) {json(res,404,{error:'not found'});return;}
+        // eslint-disable-next-line security/detect-non-literal-fs-filename -- name is its own basename and a file of the manifest, both checked on the line above
         res.writeHead(200,{'Content-Type':'image/png','Cache-Control':'no-store'});res.end(readFileSync(join(batchDir,'files',name)));return;
       }
       if (req.method==='POST' && path==='/api/decisions') {

@@ -39,6 +39,7 @@ const Button = ({ children, variant = 'primary', size = 'md', onClick, href, sty
   };
   const Tag = href ? 'a' : 'button';
   return (
+    // eslint-disable-next-line security/detect-object-injection -- variant is a prop set from the literals of this kit
     <Tag href={href} onClick={onClick} style={{ ...base, ...(variants[variant] || {}), ...style }} {...rest}>
       {children}
     </Tag>
@@ -69,6 +70,7 @@ const StatusPill = ({ state, children, tone = 'ok' }) => {
       letterSpacing: '0.04em', color: 'var(--rbx-fg)',
       textTransform: 'uppercase',
     }}>
+      {/* eslint-disable-next-line security/detect-object-injection -- tone is a prop set from the literals of this kit */}
       <StatusDot color={colors[tone]} />
       {state || children}
     </span>
@@ -190,6 +192,7 @@ const Icon = ({ name, size = 16, color }) => {
     <svg viewBox="0 0 24 24" width={size} height={size}
       fill="none" stroke={color || 'currentColor'} strokeWidth="1.5"
       strokeLinecap="round" strokeLinejoin="round">
+      {/* eslint-disable-next-line security/detect-object-injection -- name is a prop set from the literals of this kit */}
       {paths[name]}
     </svg>
   );
