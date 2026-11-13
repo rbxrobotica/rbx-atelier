@@ -1,8 +1,8 @@
-# RBX Atelier
+# Merovelis Atelier
 
-Repositório central da **Identidade Visual**, da **Voz Verbal** e dos **Design Systems** do ecossistema RBX.
+Repositório central da **Identidade Visual**, da **Voz Verbal** e dos **Design Systems** do ecossistema Merovelis.
 
-Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita (Brand Voice) e os sistemas visuais dos produtos RBX em um único lugar, pronto para consulta, handoff e publicação.
+Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita (Brand Voice) e os sistemas visuais dos produtos Merovelis em um único lugar, pronto para consulta, handoff e publicação.
 
 ---
 
@@ -10,10 +10,10 @@ Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita
 
 ```
 rbx-atelier/
-├── brand-voltage/              ← Identidade Visual RBX (source of truth)
-├── brand-voice/                ← Sistema de Escrita RBX (source of truth)
+├── brand-voltage/              ← Identidade Visual Merovelis (source of truth)
+├── brand-voice/                ← Sistema de Escrita Merovelis (source of truth)
 ├── design-systems/             ← Design Systems por produto
-│   ├── rbx-systems/            ← RBX Systems (institucional / site)
+│   ├── rbx-systems/            ← Merovelis Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)
 │   ├── eden-system-creator/    ← Éden System Creator
 │   ├── strategos/              ← Strategos (situation room)
@@ -27,13 +27,16 @@ rbx-atelier/
 
 `brand-voltage/`
 
-Source of truth para a identidade visual da RBX: marca, wordmarks, cores e tipografia base.
+Source of truth para a identidade visual da Merovelis: marca, wordmarks, cores e tipografia base.
 
 | Arquivo / Pasta | Conteúdo |
 |---|---|
-| `colors_and_type.css` | Tokens de cor e tipografia da marca |
-| `marks/` | Símbolos/monogramas RBX (`rbx-mark-B-refined.svg`, `rbx-mark-C-geometric.svg`) |
-| `wordmarks/` | Lockups textuais (Holding, Systems, Robson, TruthMetal) |
+| `BRAND-MARK.md` | A marca Merovelis adotada em 8 de novembro de 2026: geometria, arquivos, wordmark e regras de uso |
+| `colors_and_type.css` | Tokens de cor e tipografia da marca, incluindo a fonte do wordmark, as faixas do header do site e o tema claro, que é opcional |
+| `TEMA-CLARO.md` | O tema claro em marfim com ciano: tokens, regras de uso e contraste |
+| `marks/` | A marca: `merovelis-mark.svg` (fundos escuros), `merovelis-mark-on-light.svg`, `merovelis-mark-tile.svg` (favicon, avatar) e `merovelis-app-icon.svg` |
+| `marks/archive/` | Marcas aposentadas, só para registro. Não usar |
+| `wordmarks/` | Lockups textuais. Os arquivos `merovelis-wordmark-*` trazem o nome novo, com os descritores Systems e Holding, em versão horizontal e empilhada. Os arquivos `rbx-wordmark-*` trazem o nome anterior e ficam até os sites trocarem de nome |
 | `preview/voltage-preview.html` | Amostra visual da marca |
 
 ---
@@ -42,7 +45,7 @@ Source of truth para a identidade visual da RBX: marca, wordmarks, cores e tipog
 
 `brand-voice/`
 
-Source of truth para a voz verbal da RBX: princípios universais de escrita, tokens de voz, registros por contexto (institucional, marketing, UI, documentação, briefings, outputs de agentes) e regras de enforcement. Complementa o Brand Voltage: o Voltage define como a RBX se parece; o Voice define como a RBX soa.
+Source of truth para a voz verbal da Merovelis: princípios universais de escrita, tokens de voz, registros por contexto (institucional, marketing, UI, documentação, briefings, outputs de agentes) e regras de enforcement. Complementa o Brand Voltage: o Voltage define como a Merovelis se parece; o Voice define como a Merovelis soa.
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -54,14 +57,17 @@ Wiring para agentes: skill `rbx-voice-system` no repositório `rbx-agent-layer`.
 
 ## 3. Design Systems por produto
 
-### `design-systems/rbx-systems/` — RBX Systems
+### `design-systems/rbx-systems/` — Merovelis Systems
 Design system institucional, derivado do site `rbxsystems.ch`. Tom **Zurich-coded**: escuro, institucional, engenharia acima de decoração.
 
-- `README.md` — fundamentos visuais e editoriais
-- `colors_and_type.css` — tokens completos
-- `assets/` — logos, patterns e hero graphics
-- `preview/` — cartões de amostra (cores, tipografia, componentes)
-- `ui_kits/{marketing,atelier,product}/` — kits de UI por superfície
+- `README.md`: fundamentos visuais e editoriais
+- `colors_and_type.css`: tokens completos
+- `assets/`: a marca, patterns e hero graphics
+- `preview/`: cartões de amostra (cores, tipografia, componentes)
+- `ui_kits/{marketing,atelier,product}/`: kits de UI por superfície
+- `ui_kits/header/`: o header e o breadcrumb sozinhos, em página que acompanha a largura da janela
+
+Alinhado ao site em 11 de novembro de 2026 em três pontos: a marca e o lockup, o header em três faixas (marca, navegação principal, faixa da seção), opaco e não fixo, e o breadcrumb visível. A paleta do kit ainda é a da geração anterior do site; o README da pasta diz o que mudou e o que não mudou.
 
 ### `design-systems/rbx-design-system/` — Robson
 Design system do produto Robson (execução e risco em trading). Interfaces que parecem painéis de instrumentos: quietas, determinísticas, auditáveis.
@@ -115,7 +121,7 @@ Brand e design system do Satwake, nome público do antigo Briefing BTC. Direçã
 
 `.github/workflows/guardrails.yml`
 
-O workflow `Guardrails` roda em todo pull request e em todo push na `main`. Ele aplica a seção 2 dos guardrails de engenharia da RBX (`rbx-engineering-guardrails.md`, no repositório `rbx-agent-layer`) em três jobs.
+O workflow `Guardrails` roda em todo pull request e em todo push na `main`. Ele aplica a seção 2 dos guardrails de engenharia da Merovelis (`rbx-engineering-guardrails.md`, no repositório `rbx-agent-layer`) em três jobs.
 
 | Job | O que verifica |
 |---|---|
@@ -151,4 +157,13 @@ As verificações apoiam a revisão e não a substituem. Um pull request pode al
 
 ## Origem
 
-Materiais consolidados a partir dos repositórios internos da RBX, com source of truth em `rbx-eden-system-creator/atelier/` e `strategos-ui/Strategos Design System/`.
+Materiais consolidados a partir dos repositórios internos da Merovelis, com source of truth em `rbx-eden-system-creator/atelier/` e `strategos-ui/Strategos Design System/`.
+
+### Identidades que não estão neste repositório
+
+Duas identidades anteriores não foram copiadas para cá. Ficam nos projetos de origem, só para registro:
+
+- A identidade anterior do Merovelis, em marfim e argila, com Fraunces e Hanken Grotesk. Os arquivos estão no repositório do site antigo do Merovelis. O marfim das superfícies foi reaproveitado no tema claro do Voltage, descrito em `brand-voltage/TEMA-CLARO.md`.
+- A identidade verde de Informat e Iteruno, que fica com o projeto de origem.
+
+As marcas aposentadas desta casa estão em `brand-voltage/marks/archive/`.

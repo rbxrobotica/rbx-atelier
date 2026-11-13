@@ -1,4 +1,4 @@
-// Shared RBX primitives. Babel JSX. Exports to window so other files can use them.
+// Shared Merovelis primitives. Babel JSX. Exports to window so other files can use them.
 // Depends on colors_and_type.css being loaded on the page.
 
 const { useState, useEffect, useRef, useMemo } = React;
@@ -123,23 +123,53 @@ const Card = ({ children, style, padding = 22 }) => (
   }}>{children}</div>
 );
 
-// ——— RBX mark (imported from logo) ———
-const RbxMark = ({ size = 28 }) => (
-  <img src="../../assets/bitmap.svg" alt="RBX" style={{ width: size, height: size, display: 'block' }} />
+// ——— Merovelis mark and lockup ———
+// The mark is a square with two opposite corners cut at 45° (brand-voltage/BRAND-MARK.md).
+// It is inline so it takes the brand ink from the token; the file copy is assets/merovelis-mark.svg.
+// Decorative by default; pass `title` when the mark stands alone as the identifier.
+const RbxMark = ({ size = 28, color = 'var(--rbx-brand)', title }) => (
+  <svg viewBox="0 0 64 64" width={size} height={size}
+    role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true}
+    focusable="false" style={{ display: 'block', flex: 'none', fill: color }}>
+    <path d="M30 8 H56 V34 L34 56 H8 V30 Z" />
+  </svg>
 );
 
-const RbxLogo = ({ subtitle = 'Systems', markSize = 36 }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-    <RbxMark size={markSize} />
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 2, lineHeight: 1 }}>
-      <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--rbx-fg)' }}>RBX</span>
-      <span style={{
-        fontFamily: 'var(--rbx-font-mono)', fontSize: 9, textTransform: 'uppercase',
-        letterSpacing: '0.14em', color: 'var(--rbx-fg-dim)',
-      }}>{subtitle}</span>
-    </div>
-  </div>
-);
+// The wordmark is set in type beside the mark, never drawn.
+// - stacked: mark + "Merovelis" over the subtitle in mono caps (desktop header)
+// - compact: mark + "Merovelis" (mobile header)
+// - horizontal: mark + "Merovelis" + subtitle on one line (footer, documents)
+const RbxLogo = ({ variant = 'stacked', subtitle = 'Systems', markSize }) => {
+  const compact = variant === 'compact';
+  const wordmark = {
+    fontFamily: 'var(--rbx-font-wordmark)', fontWeight: 700, fontStretch: '125%',
+    fontSize: compact ? 16 : 17, lineHeight: 1, letterSpacing: '-0.02em', color: 'var(--rbx-fg)',
+  };
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: compact ? 10 : 12, whiteSpace: 'nowrap' }}>
+      <RbxMark size={markSize || (compact ? 24 : 28)} />
+      {variant === 'stacked' && (
+        <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 3 }}>
+          <span style={wordmark}>Merovelis</span>
+          <span style={{
+            fontFamily: 'var(--rbx-font-mono)', fontSize: 9, lineHeight: 1, fontWeight: 500,
+            textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--rbx-chrome-fg)',
+          }}>{subtitle}</span>
+        </span>
+      )}
+      {compact && <span style={wordmark}>Merovelis</span>}
+      {variant === 'horizontal' && (
+        <>
+          <span style={wordmark}>Merovelis</span>
+          <span style={{
+            fontFamily: 'var(--rbx-font-sans)', fontWeight: 300, fontSize: 17, lineHeight: 1,
+            letterSpacing: '-0.01em', color: 'var(--rbx-fg-muted)',
+          }}>{subtitle}</span>
+        </>
+      )}
+    </span>
+  );
+};
 
 // ——— Icons (inline line strokes, 1.5) ———
 const Icon = ({ name, size = 16, color }) => {

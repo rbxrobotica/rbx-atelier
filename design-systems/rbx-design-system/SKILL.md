@@ -1,6 +1,6 @@
 ---
 name: rbx-design
-description: Use this skill to generate well-branded interfaces and assets for RBX Systems, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
+description: Use this skill to generate well-branded interfaces and assets for Merovelis Systems, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
 user-invocable: true
 ---
 
@@ -12,7 +12,7 @@ If the user invokes this skill without any other guidance, ask them what they wa
 
 - `README.md` — full brand, content, visual, and iconography guidelines. Read first.
 - `colors_and_type.css` — canonical CSS tokens (colors, type, spacing, radii, motion). Import or copy.
-- `assets/` — `rbx-mark.svg`, `rbx-wordmark.svg`.
+- `assets/` — `merovelis-mark.svg`, `merovelis-wordmark-systems.svg` (copies of `brand-voltage/`).
 - `ui_kits/app/` — Robson operations dashboard (React/Babel). Reusable components and a click-thru prototype.
 - `ui_kits/site/` — Robson marketing landing. Static HTML.
 - `preview/` — small token and component cards used by the design-system review pane.

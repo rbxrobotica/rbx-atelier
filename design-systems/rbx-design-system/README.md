@@ -1,8 +1,8 @@
-# RBX Design System
+# Robson Design System
 
-Design system for **RBX Systems** — software and AI systems for financial and high-reliability environments. Built to reflect the work itself: trading engines, decision platforms, and data validation systems where correctness and clarity are non-negotiable.
+Design system for **Merovelis Systems** — software and AI systems for financial and high-reliability environments. Built to reflect the work itself: trading engines, decision platforms, and data validation systems where correctness and clarity are non-negotiable.
 
-Design at RBX is **structural, not decorative**. The goal is interfaces that feel stable, predictable, and trustworthy in contexts involving capital and decision-making. Zurich-coded: institutional tone, restrained color, strong typography, high signal-to-noise ratio.
+Design at Merovelis is **structural, not decorative**. The goal is interfaces that feel stable, predictable, and trustworthy in contexts involving capital and decision-making. Zurich-coded: institutional tone, restrained color, strong typography, high signal-to-noise ratio.
 
 > "Robson is concerned with what happens after a trading decision is made… The execution and risk layers are the primary concern." — from the Robson repo README. The design system mirrors the engineering stance: quiet, deterministic, auditable.
 
@@ -122,7 +122,7 @@ What's **preserved** from the source:
 
 **Color:** Icons inherit `currentColor`. Default `--fg-2` (dimmed), `--fg-0` on active/hover. Status icons pick up the corresponding status color.
 
-**SVGs:** Wordmark and monogram live in `assets/` as SVG. One `rbx-mark.svg` (monogram) and one `rbx-wordmark.svg` (full lockup). The codebase currently has no dedicated logo asset — this system introduces one.
+**SVGs:** Wordmark and monogram live in `assets/` as SVG. One `merovelis-mark.svg` (the house mark) and one `merovelis-wordmark-systems.svg` (the house lockup), both copies of the files in `brand-voltage/`. The letter monogram this system first introduced is in `assets/archive/`.
 
 **Crypto/asset marks:** Use the `cryptocurrency-icons` CDN for trading-pair symbols (`BTC`, `ETH`, `USDT`). Never hand-draw.
 

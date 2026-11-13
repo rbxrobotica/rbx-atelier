@@ -4,7 +4,7 @@
 
 Strategos is not a dashboard. It is a **situation room** — a space where human leaders deliberate with AI agents, judge their reasoning, and produce auditable strategic decisions. This Design System turns that philosophy into a coherent visual language that the `strategos-ui` codebase (SvelteKit / Svelte 5 / Tailwind 3) can adopt directly.
 
-The system is named **Obsidian Council**: warm-graphite surfaces, hairline structure, a controlled cyan signature inherited from the RBX family, and a second strategic accent ("Aurum" — cool amber/dim gold) reserved for human judgment moments. It deliberately reads as an executive war-room, not a gamer-grade or sci-fi cockpit.
+The system is named **Obsidian Council**: warm-graphite surfaces, hairline structure, a controlled cyan signature inherited from the Merovelis family, and a second strategic accent ("Aurum" — cool amber/dim gold) reserved for human judgment moments. It deliberately reads as an executive war-room, not a gamer-grade or sci-fi cockpit.
 
 ---
 
@@ -48,9 +48,9 @@ All references were read via the GitHub connector. Local paths are recorded for 
 | Strategos UI codebase | `github.com/ldamasio/strategos-ui` (private) · local `~/apps/strategos-ui/` | Current tokens, sidebar/topbar, decision/agent/painel components, six-zones doc |
 | Strategos Core (entities) | `github.com/ldamasio/strategos-core` (private) · local `~/apps/strategos-core/` | Domain model — Decision, Risk, Agent, AuditEvent (read indirectly through `src/types/agent.ts` of strategos-ui) |
 | Merovelis frontend base | `github.com/rbxrobotica/rbx-robotica-frontend` · local `~/apps/rbx-robotica-frontend/` | Institutional dark theme, Zurich-coded base (`app/globals.css`, `tailwind.config.ts`) |
-| Robson trading runtime | `github.com/ldamasio/robson` · local `~/apps/robson/` | RBX **Voltage System** tokens (`apps/frontend/src/lib/design/tokens.css`), warm-dark, mono+tabular numerals, hairline cards with L-corner signatures |
+| Robson trading runtime | `github.com/ldamasio/robson` · local `~/apps/robson/` | **Voltage System** tokens (`apps/frontend/src/lib/design/tokens.css`), warm-dark, mono+tabular numerals, hairline cards with L-corner signatures |
 
-> Cross-project caveat: the user mentioned `apps/frontend-v2/` and `atelier/RBX Design System/` paths in `~/apps/robson/`. Those folders are **not present** in the public repo tree at `e8d20213239b`; we sourced the equivalent content from `apps/frontend/src/lib/design/tokens.css`, which carries the RBX Voltage System tokens. If a private branch contains v2 / atelier, please re-attach.
+> Cross-project caveat: the user mentioned `apps/frontend-v2/` and `atelier/RBX Design System/` paths in `~/apps/robson/`. Those folders are **not present** in the public repo tree at `e8d20213239b`; we sourced the equivalent content from `apps/frontend/src/lib/design/tokens.css`, which carries the Voltage System tokens. If a private branch contains v2 / atelier, please re-attach.
 
 ---
 
@@ -59,7 +59,7 @@ All references were read via the GitHub connector. Local paths are recorded for 
 - **Surface ladder** — `obsidian-0 → obsidian-3`, warm graphite (`#0B0C0E → #1A1D22`), never pure black, never navy/slate-blue.
 - **Foreground** — warm off-whites, never pure white.
 - **Hairlines** — single-pixel borders carry structure. No drop shadows on body chrome; shadows only on overlays.
-- **Two accents** — **Cyan** (`#22E5E5`, RBX inheritance) for AI reasoning, focus, links. **Aurum** (`#C9A86A`, cold amber/dim gold) for human-decided moments, override badges, "decision committed" states. Used sparingly.
+- **Two accents** — **Cyan** (`#22E5E5`, Voltage inheritance) for AI reasoning, focus, links. **Aurum** (`#C9A86A`, cold amber/dim gold) for human-decided moments, override badges, "decision committed" states. Used sparingly.
 - **Semantic** — desaturated, never neon: `risk`, `warn`, `ok`, `info`, `uncertain`. They mean _state of the world_, not chrome.
 - **Type** — Inter (sans) + JetBrains Mono (status, numerals, eyebrows). Tabular numerals everywhere a number can change.
 - **Radii** — 2 / 4 / 8 px max. No pills except status dots.
@@ -117,7 +117,7 @@ Full token CSS: [`colors_and_type.css`](./colors_and_type.css).
 - **Inter** 300 / 400 / 500 / 600 — body and headings.
 - **JetBrains Mono** 400 / 500 — eyebrows, status, numerals, audit ids, timestamps, code.
 - Display heading is **300 weight** (institutional thinness), body is 400, semibold reserved for emphasis. No Google-Fonts trope (no Fraunces, no Roboto). Both fonts are loaded via the same Google Fonts CSS the Robson reference uses; `fonts/` directory is left for the developer to add self-hosted `.woff2` if they wish.
-- Type scale (`text-xs 11px → text-5xl 64px`) follows RBX Voltage exactly.
+- Type scale (`text-xs 11px → text-5xl 64px`) follows Voltage exactly.
 - Every numeric value uses `font-variant-numeric: tabular-nums`.
 
 ### Spacing & density
@@ -128,7 +128,7 @@ Full token CSS: [`colors_and_type.css`](./colors_and_type.css).
 
 ### Backgrounds
 
-- The base surface is **flat**. There are **no marketing gradients, no orbs, no bokeh, no goo-filter blobs** (the RBX site uses goo gradients for its hero — Strategos does not). The only "texture" is an optional **1 px hairline grid** at `rgba(255,255,255,0.015)` reserved for empty states of the Risk Landscape and Hypothesis Lab. Imagery is rare — when present, it is desaturated, warm-graded.
+- The base surface is **flat**. There are **no marketing gradients, no orbs, no bokeh, no goo-filter blobs** (the Merovelis site uses goo gradients for its hero — Strategos does not). The only "texture" is an optional **1 px hairline grid** at `rgba(255,255,255,0.015)` reserved for empty states of the Risk Landscape and Hypothesis Lab. Imagery is rare — when present, it is desaturated, warm-graded.
 
 ### Borders, shadows, focus
 

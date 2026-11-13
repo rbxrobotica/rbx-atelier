@@ -12,8 +12,11 @@ function Sidebar({ route, setRoute }) {
   return (
     <aside className="rbx-sidebar">
       <div className="rbx-sidebar__brand">
-        <div className="rbx-sidebar__bar" />
-        <span>RBX</span>
+        {/* The house mark, in its own ink. Geometry and rules: brand-voltage/BRAND-MARK.md */}
+        <svg viewBox="0 0 64 64" width="16" height="16" aria-hidden="true" focusable="false" style={{ display: 'block', flex: 'none', fill: '#22E5E5' }}>
+          <path d="M30 8 H56 V34 L34 56 H8 V30 Z" />
+        </svg>
+        <span>Merovelis</span>
       </div>
       <nav>
         {items.map((it) => (

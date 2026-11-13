@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Merovelis Systems stacked lockup (2026-11-13), the default: mark + "Merovelis" in Archivo 700 expanded over
+     "SYSTEMS" in JetBrains Mono 500, tracking 0.2em. Drawn at twice the desktop header size, with the
+     positions the lockup has when set in type. Convenience export: the text depends on installed fonts.
+     The reference is the lockup set in type, see brand-voltage/BRAND-MARK.md.
+     Copy of brand-voltage/wordmarks/merovelis-wordmark-systems-stacked.svg. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 80" width="312" height="80" role="img" aria-label="Merovelis Systems">
+  <rect width="312" height="80" fill="#07080A"/>
+  <path fill="#22E5E5" transform="translate(20 12) scale(0.875)" d="M30 8 H56 V34 L34 56 H8 V30 Z"/>
+  <text x="100" y="39" font-family="Archivo, Inter, system-ui, sans-serif" font-size="34" font-weight="700" font-stretch="expanded" letter-spacing="-0.68" fill="#ECECEC">Merovelis</text>
+  <text x="100" y="66" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" font-weight="500" letter-spacing="3.6" fill="#7A7F87">SYSTEMS</text>
+</svg>

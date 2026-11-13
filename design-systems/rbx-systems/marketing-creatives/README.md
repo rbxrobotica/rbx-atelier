@@ -1,4 +1,4 @@
-# RBX Marketing Creatives
+# Merovelis Marketing Creatives
 
 Programmatic creative system for the 2026 H2 growth campaign. Templates render from Brand Voltage tokens. Output PNG/SVG at declared dimensions, validated.
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>RBX Systems — Marketing UI Kit</title>
+<title>Merovelis Systems — Marketing UI Kit</title>
 <link rel="stylesheet" href="../../colors_and_type.css">
 <style>
   html, body { margin: 0; padding: 0; background: #0A0A0B; min-height: 100vh; }
@@ -26,6 +26,7 @@ const App = () => {
   return (
     <>
       <TopNav active={active} onNav={setActive} />
+      <Container><Breadcrumb active={active} onNav={setActive} /></Container>
       <main>
         <Hero />
         <PositioningRow />

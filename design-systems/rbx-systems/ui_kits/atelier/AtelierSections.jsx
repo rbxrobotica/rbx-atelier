@@ -1,4 +1,4 @@
-// Atelier surfaces — the "laboratory" view of RBX products and experiments.
+// Atelier surfaces — the "laboratory" view of Merovelis products and experiments.
 
 const AtelierHero = () => (
   <section style={{ padding: '120px 0 80px' }}>
@@ -20,7 +20,7 @@ const AtelierHero = () => (
         marginTop: 32, fontSize: 18, lineHeight: 1.55, fontWeight: 300,
         color: 'var(--rbx-fg-muted)', maxWidth: '44rem',
       }}>
-        The atelier is where RBX designs and matures the infrastructure that goes into production. Public experiments, open telemetry, internal platforms and active research.
+        The atelier is where Merovelis designs and matures the infrastructure that goes into production. Public experiments, open telemetry, internal platforms and active research.
       </p>
     </Container>
   </section>

@@ -1,10 +1,24 @@
-/* RBX Systems — Colors & Type
+/* Merovelis Systems — Colors & Type
    Zurich-coded: dark-first, restrained, high-contrast, institutional.
    Primary font Inter. Fallback: system-ui, sans-serif.
    Monospace: JetBrains Mono (for data/code/status).
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* The wordmark font is pinned to one release: Archivo v25 as Google Fonts serves it,
+   weight 700 at 125% width, Latin range. The versioned file does not change when the
+   family is updated, so a new release reaches the wordmark only through a reviewed edit
+   of this URL. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 125%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/archivo/v25/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q8EsJaRE-NWIDdgffTT0zRZ9xdp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
   /* ——— Neutrals (dark-first scale) ——— */
@@ -28,6 +42,20 @@
   --rbx-cyan:        #01FFFF;   /* legacy product accent — use sparingly */
   --rbx-cyan-dim:    #01A6A6;
 
+  /* ——— Brand (Voltage) ———
+     The mark, the header and the breadcrumb follow brand-voltage/colors_and_type.css,
+     aligned on 2026-11-11 with the site as shipped. The rest of this palette (brass
+     accent, cool-neutral surfaces) predates that alignment and was not re-skinned. */
+  --rbx-brand:        #22E5E5;   /* mark, active underline, focus ring of the header */
+  --rbx-brand-signal: #00FFFF;   /* CTA hover */
+  --rbx-brand-dim:    #0B6E6E;   /* underline of the current page in the breadcrumb */
+  --rbx-cta:          var(--rbx-brand);  /* the one filled element of the header */
+  --rbx-on-cta:       #07080A;
+  /* Rest state of header and breadcrumb text: Brand Voltage fg-2. --rbx-fg-dim is too
+     faint for text of this size here (4.2:1 on ink, 4.1:1 on surface-1); this value
+     gives 4.9:1 and 4.7:1. */
+  --rbx-chrome-fg:    #7A7F87;
+
   /* ——— Semantic (status) ——— */
   --rbx-ok:          #7FB77E;   /* healthy, canonical */
   --rbx-warn:        #D9B55A;   /* pending, degraded */
@@ -41,6 +69,8 @@
   /* ——— Type families ——— */
   --rbx-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --rbx-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* Wordmark only: the "Merovelis" beside the mark. Never in interface text. */
+  --rbx-font-wordmark: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* ——— Type scale (1rem = 16px) ——— */
   --rbx-text-xs:     0.6875rem; /* 11px — micro labels, status */
@@ -106,6 +136,12 @@
   --rbx-content-w: 72rem;   /* 1152px — comfortable institutional width */
   --rbx-prose-w:   42rem;   /* 672px — text column */
   --rbx-gutter:    1.25rem; /* 20px */
+  --rbx-nav-w:     80rem;   /* 1280px — header, section band, footer */
+  /* Header in three rows: brand, primary navigation, section band. */
+  --rbx-header-row:        72px;
+  --rbx-header-row-mobile: 60px;
+  --rbx-nav-row:           48px;
+  --rbx-band-row:          44px;
 }
 
 /* ——— Semantic element defaults ———

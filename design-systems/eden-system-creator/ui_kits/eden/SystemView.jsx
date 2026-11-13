@@ -25,7 +25,7 @@ function SystemView({ go, systemId = 'strategos' }) {
         <div className="eden-card eden-card--bracket" style={{ padding: 22 }}>
           <Eyebrow>POSITIONING</Eyebrow>
           <p style={{ margin: '10px 0 0', fontSize: 15, color: 'var(--fg-0)', lineHeight: 1.55, fontWeight: 300 }}>
-            Strategos is the strategic decision and planning core of the RBX ecosystem. It centralizes objectives, risks, scenarios, and governed human-agent strategy across the situation room.
+            Strategos is the strategic decision and planning core of the Merovelis ecosystem. It centralizes objectives, risks, scenarios, and governed human-agent strategy across the situation room.
           </p>
           <div style={{ marginTop: 22, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
             <div><span className="eden-label">Modules</span><div style={{ fontSize: 18, fontWeight: 500, marginTop: 4 }} className="eden-mono">14</div></div>

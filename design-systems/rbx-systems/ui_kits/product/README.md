@@ -1,6 +1,6 @@
 # Product UI Kit — Robson Control Plane
 
-Dense, operational product surface. Demonstrates how the RBX primitives compose into an actual product UI rather than a marketing page.
+Dense, operational product surface. Demonstrates how the Merovelis primitives compose into an actual product UI rather than a marketing page.
 
 **Layout**
 - `ProductShell` — sidebar + main split

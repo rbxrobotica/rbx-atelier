@@ -5,7 +5,7 @@ const Hero = () => (
     <Container>
       <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 64, alignItems: 'center' }}>
         <div>
-          <Eyebrow style={{ marginBottom: 24 }}>RBX Systems · Zurich · São Paulo</Eyebrow>
+          <Eyebrow style={{ marginBottom: 24 }}>Merovelis Systems · São Paulo</Eyebrow>
           <h1 style={{
             fontSize: 64, fontWeight: 300, lineHeight: 1.05, letterSpacing: '-0.015em',
             color: 'var(--rbx-fg)', margin: 0,
@@ -24,12 +24,8 @@ const Hero = () => (
             <Button variant="outline">Products</Button>
           </div>
         </div>
-        <div style={{
-          aspectRatio: '1/1', width: '100%', maxWidth: 460, marginLeft: 'auto',
-          position: 'relative',
-        }}>
-          <img src="../../assets/bitmap.svg" alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0.92 }} />
+        <div style={{ marginLeft: 'auto' }}>
+          <RbxMark size={176} />
         </div>
       </div>
     </Container>
@@ -58,7 +54,7 @@ const PositioningRow = () => (
             marginTop: 20, fontSize: 15, lineHeight: 1.6,
             color: 'var(--rbx-fg-muted)', maxWidth: '42rem',
           }}>
-            RBX designs and operates platforms, automations and infrastructure for environments where reliability, governance and control are requirements, not differentiators.
+            Merovelis designs and operates platforms, automations and infrastructure for environments where reliability, governance and control are requirements, not differentiators.
           </p>
         </div>
       </div>
@@ -97,7 +93,7 @@ const PRODUCTS = [
   { name: 'Robson', type: 'Fullstack', phase: 'Institutionalized', desc: 'Directional intelligence engine for algorithmic trading. Real-time market analysis, automated risk management, and strategy execution with AI.' },
   { name: 'Strategos', type: 'Fullstack', phase: 'Structuring', desc: 'Strategic operating system for cognitive organizational coordination. Unifies planning, execution and continuous learning.' },
   { name: 'TruthMetal', type: 'API', phase: 'Seed', desc: 'Canonical truth control plane for AI systems. Ensures parameters and decisions shared across agents remain auditable, versioned and immutable.' },
-  { name: 'Thalamus', type: 'API', phase: 'Seed', desc: 'Routing and orchestration layer for analytical data. Central hub of signals and events across RBX products.' },
+  { name: 'Thalamus', type: 'API', phase: 'Seed', desc: 'Routing and orchestration layer for analytical data. Central hub of signals and events across Merovelis products.' },
   { name: 'Argos Radar', type: 'Fullstack', phase: 'Seed', desc: 'Market surveillance platform. Detects patterns, anomalies and signals across assets and timeframes.' },
   { name: 'Eden', type: 'CLI', phase: 'Seed', desc: 'Internal developer platform. Automates provisioning of new products on Kubernetes with GitOps.' },
 ];
@@ -111,7 +107,7 @@ const Products = () => (
           <h2 style={{
             fontSize: 36, fontWeight: 400, lineHeight: 1.15, letterSpacing: '-0.015em',
             color: 'var(--rbx-fg)', margin: 0,
-          }}>RBX Products</h2>
+          }}>Merovelis Products</h2>
         </div>
         <p style={{ fontSize: 13, color: 'var(--rbx-fg-muted)', maxWidth: 340, margin: 0, lineHeight: 1.6 }}>
           All repositories are public. Built with operational rigor and ready for mission-critical deployments.

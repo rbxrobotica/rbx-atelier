@@ -1,22 +1,22 @@
-# RBX Voice System (Zurich-coded writing)
+# Voice System (Zurich-coded writing)
 
 **Version:** 0.1
 **Date:** 2026-08-12
 **Status:** Approved direction
 **Source of truth:** This file (`rbx-atelier/brand-voice/rbx-voice-system.md`).
-**Companion:** `brand-voltage/` in this repository (visual identity). Voltage defines how RBX looks; Voice defines how RBX sounds.
-**Agent wiring:** skill `rbx-voice-system` in the RBX agent operating layer repository, referenced from its operating rules.
+**Companion:** `brand-voltage/` in this repository (visual identity). Voltage defines how Merovelis looks; Voice defines how Merovelis sounds.
+**Agent wiring:** skill `rbx-voice-system` in the Merovelis agent operating layer repository, referenced from its operating rules.
 **Precedence:** safety, truthfulness, evidence, legal and compliance text, and repository technical conventions override voice rules. Voice never changes meaning, never removes stated uncertainty, and never invents certainty. Product design systems in this repository may define semantic glyph exceptions for data displays; those rules win inside their product surfaces.
 
 ---
 
 ## Summary
 
-One writing system for RBX Systems and all products (Robson, TruthMetal, Strategos, Briefing BTC, agents, docs, marketing). Modeled on the Swiss institutional register ("zurich-coded"): fact-first, enumerated, one superlative per piece, governance visible, restraint as authority.
+One writing system for Merovelis Systems and all products (Robson, TruthMetal, Strategos, Briefing BTC, agents, docs, marketing). Modeled on the Swiss institutional register ("zurich-coded"): fact-first, enumerated, one superlative per piece, governance visible, restraint as authority.
 
 Scope model, borrowed from design systems:
 
-- **Principles are universal.** They apply to every word RBX publishes or an RBX agent emits: marketing, docs, UI copy, briefings, commit messages, reports.
+- **Principles are universal.** They apply to every word Merovelis publishes or a Merovelis agent emits: marketing, docs, UI copy, briefings, commit messages, reports.
 - **Ornaments are register-specific.** The aphorism, the superlative, the CTA, and the legal footer are components. Each register declares which components it may use.
 
 A doc page never gets an aphorism. A LinkedIn post never gets two CTAs. The grammar underneath is identical.
@@ -60,6 +60,20 @@ revolutionary, disruptive, game-changing, cutting-edge, seamless, powerful, supe
 
 ---
 
+## Naming
+
+1. **House name.** Merovelis Systems. In running text, "Merovelis Systems" on first mention and "Merovelis" after it.
+2. **Spelling.** `Merovelis`: no accent and no hyphen, in every language. Never "Merovélis".
+3. **Pronunciation.** One pronunciation for every audience: me-ro-VÉ-lis. English respelling: meh-roh-VEL-iss. It is given once, in spoken scripts and press material, and never printed beside the logo.
+4. **Brand and legal name are different things.** The brand, the logo and the trade name are Merovelis Systems. The legal name is Merovelis Sistemas Ltda. It appears only as legal text: footers, contracts, proposals. It never becomes a logo, a headline or a signature.
+5. **One logo.** The mark, the word Merovelis and the descriptor Systems, in every country and language. There is no "Merovelis Sistemas" logo and no translated descriptor.
+6. **Descriptors.** `Systems` is the descriptor of the house. `Holding` is reserved for the future Swiss holding and is not used before that entity exists. `Labs` may label an experimental product when the owner asks for it; it never replaces `Systems`.
+7. **Legal footer.** The governance footer of external pieces carries: `Merovelis Sistemas Ltda., São Paulo, Brasil, CNPJ [a preencher]`. For a product: `<Product> é marca da Merovelis Sistemas Ltda., São Paulo, Brasil, CNPJ [a preencher]`.
+8. **Origin.** No piece states or implies Swiss origin until a Swiss entity exists: no "Swiss", no "based in Zug", no Swiss cross. "Zurich-coded" names a writing register and stays internal vocabulary.
+9. **Internal identifiers keep the old name.** Repository names, the `rbx-` prefix, token and class names and accepted records are not renamed. In prose an identifier is written as code, which marks it as the name of a thing and not of the house.
+
+---
+
 ## Registers (components per context)
 
 Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is an overlay for agent-authored text. The overlay adds duties without changing the destination's grammar (tense and person always follow the destination register): outcome stated first where the destination is prose, failures declared as fact with evidence, no hedging tone, and provenance (project and first-party model, per the journal policy) recorded in the delivery metadata, not forced into the text. A pull request body written by an agent is R7 with the R6 overlay; a landing page drafted by an agent is R2 with the R6 overlay; UI microcopy stays imperative R3 even when an agent writes it.
@@ -71,20 +85,20 @@ Select the register by DESTINATION (R1..R5, R7). R6 is not a destination: it is 
 | R3 Product UI | microcopy, buttons, empty states, errors | Fact + imperative verbs; no superlative, no aphorism, no CTA rhetoric; errors state cause and next action |
 | R4 Documentation | READMEs, runbooks, ADRs, guides | Impersonal, enumerated, exact; zero marketing vocabulary; zero superlatives |
 | R5 Briefings and reports | Briefing BTC, exec reports, portal | Facts numbered, one thesis per edition, uncertainty quantified, sources named |
-| R6 Agent overlay | any text an RBX agent authors, on top of its destination register | Outcome first in prose destinations; failures declared as fact with evidence; no hedging tone; grammar follows the destination; provenance (project, model) in delivery metadata per journal policy |
+| R6 Agent overlay | any text a Merovelis agent authors, on top of its destination register | Outcome first in prose destinations; failures declared as fact with evidence; no hedging tone; grammar follows the destination; provenance (project, model) in delivery metadata per journal policy |
 | R7 Internal | commits, issues, chat | Principles only; format follows repo conventions |
 
 ### Register examples
 
 **R1 Institutional (illustrative structure, not publishable as-is):** every claim below must pass the review checklist against real evidence, the `[link]` must resolve, and the legal page must be live before external use.
 
-> RBX Systems opera sistemas autônomos de negociação e infraestrutura soberana de execução. Operamos através de três camadas: Execução (Robson), Governança (Thalamus) e Distribuição (Merovelis). Cada decisão de capital é registrada e auditável.
+> Merovelis Systems opera sistemas autônomos de negociação e infraestrutura soberana de execução. Operamos através de três camadas: Execução (Robson), Governança (Thalamus) e Distribuição (Merovelis). Cada decisão de capital é registrada e auditável.
 >
 > Sistemas confiáveis não nascem de pressa. Nascem de invariantes.
 >
 > Conheça o Briefing BTC: [link]
 >
-> RBX Systems opera sob política de acesso governado. rbxsystems.ch/legal
+> Merovelis Systems opera sob política de acesso governado. rbxsystems.ch/legal
 
 **R3 Product UI:**
 

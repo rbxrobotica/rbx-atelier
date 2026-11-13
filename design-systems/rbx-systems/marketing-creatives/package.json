@@ -2,7 +2,7 @@
   "name": "rbx-marketing-creatives",
   "version": "0.1.0",
   "private": true,
-  "description": "Programmatic creative renderer for RBX Voltage (2026 H2 growth campaign).",
+  "description": "Programmatic creative renderer for Voltage (2026 H2 growth campaign).",
   "type": "module",
   "scripts": {
     "render:all": "node scripts/render.mjs --all",
