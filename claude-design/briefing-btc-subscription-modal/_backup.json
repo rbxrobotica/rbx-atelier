@@ -1,0 +1,18 @@
+{
+  "title": "Briefing BTC Subscription Modal",
+  "url": "https://claude.ai/artifact/6gCRWaVj6iEwQLTDRpojBa",
+  "type": null,
+  "version": "1789198788-9b31",
+  "listed_at": "2026-11-19T14:47:54Z",
+  "note": "single page; page.html = full HTML as saved by the read action",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 2609061,
+      "sha256": "3dfc0c1c2e963aa7a34a8303c31aca16fe767d5009d7b7925a09da5afe2c264e"
+    }
+  ],
+  "skipped": [],
+  "assets": [],
+  "failures": []
+}

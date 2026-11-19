@@ -1,0 +1,40 @@
+<!-- @dsCard group="Ações" height=300 subtitle="Primário, secundário, fantasma, destrutivo; s, m, l; carregando, desabilitado, como link" -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Button · prévia</title>
+<style>
+  body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--font-sans); }
+  .pv { box-sizing: border-box; padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-start; }
+  .pv-col { box-sizing: border-box; padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .pv-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .pv-stack { display: flex; flex-direction: column; }
+  .pv-split > [data-theme], .pv-stack > [data-theme] { background: var(--fundo); color: var(--texto); min-width: 0; }
+  .pv-cap { margin: 0; flex-basis: 100%; font-size: var(--fs-label); line-height: var(--lh-label); font-weight: var(--fw-semibold); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--texto-2); }
+  .pv-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: var(--space-2); }
+  .pv-icon { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: var(--space-2); border-radius: var(--radius-s); font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--texto-2); text-align: center; overflow-wrap: anywhere; }
+  .pv-box { box-sizing: border-box; min-height: var(--control-l); padding: var(--space-3); border-radius: var(--radius-m); background: var(--marca-suave); color: var(--marca-forte); font-size: var(--fs-small); font-weight: var(--fw-semibold); display: grid; place-content: center; }
+</style>
+</head>
+<body>
+<div class="pv-split"><div data-theme="claro" id="t-claro"></div><div data-theme="escuro" id="t-escuro"></div></div>
+<script>
+  var I = window.Iteruno;
+  function el(root, cls, html) { var d = document.createElement('div'); if (cls) d.className = cls; if (html) d.innerHTML = html; root.appendChild(d); return d; }
+  function cap(root, t) { var p = document.createElement('p'); p.className = 'pv-cap'; p.textContent = t; root.appendChild(p); return p; }
+  function m(C, target, props) { return I.mount(C, { target: target, props: props || {} }); }
+  function demo(root, tema) {
+
+    var r = el(root, 'pv-col');
+    var a = el(r, 'pv'); cap(a, 'Variantes');
+    ['primary', 'secondary', 'ghost', 'danger'].forEach(function (v) { m(I.Button, a, { variant: v, label: { primary: 'Chamar no WhatsApp', secondary: 'Ver serviços', ghost: 'Cancelar', danger: 'Apagar' }[v], icon: v === 'primary' ? 'whatsapp' : undefined }); });
+    var b = el(r, 'pv'); cap(b, 'Tamanhos e estados');
+    m(I.Button, b, { size: 's', variant: 'secondary', label: 'Pequeno' }); m(I.Button, b, { size: 'm', variant: 'secondary', label: 'Médio' }); m(I.Button, b, { size: 'l', variant: 'secondary', label: 'Grande', iconEnd: 'arrow-right' });
+    m(I.Button, b, { label: 'Enviando', loading: true }); m(I.Button, b, { label: 'Desabilitado', disabled: true }); m(I.Button, b, { href: '#', label: 'Como link', icon: 'external-link', variant: 'ghost' });
+    var c = el(r, 'pv'); c.style.background = 'var(--marca)'; c.style.borderRadius = 'var(--radius-m)'; cap(c, 'Sobre fundo marca').style.color = 'var(--sobre-marca)';
+    m(I.Button, c, { variant: 'inverse', label: 'Chamar no WhatsApp', icon: 'whatsapp' }); m(I.Button, c, { variant: 'inverse-ghost', label: 'Enviar e-mail', icon: 'mail' });
+  }
+  demo(document.getElementById('t-claro'), 'claro');
+  demo(document.getElementById('t-escuro'), 'escuro');
+</script>
+</body>
+</html>

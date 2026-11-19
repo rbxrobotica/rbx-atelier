@@ -1,0 +1,18 @@
+{
+  "title": "Kairos Freeze",
+  "url": "https://claude.ai/artifact/KZGHtSQtQGZbCKs7xSWeRJ",
+  "type": null,
+  "version": "1788833074-6a6b",
+  "listed_at": "2026-11-19T14:47:54Z",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 39271,
+      "sha256": "89ade9c0f1fc84f9e0a8eea59aac35b871c2e406403133179afcc1d65d2a9204"
+    }
+  ],
+  "skipped": [],
+  "assets": [],
+  "failures": [],
+  "notes": "index.html re-downloaded by Artifact read (sha256 89ade9c0…, 39271 bytes) replacing an earlier hand transcription"
+}

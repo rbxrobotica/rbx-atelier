@@ -1,0 +1,17 @@
+<!-- @dsCard group="Anúncios" height=420 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>ListingCard</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.GphNeon, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 'var(--space-5)', padding: 'var(--space-4)' } },
+      h(G.ListingCard, { category: 'Imóveis', offer: 'Aluguel', title: 'Apartamento com varanda, 2 quartos', price: 'R$ 2.300/mês', place: 'Copacabana, Rio de Janeiro', when: 'Hoje, 09:40', featured: true }),
+      h(G.ListingCard, { category: 'Veículos', offer: 'Venda', title: 'Fiat Argo 1.0 2021, único dono', price: 'R$ 58.900', place: 'Campinas, SP', when: 'Hoje, 08:15' }),
+      h(G.ListingCard, { category: 'Serviços', offer: 'Serviço', title: 'Eletricista residencial, atendimento no mesmo dia', price: 'A combinar', place: 'Belo Horizonte, MG', when: 'Ontem' }),
+      h(G.ListingCard, { category: 'Compra & Venda', offer: 'Venda', title: 'Bicicleta aro 29, freio a disco', price: 'R$ 1.200', place: 'Curitiba, PR', when: '12 out', status: 'vendido' })));
+</script>
+</body>
+</html>

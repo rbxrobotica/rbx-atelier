@@ -1,0 +1,15 @@
+<!-- @dsCard group="Navegação" height=200 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>NavBar</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.GphNeon, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h('div', { style: { display: 'grid', gap: 'var(--space-5)' } },
+      h(G.NavBar, null),
+      h('div', { style: { maxWidth: '375px' } }, h(G.NavBar, { compact: true }))));
+</script>
+</body>
+</html>

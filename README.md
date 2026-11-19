@@ -12,6 +12,7 @@ Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita
 rbx-atelier/
 ├── brand-voltage/              ← Identidade Visual Merovelis (source of truth)
 ├── brand-voice/                ← Sistema de Escrita Merovelis (source of truth)
+├── claude-design/              ← Backup dos artefatos do Claude Design (2026-11-19)
 ├── design-systems/             ← Design Systems por produto
 │   ├── rbx-systems/            ← Merovelis Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Sobreposição" height=380 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Dialog</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { style: { height: 360 } }, h(G.Dialog, { inline: true, title: 'Fale com quem anuncia', description: 'Sua mensagem chega pela central de mensagens RBX. Seu telefone não é compartilhado.', onClose: function () {}, actions: [h(G.Button, { key: 'c' }, 'Cancelar'), h(G.Button, { key: 's', variant: 'primary', icon: 'message' }, 'Enviar mensagem')] }, h(G.TextField, { label: 'Mensagem', multiline: true, rows: 3, defaultValue: 'Olá, o apartamento ainda está disponível para visita?' }))));
+</script>
+</body>
+</html>

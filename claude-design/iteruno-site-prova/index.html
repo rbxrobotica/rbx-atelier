@@ -1,0 +1,240 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Iteruno · Site (prova)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: uma coluna; cada página do site é um bloco com as duas capturas (claro e escuro) lado a lado em molduras roláveis, com chave 1200/360 px; depois o que foi conferido, o peso, a publicação, as pendências e a aprovação. Mesmo sistema de cores e tipos das pranchas anteriores (Sinal). */
+:root{
+  --bg:#F3F7F5; --surface:#FFFFFF; --surface-2:#E8EFEB; --line:#D7E2DD; --ink:#16231F; --ink-2:#4D5B56; --ink-3:#5F6F69;
+  --brand:#008066; --brand-strong:#00563F; --brand-soft:#E3F5EE; --on-brand:#FFFFFF; --warn:#9A5B00; --warn-soft:#FBEEDC; --ok:#1E6B45; --ok-soft:#E1F3E8;
+  --display:"Saira Condensed","Arial Narrow",sans-serif; --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --mono:ui-monospace,"Cascadia Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1714; --surface:#142019; --surface-2:#0A1210; --line:#243730; --ink:#E6F0EC; --ink-2:#A8B8B1; --ink-3:#8A9A93;
+    --brand:#35C4A0; --brand-strong:#7ADFC4; --brand-soft:#163A30; --on-brand:#0C1714; --warn:#E8B65A; --warn-soft:#33270C; --ok:#6FD39B; --ok-soft:#14301F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1714; --surface:#142019; --surface-2:#0A1210; --line:#243730; --ink:#E6F0EC; --ink-2:#A8B8B1; --ink-3:#8A9A93;
+  --brand:#35C4A0; --brand-strong:#7ADFC4; --brand-soft:#163A30; --on-brand:#0C1714; --warn:#E8B65A; --warn-soft:#33270C; --ok:#6FD39B; --ok-soft:#14301F; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:36px 72px}
+.wrap{max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3,h4{margin:0;line-height:1.12;text-wrap:balance}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,5vw,56px);letter-spacing:.01em;line-height:1}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,36px);letter-spacing:.01em}
+h3{font-size:18px;font-weight:700}
+p{margin:0}
+a{color:var(--brand-strong)}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:4px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.lead{font-size:18px;max-width:68ch;color:var(--ink-2)}
+.meta{font-size:14px;color:var(--ink-3)}
+ul,ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li{font-size:15px}
+header.top{display:flex;flex-direction:column;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card p,.card li{font-size:14.5px;color:var(--ink-2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+td.n{font-variant-numeric:tabular-nums;text-align:right}
+th.n{text-align:right}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;vertical-align:middle}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}.tag.new{background:var(--brand-soft);color:var(--brand-strong)}.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-size:14px;font-weight:600;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink)}
+.toc a:hover,.toc a:focus-visible{border-color:var(--brand)}
+
+/* páginas */
+.pagina{display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
+.pagina .cab{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.pagina .cab code{font-size:14px}
+.pagina .desc{max-width:78ch;color:var(--ink-2);font-size:15px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bar .lbl{font-size:13px;color:var(--ink-3);margin-right:4px}
+.bar button{font:inherit;font-size:14px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.bar button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
+.duo figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.duo figcaption{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink-3)}
+.frame{max-height:min(80vh,920px);overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface-2)}
+.frame img{display:block;width:100%;height:auto;max-width:100%}
+.pagina[data-larg="360"] .frame img{width:360px;margin:0 auto}
+.pagina[data-larg="360"] .frame{max-height:min(80vh,820px)}
+.aprov{background:var(--surface);border:1px solid var(--brand);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+@media (prefers-reduced-motion: no-preference){.frame{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Entrega 3 · Site SvelteKit · Prova revisada com o nome Iteruno · 02/11/2026</p>
+    <h1>Iteruno · Site (prova)</h1>
+    <p class="lead">As seis páginas e a 404 do site da Iteruno (ex-Informat), geradas pelo SvelteKit só com o sistema de design (v1.2) e capturadas inteiras nos dois temas, a 1200 e a 360 px, servidas pela imagem de contêiner que vai para o cluster. O que ainda não foi confirmado aparece nas telas como <code>[[CONFIRMAR …]]</code>.</p>
+    <p class="meta">Entrega 3 aprovada em 02/11; esta revisão aplica o nome Iteruno e as respostas A1 a D5 da ficha (decisão D-24). Base: <a href="https://claude.ai/artifact/3N63RvzQ4yS5EGzHnQh3K5">Iteruno Design System v1.2</a> · <a href="https://claude.ai/artifact/XQcvwiw9Bzgvow1sk446rW">Direções do Site</a>. Arquivos: <code>site/</code> (fonte), <code>Dockerfile</code>, <code>site/deploy/</code> (Nginx e manifestos do rbx-infra), <code>site/README.md</code>, <code>ficha-de-dados.md</code>.</p>
+    <nav class="toc" aria-label="Páginas"><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#cursos">Cursos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a><a href="#politica">Política</a><a href="#p404">404</a><a href="#mudou">O que mudou</a><a href="#conferido">Conferido</a><a href="#peso">Peso</a><a href="#pendencias">Pendências</a><a href="#aprovacao">Aprovação</a></nav>
+  </header>
+
+  <section class="stack">
+    <p class="desc">Cada bloco abaixo mostra a página inteira nos dois temas, lado a lado. As molduras rolam; a chave troca entre a captura de 1200 px (computador) e a de 360 px (celular). O link "abrir inteira" mostra a imagem sozinha, no tamanho real.</p>
+  </section>
+
+  <section class="stack" id="mudou">
+    <h2>O que mudou nesta revisão</h2>
+    <p class="desc">A Entrega 3 foi aprovada em 02/11 com o nome Informat. No mesmo dia o nome passou a <strong>Iteruno</strong> e as respostas A1 a D5 da ficha entraram no site (decisão D-24). As telas abaixo já são as novas.</p>
+    <div class="cards">
+      <div class="card"><h3>Nome <span class="tag new">Iteruno</span></h3><p>Wordmark ITERUNO regerada com a mesma fonte e o mesmo símbolo; logotipos, ícones, <code>og.png</code> e o sistema de design (v1.2, classes <code>itr-</code>) refeitos. Informat só aparece como história, na página Sobre e no <code>alternateName</code> do JSON-LD.</p></div>
+      <div class="card"><h3>Canais reais <span class="tag ok">ligados</span></h3><p>WhatsApp da RBX, +55 11 91373-4954, e <code>contact@rbxsystems.ch</code> no rodapé, no Contato e no formulário, que saiu do modo "em configuração". Instagram fora até a conta nova existir.</p></div>
+      <div class="card"><h3>Atendimento</h3><p>Estúdio na Bela Vista (Bixiga), perto da Praça 14 Bis: você deixa e retira no portão, com hora marcada, ou a Iteruno busca e entrega na sua casa nas redondezas (Consolação, Brigadeiro, Paulista, Anhangabaú). Segunda a sábado. O número da rua não aparece: vai na hora de marcar.</p></div>
+      <div class="card"><h3>Preços e condições</h3><p>Os três planos ficam "Sob consulta", com a nota "valores combinados caso a caso". Diagnóstico cobrado e abatido do serviço; site com a primeira versão em tempo real; garantia pelo serviço; busca e entrega vendáveis; nota fiscal: sim.</p></div>
+      <div class="card"><h3>Empresa e política</h3><p>Rodapé: "Leandro Damasio · empresário individual · CNPJ a confirmar" (a razão social traz o CPF e não entra). Política: encarregado <code>ceo@rbxsystems.ch</code>, hospedagem na infraestrutura da RBX em mais de uma nuvem e região, log por 6 meses, mensagens guardadas sem prazo fixo, inclusive para treinar IA, com direito de exclusão e aviso na caixa do formulário.</p></div>
+      <div class="card"><h3>Hospedagem <span class="tag warn">preparada, não publicada</span></h3><p>Cluster k3s da RBX, pelo rbx-infra: <code>Dockerfile</code>, imagem no GHCR por GitHub Actions e manifestos em <code>site/deploy/rbx-infra/</code>. Esta prova rodou nessa imagem. Domínio iteruno.com aplicado em 02/11 (D-26); falta o repositório do site.</p></div>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Promessa, as três frentes (Suporte, Sites, Cursos), os três planos "sob consulta" com a nota de preços, as próximas turmas (datas a confirmar), depoimentos (dois lugares reservados; a seção some se a lista ficar vazia), perguntas frequentes com as respostas sobre atendimento em casa, diagnóstico e nota fiscal, faixa de contato e rodapé. JSON-LD de LocalBusiness com nome, nome anterior, telefone, e-mail e bairro; endereço do site, imagem e redes só entram quando houver domínio e Instagram.</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/inicio-claro-1200.jpg" alt="Página Início, tema claro, 1200 px" data-nome="inicio" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/inicio-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/inicio-escuro-1200.jpg" alt="Página Início, tema escuro, 1200 px" data-nome="inicio" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/inicio-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Uma seção por serviço, com âncora (<code>#suporte</code>, <code>#sites</code>): para quem é, o que entra, o plano, "Como funciona" em cinco passos e as perguntas daquele serviço. O texto já diz o modelo de atendimento (portão do estúdio, busca em casa, à distância), o diagnóstico cobrado e abatido, a primeira versão do site em tempo real e a garantia pelo serviço. Fecha com a chamada para os cursos e a faixa de contato.</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/servicos-claro-1200.jpg" alt="Página Serviços, tema claro, 1200 px" data-nome="servicos" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/servicos-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/servicos-escuro-1200.jpg" alt="Página Serviços, tema escuro, 1200 px" data-nome="servicos" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/servicos-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Três turmas alinhadas ao que a marca já prometia (informática para o dia a dia, Linux no dia a dia, ferramentas do escritório), com carga horária e datas a confirmar (grupo E da ficha, ainda em aberto); como as turmas funcionam; turma fechada para empresas; perguntas; faixa de contato.</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/cursos-claro-1200.jpg" alt="Página Cursos, tema claro, 1200 px" data-nome="cursos" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/cursos-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/cursos-escuro-1200.jpg" alt="Página Cursos, tema escuro, 1200 px" data-nome="cursos" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/cursos-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Linha do tempo (2021, fundação em São Paulo com o nome Informat; 2021 a 2025, a confirmar; 2026, retomada como Iteruno), os quatro princípios da marca (próxima, direta, competente, clara) e quem atende (nome a confirmar, grupo F). Fecha com a faixa "Vamos conversar?".</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/sobre-claro-1200.jpg" alt="Página Sobre, tema claro, 1200 px" data-nome="sobre" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/sobre-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/sobre-escuro-1200.jpg" alt="Página Sobre, tema escuro, 1200 px" data-nome="sobre" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/sobre-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Formulário validado em português (resumo de erros com foco e mensagem em cada campo); envio pelo WhatsApp da RBX com a mensagem montada ou por e-mail com o <code>mailto:</code> preenchido, sem passar por servidor. A caixa da política avisa que a mensagem pode ser usada para melhorar o serviço e treinar a IA da Iteruno. Ao lado, os canais, o lugar e a área de busca e entrega; abaixo, as perguntas do atendimento e o aviso "Como funciona o atendimento".</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/contato-claro-1200.jpg" alt="Página Contato, tema claro, 1200 px" data-nome="contato" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/contato-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/contato-escuro-1200.jpg" alt="Página Contato, tema escuro, 1200 px" data-nome="contato" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/contato-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">LGPD em português comum: o que o site recebe (formulário, log de acesso, preferência de tema, fontes do Google), para que serve, base legal, com quem é compartilhado (a RBX Systems, que opera a hospedagem e os canais), cookies (nenhum), prazos (log por 6 meses; mensagens sem prazo fixo, inclusive para treinar IA, com direito de exclusão), direitos e segurança. Controlador: Leandro Damasio, empresário individual, CNPJ a confirmar; encarregado <code>ceo@rbxsystems.ch</code>. Fora do menu; no rodapé e no formulário.</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/politica-claro-1200.jpg" alt="Página Política de privacidade, tema claro, 1200 px" data-nome="politica" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/politica-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/politica-escuro-1200.jpg" alt="Página Política de privacidade, tema escuro, 1200 px" data-nome="politica" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/politica-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  \g<1><p class="desc">Servida com status 404 pelo Nginx da imagem para qualquer endereço que não existe; lista as páginas do site; fora dos buscadores (<code>noindex</code>).</p>
+    <div class="bar" role="group" aria-label="Largura da captura"><span class="lbl">Largura</span><button type="button" data-larg="1200" aria-pressed="true">1200 px</button><button type="button" data-larg="360" aria-pressed="false">360 px</button></div>
+    <div class="duo">
+      <figure><div class="frame"><img src="capturas/404-claro-1200.jpg" alt="Página 404, tema claro, 1200 px" data-nome="404" data-tema="claro" loading="lazy"></div><figcaption><span>Tema claro</span><a href="capturas/404-claro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+      <figure><div class="frame"><img src="capturas/404-escuro-1200.jpg" alt="Página 404, tema escuro, 1200 px" data-nome="404" data-tema="escuro" loading="lazy"></div><figcaption><span>Tema escuro</span><a href="capturas/404-escuro-1200.jpg" data-abrir>abrir inteira</a></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="stack" id="conferido">
+    <h2>O que foi conferido</h2>
+    <div class="cards">
+      <div class="card"><h3>Largura e console <span class="tag ok">ok</span></h3><p>As sete páginas a 1200 e a 360 px: nenhuma rolagem lateral, fontes carregadas, nenhum erro de console além do 404 esperado na página de erro. Nenhuma classe <code>inf-</code> sobrou no HTML; "Informat" só aparece na linha do tempo e no <code>alternateName</code>.</p></div>
+      <div class="card"><h3>Formulário com os canais reais <span class="tag ok">ok</span></h3><p>Envio vazio: o resumo de erros recebe o foco e cada campo mostra a sua mensagem; telefone inválido é barrado; <code>?assunto=curso</code> pré-seleciona o assunto. Preenchido: "Enviar pelo WhatsApp" abriu <code>wa.me/5511913734954</code> com nome, assunto, e-mail, WhatsApp e mensagem, o botão de e-mail saiu com <code>mailto:contact@rbxsystems.ch</code> preenchido e o aviso de sucesso apareceu.</p></div>
+      <div class="card"><h3>Tema <span class="tag ok">ok</span></h3><p>O botão "Tema escuro / Tema claro" do rodapé só aparece com JavaScript; alterna, guarda a escolha em <code>localStorage</code> e volta. Sem JavaScript o site segue o tema do sistema. As capturas escuras foram feitas com <code>data-theme="escuro"</code> fixo.</p></div>
+      <div class="card"><h3>Navegação <span class="tag ok">ok</span></h3><p>Menu de celular em <code>&lt;details&gt;</code>, com os cinco links e o botão de WhatsApp. <code>/servicos/#suporte</code> para 80 px abaixo do topo. 404 de verdade (status 404), <code>/servicos</code> → <code>/servicos/</code> (301), <code>www</code> → sem <code>www</code> na configuração do Nginx. Instagram fora do rodapé até a conta nova existir.</p></div>
+      <div class="card"><h3>SEO básico <span class="tag ok">ok</span></h3><p>Título e descrição por página, JSON-LD LocalBusiness com nome, nome anterior, telefone, e-mail e bairro, <code>og.png</code> (1200 × 630, gerada do logo novo), favicon, ícones e <code>site.webmanifest</code>. Canonical, Open Graph, <code>sitemap.xml</code> e <code>robots.txt</code> só apontam para um endereço absoluto quando o domínio for confirmado; até lá saem sem ele, de propósito.</p></div>
+      <div class="card"><h3>Imagem de produção <span class="tag ok">ok</span></h3><p>A prova rodou na mesma imagem que vai para o cluster: <code>Dockerfile</code> → <code>nginx-unprivileged</code> na porta 8080, <code>/healthz</code> respondendo 200, <code>try_files</code>, 404, cache de um ano em <code>/_app/immutable/</code> e de uma hora no resto, gzip, cabeçalhos de segurança.</p></div>
+    </div>
+  </section>
+
+  <section class="stack" id="peso">
+    <h2>Peso</h2>
+    <p class="desc">Medido no build de 02/11 (revisão Iteruno). A meta das direções era cada página abaixo de 150 KB transferidos, com fontes.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Página</th><th class="n">HTML</th><th class="n">HTML com gzip</th><th>JavaScript</th></tr></thead>
+      <tbody>
+        <tr><td>Início</td><td class="n">56,9 KB</td><td class="n">11,8 KB</td><td>nenhum (só o script do tema, embutido)</td></tr>
+        <tr><td>Serviços</td><td class="n">52,0 KB</td><td class="n">11,6 KB</td><td>nenhum</td></tr>
+        <tr><td>Cursos</td><td class="n">43,2 KB</td><td class="n">7,9 KB</td><td>nenhum</td></tr>
+        <tr><td>Sobre</td><td class="n">35,5 KB</td><td class="n">7,3 KB</td><td>nenhum</td></tr>
+        <tr><td>Contato</td><td class="n">37,2 KB</td><td class="n">8,0 KB</td><td>18 arquivos pré-carregados na abertura: 159,6 KB (65,4 KB com gzip), com cache de um ano</td></tr>
+        <tr><td>Política</td><td class="n">30,0 KB</td><td class="n">7,7 KB</td><td>nenhum</td></tr>
+        <tr><td>404</td><td class="n">25,6 KB</td><td class="n">5,8 KB</td><td>nenhum</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Uma folha de estilos para o site inteiro: 36,0 KB (6,3 KB com gzip), com cache de um ano.</li>
+      <li>Fontes do Google: cinco arquivos woff2 (Public Sans 400 a 700 e Saira Condensed 600), 122 KB, mais 7,5 KB de CSS; ficam em cache depois da primeira página.</li>
+      <li>Primeira visita à Início: cerca de 148 KB transferidos, dentro da meta. Da segunda página em diante, só o HTML (6 a 12 KB). O Contato é a exceção: soma os 65 KB de JavaScript do formulário na primeira abertura (a prova anterior contava só os arquivos de entrada; aqui entram todos os que a página pré-carrega).</li>
+      <li>Pasta <code>build/</code> inteira: 800 KB em disco. O logotipo vai embutido como SVG em cada página, com os caminhos arredondados a duas casas: a Início tinha chegado a 75 KB antes desse ajuste.</li>
+    </ul>
+  </section>
+
+  <section class="stack" id="publicacao">
+    <h2>Como fica publicado</h2>
+    <div class="cards">
+      <div class="card"><h3>Imagem de contêiner</h3><p><code>Dockerfile</code> na raiz do projeto: gera o site e o serve com <code>nginx-unprivileged</code> (porta 8080, <code>/healthz</code>, configuração em <code>site/deploy/nginx.conf</code>). O GitHub Actions (<code>.github/workflows/build.yml</code>) publica <code>ghcr.io/rbxrobotica/iteruno-site:sha-…</code> a cada envio e troca a tag no rbx-infra, do jeito dos outros produtos da RBX.</p></div>
+      <div class="card"><h3>Cluster k3s da RBX</h3><p><code>site/deploy/rbx-infra/</code> traz o que entra no rbx-infra por PR: namespace <code>iteruno</code>, Deployment com duas réplicas, Service, Ingress do Traefik com certificado do <code>letsencrypt-prod</code> e redirecionamento para https, e a entrada do app-of-apps do Argo CD. O domínio está como <code>__DOMINIO__</code>. O <code>README.md</code> de lá lista o que falta do lado do rbx-infra (destino do CI, segredo de pull pelo Ansible, DNS).</p></div>
+      <div class="card"><h3>Nada publicado ainda <span class="tag warn">bloqueado</span></h3><p>Domínio: iteruno.com (A3, confirmado em 02/11). Falta o repositório GitHub do site (A4). Pelas regras do rbx-infra, nenhum agente aplica, envia ou mescla sem a sua autorização para cada operação; tudo entra por PR. Nenhuma imagem foi enviada e nenhum manifesto foi aplicado.</p></div>
+    </div>
+  </section>
+
+  <section class="stack" id="pendencias">
+    <h2>Pendências</h2>
+    <p class="desc">Nenhum dado foi inventado: 27 marcadores <code>[[CONFIRMAR …]]</code> ficaram no conteúdo (eram 45; <code>grep -rn CONFIRMAR site/src/</code> lista todos). A ficha completa, com o padrão de cada item em branco, está em <code>ficha-de-dados.md</code>, na raiz do projeto.</p>
+    <div class="cards">
+      <div class="card"><h3>Bloqueia a publicação <span class="tag warn">1</span></h3><ul><li><strong>A3 · Domínio:</strong> iteruno.com, confirmado em 02/11 e já aplicado no Ingress, no canonical, no sitemap, no robots e no JSON-LD.</li><li><strong>A4 · Repositório GitHub</strong> do site (por exemplo <code>rbxrobotica/iteruno-site</code>), para o CI publicar a imagem.</li></ul></div>
+      <div class="card"><h3>Confirmar o que foi decidido por padrão</h3><ul><li><strong>A2:</strong> os canais públicos são mesmo o WhatsApp da RBX e <code>contact@rbxsystems.ch</code>?</li><li>Número da rua fora do site (vai na hora de marcar).</li><li>Razão social com CPF fora do site; só "Leandro Damasio · empresário individual · CNPJ".</li><li>Horário sem horas; redação sobre o uso das mensagens para treinar IA.</li></ul></div>
+      <div class="card"><h3>Faltam (não bloqueiam)</h3><ul><li>Número do CNPJ (B4a), usuário do Instagram (B6a), horas de atendimento (B3a), valor do diagnóstico (D1a), prazo da garantia (D3a).</li><li>Grupos E (cursos: carga horária, datas, equipamento, reposição, pagamento), F (Sobre: 2021 a 2025, quem atende), G (depoimentos), H (peças: cartão e assinatura).</li><li>Decisões abertas: 2, 7, 11, 12, 13, 19 (CSP), 20 (renomear a pasta para <code>~/rbx/iteruno</code>), 21 (formulário pelo rbx-comms), 22 (apagar os ativos antigos do artefato).</li></ul></div>
+    </div>
+  </section>
+
+  <section class="aprov" id="aprovacao">
+    <h2>Aprovação</h2>
+    <p><strong>Revisão Iteruno aprovada</strong> em 02/11/2026 (D-25). Domínio iteruno.com informado no mesmo dia (D-26); o repositório (A4) e a publicação seguem pelo Codex.</p>
+    <p class="meta">Depois: criar o repositório, subir o projeto, PR no rbx-infra com <code>site/deploy/rbx-infra/</code>, DNS e segredo de pull, publicação. Os grupos E a I da ficha podem vir depois, sem travar nada.</p>
+  </section>
+</div>
+
+<script>
+  // Chave 1200/360 por página: troca a largura das duas capturas e dos links "abrir inteira".
+  document.querySelectorAll('.pagina').forEach(function (sec) {
+    sec.querySelectorAll('.bar button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var larg = b.getAttribute('data-larg');
+        sec.setAttribute('data-larg', larg);
+        sec.querySelectorAll('.bar button').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        sec.querySelectorAll('img[data-nome]').forEach(function (img) {
+          var src = 'capturas/' + img.getAttribute('data-nome') + '-' + img.getAttribute('data-tema') + '-' + larg + '.jpg';
+          img.src = src; img.alt = img.alt.replace(/\d+ px$/, larg + ' px');
+          var a = img.closest('figure').querySelector('[data-abrir]'); if (a) a.href = src;
+          img.parentElement.scrollTop = 0;
+        });
+      });
+    });
+  });
+</script>
+
+</body></html>

@@ -1,0 +1,122 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "AdFeed.dc.html": {
+      "h": 1350,
+      "page": "campaigns",
+      "title": "Anúncio feed · c01 preparo",
+      "w": 1080,
+      "x": 1680,
+      "y": 0
+    },
+    "AdStory.dc.html": {
+      "h": 1920,
+      "page": "campaigns",
+      "title": "Anúncio story · c01 preparo",
+      "w": 1080,
+      "x": 2840,
+      "y": 0
+    },
+    "Campaigns.dc.html": {
+      "h": 2360,
+      "page": "campaigns",
+      "title": "Modelo de campanhas",
+      "w": 1600,
+      "x": 0,
+      "y": 0
+    },
+    "Checkout.dc.html": {
+      "h": 1180,
+      "page": "landing",
+      "title": "Checkout · estados",
+      "w": 1600,
+      "x": 1990,
+      "y": 0
+    },
+    "LandingDesktop.dc.html": {
+      "h": 8000,
+      "page": "landing",
+      "title": "Landing Preparação diária · desktop",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "LandingMobile.dc.html": {
+      "h": 8000,
+      "page": "landing",
+      "title": "Landing Preparação diária · mobile",
+      "w": 390,
+      "x": 1520,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "h": 2480,
+      "page": "brand",
+      "title": "Brand system",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Spec.dc.html": {
+      "h": 2900,
+      "page": "spec",
+      "title": "Especificação de implementação",
+      "w": 1600,
+      "x": 0,
+      "y": 0
+    },
+    "System.dc.html": {
+      "h": 3120,
+      "page": "system",
+      "title": "Tokens, componentes e estados",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-25T02:32:26Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "page": "brand",
+    "view": "canvas"
+  },
+  "notes": {},
+  "order": [
+    "Main.dc.html",
+    "System.dc.html",
+    "LandingDesktop.dc.html",
+    "LandingMobile.dc.html",
+    "Checkout.dc.html",
+    "Campaigns.dc.html",
+    "AdFeed.dc.html",
+    "AdStory.dc.html",
+    "Spec.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "brand",
+      "name": "Brand system"
+    },
+    {
+      "id": "system",
+      "name": "Design system"
+    },
+    {
+      "id": "landing",
+      "name": "Landing e checkout"
+    },
+    {
+      "id": "campaigns",
+      "name": "Campanhas"
+    },
+    {
+      "id": "spec",
+      "name": "Especificação"
+    }
+  ],
+  "title": "Satwake Brand & Design System"
+}

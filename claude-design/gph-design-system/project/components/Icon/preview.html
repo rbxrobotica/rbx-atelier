@@ -1,0 +1,12 @@
+<!-- @dsCard group="Marca" height=72 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Icon</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-row', style: { color: 'var(--ink-2)' } }, ['search','map-pin','sliders','heart','phone','message','camera','plus','edit','trash','clock','check-circle','alert','imoveis','servicos','veiculos','compra-venda','pessoais','star','shield-check','flag','user','log-in','list'].map(function (n) { return h('span', { key: n, title: n, style: { display: 'inline-flex', width: 40, height: 40, alignItems: 'center', justifyContent: 'center', background: 'var(--surface)', border: '1px solid var(--line)' } }, h(G.Icon, { name: n, size: 22 })); })));
+</script>
+</body>
+</html>

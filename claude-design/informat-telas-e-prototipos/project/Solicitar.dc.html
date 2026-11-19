@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Informat · Solicitar atendimento</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/informat/tokens.css">
+<link rel="stylesheet" href="ds/informat/components/bundle.css">
+<script src="ds/informat/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&family=Atkinson+Hyperlegible+Mono:wght@400;500;600&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="container-type: inline-size; background: var(--base); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 24px;">
+<x-import component-from-global-scope="Informat.NavBar" links="{{nav}}" cta="{{cta}}" sign-in="{{signIn}}" logo-href="{{h.inicio}}" compact="{{isMobile}}"></x-import>
+<main>
+<section style="padding: clamp(24px, 3cqi, 48px) clamp(16px, 4cqi, 48px) clamp(56px, 6.25cqi, 80px);">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(32px, 4cqi, 56px); align-items: flex-start;">
+<div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p class="inf-label" style="margin: 0; color: var(--cobre-ink);">Solicitação · passo 1 de 2</p>
+<h1 style="margin: 0; font-size: clamp(32px, 3.2cqi, 40px); line-height: 1.15; font-weight: 800; letter-spacing: -0.015em;">Conte o que está acontecendo</h1>
+<p style="margin: 0; max-width: 60ch; font-size: 18px; line-height: 28px; color: var(--ink-2);">Leva poucos minutos. Você recebe o número da OS ao enviar, e o diagnóstico vem antes de qualquer orçamento.</p>
+</div>
+
+<div style="box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;">
+<span style="display: inline-grid; place-content: center; width: 44px; height: 44px; border-radius: 8px; background: var(--sunken); color: var(--ink-2); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="user" size="{{n24}}"></x-import></span>
+<div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+<strong style="font-weight: 600;">Contato pela sua conta RBX</strong>
+<span style="font-family: var(--font-mono); font-size: 14px; line-height: 20px; color: var(--ink-2);">[NOME] · [E-MAIL] · [TELEFONE]</span>
+</div>
+<a href="#perfil-rbx" style="color: var(--placa); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center;">Corrigir no perfil RBX</a>
+</div>
+
+<form style="display: flex; flex-direction: column; gap: 32px;">
+<fieldset style="margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+<legend style="padding: 0 8px; margin-left: -8px; font-size: 22px; line-height: 28px; font-weight: 700;">Equipamento</legend>
+<x-import component-from-global-scope="Informat.Select" label="Tipo de equipamento" options="{{tipos}}" default-value="notebook"></x-import>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px;">
+<x-import component-from-global-scope="Informat.TextField" label="Marca e modelo" optional="{{yes}}" placeholder="Ex.: Lenovo IdeaPad 3" hint="Na etiqueta embaixo do notebook ou na caixa."></x-import>
+<x-import component-from-global-scope="Informat.TextField" label="Número de série" optional="{{yes}}" mono="{{yes}}" hint="Ajuda a conferir peças e garantia de fábrica."></x-import>
+</div>
+</fieldset>
+
+<fieldset style="margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 24px; min-width: 0;">
+<legend style="padding: 0 8px; margin-left: -8px; font-size: 22px; line-height: 28px; font-weight: 700;">Problema</legend>
+<x-import component-from-global-scope="Informat.ChoiceCard" legend="Que tipo de serviço você procura?" hint="Se não souber, escolha Não sei: o diagnóstico indica." options="{{frentes}}" default-value="reparo"></x-import>
+<x-import component-from-global-scope="Informat.TextField" label="O que está acontecendo?" multiline="{{yes}}" rows="{{n5}}" max-length="{{n1000}}" hint="Conte quando começou, o que aparece na tela e o que você já tentou." default-value="Desde a semana passada o notebook desliga sozinho depois de uns 20 minutos de uso, principalmente com o navegador aberto. Às vezes trava antes de desligar. (Exemplo)"></x-import>
+</fieldset>
+
+<fieldset style="margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+<legend style="padding: 0 8px; margin-left: -8px; font-size: 22px; line-height: 28px; font-weight: 700;">Fotos</legend>
+<x-import component-from-global-scope="Informat.UploadField" label="Fotos do problema" optional="{{yes}}" hint="Fotos da tela com erro, da etiqueta com o número de série ou do dano. Ajudam no diagnóstico, mas são opcionais." files="{{fotos}}"></x-import>
+</fieldset>
+
+<div style="display: flex; flex-wrap: wrap-reverse; gap: 12px; justify-content: space-between; align-items: center;">
+<x-import component-from-global-scope="Informat.Button" variant="secondary" href="{{h.inicio}}" icon-left="chevron-left">Voltar</x-import>
+<x-import component-from-global-scope="Informat.Button" variant="primary" size="l" href="{{h.atendimento}}" icon-right="arrow-right">Continuar</x-import>
+</div>
+</form>
+</div>
+
+<aside aria-labelledby="depois" style="flex: 1 1 300px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<h2 id="depois" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Onde você está</h2>
+<x-import component-from-global-scope="Informat.ServiceTimeline" current="{{n0}}" hide-descriptions="{{yes}}"></x-import>
+<x-import component-from-global-scope="Informat.Alert" tone="info" title="Nada é feito sem a sua aprovação">Depois do diagnóstico você recebe o orçamento e decide se segue.</x-import>
+</aside>
+</div>
+</section>
+</main>
+<x-import component-from-global-scope="Informat.SiteFooter" promise="{{promise}}" columns="{{footerCols}}" compact="{{isMobile}}"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"device": {"editor": "enum", "options": ["desktop", "mobile"], "default": "desktop"}, "$preview": {"width": 1280, "height": 2400}}'>
+class Component extends DCLogic {
+pageVals(current, area) {
+  var m = (this.props.device ?? 'desktop') === 'mobile';
+  var s = m ? '-mobile' : '';
+  var f = function (n) { return n + s + '.dc.html'; };
+  var h = { inicio: f('Main'), servico: f('Servico'), solicitar: f('Solicitar'), atendimento: f('Atendimento'),
+    orcamento: f('Orcamento'), aprovacao: f('Aprovacao'), acompanhamento: f('Acompanhamento'), entrega: f('Entrega') };
+  var pub = [
+    { label: 'Serviços', href: h.servico, current: current === 'servico' },
+    { label: 'Como funciona', href: current === 'inicio' ? '#como-funciona' : h.inicio },
+    { label: 'Acompanhar OS', href: h.acompanhamento }
+  ];
+  var app = [
+    { label: 'Minhas OS', href: h.acompanhamento, current: true },
+    { label: 'Serviços', href: h.servico },
+    { label: 'Mensagens', href: h.acompanhamento + '' }
+  ];
+  return {
+    m: m, isMobile: m, notMobile: !m, h: h,
+    nav: area ? app : pub,
+    cta: { label: 'Solicitar atendimento', href: h.solicitar },
+    signIn: area ? { label: 'Minha conta', href: '#conta', icon: 'user' } : { label: 'Entrar', href: h.acompanhamento },
+    timelineOrientation: m ? 'vertical' : 'horizontal',
+    promise: 'Assistência técnica e consultoria Linux que mostra o diagnóstico e o orçamento antes de mexer no seu computador.',
+    footerCols: [
+      { title: 'Serviços', links: [{ label: 'Computador pronto para usar', href: h.servico }, { label: 'Manutenção e reparo', href: '#reparo' }, { label: 'Linux', href: '#linux' }] },
+      { title: 'Atendimento', links: [{ label: 'Como funciona', href: h.inicio }, { label: 'Acompanhar OS', href: h.acompanhamento }, { label: 'Entrar com sua conta RBX', href: h.acompanhamento }] },
+      { title: 'Contato', links: [{ label: '[TELEFONE]', icon: 'phone' }, { label: '[E-MAIL]', icon: 'mail' }, { label: '[CIDADE]', icon: 'map-pin' }, { label: '[HORÁRIO]', icon: 'clock' }] }
+    ]
+  };
+}
+
+renderVals() {
+  var p = this.pageVals('solicitar', false);
+  p.yes = true; p.n0 = 0; p.n5 = 5; p.n24 = 24; p.n1000 = 1000;
+  p.tipos = [{ value: 'notebook', label: 'Notebook' }, { value: 'desktop', label: 'Computador de mesa' }, { value: 'all-in-one', label: 'Computador tudo em um' }, { value: 'servidor', label: 'Servidor doméstico' }, { value: 'outro', label: 'Outro' }];
+  p.frentes = [
+    { value: 'pronto', title: 'Computador pronto para usar', icon: 'monitor', description: 'Formatação, reinstalação, drivers e programas.' },
+    { value: 'reparo', title: 'Manutenção e reparo', icon: 'wrench', description: 'Defeito, lentidão, desligamentos, peças.' },
+    { value: 'linux', title: 'Linux', icon: 'terminal', description: 'Instalação, migração, configuração, consultoria.' },
+    { value: 'nao-sei', title: 'Não sei', icon: 'info', description: 'Descreva o problema e o diagnóstico indica.' }
+  ];
+  p.fotos = [{ name: 'tela-desligando.jpg', size: '2,4 MB', status: 'done' }, { name: 'etiqueta-serie.jpg', status: 'uploading', progress: 60 }];
+  return p;
+}
+}
+</script>
+</body>
+</html>

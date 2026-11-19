@@ -1,0 +1,27 @@
+<!-- @dsCard group="Navegação" height=360 width=1120 subtitle="Rodapé com contatos pendentes e a assinatura RBX" -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>SiteFooter · prévia</title>
+<style>
+  body { margin: 0; background: var(--base); color: var(--ink); font-family: var(--font-sans); }
+  .pv { box-sizing: border-box; padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-start; }
+  .pv-col { box-sizing: border-box; padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-6); max-width: 640px; }
+  .pv-grid { box-sizing: border-box; padding: var(--space-6); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr)); gap: var(--space-4); }
+  .pv-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .pv-split > [data-theme] { background: var(--base); color: var(--ink); }
+  .pv-cap { margin: 0 0 var(--space-2); font-family: var(--font-mono); font-size: var(--fs-label); line-height: var(--lh-label); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-2); flex-basis: 100%; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var I = window.Informat, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(I.SiteFooter, {
+    promise: 'Assistência técnica e consultoria Linux que mostra o diagnóstico e o orçamento antes de mexer no seu computador.',
+    columns: [
+      { title: 'Serviços', links: [{ label: 'Computador pronto para usar', href: '#' }, { label: 'Manutenção e reparo', href: '#' }, { label: 'Linux', href: '#' }] },
+      { title: 'Atendimento', links: [{ label: 'Como funciona', href: '#' }, { label: 'Acompanhar OS', href: '#' }, { label: 'Entrar com sua conta RBX', href: '#' }] },
+      { title: 'Contato', links: [{ label: '[TELEFONE]', icon: 'phone' }, { label: '[E-MAIL]', icon: 'mail' }, { label: '[CIDADE]', icon: 'map-pin' }, { label: '[HORÁRIO]', icon: 'clock' }] } ] }));
+</script>
+</body>
+</html>

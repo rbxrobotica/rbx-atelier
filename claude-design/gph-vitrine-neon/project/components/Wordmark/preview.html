@@ -1,0 +1,16 @@
+<!-- @dsCard group="Marca" height=200 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Wordmark</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.GphNeon, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    h('div', { className: 'gn-row', style: { gap: '48px', alignItems: 'baseline' } },
+      h(G.Wordmark, { size: 'l' }),
+      h(G.Wordmark, { size: 'm', href: '#' }),
+      h(G.Wordmark, { size: 's' })));
+</script>
+</body>
+</html>

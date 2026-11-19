@@ -1,0 +1,22 @@
+{
+  "title": "Auditoria de Posicionamento RBX",
+  "url": "https://claude.ai/artifact/Nu4wv9SCMMmqJxJE448hBB",
+  "type": "Docs",
+  "version": "1790383273-4f2e",
+  "listed_at": "2026-11-19T14:47:54Z",
+  "note": "type Docs: content exported from the Docs store as Markdown (doc revision 9, tab 'Auditoria de Posicionamento RBX', export reported 20689 bytes, size matches). Date and mention chips kept as text. Runtime files skipped.",
+  "files": [
+    {
+      "path": "auditoria-de-posicionamento-rbx.md",
+      "bytes": 20689,
+      "sha256": "39cae90088c35c82c2306fe4db1090023b440f2f76ac7b006cf0ded6d9280b2c"
+    }
+  ],
+  "skipped": [
+    "artifact-type/** (73 files)",
+    "SKILL.md",
+    "index.html"
+  ],
+  "assets": [],
+  "failures": []
+}

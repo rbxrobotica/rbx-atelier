@@ -1,0 +1,219 @@
+{
+ "title": "GPH Vitrine Néon",
+ "url": "https://claude.ai/artifact/1UBNFBatpCS65Jw1JCQRpH",
+ "type": "Design System",
+ "version": "1793649880-b57d (listing); 1795099366-c866 (read)",
+ "listed_at": "2026-11-19T14:50:08Z",
+ "files": [
+  {
+   "path": "project/README.md",
+   "bytes": 8447,
+   "sha256": "70af362d0695259331fbbad21767288545a519445c90597e8c8217c8a3a7e49e"
+  },
+  {
+   "path": "project/assets/Legado/README.md",
+   "bytes": 907,
+   "sha256": "ab9cc6e7e9e2ceb3b97492a2043fb77d1b6bc6293bba415e2b929d77bd56cd51"
+  },
+  {
+   "path": "project/components/Button/README.md",
+   "bytes": 1074,
+   "sha256": "da0c34aceb67b1e2bad01e1e5131c4687fd23e3ff705984c6a5b61946944afb1"
+  },
+  {
+   "path": "project/components/Button/preview.html",
+   "bytes": 911,
+   "sha256": "d1553d6b2bb3e08e0c927944509fd1bd8b66cf69ec3c16ee0a57e1fcbe40a839"
+  },
+  {
+   "path": "project/components/CategoryTabs/README.md",
+   "bytes": 644,
+   "sha256": "c2e2f0e015f061119f51bec99944680d297808d111ef7c820c7efbb4c8da42af"
+  },
+  {
+   "path": "project/components/CategoryTabs/preview.html",
+   "bytes": 455,
+   "sha256": "32d80c671ba91f9bdff0f65d356351213276f2e5bd62067d4029cc8abd41be33"
+  },
+  {
+   "path": "project/components/Cover/preview.html",
+   "bytes": 2822,
+   "sha256": "6134e87b7716728a417b610bde9185cba600ad7b85658aed3d4eb9603a7ab0a2"
+  },
+  {
+   "path": "project/components/ListingCard/README.md",
+   "bytes": 923,
+   "sha256": "76f5e0af6180c3f2becc8e944d90b2c3c95672a678b92815d9ce3965cd9d4f80"
+  },
+  {
+   "path": "project/components/ListingCard/preview.html",
+   "bytes": 1251,
+   "sha256": "e8cbbd0daf74650534b165c223e73a69299914187a4fa617a7b4655f11590363"
+  },
+  {
+   "path": "project/components/Lockup/README.md",
+   "bytes": 851,
+   "sha256": "bcb021ca077a86581ffdaac6ab13c0cafea3c9a6f6d1fedb38612e1ea8578947"
+  },
+  {
+   "path": "project/components/Lockup/preview.html",
+   "bytes": 608,
+   "sha256": "e5496aa026eb95928261a3250c6b012836a575e744e9358f510f1082f38a8cdd"
+  },
+  {
+   "path": "project/components/NavBar/README.md",
+   "bytes": 809,
+   "sha256": "4055b92558fe1c978862154924f7f4aa3837a83add26c2b9c9fb71efd90d8a09"
+  },
+  {
+   "path": "project/components/NavBar/preview.html",
+   "bytes": 496,
+   "sha256": "38d0c5a0d20822f940e432e94a5d8577992dc6034417c40aada34c349b4be312"
+  },
+  {
+   "path": "project/components/SearchBar/README.md",
+   "bytes": 866,
+   "sha256": "b0e84a5fc6f062fe439534a18a4e177e47ec9e428e0513540ac11c9251ffa515"
+  },
+  {
+   "path": "project/components/SearchBar/preview.html",
+   "bytes": 350,
+   "sha256": "e018cfe8866d5e3dd39efa5afa92cd0d45145c9884e60c92ad5be1ba79e8f2c5"
+  },
+  {
+   "path": "project/components/Symbol/README.md",
+   "bytes": 853,
+   "sha256": "0d225f8dc9a55cc2ca50447355fdef9e350fc45bf0ca5ea485a890a72a4a694e"
+  },
+  {
+   "path": "project/components/Symbol/preview.html",
+   "bytes": 581,
+   "sha256": "87e9ac4b627e769d667ad009028ce745193193771ee3d5e9809259a91e2c8b59"
+  },
+  {
+   "path": "project/components/Wordmark/README.md",
+   "bytes": 628,
+   "sha256": "c86fd05b6def304a7a88059b86a4ce2d92262820366f31583a41d4cd3a7bdd1c"
+  },
+  {
+   "path": "project/components/Wordmark/preview.html",
+   "bytes": 522,
+   "sha256": "0c1e1e3cd216cdf5e3d4ec722076e5bc0aaacf2e3d9ce0337ab85ea17f4652c3"
+  },
+  {
+   "path": "project/components/bundle.css",
+   "bytes": 10725,
+   "sha256": "326c6768db8b5caf260c8f6e44cc19d5b3c85aeaf739e3b277c26b63a825c031"
+  },
+  {
+   "path": "project/components/bundle.js",
+   "bytes": 7871,
+   "sha256": "3e3bc40b7a84933f205f898db535318ebed606e4b8a996c2f7c02df012d7da49"
+  },
+  {
+   "path": "project/components/index.d.ts",
+   "bytes": 3738,
+   "sha256": "1f53374beb26e490643dc2beb2e407255d3c886104feac9a0c6b686934c4382c"
+  },
+  {
+   "path": "project/decisoes.md",
+   "bytes": 5915,
+   "sha256": "e1192e94301c65a74faf872412d46f2677b04afb6453fc53be2bc69f87c87698"
+  },
+  {
+   "path": "project/design-system.json",
+   "bytes": 2275,
+   "sha256": "d96cce7eda75b96764e7a4c8dbddb3a1eccb15984709eb4aed9d098021e621c4"
+  },
+  {
+   "path": "project/fonts/DejaVuSansCondensed-Bold.ttf",
+   "bytes": 665028,
+   "sha256": "38098d0b8edd8430a0f53fb2831b5d36037563a998a620d3c87a4d7591766d20"
+  },
+  {
+   "path": "project/fonts/DejaVuSansCondensed-BoldOblique.ttf",
+   "bytes": 611836,
+   "sha256": "43f9fd6b77edf174553cf94857c77c63de7ddb0c6751fd1390e73223518e128f"
+  },
+  {
+   "path": "project/fonts/DejaVuSansCondensed-Oblique.ttf",
+   "bytes": 599292,
+   "sha256": "dc3526fa25fae4278c4e34b47d4c049b6923421c70921032a0db11bfe9c1b0cf"
+  },
+  {
+   "path": "project/fonts/DejaVuSansCondensed.ttf",
+   "bytes": 680264,
+   "sha256": "8550cd5ca1acb65a8fc7877c46939cd0b4d909f8e7bc1e24716873d918c5e549"
+  },
+  {
+   "path": "project/fonts/LICENSE-DejaVu.txt",
+   "bytes": 4765,
+   "sha256": "a30f2466a95cd1eaeff6041692f43469edcca052d002e877015a819c6e31c194"
+  },
+  {
+   "path": "project/fonts/README.md",
+   "bytes": 374,
+   "sha256": "dd9dbcea01501711421bff543d49653799a93cfb8862a80a9fa5e580dd2e7550"
+  },
+  {
+   "path": "project/marca.md",
+   "bytes": 6026,
+   "sha256": "257ce9415596f791054d551e641b62bbfda760fc14d9c306c3f2b0953dae7fca"
+  },
+  {
+   "path": "project/tokens.json",
+   "bytes": 14962,
+   "sha256": "e0fcb75c764e5a77059242c43816e5cbfe602c5489cae6ef668295109b577a72"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (10 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [
+  {
+   "id": "2c3d0738cb7f9a606ac1cb1fc11f478a",
+   "type": "image/jpeg",
+   "bytes": 20718,
+   "sha256": "69f84a926dbbe019d4d5befb34d8698b5bc8cbd1e1a213774e9c53705f66e690",
+   "uploaded_at": "2026-10-29T00:50:12.472714Z"
+  },
+  {
+   "id": "87e177d2131666ecdeae4adf3d33fae2",
+   "type": "image/jpeg",
+   "bytes": 19262,
+   "sha256": "748feb6f13d5b5fa6cf227e841039158a36ab01a5c2f5c9fb41e4ae51ddf9f60",
+   "uploaded_at": "2026-10-29T00:50:13.244571Z"
+  },
+  {
+   "id": "dd2c1a2799a803cc1e4eb6a5d80e124e",
+   "type": "image/png",
+   "bytes": 57293,
+   "sha256": "086269b2bd993ad75213e604177a92e54673342628b87e7ac8efc5f038b7de21",
+   "uploaded_at": "2026-10-30T01:12:14.847159Z"
+  },
+  {
+   "id": "7b22227b603afca93f1c5410d3604392",
+   "type": "image/svg+xml",
+   "bytes": 420,
+   "sha256": "695bf82ea567298c9d70405b12957db54eb36ff16299b4a70b22f04df72b44d7",
+   "uploaded_at": "2026-10-30T01:26:18.140078Z"
+  },
+  {
+   "id": "65465a64c9dc9a01e83c33529cd57bb9",
+   "type": "image/png",
+   "bytes": 6280,
+   "sha256": "0b417b1fcfb739b69063e8d58ecf2caae72bfdc03465d15d9770dfc238bbbad4",
+   "uploaded_at": "2026-10-30T01:36:51.126069Z"
+  },
+  {
+   "id": "ab2051faba5d690e9a6ed382ed0ceb6c",
+   "type": "image/png",
+   "bytes": 1001,
+   "sha256": "6bcbb198ca6f8386feded85f525d12bd876f36f7bb2438753aaacb0d4de224f1",
+   "uploaded_at": "2026-10-30T01:36:51.736736Z"
+  }
+ ],
+ "failures": []
+}

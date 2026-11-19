@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Ilustração de demonstração: pia e torneira">
+  <rect width="400" height="300" fill="#EAE5DA"></rect>
+  <rect x="0" y="0" width="400" height="170" fill="#F5F2EB"></rect>
+  <path d="M0 170h400" stroke="#D8D2C8" stroke-width="2"></path>
+  <g stroke="#D8D2C8" stroke-width="2" fill="none"><path d="M100 0v170M200 0v170M300 0v170M0 60h400M0 120h400"></path></g>
+  <rect x="120" y="150" width="160" height="40" rx="8" fill="#FFFFFF" stroke="#1C1A17" stroke-width="3"></rect>
+  <path d="M200 150v-30h30" fill="none" stroke="#1C1A17" stroke-width="4" stroke-linecap="round"></path>
+  <path d="M228 128v8" stroke="#A83A1C" stroke-width="4" stroke-linecap="round"></path>
+  <path d="M200 190v50" stroke="#1C1A17" stroke-width="3"></path>
+  <rect x="8" y="8" width="176" height="24" rx="4" fill="#1C1A17"></rect>
+  <text x="16" y="25" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F5F2EB">FOTO DE DEMONSTRAÇÃO</text>
+</svg>

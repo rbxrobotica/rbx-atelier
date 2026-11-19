@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* GPH Vitrine Néon · every value comes from tokens.json (tokens.css) */
+body { margin: 0; font-family: var(--font-sans); font-size: 16px; line-height: 24px; background: var(--ground); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.gn-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-4); }
+.gn-stack { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-4); }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+
+/* focus: one ring everywhere */
+.gn-btn:focus-visible, .gn-tab:focus-visible, .gn-nav-link:focus-visible, .gn-nav-brand:focus-visible, .gn-nav-toggle:focus-visible, .gn-card-title:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px;
+}
+.gn-select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; box-shadow: var(--ring-focus), var(--glow-cyan); }
+
+/* ---------- text styles used by components ---------- */
+.gn-label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan); text-shadow: var(--text-glow-cyan); margin: 0; }
+.gn-prompt { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 700; color: var(--cyan); text-shadow: var(--text-glow-cyan); margin: 0; }
+
+/* ---------- Wordmark ---------- */
+.gn-wordmark { display: inline-block; font-family: var(--font-display); font-weight: 700; font-style: italic; letter-spacing: -0.01em; color: var(--magenta); text-shadow: var(--text-glow-white); text-decoration: none; line-height: 1.15; }
+.gn-wordmark-m { font-size: 42px; }
+.gn-wordmark-s { font-size: 34px; }
+.gn-wordmark-l { font-size: 120px; line-height: .92; }
+
+/* Símbolo: a lojinha, uma cor, sem brilho. Lockup: símbolo à esquerda, alinhado pelo centro das letras, gap de um quarto do corpo. */
+.gn-symbol { display: inline-block; color: var(--simbolo); vertical-align: middle; }
+.gn-lockup { display: inline-flex; align-items: center; gap: .25em; font-size: 42px; text-decoration: none; line-height: 1; }
+.gn-lockup-s { font-size: 34px; }
+.gn-lockup-l { font-size: 120px; }
+.gn-lockup .gn-lockup-symbol { height: .95em; width: auto; flex: none; }
+.gn-lockup .gn-wordmark { font-size: 1em; line-height: 1; }
+
+/* ---------- Button ---------- */
+.gn-btn { --_h: var(--control-m); display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); height: var(--_h); min-width: var(--_h); padding: 0 var(--space-5); border-radius: var(--radius-m); border: 1px solid transparent; font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 700; text-decoration: none; cursor: pointer; white-space: nowrap; box-sizing: border-box; transition: background-color var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast), box-shadow var(--duration-fast); }
+.gn-btn-l { --_h: var(--control-l); padding: 0 var(--space-6); font-size: 17px; }
+.gn-btn-block { display: flex; width: 100%; }
+.gn-btn-primary { background: var(--pink-fill); color: var(--on-pink); border-color: var(--pink); box-shadow: var(--glow-pink); }
+.gn-btn-primary:hover { background: var(--pink-strong); }
+.gn-btn-secondary { background: transparent; color: var(--lilac); border-color: var(--lilac); }
+.gn-btn-secondary:hover { color: var(--lilac-strong); border-color: var(--lilac-strong); background: var(--raised); }
+.gn-btn-quiet { background: transparent; color: var(--ink); }
+.gn-btn-quiet:hover { background: var(--raised); }
+.gn-btn:disabled, .gn-btn[aria-disabled="true"] { cursor: not-allowed; background: var(--surface); color: var(--ink-3); border-color: var(--line); box-shadow: none; }
+.gn-btn-spinner { width: 16px; height: 16px; border-radius: var(--radius-pill); border: 2px solid currentColor; border-right-color: transparent; animation: gn-spin 800ms linear infinite; }
+@keyframes gn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .gn-btn-spinner { animation: none; } .gn-btn, .gn-tab, .gn-nav-link, .gn-card { transition: none; } }
+
+/* ---------- SearchBar ---------- */
+.gn-search { display: grid; gap: var(--space-4); padding: var(--space-6) var(--search-inset); box-sizing: border-box; }
+.gn-search-cell { display: grid; gap: var(--space-1); }
+.gn-select { height: var(--control-m); width: 100%; box-sizing: border-box; padding: 0 var(--space-7) 0 var(--space-3); border-radius: var(--radius-m); border: 1px solid var(--field); background-color: var(--surface); color: var(--ink); font-family: var(--font-sans); font-size: 16px; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a898c6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right var(--space-3) center; background-size: 16px 12px; }
+[data-theme="dia"] .gn-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235e4b85' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+.gn-search-compact { padding: var(--space-4); }
+@media (max-width: 640px) { .gn-search { padding-left: var(--space-4); padding-right: var(--space-4); } }
+
+/* ---------- CategoryTabs ---------- */
+.gn-tabs { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-5); padding: var(--space-5) var(--space-4); margin: 0; list-style: none; border-bottom: 1px solid var(--line); }
+.gn-tab { display: inline-flex; align-items: center; min-height: var(--control-m); padding: 0 var(--space-2); border: 0; background: none; font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; color: var(--cyan); cursor: pointer; text-decoration: none; border-radius: var(--radius-s); transition: color var(--duration-fast); }
+.gn-tab:hover { text-decoration: underline; text-underline-offset: 4px; }
+.gn-tab[aria-selected="true"] { color: var(--pink); font-weight: 700; text-shadow: var(--text-glow-pink); }
+
+/* ---------- ListingCard ---------- */
+.gn-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-4); border-radius: var(--radius-m); background: var(--surface); border: 1px solid var(--line); box-sizing: border-box; transition: background-color var(--duration-fast), border-color var(--duration-fast); }
+.gn-card:hover { background: var(--raised); border-color: var(--field); }
+.gn-card-featured { box-shadow: var(--glow-pink); border-color: var(--pink); }
+.gn-card-photo { position: relative; aspect-ratio: 4 / 3; width: 100%; overflow: hidden; background: var(--bar); border-radius: var(--radius-s); display: grid; place-items: center; color: var(--ink-3); font-size: 14px; }
+.gn-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gn-card-sold .gn-card-photo img { filter: grayscale(1); opacity: .7; }
+.gn-card-body { display: grid; gap: var(--space-1); padding: 0 var(--space-2); }
+.gn-card-title { margin: 0; font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 700; color: var(--ink); text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gn-card-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.gn-card-price { margin: 0; font-family: var(--font-display); font-size: 20px; line-height: 24px; font-weight: 700; color: var(--magenta); text-shadow: var(--text-glow-pink); font-variant-numeric: tabular-nums; }
+.gn-card-sold .gn-card-price { text-decoration: line-through; color: var(--ink-3); text-shadow: none; }
+.gn-card-meta { margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-3); }
+.gn-badge { position: absolute; top: var(--space-2); left: var(--space-2); display: inline-flex; align-items: center; gap: var(--space-1); padding: 2px var(--space-2); border-radius: var(--radius-s); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.gn-badge-featured { background: var(--pink-fill); color: var(--on-pink); }
+.gn-badge-sold { background: var(--ground); color: var(--err); border: 1px solid var(--err); }
+.gn-badge-dot { width: 8px; height: 8px; border-radius: var(--radius-pill); background: currentColor; }
+
+/* ---------- NavBar ---------- */
+.gn-nav { position: relative; z-index: var(--z-nav); background: var(--bar); box-shadow: var(--glow-bar); }
+.gn-nav-inner { max-width: var(--container); margin: 0 auto; min-height: var(--nav-height); padding: var(--space-2) var(--space-4); box-sizing: border-box; display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.gn-nav-brand { display: inline-flex; align-items: center; text-decoration: none; }
+.gn-nav-links { display: flex; align-items: center; gap: var(--space-4); margin: 0; padding: 0; list-style: none; flex: 1; flex-wrap: wrap; }
+.gn-nav-link { font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 700; font-style: italic; color: var(--lilac); text-decoration: none; padding: var(--space-2) 0; border-radius: var(--radius-s); transition: color var(--duration-fast); }
+.gn-nav-link:hover { color: var(--lilac-strong); text-decoration: underline; text-underline-offset: 4px; }
+.gn-nav-toggle { display: none; margin-left: auto; width: var(--control-m); height: var(--control-m); border: 1px solid var(--field); border-radius: var(--radius-m); background: transparent; color: var(--lilac); cursor: pointer; align-items: center; justify-content: center; }
+.gn-nav-compact .gn-nav-links, .gn-nav-compact .gn-nav-cta { display: none; }
+.gn-nav-compact .gn-nav-toggle { display: inline-flex; }
+.gn-nav-compact .gn-wordmark-m { font-size: 34px; }
+
+/* ---------- Footer line (used by previews) ---------- */
+.gn-footer { text-align: center; padding: var(--space-5) var(--space-4); font-family: var(--font-display); font-size: 24px; line-height: 30px; font-weight: 700; font-style: italic; color: var(--magenta); background: linear-gradient(var(--ground), var(--horizon)); }
+.gn-footer small { display: block; font-family: var(--font-sans); font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; color: var(--ink-3); margin-top: var(--space-2); }

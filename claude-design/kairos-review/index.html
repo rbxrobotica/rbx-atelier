@@ -1,0 +1,1193 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>Kairos Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,700;125,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  --paper: #F4F6F7; --surface: #FFFFFF; --ink: #16202A; --muted: #5B6873;
+  --accent: #A8771B; --link: #0B7285; --rule: #D5DBE0; --code-bg: #EBEFF2;
+  --keep: #2F7D5B; --warn: #A8771B; --remove: #A63A48;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F151B; --surface: #151D25; --ink: #E6EBEF; --muted: #97A3AD;
+    --accent: #D2A24C; --link: #4CC3D9; --rule: #26313B; --code-bg: #1B252F;
+    --keep: #5FB58E; --warn: #D2A24C; --remove: #D97583;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F151B; --surface: #151D25; --ink: #E6EBEF; --muted: #97A3AD;
+  --accent: #D2A24C; --link: #4CC3D9; --rule: #26313B; --code-bg: #1B252F;
+  --keep: #5FB58E; --warn: #D2A24C; --remove: #D97583;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { display: grid; grid-template-columns: 250px minmax(0, 72ch); gap: 56px; max-width: 1180px; margin: 0 auto; padding: 48px 32px 96px; }
+header.masthead { grid-column: 1 / -1; border-bottom: 1px solid var(--rule); padding-bottom: 28px; margin-bottom: 8px; }
+.eyebrow { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+h1 { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 125%; font-weight: 700; font-size: clamp(30px, 4.2vw, 46px); line-height: 1.05; letter-spacing: -.01em; margin: 0 0 14px; text-wrap: balance; max-width: 22ch; }
+.masthead p.lede { font-size: 18px; color: var(--muted); max-width: 62ch; margin: 0; }
+nav.toc { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 100%; font-size: 13.5px; line-height: 1.35; }
+nav.toc .eyebrow { margin-bottom: 10px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: sec; }
+nav.toc li { padding: 5px 0 5px 34px; position: relative; border-left: 1px solid var(--rule); }
+nav.toc li::before { counter-increment: sec; content: counter(sec, decimal-leading-zero); position: absolute; left: 10px; top: 6px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; color: var(--accent); }
+nav.toc li:nth-last-child(-n+2)::before { content: ""; }
+nav.toc a { color: var(--ink); text-decoration: none; }
+nav.toc a:hover { color: var(--link); }
+main { min-width: 0; }
+main h2 { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 125%; font-weight: 700; font-size: 26px; line-height: 1.15; letter-spacing: -.01em; margin: 64px 0 18px; padding-top: 22px; border-top: 1px solid var(--rule); text-wrap: balance; scroll-margin-top: 24px; }
+main h2 .num { display: block; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: .12em; color: var(--accent); margin-bottom: 8px; }
+main h2 .num::before { content: "Seção "; }
+main h3 { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 100%; font-weight: 700; font-size: 17px; margin: 36px 0 10px; letter-spacing: .01em; }
+main p { margin: 0 0 16px; }
+main ul, main ol { padding-left: 1.4em; margin: 0 0 18px; }
+main li { margin: 0 0 7px; }
+main li::marker { color: var(--muted); }
+main hr { display: none; }
+main strong { font-weight: 600; }
+main code { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: .85em; background: var(--code-bg); padding: 1px 5px; border-radius: 3px; }
+main pre { background: var(--code-bg); border: 1px solid var(--rule); padding: 16px 18px; overflow-x: auto; margin: 0 0 20px; line-height: 1.45; }
+main pre code { background: none; padding: 0; font-size: 13px; }
+.scroll { overflow-x: auto; margin: 0 0 22px; border: 1px solid var(--rule); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-stretch: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+th { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--surface); }
+tr:last-child td { border-bottom: none; }
+main > p:first-of-type { color: var(--muted); }
+main h2#_1-executive-verdict + p, main h2[id$="executive-verdict"] + p { font-size: 19px; }
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 18px 72px; }
+  nav.toc { position: static; max-height: none; border: 1px solid var(--rule); padding: 14px 16px; background: var(--surface); }
+  nav.toc details summary { cursor: pointer; font-weight: 700; }
+  main h2 { font-size: 23px; margin-top: 48px; }
+  body { font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">RBX · revisão de arquitetura · 2026-09-07</p>
+    <h1>Kairos: um livro de crenças e apostas, não um grafo de mercado</h1>
+    <p class="lede">Revisão crítica independente do RBX Market Graph e do Commercial World Model, com 24 seções, respostas às 20 perguntas dirigidas e às 331 questões abertas. Alinhada a ADR-0602, ADR-0601, ADR-0603 e à reconciliação de agosto em rbx-growth.</p>
+  </header>
+  <nav class="toc" aria-label="Sumário">
+    <p class="eyebrow">Sumário</p>
+    <ol>
+<li><a href="#1-executive-verdict">1. Executive verdict</a></li>
+<li><a href="#2-what-is-genuinely-novel-here">2. What is genuinely novel here</a></li>
+<li><a href="#3-what-is-not-novel-already-commodity">3. What is not novel / already commodity</a></li>
+<li><a href="#4-fundamental-conceptual-mistakes">4. Fundamental conceptual mistakes</a></li>
+<li><a href="#5-your-independent-model-from-first-principles">5. Your independent model from first principles</a></li>
+<li><a href="#6-comparison-with-our-proposed-architecture">6. Comparison with our proposed architecture</a></li>
+<li><a href="#7-recommended-ontology">7. Recommended ontology</a></li>
+<li><a href="#8-recommended-bounded-contexts">8. Recommended bounded contexts</a></li>
+<li><a href="#9-recommended-temporalevent-model">9. Recommended temporal/event model</a></li>
+<li><a href="#10-recommended-intelligencereasoning-model">10. Recommended intelligence/reasoning model</a></li>
+<li><a href="#11-recommended-salesplanning-model">11. Recommended sales/planning model</a></li>
+<li><a href="#12-recommended-multi-brand-model">12. Recommended multi-brand model</a></li>
+<li><a href="#13-recommended-ai-agent-architecture">13. Recommended AI-agent architecture</a></li>
+<li><a href="#14-recommended-frontendux">14. Recommended frontend/UX</a></li>
+<li><a href="#15-recommended-persistence-architecture">15. Recommended persistence architecture</a></li>
+<li><a href="#16-commerciallegalgovernance-risks">16. Commercial/legal/governance risks</a></li>
+<li><a href="#17-10-biggest-failure-modes">17. 10 biggest failure modes</a></li>
+<li><a href="#18-610-week-mvp">18. 6–10 week MVP</a></li>
+<li><a href="#19-what-you-would-explicitly-not-build-yet">19. What you would explicitly NOT build yet</a></li>
+<li><a href="#20-keep-rename-merge-split-remove-add">20. KEEP / RENAME / MERGE / SPLIT / REMOVE / ADD</a></li>
+<li><a href="#21-the-master-insight">21. The master insight</a></li>
+<li><a href="#22-final-architecture-diagram-in-text">22. Final architecture diagram in text</a></li>
+<li><a href="#23-final-domain-vocabulary">23. Final domain vocabulary</a></li>
+<li><a href="#24-the-10-architectural-decisions-we-should-make-before-writing-code">24. The 10 architectural decisions we should make before writing code</a></li>
+<li><a href="#apendice-a-as-20-perguntas-dirigidas">Apêndice A · 20 perguntas</a></li>
+<li><a href="#apendice-b-respostas-as-331-questoes">Apêndice B · 331 questões</a></li>
+    </ol>
+  </nav>
+  <main>
+<h1 id="kairos-revisao-critica-do-rbx-market-graph-e-do-commercial-world-model">Kairos · revisão crítica do RBX Market Graph e do Commercial World Model</h1>
+<p>Revisão independente, 2026-09-07. Autor: Claude Fable 5.1. Destinatário: Leandro, RBX.</p>
+<p>Como ler: as seções 1 a 24 seguem a estrutura pedida. O Apêndice A responde às 20 perguntas dirigidas. O Apêndice B responde, uma a uma, às 331 questões. Onde afirmo com certeza, escrevo "certeza". Onde é hipótese, escrevo "hipótese".</p>
+<p>Contexto institucional que usei e que vocês não citaram no pedido:</p>
+<ul>
+<li>ADR-0602, aceita em 2026-07-19: rbx-relations é o CRM canônico e tenant-scoped, dono de accounts, contacts, opportunities, pipeline, stages, activities, next actions, SLA, proposals e audit de transições. rbx-commerce é dono de offers, atribuição, checkout e entitlements. rbx-comms é dono de consentimento, canais, inbox, entrega e histórico de conversas. rbx-maestro e Thalamus governam agentes, mas nunca possuem autoridade comercial. Agentes não definem preço, não enviam propostas, não movem estágios com gate humano e não se comunicam fora do Comms.</li>
+<li>ADR-0601 e ADR-0603: movimentos comerciais separados por identidade, funil, economia e CAC. Proof point de H2: três novas parcerias B2B de longo prazo. Strategos "lê resultados para julgamento".</li>
+<li>Reconciliação de 2026-08-16 em rbx-growth: o modelo de lead scoring MQL/SQL foi retirado por "pesos não observados apresentados como política" e "risco de conversão fictícia de pipeline reverso".</li>
+</ul>
+<p>Essa última decisão é a alma desta revisão. Vocês já rejeitaram números inventados. O sistema certo é aquele em que reintroduzi-los é estruturalmente impossível.</p>
+<p>Nomes: uso "Kairos" como nome de trabalho para o sistema inteiro, por três razões. Primeiro, "Market" já significa mercado financeiro no namespace RBX, por causa de Robson e rbx-market-briefing. Segundo, "Ledger" e "Memory" já são rbx-ledger e rbx-memory. Terceiro, kairos é o momento oportuno, por oposição a chronos, o tempo linear do funil. Se o nome desagradar, o argumento continua de pé.</p>
+<hr />
+<h2 id="1-executive-verdict"><span class="num">1</span>Executive verdict</h2>
+<p>Veredito em uma frase: a base é boa, mas o centro de gravidade está no lugar errado. Vocês estão desenhando um modelo do mercado. O ativo que realmente compõe para uma holding founder-led é um modelo do próprio julgamento comercial da RBX sobre o mercado: crenças explícitas, apostas explícitas, previsões resolvidas e calibração por fonte.</p>
+<p>Certezas:</p>
+<ul>
+<li>Market Graph como memória com provenance é correto e necessário, mas é commodity conceitual. Não é moat.</li>
+<li>Commercial Thesis é a melhor abstração do conjunto. Deve virar o objeto central de inteligência.</li>
+<li>Opportunity é redundante. Deve ser uma visão sobre Theses, não uma entidade.</li>
+<li>Observation, CommercialEvent e Signal são três nomes para dois conceitos. Colapsar em Observation, a evidência, e Claim, a afirmação com provenance, com Detectors versionados produzindo claims derivadas.</li>
+<li>Strategy, Tactic e Move em três camadas procedurais é excesso. Pursuit com approach declarativo, Plays reutilizáveis e Moves executáveis basta.</li>
+<li>A state machine única é errada. Vocês já desconfiam, e estão certos.</li>
+<li>PostgreSQL, monólito modular, sem graph database, sem event sourcing formal, sem microservices. Certo e suficiente por anos.</li>
+<li>Brands não são tenants. A relação com uma pessoa pertence à holding, via Actor, e as brands a tomam emprestada.</li>
+<li>O sistema não pode nascer como concorrente de rbx-relations. Tem de nascer como o contexto que fica antes e ao lado dele, com uma ADR de fronteira.</li>
+</ul>
+<p>Hipóteses:</p>
+<ul>
+<li>O loop de aprendizado só funciona com N pequeno se cada thesis e cada move carregarem uma previsão explícita que é resolvida. Sem isso, "Commercial Knowledge" vira anedota.</li>
+<li>Timing importa mais que fit. O Radar deveria ser um calendário de janelas de necessidade previstas, não uma lista ordenada por score.</li>
+<li>O risco dominante não é arquitetural. É fricção de captura. Se registrar uma observação custar mais de 30 segundos, o sistema morre em três meses.</li>
+</ul>
+<p>Estão construindo a coisa certa? Metade. A metade "Market Graph + Offer Graph + state machines" é um CRM sofisticado que ninguém precisa que a RBX construa, e que ADR-0602 já alocou a rbx-relations. A metade "thesis + pursuit como aposta + previsão + calibração + política de contato da holding" é genuinamente nova, barata de construir e economicamente defensável. Construam a segunda metade primeiro, com a primeira reduzida ao mínimo que a sustenta.</p>
+<hr />
+<h2 id="2-what-is-genuinely-novel-here"><span class="num">2</span>What is genuinely novel here</h2>
+<ol>
+<li>Memória pré-lead. Observar pessoas e organizações por meses antes de qualquer hipótese comercial, com provenance. Ferramentas comerciais começam no lead. Isso é raro, e só tem valor se a captura for barata.</li>
+<li>Thesis com counter-evidence e condições de falsificação. Nenhum CRM ou plataforma de ABM faz isso. É a semente do moat.</li>
+<li>Separação Opportunity ≠ Pursuit, isto é, crença ≠ compromisso. Correta e rara. A maioria dos sistemas confunde "existe fit" com "estamos trabalhando nisso".</li>
+<li>Actor routing multi-brand. "Qual actor da RBX, por qual canal, com qual objetivo, em qual momento" é uma pergunta específica de holding que nenhum produto responde.</li>
+<li>A ambição de acumular conhecimento comercial como propriedade intelectual, e não só dados operacionais. A ambição é certa. O mecanismo proposto, experimentos e insights derivados, é insuficiente. A seção 21 corrige.</li>
+</ol>
+<p>Bem pensado, mas não novo: provenance por observação, entity resolution probabilística, stakeholder map por pursuit, o loop sense-model-plan-act-learn.</p>
+<hr />
+<h2 id="3-what-is-not-novel-already-commodity"><span class="num">3</span>What is not novel / already commodity</h2>
+<ul>
+<li>Entity, Identity e Observation com provenance: é o modelo de statements do Wikidata, o object model da Palantir e os datoms do Datomic. Bom, conhecido, sem moat.</li>
+<li>Bitemporalidade: XTDB, Datomic, SQL:2011. Copiem o padrão, não inventem.</li>
+<li>Signals de intenção: 6sense, Bombora, Apollo intent, Clay. Commodity, e geralmente opaca. A opacidade é exatamente o que vocês rejeitaram na reconciliação de agosto.</li>
+<li>Stakeholder roles: MEDDIC e Miller Heiman. Copiem o vocabulário.</li>
+<li>State machine de funil: todo CRM. ADR-0602 já dá isso a rbx-relations com stages versionados por tenant.</li>
+<li>Enrichment: Apollo, Hunter, Clay, Clearbit. Comprem como fonte substituível, com licença lida.</li>
+<li>Sequências e cadências: Lemlist, Outreach, Instantly. Commodity, e a parte mais perigosa para a reputação de um founder numa comunidade pequena.</li>
+<li>O loop SENSE, MODEL, REASON, PLAN, ACT, LEARN: é OODA e o vocabulário de reinforcement learning. Como forma de organizar a conversa, ajuda. Como arquitetura, não decide nada, porque não diz o que é persistido nem quem tem autoridade.</li>
+</ul>
+<hr />
+<h2 id="4-fundamental-conceptual-mistakes"><span class="num">4</span>Fundamental conceptual mistakes</h2>
+<ol>
+<li>Conhecimento dentro da Entity. Entity deve ser só um identificador estável. O conhecimento fica em claims com fonte, data e confiança. Se a entidade tiver colunas como cargo ou empresa, vocês perdem provenance no primeiro update.</li>
+<li>Camadas de interpretação demais. Observation, CommercialEvent, Signal, Thesis, Opportunity, Pursuit: seis níveis, três deles sobrepostos. Evento é um tipo de claim. Signal é o output de um detector, ou seja, uma claim derivada. Opportunity é uma thesis com status.</li>
+<li>Loop sem previsão. O ciclo termina em LEARN, mas em nenhum ponto de PLAN ou ACT existe uma previsão registrada. Sem previsão não há erro. Sem erro não há aprendizado mensurável. É a falha mais barata de corrigir e a mais cara de ignorar.</li>
+<li>Offer Graph como grafo. Ofertas são configuração versionada, e ADR-0602 as dá a rbx-commerce. O que parece grafo ali, ICP, problemas, provas, são na verdade theses sobre o mercado e reference data.</li>
+<li>Actor routing sem modelo de capacidade. Sem orçamento de atenção do actor e da pessoa contatada, "qual actor deve abordar" é decoração.</li>
+<li>Falta de "alternativas do comprador" na thesis. Uma oportunidade é uma competição entre estados futuros: contratar interno, incumbente, concorrente, não fazer nada. Sem isso a thesis é otimista por construção.</li>
+<li>Falta de Program, a ação um-para-muitos. Sem isso marketing e vendas transacionais não cabem. Vocês mesmos notaram na questão 309.</li>
+<li>Brand como possível tenant. Numa holding onde o mesmo founder é a face de várias brands, a pessoa contatada vê uma pessoa, não uma brand. A relação é da holding.</li>
+<li>Ambição estatística acima do volume de dados. Com dezenas de pursuits por ano não há inferência estatística. Há calibração, retrospectiva e holdouts. Desenhar para isso.</li>
+<li>Reflexividade não capturada. Uma observação induzida por uma ação da RBX é diferente de uma observação passiva. Sem esse link não há como medir lift.</li>
+<li>"World model" como nome. Um world model simula o mundo. O que vocês têm é uma memória com provenance mais uma camada de crenças. O nome empurra para simulação, que não devem construir.</li>
+<li>Fronteira institucional ignorada. O pedido descreve opportunities, pipeline, next actions e state machines como se fossem terreno livre. ADR-0602 já os alocou. O novo sistema precisa de uma ADR que diga o que fica nele e o que fica em rbx-relations, rbx-commerce e rbx-comms.</li>
+</ol>
+<hr />
+<h2 id="5-your-independent-model-from-first-principles"><span class="num">5</span>Your independent model from first principles</h2>
+<p>Partindo do zero. O problema real: uma organização pequena, com atenção escassa e reputação a proteger, quer transformar atenção em receita em vários mercados, sob incerteza alta, com feedback esparso e atrasado, e quer ficar melhor nisso com o tempo.</p>
+<p>Isso é decisão sequencial sob incerteza, com ações caras e parcialmente irreversíveis, em ambiente parcialmente observável. Os componentes mínimos, sem nenhum vocabulário de vocês:</p>
+<ol>
+<li>Evidência. O que fontes mostraram, quando, a quem. Imutável.</li>
+<li>Crença. O que a RBX acredita ser verdade sobre o mundo, com fonte e confiança. Revisável por supersessão, nunca por edição.</li>
+<li>Julgamento. O que a RBX acredita que vai acontecer ou que está latente, com probabilidade declarada, evidências a favor e contra, alternativas e falsificadores.</li>
+<li>Aposta. Compromisso de atenção de um actor com um objetivo, com previsão.</li>
+<li>Ação. Um passo concreto executado por uma conta, com previsão local.</li>
+<li>Resultado. O que aconteceu, ligado à ação que o induziu.</li>
+<li>Calibração. Por fonte de julgamento, previsto versus realizado.</li>
+<li>Política de contato. Quem pode falar com quem, quando, com que frequência, e quem está suprimido.</li>
+</ol>
+<p>Os átomos são dois, porque há dois sistemas. No lado do conhecimento, o átomo é a claim com provenance. No lado da ação, o átomo é a decisão com previsão. Entidades são hubs de claims. Pursuits são hubs de decisões. Tudo o mais é projeção.</p>
+<p>Nomes dos contextos no meu modelo: Field, evidência e crenças sobre o mundo observado. Judgment, theses, previsões, calibração e lições. Pursuits, apostas, plays, moves e resultados. Propositions, o que a RBX propõe ao mercado, como referência às offers do rbx-commerce. Contact Policy, actors, contas, atenção e supressão.</p>
+<hr />
+<h2 id="6-comparison-with-our-proposed-architecture"><span class="num">6</span>Comparison with our proposed architecture</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Conceito de vocês</th>
+<th>Meu modelo</th>
+<th>Veredito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entity</td>
+<td>Entity como hub de identificação, Person e Organization como tipos duros</td>
+<td>Manter, esvaziar de atributos</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>Identity Link com status e faixa de confiança</td>
+<td>Manter, renomear</td>
+</tr>
+<tr>
+<td>Observation</td>
+<td>Observation, evidência imutável</td>
+<td>Manter</td>
+</tr>
+<tr>
+<td>CommercialEvent</td>
+<td>Claim de classe evento</td>
+<td>Fundir em Claim</td>
+</tr>
+<tr>
+<td>Signal</td>
+<td>Detector versionado que produz claims derivadas</td>
+<td>Substituir</td>
+</tr>
+<tr>
+<td>Relationship</td>
+<td>Claim de classe relação, temporal</td>
+<td>Fundir em Claim</td>
+</tr>
+<tr>
+<td>Offer Graph</td>
+<td>Propositions: referência a offers do commerce, mais problems, proofs e personas</td>
+<td>Renomear e reduzir</td>
+</tr>
+<tr>
+<td>Commercial Thesis</td>
+<td>Thesis com scope, alternativas, falsificadores e previsão</td>
+<td>Manter, generalizar</td>
+</tr>
+<tr>
+<td>Opportunity</td>
+<td>Radar, uma visão sobre theses</td>
+<td>Remover como entidade</td>
+</tr>
+<tr>
+<td>Pursuit</td>
+<td>Pursuit como aposta com stake e forecast</td>
+<td>Manter, enriquecer</td>
+</tr>
+<tr>
+<td>Strategy, Tactic, Move</td>
+<td>approach declarativo, Play reutilizável, Move executável</td>
+<td>Reduzir</td>
+</tr>
+<tr>
+<td>Stakeholder Map</td>
+<td>pursuit_person com role e stance</td>
+<td>Fundir na pursuit</td>
+</tr>
+<tr>
+<td>Commercial State Machine</td>
+<td>status por agregado mais rung derivada</td>
+<td>Remover a única</td>
+</tr>
+<tr>
+<td>Experiments</td>
+<td>Prediction e Outcome em todo move, holdouts em Programs</td>
+<td>Generalizar</td>
+</tr>
+<tr>
+<td>RBX Actor e ActorAccount</td>
+<td>Iguais, com capacidade semanal e limites por conta</td>
+<td>Manter, adicionar capacidade</td>
+</tr>
+<tr>
+<td>Commercial World Model</td>
+<td>Judgment</td>
+<td>Renomear</td>
+</tr>
+<tr>
+<td>Sales Machine</td>
+<td>Pursuits mais Contact Policy</td>
+<td>Renomear</td>
+</tr>
+</tbody>
+</table></div>
+<p>O que meu modelo tem e o de vocês não: Prediction, Outcome, Calibration, Attention budget, Suppression, Program, Play, alternativas na thesis, need window, in_response_to, Capture como superfície de primeira classe, e a fronteira com rbx-relations.</p>
+<p>O que o de vocês tem e o meu não: Signal como objeto, Opportunity como entidade, Strategy como camada, state machine global, Offer Graph, Graph Explorer.</p>
+<hr />
+<h2 id="7-recommended-ontology"><span class="num">7</span>Recommended ontology</h2>
+<p>Regra geral: poucos tipos duros, um catálogo fechado de predicados versionado em código, e todo conhecimento como claim com provenance.</p>
+<p>Tipos de entidade:</p>
+<ul>
+<li>Person e Organization. Tipos duros, com entity resolution, ciclo de vida de merge e tratamento LGPD próprio.</li>
+<li>Reference entities: Market, Community, Technology, Location, Problem, Capability, Persona, Content próprio da RBX, Brand, Product. Curadas, sem resolução probabilística, poucas dezenas cada. Brand de terceiros é uma reference ligada a uma Organization por brand_of. Brand da RBX é além disso ligada a um Actor.</li>
+</ul>
+<p>Identity Link: registro próprio, não value object nem edge genérico. Campos: entity_id, surface, external_key normalizada, url, status candidate, confirmed, rejected ou retired, faixa de confiança exact, strong, weak ou conflicting, observation_ids que sustentam, method, resolved_by, resolved_at. Durante resolução, uma mesma chave pode ter vários candidatos. A projeção corrente admite no máximo um confirmed por chave e superfície.</p>
+<p>Claim: subject_id, predicate do catálogo, object_id ou value, valid_from e valid_to opcionais, observed_at, recorded_at, provenance_kind observed, extracted, inferred, detected ou declared, source_observation_ids, method com versão de parser, modelo ou detector, faixa de confiança, scope holding ou brand, superseded_by. Três classes de predicado: atributo, relação e evento. Um evento é uma claim cujo valid_from é a data do acontecimento e sem valid_to.</p>
+<p>Catálogo inicial de predicados, cerca de 25, todos com dono:</p>
+<pre><code>Person:        has_name, has_title, works_at, located_in, follows,
+               member_of, attends, posted_about, changed_job,
+               replied, met_with, referred, speaks_language
+Organization:  has_name, has_domain, located_in, operates_in,
+               uses_technology, uses_vendor, raised_funding, hiring_for,
+               launched, customer_of, partner_of, competitor_of,
+               supplier_of, subsidiary_of, brand_of
+Inferido:      has_problem
+</code></pre>
+<p>Regras contra ontology soup: predicado novo exige PR, dono e pelo menos um extractor ou detector que o produza. O que não está no catálogo entra como observation com texto, nunca como claim tipada. Predicado sem claim nova em 90 dias é candidato a remoção.</p>
+<p>Merge e split: nunca reescrever claims. Merge grava merge_log com snapshot dos identity links e marca a entidade absorvida como merged_into. Leituras seguem o redirecionamento. Unmerge recria a entidade a partir do log. Split cria nova entidade e re-aponta links e, se o revisor quiser, claims específicas, com log.</p>
+<p>Relacionamentos: claims de classe relação, direcionais por padrão, com simetria declarada no catálogo. N-ários viram reference entity, por exemplo um Funding Round ou um Event, mais claims binárias.</p>
+<hr />
+<h2 id="8-recommended-bounded-contexts"><span class="num">8</span>Recommended bounded contexts</h2>
+<p>Cinco contextos dentro de Kairos, adapters fora:</p>
+<ol>
+<li>Field. Entities, identity links, observations, claims, detectors, merge log. Dono da verdade sobre o que foi visto e o que se acredita.</li>
+<li>Judgment. Theses, predictions, outcomes como resolução de previsões, calibração por fonte, lessons. Dono da verdade sobre o que a RBX julga e de quão bom é esse julgamento.</li>
+<li>Pursuits. Pursuits, programs, plays, moves, pursuit_person, outcomes operacionais. Dono do que a RBX decidiu fazer e fez.</li>
+<li>Propositions. Referências a offers e versões do rbx-commerce, problems, proofs, personas. Read model do commerce mais material de venda curado.</li>
+<li>Contact Policy. Actors, actor accounts, capacidade, attention ledger, visão de supressão. Dono das invariantes de contato da holding.</li>
+</ol>
+<p>Fronteira com o que já existe, que precisa virar ADR antes do código:</p>
+<ul>
+<li>rbx-relations continua dono de accounts, contacts, opportunities de pipeline, stages, proposals, SLA e audit de transição. Kairos fica antes e ao lado. Quando uma pursuit atinge um ato recíproco de conversa, Kairos cria ou vincula a opportunity em rbx-relations e passa a consumir o audit de transições como outcomes. A Person de Kairos ganha um identity link de superfície rbx-relations. Assim não há dois systems of record: relations registra a relação comercial quando ela existe; Kairos registra evidência, crença, aposta e resultado.</li>
+<li>rbx-commerce continua dono de offers. Kairos referencia offer_id e versão, e guarda só o material de julgamento.</li>
+<li>rbx-comms continua dono de consentimento, entrega e conversas por email e WhatsApp. Kairos nunca envia. Agentes só enviam via comms, como manda ADR-0602. Moves executados pelo founder no LinkedIn ou Instagram são registrados como executados por humano. A visão de supressão de Kairos lê o consentimento do comms e adiciona a lista de não-perseguir para canais fora do comms.</li>
+<li>rbx-maestro e Thalamus governam os agentes de Kairos. Kairos expõe endpoints de proposta; agentes nunca escrevem claims.</li>
+<li>rbx-ledger recebe custos e receita realizada. O expected value de Kairos é previsão e nunca fato financeiro. Isso responde ao risco de "pipeline reverso fictício".</li>
+<li>Strategos "lê resultados para julgamento" segundo ADR-0601. Decidam se Judgment é um cliente de Strategos ou se Strategos consome Judgment. Não deixem os dois inventarem theses em paralelo.</li>
+</ul>
+<p>Fronteiras transacionais: dentro de um agregado. Observation com suas claims candidatas. Pursuit com seus moves. Thesis com suas versões e evidências. Entre contextos, eventos internos via tabela outbox, processados de forma assíncrona no mesmo processo.</p>
+<p>Invariantes centrais, verificadas no kernel e não em UI:</p>
+<ol>
+<li>Toda claim tem provenance e pelo menos uma observation ou um método declarado.</li>
+<li>Nenhum move de contato é planejado para pessoa suprimida ou acima do orçamento de atenção da holding.</li>
+<li>Uma chave de identidade aponta para no máximo uma entidade corrente.</li>
+<li>Todo move executado tem prediction registrada antes da execução.</li>
+<li>Toda pursuit tem owner humano e brand.</li>
+<li>Agentes não promovem propostas.</li>
+<li>Deleção respeita tombstone e mantém hash de supressão.</li>
+</ol>
+<hr />
+<h2 id="9-recommended-temporalevent-model"><span class="num">9</span>Recommended temporal/event model</h2>
+<p>Bitemporalidade leve, não event sourcing. Quatro tempos, três obrigatórios:</p>
+<ul>
+<li>observed_at: quando a fonte viu.</li>
+<li>recorded_at: quando entrou em Kairos.</li>
+<li>valid_from e valid_to: quando é verdade no mundo, opcionais.</li>
+</ul>
+<p>Append-only com supersessão: observation, claim, prediction, outcome, move executado, mensagem enviada, merge_log, suppression_log, agent_run. Mutável com tabela de transições: pursuit, thesis, offer reference, actor, reference data.</p>
+<p>Observation versus evento: observation é evidência, "o CEO postou isto em tal data, visto por tal conta". Evento é uma claim de que algo aconteceu, "a organização levantou capital em tal data". Uma observation gera zero ou várias claims; uma claim de evento pode citar várias observations.</p>
+<p>Interações da própria RBX não são observations. São moves executados. A resposta do mercado a um move é uma observation com in_response_to apontando para o move. Esse único campo é o que torna a reflexividade mensurável.</p>
+<p>Detectors substituem Signals: regras nomeadas e versionadas, em código, com dono e janela de validade. Exemplo: hiring_window_v1 emite a claim derivada has_problem senior_capacity quando a organização tem duas ou mais claims hiring_for de cargo sênior nos últimos 60 dias. A claim carrega method detector@v1. Se o detector muda, reprocessa-se. Decay não é numérico: cada detector declara a janela em que sua claim conta como ativa.</p>
+<p>Mercado como sistema dinâmico: as consequências arquiteturais são justamente as acima. Claims com validade, nunca colunas sobrescritas. Theses com data de revisão e falsificadores datados. Radar ordenado por janela de necessidade e não por score. Pursuits que pausam e retomam sem perder história. Sem nenhuma dessas quatro, o sistema envelhece em silêncio. Simulação do mercado, não.</p>
+<hr />
+<h2 id="10-recommended-intelligencereasoning-model"><span class="num">10</span>Recommended intelligence/reasoning model</h2>
+<p>Thesis é o objeto central. Anatomia:</p>
+<pre><code>thesis
+  scope:          person | organization | segment | market | offer_gap
+  target:         entity ou definição de segmento
+  offer_ref:      offer do commerce, opcional, nulo em offer_gap
+  proposition:    uma frase falsificável
+  evidence:       claims a favor, com nota
+  counter:        claims contra, com nota
+  alternatives:   o que o comprador pode fazer em vez de nós
+  assumptions:    lista com &quot;como verificar&quot; e status
+  falsifiers:     condições observáveis e datadas
+  need_window:    de, até, e fonte da estimativa
+  forecast:       probabilidade declarada, autor, data
+  status:         open | supported | falsified | retired | pursued
+</code></pre>
+<p>Observed, inferred, desired, constraint, intent. Sim, distinguir, mas sem tabelas novas. Observed state é claim com provenance observed ou extracted. Inferred state é claim com provenance inferred ou detected e cita as claims de origem. Desired state, constraint e intent do comprador não são claims sobre o mundo. São conteúdo da thesis: assumptions com "como verificar". Assim ninguém inventa um fato "Acme tem orçamento". Escreve-se "assumimos orçamento aprovado; verificar na primeira conversa", com status open até virar claim declared quando a própria pessoa disser.</p>
+<p>Trust como estado. Não modelar trust como número. Modelar a rung da relação entre um Actor e uma Person, derivada de atos recíprocos observados:</p>
+<pre><code>0 unaware        nenhum ato
+1 aware          seguiu, visualizou, reagiu a conteúdo nosso
+2 acknowledged   respondeu ou reagiu diretamente a nós uma vez
+3 conversational troca bidirecional em 30 dias
+4 met            chamada ou reunião
+5 trusted        indicou alguém, compartilhou informação interna, comprou
+</code></pre>
+<p>A rung é o degrau mais alto com ato recíproco, mostrada com a data do último ato. Não decai numericamente. Mostra-se "dormente desde tal data". Trust é a variável latente; a rung é a evidência. Nunca somar pontos.</p>
+<p>Contrafactuais, de forma pragmática e honesta:</p>
+<ul>
+<li>"E se não fizermos nada" é a base rate de inbound do segmento, medida com holdout aleatório de cinco a dez por cento dos alvos qualificados de cada Program.</li>
+<li>"E se esperarmos 30 dias" é a probabilidade de a need window fechar, declarada na thesis e calibrada depois.</li>
+<li>"E se outra brand abordar" é regra de coordenação, não modelo.</li>
+</ul>
+<p>Competição. A thesis carrega alternatives: incumbente, build interno, concorrente nomeado, adiar. Cada alternativa é uma claim quando observada, por exemplo uses_vendor, ou uma assumption quando suposta. Uma opportunity é, de fato, uma corrida entre estados futuros. O modelo mínimo que representa isso é a lista de alternativas com evidência. Teoria dos jogos não entra.</p>
+<p>Contra teses convincentes sem base, produzidas por LLM: toda evidência citada tem de ser um claim_id existente. O sistema rejeita citação sem id. A confiança declarada por agente é calibrada publicamente. Agente com Brier ruim numa classe de thesis perde a permissão de propor acima de uma faixa. Isso é mecanismo, não prompt.</p>
+<p>Calibração: por autor de previsão e por classe de pergunta, com Brier score e diagrama de confiabilidade em faixas. Com N pequeno, mostrar a contagem e não esconder.</p>
+<hr />
+<h2 id="11-recommended-salesplanning-model"><span class="num">11</span>Recommended sales/planning model</h2>
+<p>Pursuit é uma aposta:</p>
+<pre><code>pursuit
+  brand, offer_ref opcional, thesis, target
+  target_kind:   entity | segment
+  owner actor, participantes com papel
+  objective:     &quot;discovery meeting até 2026-12-15&quot;
+  approach:      uma frase declarativa
+  posture:       founder_led | consultative | direct | transactional | relationship
+  priority:      core | opportunistic | exploratory
+  stake_hours, ev_low, ev_high, forecast_p, review_at
+  status:        proposed | active | paused | closed
+  close_reason, lesson
+</code></pre>
+<p>Program é uma pursuit com target_kind segment, moves templated, percentual de holdout e outcomes agregados. Uma pessoa dentro de um Program "gradua" para pursuit própria quando produz um ato recíproco. Assim uma campanha sobre mil pessoas não cria mil pursuits.</p>
+<p>Play é um template reutilizável: hipótese, posture, canal, passos, cadência, limite de fadiga, métricas esperadas, versão e dono. Uma estratégia de pursuit é a escolha de plays mais o approach em uma frase.</p>
+<p>Move é um comando: pursuit, play opcional, canal, conta que executa, pessoa alvo, planned_at, executed_at, status planned, executed, skipped ou failed, dependência simples, variante, flag de holdout, e prediction obrigatória antes da execução.</p>
+<p>Outcome liga-se a move ou pursuit e resolve predictions. É aqui que nasce o aprendizado.</p>
+<p>Portfólio em vez de next best action. A revisão semanal é o ritual central. Entradas: pursuits ativas com forecast, faixa de EV, horas restantes de stake, classe de prioridade, review_at; capacidade semanal de cada actor; attention ledger; cota de exploração. A ordenação sugerida é transparente e não é política:</p>
+<pre><code>ordem = forecast_p * ev_mid / horas_restantes
+reserva de 20% das horas para pursuits exploratory
+</code></pre>
+<p>O humano reordena. O sistema grava a alocação final como decisão com previsões. Não há otimizador. Com dezenas de pursuits, um otimizador é teatro. O valor está em tornar as apostas explícitas e comparáveis com o resultado.</p>
+<p>Valor de informação: pursuits exploratory existem para testar theses de segmento, e o retorno delas é conhecimento. Isso é o mesmo que um bandit sobre hipóteses de segmento, canal e posture. Implementem como cota e retrospectiva, não como algoritmo, até que haja N.</p>
+<p>Atenção como recurso: dois orçamentos. Da pessoa contatada: máximo de toques por janela na holding inteira, por exemplo dois em 30 dias, contados no attention ledger. Do actor: horas semanais de tempo comercial. Ambos são invariantes de planejamento. Isso é o que torna o actor routing real.</p>
+<p>Horizontes: pursuit.horizon em semanas e scope. Um artigo publicado hoje para construir autoridade num mercado em 12 meses é um move de um Program de scope market, com outcomes de mercado: follows de pessoas dentro do ICP, inbound, menções. Cada follow de um CTO é uma claim que alimenta theses de scope organization. É assim que os horizontes se conectam: outcomes do Program de mercado viram evidência das theses de conta.</p>
+<p>Agressividade: o kernel não impõe nurture. Impõe supressão e orçamento de atenção. Postures direct e transactional com plays de sequência curta e alta frequência são legítimos, desde que dentro do orçamento. Enterprise é pursuit com papéis e horizonte longo. Self-service e PLG são Programs com eventos de produto importados como claims. Performance marketing fica na plataforma de anúncios; Kairos importa outcomes agregados e trata pessoas identificadas como eventos.</p>
+<hr />
+<h2 id="12-recommended-multi-brand-model"><span class="num">12</span>Recommended multi-brand model</h2>
+<p>Um único Field da holding. Brand é scope, nunca tenant. O tenant de rbx-relations é a RBX como organização; brands vivem dentro dele, coerente com os "movimentos comerciais" separados de ADR-0603, que separam economia e funil, não dados de pessoas.</p>
+<p>Global: entidades, identidades, claims públicas, supressão, atenção, actors, calibração, lessons gerais.</p>
+<p>Por brand: offers referenciadas, theses de segmento, plays específicos, conteúdo de conversas, preços, proofs. Campo scope na claim e na observation quando o conteúdo é privado da brand.</p>
+<p>Por pursuit: moves, papéis, forecasts, notas.</p>
+<p>Relação pertence ao actor, não à brand. Quem tem rung 4 com o CTO da Acme é Leandro, e isso vale para RBX Systems, Merovelis ou qualquer outra. A brand toma emprestada a relação. Isso resolve cross-sell sem mecanismo especial: pursuit filha, mesmo actor, com introduced_by.</p>
+<p>Regras determinísticas de coordenação:</p>
+<ul>
+<li>Uma pessoa com moves de duas pursuits em janela de 14 dias exige aprovação do owner de ambas.</li>
+<li>Uma organização com pursuits ativas de duas brands aparece na revisão semanal como "coordenar".</li>
+<li>Opt-out de uma brand vale para a holding inteira por padrão. Só se restringe à brand quando a pessoa pediu isso explicitamente. É o mais seguro juridicamente e o mais coerente com um founder que é a face de todas.</li>
+</ul>
+<p>Reputação como ativo: não modelar. Proteger por invariantes e por gate humano em moves de posture direct, em primeiro contato e em qualquer conteúdo escrito por agente. Registrar reclamações e bloqueios como claims sobre a Person, para que apareçam na 360 antes do próximo move.</p>
+<p>Spin-off: exportar por scope de brand, offers, pursuits, moves e conversas, mais uma cópia das Persons e Organizations tocadas, com base legal reavaliada na saída. Supressão é copiada. O histórico compartilhado permanece na holding. Licenciar conhecimento entre brands é exportar lessons e theses de segmento como documentos, sem mecanismo em software por enquanto.</p>
+<hr />
+<h2 id="13-recommended-ai-agent-architecture"><span class="num">13</span>Recommended AI-agent architecture</h2>
+<p>Pipelines com contratos separados, cada um com provenance própria, rodando sob maestro e Thalamus:</p>
+<ul>
+<li>Extractor: observation para claims candidatas, cada uma com o trecho da evidência. Sem trecho, rejeitada.</li>
+<li>Resolver: chave de identidade para entidade, com faixa de confiança e features que casaram.</li>
+<li>Detector: claims para claims derivadas. Determinístico, versionado.</li>
+<li>Theorist: claims para thesis candidata, com evidence ids obrigatórios.</li>
+<li>Planner: thesis e plays para moves candidatos, com prediction.</li>
+<li>Writer: move para rascunho de mensagem.</li>
+</ul>
+<p>Agentes escrevem em tabelas de proposta com status pending, accepted ou rejected e revisor. Nunca no canônico. Promoção por regra só para classes com histórico. No primeiro ano, humano confirma tudo. Meçam taxa de aceitação por classe e por agente. Quando uma classe passa de 95 por cento em 200 amostras, ela pode auto-promover, ainda sem efeito externo.</p>
+<p>Níveis de confiança por par agente e classe de ação:</p>
+<pre><code>L0 propõe apenas
+L1 auto-promove claims sem efeito externo
+L2 auto-planeja moves, envio continua humano
+L3 auto-envia via comms para baixo stake, não no primeiro ano
+</code></pre>
+<p>Shadow mode antes de qualquer autonomia: por 60 a 90 dias o agente prevê e propõe em paralelo ao humano. Medem-se concordância e calibração. Só depois sobe de nível.</p>
+<p>Model provenance por inferência: model id, versão do prompt por hash, input ids, output, custo, timestamp, em agent_run. Reprodutibilidade é releitura do que foi gravado, não reexecução, porque modelos mudam. A decisão de recomendar uma pursuit fica auditável pela trilha thesis, evidence ids, prediction, proposta, autor e aprovação.</p>
+<p>O que fica determinístico para sempre: supressão, orçamento de atenção, merge por chave forte, permissões, fórmula de ordenação. O que fica estatístico: calibração, tabelas de contingência, matching score, e depois bandit sobre plays.</p>
+<hr />
+<h2 id="14-recommended-frontendux"><span class="num">14</span>Recommended frontend/UX</h2>
+<p>Confirmo: grafo não é a UI principal. Grafo é uma ferramenta de investigação local.</p>
+<p>Seis superfícies, e a primeira é a mais importante:</p>
+<ol>
+<li>Capture. Extensão de navegador, bookmarklet ou caixa de colar na command palette. Cola-se URL ou texto, o extractor propõe claims, o humano confirma em um clique, a Person ou Organization é resolvida ou criada. Meta: mediana abaixo de 45 segundos. Se isso falhar, nada mais importa.</li>
+<li>Today. Home. Moves devidos hoje, inbound a classificar, propostas de agente a revisar, alertas de contato.</li>
+<li>Radar. Theses com confiança acima da faixa e sem pursuit ativa, ordenadas por need window e confiança. Cada linha mostra "por que importa" em uma frase com três claims citadas.</li>
+<li>Pursuits. Board por status com stake, forecast, review_at e cobertura de papéis. Programs no mesmo board com outcomes agregados.</li>
+<li>360 de Person e de Organization. Cabeçalho com o que sabemos e a faixa de confiança, identidades, rung com cada actor, pessoas e papéis no caso de organização, theses ativas, pursuits, alternativas e incumbentes, e a timeline central com claims, eventos, moves e observations, com "abrir evidência" em cada item.</li>
+<li>Review. Ritual semanal: alocação, calibração por autor, surpresas, lessons propostas, alertas de política de contato.</li>
+</ol>
+<p>A proposta atual com dez telas está fragmentada. Market, Organizations, People e Relationships colapsam em busca mais 360. Offers, Intelligence e Operations viram seções de Review ou configuração. Graph Explorer sai; fica um ego network de um hop dentro da 360 de organização.</p>
+<p>Trilha causal: renderizar como lista vertical por item, observation, claim, thesis, pursuit, move, com datas, não como grafo. Confiança como chip com faixa e um "por quê" expansível.</p>
+<p>Copiloto: responde citando claim ids, cria observations, theses e moves por comando. Consulta em linguagem natural sobre o grafo fica para depois, com DSL fechada validada e exibida antes de rodar.</p>
+<p>Bloomberg, Palantir e CRM é uma analogia enganosa em ambição e útil em espírito: densidade com evidência, trilhas de provenance, fluxo de trabalho. Não copiar nenhuma das três interfaces. Pela regra da casa, a UI passa pelo Design System canvas antes da implementação.</p>
+<hr />
+<h2 id="15-recommended-persistence-architecture"><span class="num">15</span>Recommended persistence architecture</h2>
+<p>PostgreSQL, monólito modular em Bun e TypeScript conforme o padrão da casa, um banco, schemas por contexto. Esboço:</p>
+<pre><code>entity(id, kind person|organization|reference, ref_type, status active|merged|deleted, merged_into, created_at)
+identity_link(id, entity_id, surface, external_key, url, status, confidence_band, observation_ids[], method, resolved_by, resolved_at)
+observation(id, surface, observing_account_id, observed_at, recorded_at, kind capture|pull|inbound, text, url, raw_ref, parser_version, in_response_to_move_id, scope, retention_until)
+claim(id, subject_id, predicate, object_id, value_json, valid_from, valid_to, observed_at, recorded_at, provenance_kind, source_observation_ids[], method, confidence_band, scope, superseded_by)
+actor(id, kind person|brand|agent, name, weekly_attention_hours)
+actor_account(id, actor_id, surface, handle, controllers[], daily_limit)
+offer_ref(id, commerce_offer_id, version, brand_id, posture_default)
+problem(id, statement, job_to_be_done)
+proof(id, offer_ref_id, segment_tags[], ref)
+thesis(id, scope, target_id, segment_def, offer_ref_id, proposition, alternatives[], assumptions[], falsifiers[], need_from, need_to, status, author, created_at)
+thesis_version(thesis_id, version, text, confidence_band, author, at)
+thesis_evidence(thesis_id, claim_id, direction supports|contradicts, note)
+pursuit(id, brand_id, offer_ref_id, thesis_id, target_id, target_kind, owner_actor_id, objective, approach, posture, priority, stake_hours, ev_low, ev_high, forecast_p, review_at, status, opened_at, closed_at, close_reason, lesson, relations_opportunity_id)
+pursuit_person(pursuit_id, person_id, role, stance, note)
+play(id, name, hypothesis, posture, channel, steps, cadence, fatigue_limit, version, owner, active)
+move(id, pursuit_id, play_id, kind, channel, actor_account_id, target_person_id, planned_at, executed_at, status, content_ref, depends_on, variant, holdout)
+prediction(id, subject_kind, subject_id, question, p, author, at, resolved_at, outcome_value, brier)
+outcome(id, move_id, pursuit_id, kind, observed_at, observation_id, note)
+suppression(id, key_hash, kind global|brand|channel, brand_id, channel, reason, at, source)
+attention_ledger(person_id, actor_account_id, at, move_id)
+lesson(id, text, context_json, evidence_refs[], author, status, valid_until)
+merge_log, audit_log, agent_run, outbox
+</code></pre>
+<p>Índices que importam: claim por (subject_id, predicate), por (object_id, predicate), por (predicate, valid_from). identity_link único por (surface, external_key, status confirmed). attention_ledger por (person_id, at).</p>
+<p>Projeções como materialized views atualizadas por job: rung por actor e person, radar, coverage por pursuit, calibração por autor. Isso é CQRS o suficiente.</p>
+<p>Quando o Postgres dói: travessias acima de três hops sobre milhões de arestas em tempo de requisição, ou pattern matching complexo. Com dezenas de milhares de entidades e centenas de milhares de claims, recursive CTE resolve dois hops em milissegundos. Improvável em três anos. Se doer em análise, DuckDB sobre exports. Apache AGE só se alguém precisar de Cypher, e não vale a operação. Neo4j e Memgraph, não. pgvector quando quiserem recall semântico sobre observations e notas, nunca como fonte de claims.</p>
+<p>Event sourcing formal: em nenhum lugar. Append-only com supersessão dá auditoria e bitemporalidade sem a cerimônia. Overengineering claro: ES em pursuits, graph DB, microservices, Kafka.</p>
+<hr />
+<h2 id="16-commerciallegalgovernance-risks"><span class="num">16</span>Commercial/legal/governance risks</h2>
+<ul>
+<li>LGPD, GDPR e a nFADP suíça, porque rbxsystems.ch e o ICP incluem a Suíça. Dados públicos continuam pessoais. Base legal por legítimo interesse documentada, minimização, retenção e direito de oposição fácil. Campos de base legal, propósitos, retenção e supressão no modelo, não em política externa.</li>
+<li>Termos do LinkedIn e do Instagram. Automação de perfil e coleta em massa geram banimento e, para um founder, o banimento é dano reputacional e operacional. Os repositórios de automação de DM e de captura de seguidores já existentes na RBX são o ponto de maior risco desta iniciativa. Kairos deve nascer com captura manual assistida e adapters oficiais, e nunca depender de blast.</li>
+<li>Email e WhatsApp. Consentimento e opt-out ficam no rbx-comms. Kairos não pode contornar isso por nenhum canal.</li>
+<li>Licenças de provedores de enrichment. Apollo, Hunter e Clay proíbem revenda e às vezes armazenamento fora de prazo. Ler antes de gravar raw payload.</li>
+<li>Postura de dados dos provedores de modelo. Vocês já têm regra de classificar postura da OpenAI antes de packs proprietários. Aplicar a mesma regra a qualquer extractor que veja observations com dados pessoais.</li>
+<li>Pipeline fictício. Forecasts de Kairos nunca podem ser reportados como pipeline. rbx-ledger e rbx-commerce são os donos de fatos financeiros e de lifecycle. Vocês já nomearam esse risco em agosto.</li>
+<li>Reputação de texto escrito por agente. Gate humano em toda mensagem no primeiro ano.</li>
+<li>Dependência de uma pessoa. Se o founder é o único actor com rung alta, a holding tem um ponto único de falha comercial. Kairos deve tornar isso visível na cobertura de conta.</li>
+<li>Autoridade de agentes. ADR-0602 já limita. Kairos precisa herdar, não reinterpretar.</li>
+</ul>
+<hr />
+<h2 id="17-10-biggest-failure-modes"><span class="num">17</span>10 biggest failure modes</h2>
+<p>Pre-mortem: dezoito meses depois, fracassou. Causas mais prováveis, em ordem:</p>
+<ol>
+<li>Captura cara. Registrar observação exige abrir o sistema, achar a pessoa, preencher campos. Ninguém registra. O Field fica vazio e o resto é ornamento.</li>
+<li>Ontologia infinita. Seis meses discutindo se Brand é Entity. Zero reuniões marcadas.</li>
+<li>Agentes poluem o canônico. Claims confabuladas entram, uma thesis errada embaraça o founder numa conversa, a confiança no sistema evapora.</li>
+<li>Plataformas fecham a porta. Bans de conta, APIs que mudam, scraping que vira passivo legal. Adapters mortos e contas queimadas.</li>
+<li>Resultados nunca registrados. Moves executados, outcomes esquecidos. Sem calibração, o "conhecimento comercial" é anedota bonita.</li>
+<li>Construção compete com venda. O founder gasta as horas comerciais construindo a ferramenta de vender. Nem vende nem termina.</li>
+<li>Automação prematura de outreach. Uma sequência genérica atinge a comunidade errada, pequena e conectada. O custo é reputação, que não volta.</li>
+<li>Medo ou incidente de privacidade. Uma reclamação, ou só o receio, e o sistema é desligado ou nunca ligado.</li>
+<li>UX de dez telas. Home errada, explorador de grafo como vitrine, trabalho real feito em planilha ao lado.</li>
+<li>Governança desproporcional. Ou muito pesada para uma a três pessoas, ou sem as poucas invariantes centrais, com outreach duplicado entre brands.</li>
+</ol>
+<p>Causas de manutenção que agravam qualquer uma: um único mantenedor, migração para Bun em curso, e prioridades concorrentes de infra e governança.</p>
+<hr />
+<h2 id="18-610-week-mvp"><span class="num">18</span>6–10 week MVP</h2>
+<p>Norte: contribuir de forma mensurável para o proof point de H2, três parcerias B2B, com RBX Systems como única brand, o founder como único actor humano e um agente extractor.</p>
+<p>Entra: entity, identity_link, observation, claim com doze predicados, thesis, pursuit, pursuit_person com role, play com três templates, move, prediction, outcome, suppression, attention_ledger, lesson, campos LGPD em Person, agent_run. Adapters: captura manual via colar URL ou texto, mais um pull opcional de uma lista de contas oficiais. Superfícies: Capture, Today, Radar, Pursuits, 360, Review.</p>
+<p>Fica fora: Programs além de um, Detectors além de dois, embeddings, consulta em linguagem natural, grafo visual, ActorAccounts múltiplas, offer versioning, bundles, autonomia de agente acima de L0, integração com rbx-relations além de um campo de id.</p>
+<p>Três workflows ponta a ponta:</p>
+<ol>
+<li>Capturar. Colar um post do LinkedIn ou um site. O extractor propõe claims com trecho. O humano confirma. A pessoa é resolvida por email ou URL, ou criada. Aparece na 360 com evidência.</li>
+<li>Apostar. Criar thesis com evidências, alternativas e falsificadores. Abrir pursuit com objetivo, stake, forecast e play. Planejar moves com prediction. Executar manualmente, com rascunho gerado. Registrar outcome ao capturar a resposta com in_response_to.</li>
+<li>Revisar. Toda semana: lista de alocação ordenada, calibração por autor, surpresas, alertas de fadiga e supressão, lessons propostas e aceitas.</li>
+</ol>
+<p>Semanas 1 e 2: schema, captura, resolução por chave forte, 360 mínima. Semanas 3 e 4: thesis, pursuit, moves com prediction, rascunhos, Today, invariantes de contato. Semanas 5 e 6: outcomes, Radar com need windows, Review. Semanas 7 a 10: uso diário com 20 a 40 pursuits reais, um Program de conteúdo com holdout, ajustes, avaliação de kill criteria.</p>
+<p>Métricas que provam valor:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Limiar sugerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mediana de tempo de captura</td>
+<td>abaixo de 45 s</td>
+</tr>
+<tr>
+<td>Observations por semana</td>
+<td>25 ou mais</td>
+</tr>
+<tr>
+<td>Moves com prediction resolvida</td>
+<td>80 por cento ou mais</td>
+</tr>
+<tr>
+<td>Reuniões de discovery originadas em pursuits</td>
+<td>4 ou mais em 10 semanas</td>
+</tr>
+<tr>
+<td>Brier score do founder</td>
+<td>tendência de queda</td>
+</tr>
+<tr>
+<td>Violações de supressão ou fadiga</td>
+<td>zero</td>
+</tr>
+<tr>
+<td>Outreach duplicado evitado</td>
+<td>contagem visível</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kill criteria: após 90 dias de uso, se o founder usa menos de três dias por semana ou se nenhuma reunião é atribuível, parar de construir e usar um CRM leve. Regra de proporção: horas de build abaixo de 20 por cento do tempo comercial do founder.</p>
+<hr />
+<h2 id="19-what-you-would-explicitly-not-build-yet"><span class="num">19</span>What you would explicitly NOT build yet</h2>
+<ul>
+<li>Trust score, reputation model, authority score. Qualquer número que não seja contagem de atos observados.</li>
+<li>Simulação de mercado, digital twin, teoria dos jogos, otimizador de portfólio.</li>
+<li>Multi-touch attribution. Só touches registrados e holdouts.</li>
+<li>Actor universal incluindo externos.</li>
+<li>Hyperedges genéricas. Reificar quando precisar.</li>
+<li>Hierarquia jurídica completa de organizações.</li>
+<li>Telemetria de produto para PLG.</li>
+<li>Perfis de sentimento ou personalidade. Inúteis e juridicamente perigosos.</li>
+<li>Adaptação automática de estratégia. Insights viram propostas de nova versão de Play.</li>
+<li>Embeddings de pessoas e empresas. Só de observations e notas, e depois.</li>
+<li>Consulta em linguagem natural sobre o grafo.</li>
+<li>Graph Explorer.</li>
+<li>Outreach autônomo, em qualquer canal.</li>
+<li>Gerador de venture thesis. Permitir thesis com offer nula e tag offer_gap basta.</li>
+<li>Bundles e pricing engine.</li>
+<li>Conversation state machine.</li>
+<li>Taxonomia completa de mercados.</li>
+<li>Tenant boundaries entre brands.</li>
+<li>Adapters de scraping ou automação de DM.</li>
+</ul>
+<hr />
+<h2 id="20-keep-rename-merge-split-remove-add"><span class="num">20</span>KEEP / RENAME / MERGE / SPLIT / REMOVE / ADD</h2>
+<p>KEEP: Entity como identificador, Observation, Commercial Thesis, Pursuit, RBX Actor, ActorAccount, provenance por claim, entity resolution probabilística com revisão humana, experimentos com holdout, Radar como visão.</p>
+<p>RENAME: Market Graph para Field. Identity para Identity Link. Offer Graph para Propositions. Commercial Thesis para Thesis com scope. Tactic para Play. Strategy para approach, um campo. CommercialEvent para claim de classe evento. Commercial World Model para Judgment. Sales Machine para Pursuits mais Contact Policy. Sistema inteiro para Kairos, ou outro nome que não colida com market, memory e ledger.</p>
+<p>MERGE: Signal em Detector mais claim derivada. Opportunity em Thesis, como status e visão. Relationship em Claim. Stakeholder Map em pursuit_person. Experiment em Prediction e Outcome mais holdout em Program. Campaign em Program.</p>
+<p>SPLIT: Entity em identificador e claims. Relationship observada e rung derivada. Consentimento, que fica em rbx-comms, e política de atenção, que fica em Kairos. Offer, que fica em rbx-commerce, e material de julgamento sobre a offer, que fica em Kairos.</p>
+<p>REMOVE: Opportunity como entidade. Signal como objeto persistido. Commercial State Machine global. Graph Explorer. Strategy como camada. Offer Graph. Universal Actor. Reputation model. Simulação. Tenant por brand.</p>
+<p>ADD: Prediction. Outcome como resolução. Calibration por autor e classe. Lesson com contexto obrigatório. Attention ledger e orçamento. Suppression como visão da holding. Program. Play. Alternatives na thesis. Need window na thesis. in_response_to na observation. Capture como superfície de primeira classe. Trust levels por agente e classe de ação. Shadow mode. Fronteira formal com rbx-relations, rbx-commerce e rbx-comms.</p>
+<hr />
+<h2 id="21-the-master-insight"><span class="num">21</span>The master insight</h2>
+<p>O erro de categoria: vocês querem um modelo do mercado. O que compõe para uma holding founder-led é um modelo do julgamento da RBX sobre o mercado.</p>
+<p>Fatos sobre o mercado decaem rápido e são compráveis. Julgamento, quais theses, plays, actors e timings funcionam nos nichos da RBX, não é comprável, decai devagar e governa diretamente quanta autonomia pode ser delegada a agentes. Então a espinha dorsal do sistema é um livro de crenças e apostas com resolução:</p>
+<ul>
+<li>Toda thesis e todo move carregam uma previsão.</li>
+<li>Toda previsão resolve.</li>
+<li>Toda fonte de previsão, o founder, cada agente, cada detector, cada play, tem uma curva de calibração.</li>
+<li>Alocação de atenção e autonomia de agente são funções da calibração.</li>
+</ul>
+<p>Isso transforma várias questões abertas em uma só:</p>
+<ul>
+<li>Signals viram features cujo valor preditivo é medido, não assumido.</li>
+<li>Lead scoring vira previsão calibrada com dono, o oposto de "pesos não observados apresentados como política".</li>
+<li>Aprendizado vira um mecanismo que funciona com N igual a 30, porque calibração e detecção de surpresa não precisam de big data.</li>
+<li>Alucinação de LLM vira um problema de mercado: a fonte que superestima perde credibilidade e permissão.</li>
+<li>Governança multi-brand vira uma economia de atenção e reputação com stakes explícitos.</li>
+<li>Criação de ventures vira thesis de scope market com offer nula.</li>
+</ul>
+<p>O segundo insight, subordinado ao primeiro: o eixo é o tempo, não o funil. Necessidades abrem e fecham em janelas. Pós-funding abre janela de contratação. Pós-contratação de CTO abre janela de modernização. Renovação de contrato abre janela de troca. O Radar deve ser um calendário de janelas previstas, e a pursuit deve ser agendada para construir rung antes de a janela abrir. Daí Kairos.</p>
+<p>Exemplo concreto, de ponta a ponta:</p>
+<pre><code>2026-08-15  observation: CEO da Acme AG posta no LinkedIn sobre série A,
+            visto pela conta do founder
+            claim: Acme raised_funding 2026-08-14, extracted, strong
+2026-08-16  detector hiring_window_v1 emite claim derivada:
+            Acme has_problem senior_capacity, janela 2026-10 a 2027-03
+2026-08-18  thesis T-112, scope organization, offer Engineering Partnership:
+            &quot;Acme precisará de capacidade sênior externa na expansão europeia&quot;
+            evidence: raised_funding, hiring_for backend lead, operates_in DE
+            counter: CTO com histórico de montar time interno
+            alternatives: contratar interno, agência local, adiar
+            falsifier: nenhuma vaga sênior e nenhuma notícia de expansão até 2026-12
+            forecast: founder 0.45, agente theorist 0.60
+2026-08-20  pursuit P-31, RBX Systems, actor founder, posture founder_led,
+            objective discovery meeting até 2026-12-15,
+            stake 6 h, EV 300k a 450k, forecast 0.25
+            play: authority_first_via_cto v2
+2026-09-02  move M-3, pedido de introdução via relação em comum,
+            prediction 0.5 de resposta em 14 dias
+2026-10-02  observation inbound, in_response_to M-3: CTO respondeu
+            outcome resolve a prediction; calibração do founder atualizada
+            rung founder e CTO sobe para 3
+2026-12-20  pursuit fecha lost, reason: contratou time interno
+            lesson, contexto CH, pós-funding, ticket 300k+, founder_led:
+            &quot;organizações com CTO forte contratam interno primeiro;
+             abordar antes do funding com oferta fracionada&quot;
+            prediction do agente theorist a 0.60 penalizada; a do founder a 0.45 também
+</code></pre>
+<p>Nada nesse exemplo exige graph database, simulação ou otimizador. Exige que a previsão exista antes da ação e que a resposta aponte para a ação.</p>
+<hr />
+<h2 id="22-final-architecture-diagram-in-text"><span class="num">22</span>Final architecture diagram in text</h2>
+<pre><code>                    superfícies externas
+   LinkedIn  Instagram  X/Threads  GitHub  sites  eventos  provedores de dados
+        |         |         |        |       |       |            |
+        +---------+---------+--------+-------+-------+------------+
+                                  |
+                       ADAPTERS  (observe, capture, resolve)
+                       payload cru, parser versionado, nunca criam claims
+                                  |
+                                  v
+ +------------------------------ KAIROS ------------------------------------+
+ |                                                                          |
+ |  FIELD              JUDGMENT            PURSUITS          CONTACT POLICY |
+ |  entity             thesis              pursuit           actor          |
+ |  identity_link      thesis_evidence     program           actor_account  |
+ |  observation  ---&gt;  prediction   &lt;----  play              attention      |
+ |  claim              outcome             move  ----------&gt; suppression    |
+ |  detector           calibration         pursuit_person    (lê comms)     |
+ |  merge_log          lesson                                               |
+ |                                                                          |
+ |  PROPOSITIONS: offer_ref (commerce), problem, proof, persona             |
+ |                                                                          |
+ |  agentes (extractor, resolver, theorist, planner, writer)                |
+ |  escrevem só em *_proposal; promoção por regra ou humano                 |
+ +----------+-------------------+---------------------+---------------------+
+            |                   |                     |
+            v                   v                     v
+     rbx-relations        rbx-commerce           rbx-comms
+     opportunity,         offers, atribuição,    consentimento, entrega,
+     stages, proposals    entitlements           inbox, conversas
+            |                                         |
+            +------------- outcomes voltam -----------+
+                                  |
+                          rbx-ledger (fatos financeiros)
+                          rbx-memory (lessons espelhadas)
+                          maestro / Thalamus (governança de agentes)
+
+ loop: capturar -&gt; claims -&gt; thesis com forecast -&gt; pursuit com stake
+       -&gt; move com prediction -&gt; outcome -&gt; calibração -&gt; lesson -&gt; revisão semanal
+</code></pre>
+<hr />
+<h2 id="23-final-domain-vocabulary"><span class="num">23</span>Final domain vocabulary</h2>
+<ul>
+<li>Kairos: o sistema. Livro de crenças e apostas comerciais da holding.</li>
+<li>Field: contexto de evidência e crenças sobre o mundo observado.</li>
+<li>Entity: identificador estável. Person e Organization são resolvidos; reference entities são curadas.</li>
+<li>Identity Link: vínculo entre uma chave em uma superfície e uma entidade, com status e confiança.</li>
+<li>Observation: evidência imutável, com fonte, conta observadora, tempo e payload.</li>
+<li>Claim: afirmação com provenance, validade temporal e confiança. Classes atributo, relação e evento.</li>
+<li>Detector: regra versionada que produz claims derivadas.</li>
+<li>Judgment: contexto de theses, previsões, calibração e lições.</li>
+<li>Thesis: proposição falsificável com scope, evidências, contra-evidências, alternativas, assumptions, falsifiers, need window e forecast.</li>
+<li>Radar: visão das theses com confiança suficiente e sem pursuit ativa.</li>
+<li>Prediction: probabilidade declarada por um autor sobre uma pergunta datada.</li>
+<li>Outcome: o que aconteceu, ligado ao move ou pursuit, resolve predictions.</li>
+<li>Calibration: previsto versus realizado por autor e classe.</li>
+<li>Lesson: generalização assinada com contexto obrigatório e validade.</li>
+<li>Pursuits: contexto de apostas e ações.</li>
+<li>Pursuit: aposta de um actor em um objetivo sobre um target, com stake, forecast e approach.</li>
+<li>Program: pursuit sobre segmento, com moves templated e holdout.</li>
+<li>Play: template reutilizável de moves com hipótese e posture.</li>
+<li>Move: ação planejada ou executada, com prediction.</li>
+<li>Rung: degrau da relação entre actor e person, derivado de atos recíprocos.</li>
+<li>Propositions: referência a offers do commerce, problems, proofs, personas.</li>
+<li>Contact Policy: actors, contas, orçamento de atenção, supressão.</li>
+<li>Actor: principal interno que pode agir. Pessoa, brand ou agente.</li>
+<li>Actor Account: conta de um actor em uma superfície.</li>
+<li>Attention Ledger: registro de toques por pessoa.</li>
+<li>Suppression: quem não pode ser contatado, global, por brand ou por canal.</li>
+</ul>
+<hr />
+<h2 id="24-the-10-architectural-decisions-we-should-make-before-writing-code"><span class="num">24</span>The 10 architectural decisions we should make before writing code</h2>
+<ol>
+<li>O átomo do conhecimento é a claim com provenance e tempos observed, recorded e valid. Entities são hubs sem atributos de conhecimento.</li>
+<li>Só Person e Organization têm entity resolution. Todo o resto é reference data curada.</li>
+<li>Opportunity não é entidade. Thesis e Pursuit são os objetos persistidos. Radar é a visão.</li>
+<li>Toda thesis e todo move carregam uma previsão antes da ação. Outcomes resolvem previsões. Calibração é calculada por autor e classe e é visível.</li>
+<li>A relação com uma pessoa pertence ao actor, no nível da holding. Brand é scope, nunca tenant. Supressão é global por padrão.</li>
+<li>Orçamento de atenção por pessoa e por actor é invariante do kernel, verificada no planejamento do move.</li>
+<li>Agentes propõem e nunca promovem. Envio é humano no primeiro ano. Autonomia sobe por classe de ação com base em calibração e shadow mode.</li>
+<li>PostgreSQL, monólito modular em Bun e TypeScript, append-only com supersessão em evidência e crenças, agregados mutáveis com transições auditadas. Sem graph database, event sourcing formal ou microservices.</li>
+<li>Adapters só produzem observations com payload cru e parser versionado. Sem scraping e sem automação de DM como dependência.</li>
+<li>Uma ADR de fronteira antes do código: Kairos versus rbx-relations, rbx-commerce, rbx-comms, Strategos e maestro/Thalamus, com handoff de pursuit para opportunity e retorno de outcomes.</li>
+</ol>
+<hr />
+<h2 id="apendice-a-as-20-perguntas-dirigidas">Apêndice A · as 20 perguntas dirigidas</h2>
+<ol>
+<li>Redesenho do zero: seção 5. Dois átomos, claim e decisão com previsão. Cinco contextos. A comparação está na seção 6.</li>
+<li>Sacada de mestre: seção 21. Modelo do julgamento, não do mercado. Tempo, não funil.</li>
+<li>Unidade fundamental: não é Entity. No conhecimento, a claim com provenance. Na ação, a decisão com previsão. Argumento na seção 5.</li>
+<li>Desire e constraint: sim, como assumptions da thesis com "como verificar", nunca como claims. Observed e inferred são provenance kinds. Seção 10.</li>
+<li>Economia explícita: sim, pursuit como aposta com stake em horas, faixa de EV e forecast. A revisão semanal é o alocador. Sem otimizador. Seção 11.</li>
+<li>Portfólio: superior a CRM porque compara apostas com resultados. Modelo na seção 11: cota de exploração, ordenação transparente, decisão gravada com previsão.</li>
+<li>Mercado dinâmico: sim, com quatro consequências, claims com validade, theses com revisão datada, radar por janela, pursuits que pausam. Seção 9.</li>
+<li>Contrafactuais: holdout aleatório, probabilidade de fechamento de janela e regra de coordenação. Sem simulação. Seção 10.</li>
+<li>Competição: alternatives na thesis, uses_vendor como claim. Sem teoria dos jogos. Seção 10.</li>
+<li>Trust: variável latente, evidenciada pela rung de atos recíprocos com data. Nunca score. Seção 10.</li>
+<li>Atenção: dois orçamentos, da pessoa e do actor, como invariantes do planejamento. Seção 11.</li>
+<li>Reputação: não modelar. Proteger por invariantes, gates e claims de reclamação. Seção 12.</li>
+<li>Horizontes: pursuit com scope e horizon; outcomes de Program de mercado viram evidência de theses de conta. Seção 11.</li>
+<li>Oportunidades emergentes: thesis com scope market e offer nula, tag offer_gap. Detecção automática de clusters fica para depois. Seção 21.</li>
+<li>Venture creation: mesmo sistema, mesma thesis, sem gerador automático. A decisão de criar brand é humana e vira ADR.</li>
+<li>Reflexividade: in_response_to em observations e holdouts. Importa para lift. Seção 9.</li>
+<li>O que não modelar: seção 19.</li>
+<li>Failure modes: seção 17.</li>
+<li>MVP: seção 18.</li>
+<li>Decisão: seções 20 e 24.</li>
+</ol>
+<hr />
+<h2 id="apendice-b-respostas-as-331-questoes">Apêndice B · respostas às 331 questões</h2>
+<h3 id="a-ontologia-fundamental">A. Ontologia fundamental</h3>
+<ol>
+<li>Entity como raiz é adequada só como identificador estável. Como contêiner de conhecimento é genérica demais. O conhecimento fica em claims.</li>
+<li>Distinguir no kernel apenas Person e Organization, que têm resolução, LGPD e ciclo de vida próprios. Brand, Product, Community, Event, Market, Location e Technology são reference entities curadas, sem resolução probabilística.</li>
+<li>Identity é um registro próprio, Identity Link, com status, confiança e provenance. Não é value object, porque tem história. Não é edge genérica, porque tem semântica de resolução.</li>
+<li>Sim, durante resolução uma chave pode ter vários candidatos com faixa de confiança. A projeção corrente admite no máximo um confirmed.</li>
+<li>Merge grava log com snapshot e marca merged_into; claims nunca são reescritas. Split cria entidade nova e re-aponta links com log. Unmerge reconstrói pelo log.</li>
+<li>Sim, Observation é a abstração certa para evidência bruta. Sozinha não é conhecimento.</li>
+<li>Separar em dois níveis persistidos: Observation e Claim. Fact é claim corroborada; Assertion e Claim são o mesmo; Inference é claim com provenance inferred; Hypothesis é Thesis. Não criar cinco tabelas.</li>
+<li>Imutáveis: observation, claim, prediction, outcome, move executado, mensagem enviada, merge log, agent_run. Mutáveis com transição auditada: pursuit, thesis, offer_ref, actor, reference data.</li>
+<li>Unidade mínima de provenance é por claim: superfície, conta observadora, observed_at, recorded_at, observation ids ou hash de payload, método com versão, faixa de confiança.</li>
+<li>Relationship é uma claim temporal com evidência, provenance e validade. Não é edge simples. O estado da relação é derivado.</li>
+<li>Direcionais por padrão; simetria declarada no catálogo por predicado.</li>
+<li>N-ários reificados como reference entity mais claims binárias. Sem hyperedges.</li>
+<li>Sim, pelo provenance_kind da claim, não por tabelas diferentes.</li>
+<li>observed_at, recorded_at e valid_from com valid_to opcionais. Supersessão por claim. Sem transaction time completo.</li>
+<li>Catálogo fechado de predicados em código, PR para adicionar, dono por predicado, remoção por desuso, e tudo fora do catálogo vira observation com texto.</li>
+</ol>
+<h3 id="b-event-model">B. Event model</h3>
+<ol start="16">
+<li>Observation é o que uma fonte mostrou. CommercialEvent é uma claim de que algo aconteceu em t. Uma observation gera zero ou várias; um evento cita várias.</li>
+<li>Eventos externos derivam de observation. Eventos internos são moves executados, que são a própria evidência.</li>
+<li>Não. Interações da RBX são moves. A resposta do mercado é observation com in_response_to.</li>
+<li>Não usar event sourcing clássico. Append-only com supersessão em evidência e crenças; agregados mutáveis com tabela de transições.</li>
+<li>Append-only: observation, claim, prediction, outcome, move_execution, message_sent, merge_log, suppression_log, agent_run. Mutável: pursuit, thesis versionada, offer_ref, actor, reference.</li>
+<li>Só eventos semanticamente relevantes e catalogados. Não domínio universal.</li>
+<li>Sim, mínimos: in_response_to para respostas e source ids para derivação. Sem grafo causal geral.</li>
+<li>Campo origin: external, internal, derived. Previstos não são eventos; são predictions.</li>
+<li>Não persistir Signal. Persistir a claim derivada com method detector@versão; recomputar quando o detector muda.</li>
+<li>Detectors versionados em código, com dono e uso medido por theses que os citam. Sem citação em 90 dias, remover.</li>
+<li>Decay não numérico. Cada detector declara janela de validade da claim derivada.</li>
+<li>Sinais contraditórios são claims contraditórias. A thesis lista ambos como evidence e counter. Não se resolve no nível do sinal.</li>
+</ol>
+<h3 id="c-entity-resolution">C. Entity resolution</h3>
+<ol start="28">
+<li>Chaves fortes primeiro, email, URL, handle; depois blocking e score simples por nome, organização, localização e links cruzados; depois revisão humana. Sem ML no início.</li>
+<li>Email normalizado, domínio corporativo, URLs e handles, nome com normalização fonética, organização atual, cargo, localização, links cruzados em bios, hash perceptual de foto, co-menções.</li>
+<li>Faixas nomeadas, exact, strong, weak, conflicting, com registro das features que casaram. Nunca número solto.</li>
+<li>Automático com chave única ou link cruzado explícito em bio.</li>
+<li>Humano em match por nome e organização sem chave, em conflito entre candidatos fortes, e em qualquer merge que envolva pursuit ativa ou dados sensíveis.</li>
+<li>Merge log com snapshot; unmerge recria a entidade e re-aponta pelo log; claims nunca foram reescritas.</li>
+<li>Mesma mecânica; claims ficam com a entidade original salvo movimentação explícita, com log.</li>
+<li>Links cruzados em bio, mesma foto, mesmo nome e cidade, menções mútuas, domínios coincidentes. Fica em weak até prova.</li>
+<li>Identity Link com flag pseudonym. Só junta com Person real por chave forte ou confirmação humana. Muitos ficam pseudônimos para sempre e tudo bem.</li>
+<li>Claims legal_entity_of, brand_of, subsidiary_of, holding_of sobre Organization. Brand como reference. Não tentar acertar juridicamente no início.</li>
+</ol>
+<h3 id="d-market-graph">D. Market Graph</h3>
+<ol start="38">
+<li>Como bounded context, sim, renomeado para Field, porque o valor é a memória com provenance e não a estrutura de grafo, e porque market colide com Robson.</li>
+<li>Apenas o que passa pelo catálogo e pelos detectors, ou o que alguém decidiu capturar. Sem coleta especulativa em massa.</li>
+<li>Observation só entra por captura deliberada, por detector com dono ou por adapter com escopo definido. Retenção por uso: sem referência em 24 meses, expira.</li>
+<li>Política escrita: fontes permitidas, escopo, retenção, base legal, proibições sobre categorias sensíveis.</li>
+<li>Deve conhecer offer_refs para as theses. Claims sobre o mercado nunca referenciam ofertas.</li>
+<li>Independente no nível de claims; acoplado no nível de thesis.</li>
+<li>Um único Field da holding. Projeções por brand são consultas com filtro de propósito, não cópias.</li>
+<li>Compartilhado: entidades, identidades, claims públicas, supressão, atenção. Restrito por scope: conversas, propostas, preços, notas de reunião.</li>
+<li>Papéis são claims relacionais com validade: customer_of, partner_of, competitor_of, supplier_of. Podem coexistir.</li>
+<li>Market e Community como reference entities curadas, com operates_in e member_of. Sem taxonomia completa.</li>
+<li>Content próprio da RBX é reference entity ligada a moves. Conteúdo de terceiros é observation.</li>
+<li>Interações com conteúdo são claims de evento sobre a Person, com in_response_to o move de publicação.</li>
+<li>São todos eventos, claims de classe evento, com conta e superfície. Nenhum é Relationship. A rung é derivada deles.</li>
+</ol>
+<h3 id="e-offer-graph">E. Offer Graph</h3>
+<ol start="51">
+<li>Não como grafo. Ofertas são do rbx-commerce; Kairos guarda referências e material de julgamento.</li>
+<li>Propositions: offer_ref, problems, proofs, personas. ICP vira thesis de segmento.</li>
+<li>Offer é configuração versionada no commerce. Em Kairos é referência com versão.</li>
+<li>Versão explícita no commerce; pursuits apontam para a versão.</li>
+<li>Capability como reference; duas brands vendendo a mesma capability são duas offers referenciando a mesma capability.</li>
+<li>Bundle é offer composta no commerce. Kairos não modela.</li>
+<li>Pricing model na offer do commerce; preço real fica na proposal do rbx-relations.</li>
+<li>Não. ICP é uma thesis de scope segment que referencia uma offer.</li>
+<li>Sim, independente e falsificável.</li>
+<li>Persona é reference data leve; pursuits atribuem papéis por pessoa.</li>
+<li>Problems são reference data curada, usada por claims has_problem e por offer_ref addresses. Camada intermediária, pequena.</li>
+<li>JTBD como campo do Problem: quando X, quero Y, para Z.</li>
+<li>PMF como theses de segmento com outcomes agregados: resposta, win rate, retenção. Sem objeto próprio.</li>
+<li>Proof referencia offer_ref e tags de segmento; a thesis cita provas relevantes.</li>
+</ol>
+<h3 id="f-commercial-thesis">F. Commercial Thesis</h3>
+<ol start="65">
+<li>Sim, a melhor abstração do conjunto. Generalizar para Thesis com scope.</li>
+<li>Todos, via scope: person, organization, segment, market, offer_gap.</li>
+<li>Sim, texto versionado com confiança por versão.</li>
+<li>Probabilidade declarada pelo autor, humano ou agente, checada por calibração posterior. Faixas se preferirem.</li>
+<li>thesis_evidence com claim_id, direção supports ou contradicts, e nota.</li>
+<li>assumptions como lista com "como verificar" e status open, verified ou failed.</li>
+<li>falsifiers como condições observáveis e datadas, marcadas em revisão mensal.</li>
+<li>Sim. Uma thesis de segmento gera theses de organização filhas. Uma thesis de organização gera no máximo uma pursuit por offer.</li>
+<li>Sim. Theses concorrentes coexistem; a pursuit escolhe uma principal.</li>
+<li>Sim, uma frase falsificável com evidências e prazo.</li>
+<li>Citação obrigatória por claim_id, proposta em vez de escrita direta, calibração pública por agente, perda de permissão por Brier ruim.</li>
+</ol>
+<h3 id="g-opportunity">G. Opportunity</h3>
+<ol start="76">
+<li>Uma thesis de fit e timing entre target e offer, com confiança acima da faixa e sem pursuit ativa. Não é entidade.</li>
+<li>Sim, como conteúdo da thesis.</li>
+<li>Sim.</li>
+<li>Sim, visão.</li>
+<li>Não.</li>
+<li>Nasce quando a thesis é criada; aparece no Radar quando cruza a faixa.</li>
+<li>Morre quando a thesis é falsificada, a janela fecha ou vira pursuit.</li>
+<li>Sim, latente, antes de awareness. É o valor do sistema.</li>
+<li>Latent é thesis de segmento; detected é thesis de organização; active é pursuit. Só isso.</li>
+<li>Opportunity é estado e visão da Thesis.</li>
+<li>Pursuit é compromisso de recurso com previsão. Opportunity é crença sem compromisso.</li>
+<li>Sim: Radar para a visão, Thesis para o objeto. Abandonar Opportunity no modelo.</li>
+</ol>
+<h3 id="h-pursuit">H. Pursuit</h3>
+<ol start="88">
+<li>Sim, se definida como aposta com stake e forecast.</li>
+<li>Não obrigatoriamente. Objetivo pode ser descobrir a necessidade com várias offers candidatas. Brand é obrigatória.</li>
+<li>Sim, como Program.</li>
+<li>Sim, uma ativa por brand e offer; acima disso o sistema alerta.</li>
+<li>Regra determinística: mesma pessoa com moves de duas pursuits em 14 dias, ou mesma organização com pursuits de brands diferentes, vai para revisão.</li>
+<li>Pursuit filha com introduced_by e o mesmo actor.</li>
+<li>Uma pursuit, brand líder, participantes de outras brands, rateio em campo.</li>
+<li>owner actor humano mais participants com papel.</li>
+<li>Sim, em horas; dinheiro opcional.</li>
+<li>Sim, faixa.</li>
+<li>Sim, opcional.</li>
+<li>Sim, obrigatória, para calibração.</li>
+<li>review_at, o horizonte de reavaliação, não prazo de fechamento.</li>
+<li>Sim, categórica: core, opportunistic, exploratory.</li>
+<li>Humano owner. Agentes propõem.</li>
+<li>Não no início. Depois, só baixo stake com calibração comprovada.</li>
+<li>Criação, primeiro contato, proposta, preço e qualquer move de alto risco reputacional.</li>
+<li>Fechar com outcome, lesson obrigatória de duas linhas e resolução das predictions.</li>
+</ol>
+<h3 id="i-strategy-tactic-e-move">I. Strategy, Tactic e Move</h3>
+<ol start="106">
+<li>Não como três tabelas. approach, Play e Move.</li>
+<li>Um pouco, mas o problema é a hierarquia procedural, não o vocabulário.</li>
+<li>Approach, Play, Move.</li>
+<li>Declarativa, uma frase.</li>
+<li>Sim, Play é template com hipótese, passos, canal, posture e métricas esperadas.</li>
+<li>Sim, comando com estado, prediction e outcome.</li>
+<li>Status e timestamps planned_at e executed_at, com a conta que executou.</li>
+<li>depends_on simples. Nada além.</li>
+<li>Moves com o mesmo período. Sem workflow engine.</li>
+<li>Reavaliação disparada por claim nova sobre o target, que reabre a thesis numa fila. Sem replanejamento automático.</li>
+<li>Sim.</li>
+<li>Posture como enum pequena em Play e Pursuit.</li>
+<li>Na Pursuit, com default do Play; a offer sugere a posture típica.</li>
+<li>Posture direct com plays curtos e frequentes, dentro do orçamento de atenção. O kernel só impõe supressão e orçamento.</li>
+<li>Enterprise é pursuit com papéis e horizonte longo; self-service é Program com funil agregado e eventos por pessoa identificada. Mesmo kernel, agregações diferentes.</li>
+</ol>
+<h3 id="j-stakeholder">J. Stakeholder</h3>
+<ol start="121">
+<li>Não como entidade. Papéis por pessoa dentro da pursuit.</li>
+<li>Projeção de pursuit_person.</li>
+<li>Por claims de cargo e reporte, por eventos de quem respondeu e foi copiado, e por declaração do owner, sempre com fonte.</li>
+<li>Sim, relativos à pursuit.</li>
+<li>pursuit_person com role e stance resolve: mesma pessoa, papéis diferentes por pursuit.</li>
+<li>Rung derivada de atos recíprocos com data do último. Sem número.</li>
+<li>Multi-thread é duas ou mais pessoas com papel e rung 3 ou acima via algum actor.</li>
+<li>Cobertura é pessoas com papel identificado versus pessoas com rung 3 ou acima; alerta single-threaded.</li>
+<li>Só respondem pessoas sem papel de decisão; nenhum economic buyer com rung 3 após N moves; champion sem eventos de reencaminhamento interno.</li>
+</ol>
+<h3 id="k-state-machines">K. State machines</h3>
+<ol start="130">
+<li>Não.</li>
+<li>Concordo.</li>
+<li>Pursuit, Move, Thesis, Identity Link, rung derivada. Deal dentro da opportunity do rbx-relations. Customer depois.</li>
+<li>Sem lifecycle além de active, merged, deleted.</li>
+<li>Validade temporal nas claims; rung derivada.</li>
+<li>Não existe; é visão.</li>
+<li>proposed, active, paused, closed com won, lost ou abandoned.</li>
+<li>Não modelar; threads são eventos no comms.</li>
+<li>No rbx-relations, por ADR-0602.</li>
+<li>Depois, como claim customer_of mais pursuits de expansão.</li>
+<li>Uma fonte de verdade por status; tudo mais derivado; nunca copiar status entre tabelas.</li>
+<li>Explícitos em agregados operacionais; derivados para relação e funil.</li>
+<li>Rung mais status de pursuit permitem qualquer ordem; funil é relatório.</li>
+<li>Pursuit paused com motivo e review_at; Program de nurture recebe a pessoa.</li>
+<li>Theses com falsifiers datados e revisões periódicas; pursuits pausadas; observations continuam entrando.</li>
+</ol>
+<h3 id="l-rbx-actors">L. RBX Actors</h3>
+<ol start="145">
+<li>Sim, apenas internos.</li>
+<li>Não.</li>
+<li>Actor é principal interno. Papéis de externos são claims e roles.</li>
+<li>Sim, quando publica ou envia.</li>
+<li>Sim, com trust level.</li>
+<li>Sim.</li>
+<li>Sim, Person interna ligada a um Actor.</li>
+<li>Sim, voices como configuração por brand.</li>
+<li>Positioning como documento versionado por actor e brand, fora do kernel.</li>
+<li>Sim.</li>
+<li>controllers na conta e log de quem usou em cada move.</li>
+<li>Regra mais julgamento: rung existente, taxa de resposta histórica por tema e segmento, disponibilidade, brand da offer. Sistema sugere, humano decide.</li>
+<li>Uma pessoa, uma conversa por vez na holding; agenda de contato compartilhada; conversas visíveis entre brands.</li>
+<li>Por invariantes e gates, não por modelo.</li>
+<li>Sim, aprendido: taxa de resposta por actor, tema e segmento.</li>
+<li>Exatamente. Registrar por tema e deixar os dados falarem, sem authority score.</li>
+</ol>
+<h3 id="m-multi-brand">M. Multi-brand</h3>
+<ol start="161">
+<li>Sim, com kernel único e brands como scope. Não com brands como tenants.</li>
+<li>Compartilhar evidência e relações; não compartilhar processos; contrato por scope.</li>
+<li>Entidades, identidades, claims públicas, supressão, atenção, actors, calibração, lessons gerais.</li>
+<li>Offer_refs, theses de segmento, plays, conversas, preços, proofs.</li>
+<li>Moves, papéis, forecasts, notas.</li>
+<li>Não tenant boundaries; sim scope e purpose.</li>
+<li>Não.</li>
+<li>Exportar por scope com cópia de Persons e Organizations tocadas e base legal reavaliada; supressão copiada; histórico compartilhado fica.</li>
+<li>Exportar lessons e theses de segmento como documentos. Sem mecanismo.</li>
+<li>Autonomia de execução por brand com invariantes centrais de pessoa, atenção, supressão e coerência.</li>
+<li>Detector: organização com thesis forte para brand A e claims que casam com problems da brand B. Fase 2.</li>
+<li>Agenda de contato por pessoa; move para pessoa com move de outra brand em 14 dias exige aprovação.</li>
+<li>Sim, orçamento por pessoa e por conta.</li>
+</ol>
+<h3 id="n-learning">N. Learning</h3>
+<ol start="174">
+<li>Predictions resolvidas com calibração, lessons contextualizadas, tabelas de contingência com N, plays com histórico.</li>
+<li>Sim, como Lesson e como métricas recomputáveis.</li>
+<li>raw payload, observation, claim, claim derivada, thesis, finding com N, lesson assinada, policy como versão de Play.</li>
+<li>Só vira lesson com N mínimo, efeito grande, contexto declarado e assinatura. Automático fica finding.</li>
+<li>N, taxa, intervalo de Wilson, comparação com base rate. Nada além.</li>
+<li>Aceitar. Os primeiros doze meses são coleta de evidência, não inferência.</li>
+<li>Contexto obrigatório: brand, segmento, país, ticket, período, canal, posture.</li>
+<li>Isso mesmo. Sem contexto, a lesson é rejeitada.</li>
+<li>Holdouts aleatórios e A/B em plays quando N permitir. O resto é associação e é rotulado assim.</li>
+<li>Sim, leves: um Program com variantes é o experimento.</li>
+<li>variant em move e pursuit, holdout como flag.</li>
+<li>Pré-registro de hipótese e métrica; findings post-hoc marcados como exploratórios.</li>
+<li>Nunca automaticamente. Insight gera proposta de nova versão de Play.</li>
+<li>Sempre, no início.</li>
+<li>Mudança só via Play versionado com data e motivo, aprovado por humano.</li>
+</ol>
+<h3 id="o-ai-e-agentes">O. AI e agentes</h3>
+<ol start="189">
+<li>Extração de claims candidatas, resumo, rascunho de mensagem e de thesis, classificação de tema, sugestão de papel.</li>
+<li>Supressão, orçamento, merge forte, permissões, detectors, fórmula de ordenação.</li>
+<li>Calibração, contingência, matching score, depois bandit.</li>
+<li>Extractor, resolver, detector, theorist, planner, writer, cada um com provenance própria.</li>
+<li>Não.</li>
+<li>Propostas com status; promoção por regra ou humano.</li>
+<li>Por agente e classe de ação: calibração e taxa de aceitação, níveis L0 a L3.</li>
+<li>Relação só entra como claim citando observation id e trecho.</li>
+<li>Mesmo mecanismo, revisão humana de theses e calibração pública.</li>
+<li>Sim.</li>
+<li>Sim: model id, hash do prompt, input ids, output, custo, timestamp.</li>
+<li>Guardar inputs e outputs; reproduzir por releitura.</li>
+<li>Trilha thesis, evidence ids, prediction, proposta, autor e aprovação.</li>
+</ol>
+<h3 id="p-human-in-the-loop">P. Human-in-the-loop</h3>
+<ol start="202">
+<li>Merge fraco, todo envio, criação de pursuit, preço, dados sensíveis, mudança de Play.</li>
+<li>Sim, exceto chave forte.</li>
+<li>Sim, sempre.</li>
+<li>Sim.</li>
+<li>Sim.</li>
+<li>Sim, com bloqueio de coleta de categorias sensíveis.</li>
+<li>Envio sim; rascunho livre.</li>
+<li>Sim, e fica no rbx-relations.</li>
+<li>Quando a calibração da classe atinge o limiar em N amostras e o stake é baixo.</li>
+<li>Sim.</li>
+<li>Tudo que não sai da holding é reversível por ser proposta. Envio é irreversível e humano.</li>
+<li>Modo em que moves produzem rascunhos e previsões sem envio, comparados ao que o humano fez.</li>
+<li>Sim, 60 a 90 dias antes de qualquer autonomia.</li>
+</ol>
+<h3 id="q-frontend">Q. Frontend</h3>
+<ol start="215">
+<li>Lista de trabalho, fichas 360 e trilhas de evidência. Grafo em segundo plano.</li>
+<li>Confirmo.</li>
+<li>Capture, Today, Radar, Pursuits, 360, Review.</li>
+<li>Fragmentada.</li>
+<li>Sim. Market, Organizations, People e Relationships colapsam em busca e 360; Offers, Intelligence e Operations viram seções; Graph Explorer sai.</li>
+<li>Today.</li>
+<li>Cabeçalho com confiança, pessoas e papéis, timeline, theses, pursuits, alternativas, evidências.</li>
+<li>Identidades com confiança, cargo e organização como claims, rung por actor, timeline, pursuits, supressão e consentimento, evidências.</li>
+<li>Sim.</li>
+<li>Chip de faixa com "por quê" expansível; evidência a um clique.</li>
+<li>A thesis em uma frase, três claims citadas e a need window.</li>
+<li>Lista vertical por item com datas.</li>
+<li>Busca, filtros por predicado, 360 com abrir evidência, consulta guiada.</li>
+<li>Ego network de um hop dentro da 360 de organização.</li>
+<li>Capturar, criar thesis, criar move, buscar, perguntar com citação de claims.</li>
+<li>Enganosa em ambição, útil em espírito. Não copiar.</li>
+</ol>
+<h3 id="r-search">R. Search</h3>
+<ol start="231">
+<li>Não.</li>
+<li>Sim.</li>
+<li>Sim, quando chegar a hora.</li>
+<li>Só observations e notas no início; theses depois; pessoas e empresas nunca por embedding puro.</li>
+<li>Embedding é recall; relação explícita é verdade; embedding nunca cria claim.</li>
+<li>Depois, com DSL restrita.</li>
+<li>Consulta expressa como claims de cargo e localização, caminho de rung até dois hops e evento de funding em 60 dias.</li>
+<li>DSL fechada validada por schema, exibida antes de rodar, sem SQL livre.</li>
+</ol>
+<h3 id="s-persistencia">S. Persistência</h3>
+<ol start="239">
+<li>Não.</li>
+<li>PostgreSQL.</li>
+<li>Sensato.</li>
+<li>As tabelas da seção 15.</li>
+<li>Quase. Relações são claims com subject, predicate, object, validade e provenance, com índices em ambas as direções.</li>
+<li>Travessias acima de três hops sobre milhões de arestas em tempo de requisição. Improvável em três anos.</li>
+<li>Só se precisarem de Cypher. Não vale.</li>
+<li>Não.</li>
+<li>Não.</li>
+<li>Postgres com recursive CTE e materialized views; DuckDB para análise.</li>
+<li>Projeções leves, sim. CQRS formal, não.</li>
+<li>Em nada que append-only com supersessão já não dê.</li>
+<li>Event sourcing em pursuits, graph DB, microservices, Kafka.</li>
+</ol>
+<h3 id="t-arquitetura">T. Arquitetura</h3>
+<ol start="252">
+<li>Field, Judgment, Pursuits, Propositions, Contact Policy.</li>
+<li>Field.</li>
+<li>Dentro de Field.</li>
+<li>Field para evidência e claims; Judgment para theses.</li>
+<li>Propositions, com offers no commerce.</li>
+<li>Pursuits.</li>
+<li>rbx-comms mais execução de move.</li>
+<li>Dentro de Judgment e Pursuits.</li>
+<li>Contact Policy mais audit, com consentimento no comms.</li>
+<li>Sim, de oito para cinco.</li>
+<li>Dentro do agregado; entre contextos, outbox assíncrona.</li>
+<li>entity, identity_link, observation, claim, actor, actor_account, suppression, attention, thesis, pursuit, move, prediction, outcome.</li>
+<li>Adapters, extractors, detectors, writer, allocator, UI.</li>
+<li>Sim.</li>
+<li>Sim.</li>
+<li>As sete invariantes da seção 8.</li>
+</ol>
+<h3 id="u-integracoes">U. Integrações</h3>
+<ol start="268">
+<li>Adapter é módulo com contrato pequeno que produz observations com payload cru. Nunca cria claims.</li>
+<li>observe, capture, resolve, send, publish. discover é caso de observe.</li>
+<li>O modelo é bom. identity vira resolve.</li>
+<li>Isolamento, payload cru, parser versionado, testes com fixtures gravadas.</li>
+<li>Guardar payload com hash e retenção; se não permitido, só hash e extração.</li>
+<li>parser_version na observation; reprocessamento por versão.</li>
+<li>Claims coexistem; precedência para a projeção corrente: declarado pela pessoa, plataforma oficial, terceiro, inferido.</li>
+<li>Tabela de fontes com precisão observada: quantas claims da fonte foram contraditas.</li>
+<li>API oficial, depois provedor licenciado, depois captura manual no navegador do humano. Scraping automatizado, evitar.</li>
+<li>O domínio nunca importa tipos do adapter. Adapter mapeia para Observation e para.</li>
+</ol>
+<h3 id="v-compliance">V. Compliance</h3>
+<ol start="278">
+<li>Campos no modelo.</li>
+<li>Sim: base legal, propósitos, fontes via observations, retenção, supressão por canal, brand e global, consentimento e objeção no comms, log de deleção.</li>
+<li>Tratar como pessoal: legítimo interesse documentado, minimização, retenção, oposição fácil.</li>
+<li>Purpose por scope; uso fora do purpose bloqueado por filtro obrigatório na consulta.</li>
+<li>Por padrão, vale para a holding inteira.</li>
+<li>Sim.</li>
+<li>Sim, quando pedido especificamente.</li>
+<li>Sim.</li>
+<li>Tombstone: claims e observations da pessoa apagadas ou anonimizadas; hash das chaves mantido na supressão.</li>
+<li>Sim, mínimo: hash das identidades, data e canal.</li>
+<li>Audit log append-only por ação e trilha de provenance nas claims.</li>
+</ol>
+<h3 id="w-agressividade">W. Agressividade</h3>
+<ol start="289">
+<li>Sim, o vocabulário é nurture-centric.</li>
+<li>Posture, plays de resposta direta e Programs; o kernel só impõe invariantes.</li>
+<li>Program com play de sequência.</li>
+<li>Program com audiências e outcomes agregados importados.</li>
+<li>Idem.</li>
+<li>Fora, na plataforma.</li>
+<li>Play com cadência e limite de fadiga.</li>
+<li>Program com eventos de produto.</li>
+<li>Idem mais claims de uso.</li>
+<li>Pursuit.</li>
+<li>Pursuit com o parceiro como target mais Programs.</li>
+<li>Pursuit.</li>
+<li>Program de evento mais pursuits derivadas.</li>
+<li>Move "pedir indicação" e play próprio.</li>
+<li>Program com Community como target.</li>
+<li>O kernel sim; os módulos de otimização não.</li>
+<li>Universal demais se tentarem otimizar todos; suficiente se só registrarem apostas e resultados.</li>
+</ol>
+<h3 id="x-marketing-e-vendas">X. Marketing e vendas</h3>
+<ol start="306">
+<li>Sim, artificialmente. Ambos são moves de pursuits ou programs.</li>
+<li>Sim: publicação é move de Program; interações são eventos.</li>
+<li>Campaign é Program. Não fica acima.</li>
+<li>Program com target segmento e moves templated; pessoas ganham pursuit própria ao responder.</li>
+<li>audience é conjunto por critério; segment é definição reutilizável; campaign ou program é aposta sobre segment; pursuit é aposta sobre target; funnel é relatório; journey é timeline por pessoa.</li>
+<li>Touches como eventos; "assisted" por regra simples; causal só via holdout.</li>
+<li>Relatar touches por pursuit vencida; nunca share.</li>
+<li>Inbound é observation, com ou sem in_response_to; cria thesis se ICP; mesma trilha.</li>
+</ol>
+<h3 id="y-customer-lifecycle">Y. Customer lifecycle</h3>
+<ol start="314">
+<li>Não.</li>
+<li>Concordo.</li>
+<li>Pursuits com objetivos onboard, expand, renew, referral; claim customer_of; delivery no rbx-project.</li>
+<li>No nível de pursuits e claims, sim. Delivery não.</li>
+<li>Não. O nome deve refletir apostas e relações, não sales ou revenue.</li>
+<li>Sim: economia de relações. Kairos.</li>
+</ol>
+<h3 id="z-a-coisa-certa">Z. A coisa certa</h3>
+<ol start="320">
+<li>Metade. Market Graph, Offer Graph e state machines são CRM sofisticado. Thesis, prediction, calibração e alocação são novos.</li>
+<li>Apostas com previsão e resolução; memória de crenças e não só de fatos; relação no nível da holding; timing por janela. Salesforce e HubSpot guardam estados e atividades. Clay e Apollo guardam atributos. Palantir tem provenance sem julgamento comercial. CDPs têm eventos sem crenças. ABM tem scores opacos.</li>
+<li>O livro de decisões com calibração acumulada, as relações reais e a memória longitudinal por nicho.</li>
+<li>Não por si só.</li>
+<li>Só se usado para decidir. Senão é arquivo.</li>
+<li>Só com N. No início é benefício de coordenação.</li>
+<li>Como nome, não. Como livro de crenças calibradas, sim.</li>
+<li>Sim, se fechar o loop com previsões.</li>
+<li>Enrichment, infra de email, calendário, anúncios, provedores de dados do LinkedIn, transcrição, vector DB.</li>
+<li>Capture mais trilha de evidência mais livro de apostas para B2B founder-led. Ou o módulo de política de contato multi-brand. Não agora.</li>
+<li>Sim, risco real. Regra: build abaixo de 20 por cento do tempo comercial, com kill criteria.</li>
+<li>O MVP da seção 18, com reuniões e calibração como prova.</li>
+</ol>
+  </main>
+</div>
+
+</body></html>

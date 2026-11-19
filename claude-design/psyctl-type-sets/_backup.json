@@ -1,0 +1,18 @@
+{
+  "title": "Psyctl Type Sets",
+  "url": "https://claude.ai/artifact/CEpR32cARbusZ7zgBiW6FL",
+  "type": null,
+  "version": "1788911860-25da",
+  "listed_at": "2026-11-19T14:47:54Z",
+  "note": "single page (no published files); page.html = full HTML as saved by the read action",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 1790202,
+      "sha256": "ca2294a65246fe8caa441e0dbdf677ef987ed865d596c2c6946e3ab570f69b23"
+    }
+  ],
+  "skipped": [],
+  "assets": [],
+  "failures": []
+}

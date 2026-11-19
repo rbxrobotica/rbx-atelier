@@ -1,0 +1,28 @@
+<!-- @dsCard group="Formulários" height=330 subtitle="Presencial ou remoto, com etiqueta de hipótese" -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>ChoiceCard · prévia</title>
+<style>
+  body { margin: 0; background: var(--base); color: var(--ink); font-family: var(--font-sans); }
+  .pv { box-sizing: border-box; padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-start; }
+  .pv-col { box-sizing: border-box; padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-6); max-width: 640px; }
+  .pv-grid { box-sizing: border-box; padding: var(--space-6); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr)); gap: var(--space-4); }
+  .pv-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .pv-split > [data-theme] { background: var(--base); color: var(--ink); }
+  .pv-cap { margin: 0 0 var(--space-2); font-family: var(--font-mono); font-size: var(--fs-label); line-height: var(--lh-label); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--ink-2); flex-basis: 100%; }
+</style>
+</head>
+<body>
+<div id="root" class="pv-col" style="max-width:760px"></div>
+<script>
+  var I = window.Informat, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(I.ChoiceCard, {
+    legend: 'Como prefere ser atendido?', defaultValue: 'presencial',
+    hint: 'Você pode mudar depois do diagnóstico.',
+    options: [
+      { value: 'presencial', title: 'Presencial', icon: 'home', description: 'No endereço combinado. Serve para qualquer serviço, inclusive reparo de hardware.', meta: '[CIDADE] e região' },
+      { value: 'remoto', title: 'Remoto', icon: 'video', tag: 'Hipótese', description: 'Por acesso remoto autorizado por você. Serve para Linux e configuração de programas, não para reparo de hardware.' }
+    ] }));
+</script>
+</body>
+</html>
