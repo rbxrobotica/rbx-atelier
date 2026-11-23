@@ -153,5 +153,12 @@
  ],
  "skipped": [],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "iteruno-site-prova.tar.gz",
+  "bytes": 6800435,
+  "sha256": "fcf9ac3de6336bfdd15fb87b8b1363bbf152b5def883a50d30f41748a81cd173",
+  "files_inside": 29,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf iteruno-site-prova.tar.gz"
+ }
 }

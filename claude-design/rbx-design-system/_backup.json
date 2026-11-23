@@ -150,5 +150,12 @@
    "uploaded_at": "2026-11-08T22:15:20.11182Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "rbx-design-system.tar.gz",
+  "bytes": 16203,
+  "sha256": "dce535c069c65028e189e8ead73907407e0f018f3eade9a5a342aed2c756b5be",
+  "files_inside": 25,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf rbx-design-system.tar.gz"
+ }
 }

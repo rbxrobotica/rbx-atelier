@@ -214,5 +214,12 @@
    "uploaded_at": "2026-10-31T01:00:14.543342Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "lyra-design-system.tar.gz",
+  "bytes": 25474,
+  "sha256": "2117076da49b14a0e48d2a9e560859c25f3cbf3066d8aaef6855b740dabdac85",
+  "files_inside": 38,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf lyra-design-system.tar.gz"
+ }
 }

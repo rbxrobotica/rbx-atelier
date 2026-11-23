@@ -1333,5 +1333,12 @@
    "uploaded_at": "2026-11-02T19:06:51.339209Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "iteruno-design-system.tar.gz",
+  "bytes": 893312,
+  "sha256": "6fd1e74c63e101cefa4444c77dda5e4c572babc2ac89eabbf4694616b81210bf",
+  "files_inside": 218,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf iteruno-design-system.tar.gz"
+ }
 }

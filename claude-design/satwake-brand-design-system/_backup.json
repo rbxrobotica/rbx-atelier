@@ -63,5 +63,12 @@
   "index.html"
  ],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "satwake-brand-design-system.tar.gz",
+  "bytes": 25747,
+  "sha256": "1468e15f0fc3473d5e4cc2cd56c2e87224ce22487ff15fc39d66167c753feedd",
+  "files_inside": 10,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf satwake-brand-design-system.tar.gz"
+ }
 }

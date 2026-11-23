@@ -16,5 +16,12 @@
  "failures": [],
  "notes": [
   "untyped single page; assets capability not declared (asset list unavailable)"
- ]
+ ],
+ "archive": {
+  "path": "informat-direcoes-de-marca.tar.gz",
+  "bytes": 14788,
+  "sha256": "8c5fd6be73fa507a26096f7ce528c05d568e48f0eb1c31b70a5ae9e5e8f68a4e",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-direcoes-de-marca.tar.gz"
+ }
 }

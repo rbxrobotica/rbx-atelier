@@ -1,1 +1,25 @@
-{"title":"Engenharia de Loop","url":"https://claude.ai/artifact/TMiNRLhRhXsaWC2VFZem3T","type":null,"version":"1788221652-67b7","listed_at":"2026-11-19T00:00:00Z","files":[{"path":"index.html","bytes":18893,"sha256":"874cd602e9f6d3a8c8e59812ae773c83d11ab43f3326d978b6782491ddb7955b"}],"skipped":[],"assets":[],"failures":[],"notes":"single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)"}
+{
+ "title": "Engenharia de Loop",
+ "url": "https://claude.ai/artifact/TMiNRLhRhXsaWC2VFZem3T",
+ "type": null,
+ "version": "1788221652-67b7",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 18893,
+   "sha256": "874cd602e9f6d3a8c8e59812ae773c83d11ab43f3326d978b6782491ddb7955b"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "archive": {
+  "path": "engenharia-de-loop.tar.gz",
+  "bytes": 7224,
+  "sha256": "b800c69634aac83cb1eafe5d26c788e04e4e3edfd0749085e5f72b68f56cd497",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf engenharia-de-loop.tar.gz"
+ }
+}

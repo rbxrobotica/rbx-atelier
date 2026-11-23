@@ -2,11 +2,19 @@
 
 Cópia de todos os artefatos da conta feitos no Claude Design e nos tipos de artefato do claude.ai (Design System, Design, Docs e páginas próprias), tirada em 19 de novembro de 2026 porque o claude.ai/design standalone fecha em 14 de dezembro de 2026.
 
-Acréscimo de 22 de novembro de 2026: `initelo-design-system`, criado no claude.ai/design standalone nesse dia, movido para o Claude e copiado aqui já na versão convertida.
+Acréscimo de 22 de novembro de 2026: `initelo-design-system`, criado no claude.ai/design standalone nesse dia, movido para o Claude e copiado aqui já na versão convertida. O `.tar.gz` dele traz também, em `_standalone/`, o export Project HTML do projeto original.
 
 ## O que tem em cada pasta
 
-- `_backup.json`: título, link, tipo, versão lida, data, e a lista de arquivos e assets com tamanho e sha256.
+Cada pasta guarda dois arquivos:
+
+- `_backup.json`: título, link, tipo, versão lida, data, a lista de arquivos e assets com tamanho e sha256, e o campo `archive` com o tamanho e o sha256 do `.tar.gz`.
+- `<pasta>.tar.gz`: o conteúdo do backup. Os caminhos listados no `_backup.json` ficam dentro dele. Para abrir: `tar -xzf <pasta>.tar.gz`.
+
+Os backups ficam compactados porque são cópias de arquivos publicados, não código deste repositório: soltos, os guardrails de segurança os leriam como código e reprovariam bundles e páginas de protótipo.
+
+Dentro de cada `.tar.gz`:
+
 - Artefatos com tipo (Design System, Design): os arquivos do projeto como estavam publicados, sob `project/`, mais os assets enviados (logos, ícones, imagens) em `_assets/<id>.<ext>`. O nome original de cada asset está no `project/design-system.json` do próprio artefato (campo `assetGroups`). O runtime do tipo (`artifact-type/`, `SKILL.md`, `index.html`) ficou de fora: é o mesmo em todos os artefatos do tipo e não é conteúdo nosso.
 - Páginas próprias (sem tipo): o `index.html` completo, que já é a página inteira.
 - Docs: o texto exportado em Markdown.
@@ -18,7 +26,7 @@ Acréscimo de 22 de novembro de 2026: `initelo-design-system`, criado no claude.
 - Projetos que só existam no claude.ai/design standalone e não apareçam como artefato: a ferramenta de sincronização do Claude Design pede um login próprio que não estava disponível nesta sessão.
 - As páginas sem tipo não declaram a capacidade de assets, então não dá para listar se têm algum; o HTML delas é autocontido.
 
-Para abrir um design system de novo no claude.ai, crie um artefato do tipo Design System e publique os arquivos de `project/` (e os assets) nele.
+Para abrir um design system de novo no claude.ai, extraia o `.tar.gz`, crie um artefato do tipo Design System e publique os arquivos de `project/` (e os assets) nele.
 
 ## Índice
 

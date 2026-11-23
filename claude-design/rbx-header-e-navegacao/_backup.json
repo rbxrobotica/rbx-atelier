@@ -67,5 +67,12 @@
   "index.html"
  ],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "rbx-header-e-navegacao.tar.gz",
+  "bytes": 16258,
+  "sha256": "bd6c8c9016d8987d3a7671fdb794546be61ad2636e92d410440fba057024cf24",
+  "files_inside": 11,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf rbx-header-e-navegacao.tar.gz"
+ }
 }

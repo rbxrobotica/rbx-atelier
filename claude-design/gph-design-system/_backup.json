@@ -582,5 +582,12 @@
    "uploaded_at": "2026-10-09T23:29:52.694109Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "gph-design-system.tar.gz",
+  "bytes": 308407,
+  "sha256": "cb47d5da7642eee04640b1f971c42c01ee55e15447ebc670502190e5f0ea6ffe",
+  "files_inside": 98,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf gph-design-system.tar.gz"
+ }
 }

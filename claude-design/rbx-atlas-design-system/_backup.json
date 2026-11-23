@@ -1,1 +1,25 @@
-{"title":"RBX Atlas Design System","url":"https://claude.ai/artifact/JHAqrNVCr7tsoCesncacmQ","type":null,"version":"1788417968-241b","listed_at":"2026-11-19T00:00:00Z","files":[{"path":"index.html","bytes":2608795,"sha256":"7ba23c6bc8de834ff24c57f5564617a4d9dfe28a19595d5ed7ddfd861cfde33b"}],"skipped":[],"assets":[],"failures":[],"notes":"single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)"}
+{
+ "title": "RBX Atlas Design System",
+ "url": "https://claude.ai/artifact/JHAqrNVCr7tsoCesncacmQ",
+ "type": null,
+ "version": "1788417968-241b",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2608795,
+   "sha256": "7ba23c6bc8de834ff24c57f5564617a4d9dfe28a19595d5ed7ddfd861cfde33b"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "archive": {
+  "path": "rbx-atlas-design-system.tar.gz",
+  "bytes": 875882,
+  "sha256": "52d53cfec5aaaf35f14ffaf6f141860c4f0dfc4cd790793651a1d1ffd21d3fc2",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf rbx-atlas-design-system.tar.gz"
+ }
+}

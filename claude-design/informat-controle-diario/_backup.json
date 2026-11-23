@@ -13,5 +13,12 @@
  ],
  "skipped": [],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "informat-controle-diario.tar.gz",
+  "bytes": 26238,
+  "sha256": "b859f742fcf66c816a77aed0d783fbea0debe589682954b57360ca30b26db3cd",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-controle-diario.tar.gz"
+ }
 }

@@ -88,5 +88,12 @@
   "index.html"
  ],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "lyra-brand-design-canvas.tar.gz",
+  "bytes": 45196,
+  "sha256": "aab12820265d5798a0006b50b70a112c59f01d0169d640383528b320a14b47d7",
+  "files_inside": 15,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf lyra-brand-design-canvas.tar.gz"
+ }
 }

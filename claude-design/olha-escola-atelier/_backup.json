@@ -141,5 +141,12 @@
    "uploaded_at": "2026-10-13T20:34:48.703439Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "olha-escola-atelier.tar.gz",
+  "bytes": 473940,
+  "sha256": "d024a8e6183596730b72105fbbbb495d055fd06191507a69eaafd8e35e6c030a",
+  "files_inside": 21,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf olha-escola-atelier.tar.gz"
+ }
 }

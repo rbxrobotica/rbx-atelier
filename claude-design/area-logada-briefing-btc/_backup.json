@@ -1,18 +1,25 @@
 {
-  "title": "Área Logada Briefing BTC",
-  "url": "https://claude.ai/artifact/VPBAppNu7cvo41yCrBVJBC",
-  "type": null,
-  "version": "1789205641-90bc",
-  "listed_at": "2026-11-19T14:47:54Z",
-  "note": "single page; page.html = full HTML as saved by the read action",
-  "files": [
-    {
-      "path": "index.html",
-      "bytes": 2583486,
-      "sha256": "05d456e858d10763cbda4233d3359f503bfb853244bc2f4fd79cedd895db7ed9"
-    }
-  ],
-  "skipped": [],
-  "assets": [],
-  "failures": []
+ "title": "Área Logada Briefing BTC",
+ "url": "https://claude.ai/artifact/VPBAppNu7cvo41yCrBVJBC",
+ "type": null,
+ "version": "1789205641-90bc",
+ "listed_at": "2026-11-19T14:47:54Z",
+ "note": "single page; page.html = full HTML as saved by the read action",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2583486,
+   "sha256": "05d456e858d10763cbda4233d3359f503bfb853244bc2f4fd79cedd895db7ed9"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "archive": {
+  "path": "area-logada-briefing-btc.tar.gz",
+  "bytes": 868266,
+  "sha256": "1701039affae40393b679282c76063af5a7bd909104abe5d3aac98061076b823",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf area-logada-briefing-btc.tar.gz"
+ }
 }

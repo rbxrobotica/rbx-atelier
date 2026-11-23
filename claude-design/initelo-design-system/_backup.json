@@ -1069,5 +1069,12 @@
   "files_inside": 175,
   "sha256": "ddf38beefde76efe6a1d88ac09216b7bfffac0d80c4504063977115afa5d88c0",
   "note": "Export 'Project HTML' do claude.ai/design, baixado em 2026-11-22: o projeto como estava antes da conversao."
+ },
+ "archive": {
+  "path": "initelo-design-system.tar.gz",
+  "bytes": 302508,
+  "sha256": "0924dff30aad0f853e7ae3ec62ca883abc0a26ea856137076b74079130ad44e7",
+  "files_inside": 212,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf initelo-design-system.tar.gz"
  }
 }

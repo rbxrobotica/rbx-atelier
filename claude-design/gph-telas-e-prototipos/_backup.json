@@ -240,5 +240,12 @@
    "uploaded_at": "2026-10-09T23:47:19.157542Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "gph-telas-e-prototipos.tar.gz",
+  "bytes": 49644,
+  "sha256": "58740223f46543e0e7558b265e68f59398b15ce8bf2b0047595f4026ae4de9c0",
+  "files_inside": 40,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf gph-telas-e-prototipos.tar.gz"
+ }
 }

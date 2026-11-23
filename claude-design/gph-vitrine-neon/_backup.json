@@ -215,5 +215,12 @@
    "uploaded_at": "2026-10-30T01:36:51.736736Z"
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "gph-vitrine-neon.tar.gz",
+  "bytes": 1411254,
+  "sha256": "55f4c77ed7d280e3d91591c057cd0a22b691d6117742129215b29ad0fa781a20",
+  "files_inside": 38,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf gph-vitrine-neon.tar.gz"
+ }
 }

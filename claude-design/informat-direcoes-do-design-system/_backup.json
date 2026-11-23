@@ -13,5 +13,12 @@
  ],
  "skipped": [],
  "assets": [],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "informat-direcoes-do-design-system.tar.gz",
+  "bytes": 7980,
+  "sha256": "a10569c903034c67ada6997899e18a499b3237823f073f83e7c2c780266fef71",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-direcoes-do-design-system.tar.gz"
+ }
 }

@@ -16,5 +16,12 @@
  "failures": [],
  "notes": [
   "untyped single page; assets capability not declared (asset list unavailable)"
- ]
+ ],
+ "archive": {
+  "path": "maquina-de-vendas-rbx.tar.gz",
+  "bytes": 28435,
+  "sha256": "9e2f9713205045565d79e0afe83cb6411bed9321b67d23dc39b75e3e251a053a",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf maquina-de-vendas-rbx.tar.gz"
+ }
 }

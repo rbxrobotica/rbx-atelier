@@ -827,5 +827,12 @@
    "uploaded_at": null
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "informat-design-system.tar.gz",
+  "bytes": 338294,
+  "sha256": "7c500f609a799b5367284d669326dc4c817c86b5c1277a20c992f2d769650aa1",
+  "files_inside": 133,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-design-system.tar.gz"
+ }
 }

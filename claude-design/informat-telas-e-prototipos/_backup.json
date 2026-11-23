@@ -223,5 +223,12 @@
    "uploaded_at": null
   }
  ],
- "failures": []
+ "failures": [],
+ "archive": {
+  "path": "informat-telas-e-prototipos.tar.gz",
+  "bytes": 53913,
+  "sha256": "3b442aff5ec1facbe760724aee9e93eaf7dbd749960af61385c13c16d0ebdae7",
+  "files_inside": 37,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-telas-e-prototipos.tar.gz"
+ }
 }
