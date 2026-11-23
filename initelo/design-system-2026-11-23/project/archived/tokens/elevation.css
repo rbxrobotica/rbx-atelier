@@ -1,0 +1,12 @@
+:root{
+/* Elevação — a marca é plana; sombra só quando algo flutua sobre o conteúdo */
+--shadow-0:none;
+--shadow-1:0 1px 2px rgba(29,28,26,.06),0 1px 1px rgba(29,28,26,.04);
+--shadow-2:0 4px 14px rgba(29,28,26,.08),0 1px 3px rgba(29,28,26,.06);
+--shadow-3:0 16px 40px rgba(29,28,26,.16),0 2px 6px rgba(29,28,26,.08);
+/* Movimento — curto e funcional, sem quique */
+--ease:cubic-bezier(.2,0,0,1); /* @kind other */
+--dur-fast:120ms; /* @kind other */
+--dur-base:200ms; /* @kind other */
+--dur-slow:320ms; /* @kind other */
+}

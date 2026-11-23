@@ -1,0 +1,11 @@
+<!-- @dsCard group="Initelo — Design System" viewport="700x680" name="Cards de aula e estado vazio" subtitle="Concluída, em andamento, disponível (hover e foco), bloqueada; bloco vazio com próxima ação" -->
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cards de aula e estado vazio</title><link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="../../guidelines/card.css"><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div><script type="text/babel">const {LessonCard,EmptyState,Button}=window.IniteloDesignSystem_b8cd96;
+function Card(){return <div className="col" style={{gap:10}}>
+<LessonCard index={1} title="O que entra e o que sai" meta="8 min de leitura" status="done"/>
+<LessonCard index={2} title="Como organizar o dinheiro do mês" meta="12 min de leitura" status="current"/>
+<LessonCard className="is-hover" index={3} kind="exercicio" title="Salário no dia 5, contas ao longo do mês" meta="15 min · hover"/>
+<LessonCard className="is-focus" index={4} title="Despesas fixas e variáveis" meta="10 min de leitura · foco"/>
+<LessonCard index={5} title="Reserva para imprevistos" meta="Conclua a aula 4 para liberar" status="locked"/>
+<div style={{marginTop:10}}><EmptyState icon="book-open" title="Você ainda não começou nenhuma aula" description="Quando você abrir a primeira aula, ela aparece aqui para continuar de onde parou." action={<Button variant="secondary" iconRight="arrow-right">Ver cursos</Button>}/></div>
+</div>;}
+ReactDOM.createRoot(document.getElementById("root")).render(<Card/>);</script></body></html>
