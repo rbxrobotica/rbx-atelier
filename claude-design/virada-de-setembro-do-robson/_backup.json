@@ -1,0 +1,25 @@
+{
+ "title": "Virada de Setembro do Robson",
+ "url": "https://claude.ai/artifact/NRJuwK5BQTmkCpjy8YasrJ",
+ "type": null,
+ "version": "1788413680-02d5",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 46399,
+   "sha256": "27936e6919bc9b8c12fb48c2f4bf208d276f047aaf7747f66d2da6ebd01ac8ec"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "archive": {
+  "path": "virada-de-setembro-do-robson.tar.gz",
+  "bytes": 15096,
+  "sha256": "a7eaec5c7716037febbead0da574f7c8b704e6c5119fca45a72043908af759b9",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf virada-de-setembro-do-robson.tar.gz"
+ }
+}

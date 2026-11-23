@@ -1,0 +1,164 @@
+{
+ "title": "Iteruno · Site (prova)",
+ "url": "https://claude.ai/artifact/PsHi6hAZ6kHDRmPPKc5NTd",
+ "type": null,
+ "version": "1793672303-59e4",
+ "listed_at": "2026-11-19T14:50:08Z",
+ "files": [
+  {
+   "path": "capturas/404-claro-1200.jpg",
+   "bytes": 69069,
+   "sha256": "da4f57c8eb7a22d7d3909ebbc73e86a6a81c30504456a78c0b295a13cf7f67de"
+  },
+  {
+   "path": "capturas/404-claro-360.jpg",
+   "bytes": 55418,
+   "sha256": "6dd16c7eda79a04bef4c90574c7def9965f852661d193068154058d3ed00afbd"
+  },
+  {
+   "path": "capturas/404-escuro-1200.jpg",
+   "bytes": 66555,
+   "sha256": "bdbbfadc16bd19361cf76716b1dfa4bafc7d014cc1ef0b0323f92b57f8601157"
+  },
+  {
+   "path": "capturas/404-escuro-360.jpg",
+   "bytes": 53399,
+   "sha256": "4649d6e6e753740ce681733456e0cf1b78662e51926a4ee5681480534737b443"
+  },
+  {
+   "path": "capturas/contato-claro-1200.jpg",
+   "bytes": 175932,
+   "sha256": "61d73b6b8cf24e647ca32cb8f1f7c6aa6524ac7d774a7e011b641f25d3f89116"
+  },
+  {
+   "path": "capturas/contato-claro-360.jpg",
+   "bytes": 153073,
+   "sha256": "8c3fc63ad9e742afa1035748d664efee0325c0bd1cee966d13ffa2c65975f1d2"
+  },
+  {
+   "path": "capturas/contato-escuro-1200.jpg",
+   "bytes": 169731,
+   "sha256": "84eb66baa319d1a1c6047d42151a66c9fe1bea78079fac34b001dd90367896db"
+  },
+  {
+   "path": "capturas/contato-escuro-360.jpg",
+   "bytes": 147818,
+   "sha256": "97527f99f483bc5bc2faebe8d49faad9038b4b85c2ec88329a7751c8c5a37c67"
+  },
+  {
+   "path": "capturas/cursos-claro-1200.jpg",
+   "bytes": 296747,
+   "sha256": "a28859db07a01dc7abe1c3d9c5d6d06ff8a8c1c109cbf07e2bf7a0d92a00332e"
+  },
+  {
+   "path": "capturas/cursos-claro-360.jpg",
+   "bytes": 251224,
+   "sha256": "97accc790a50a353bd6f4357afb8c6f359d8dc302d6f2ec692de5ec23e407bf9"
+  },
+  {
+   "path": "capturas/cursos-escuro-1200.jpg",
+   "bytes": 284572,
+   "sha256": "8e88b44bab3ae585231aed3814e5c122a8b1af134209a3fda49d869779b61b21"
+  },
+  {
+   "path": "capturas/cursos-escuro-360.jpg",
+   "bytes": 240510,
+   "sha256": "3118eded6b2b3c728a7438a08b3b0eec101c52f28916da587dcbe0f53513be2f"
+  },
+  {
+   "path": "capturas/inicio-claro-1200.jpg",
+   "bytes": 443536,
+   "sha256": "597f807db9222bcd7b683b4995e3d5474e51573fe3c95d9f41686122b9b2c9e5"
+  },
+  {
+   "path": "capturas/inicio-claro-360.jpg",
+   "bytes": 381492,
+   "sha256": "8e9e90953bae924e8515ef76ef835436b29a446a915508815cd0baa770e2256c"
+  },
+  {
+   "path": "capturas/inicio-escuro-1200.jpg",
+   "bytes": 425355,
+   "sha256": "79c754b76771be29de0447e3fd5fd0c50b90561011b48fd816b125d1e6238fe1"
+  },
+  {
+   "path": "capturas/inicio-escuro-360.jpg",
+   "bytes": 365383,
+   "sha256": "9cba555eb02e3f3d48960bc9f8d11b225d50bd8274289662b74a0ce926cbd8a7"
+  },
+  {
+   "path": "capturas/politica-claro-1200.jpg",
+   "bytes": 410158,
+   "sha256": "3baecf42bfbfbe53bcf9cc6df218c5988b9fc3c7d25b011080df7d15bc1ebb7a"
+  },
+  {
+   "path": "capturas/politica-claro-360.jpg",
+   "bytes": 386197,
+   "sha256": "c50c6af3d79e3cfd5b5408efdf73353086ad15400438860b78005d77d43dcd4b"
+  },
+  {
+   "path": "capturas/politica-escuro-1200.jpg",
+   "bytes": 406722,
+   "sha256": "28f52027b6834e621d0c4ea1a52537f836b0487e8a8ca45c882166dec52cf090"
+  },
+  {
+   "path": "capturas/politica-escuro-360.jpg",
+   "bytes": 383128,
+   "sha256": "b57feefc735b2d80cb35b16d0da334823a4fcaf04d4ced9045efebaa9e6b6d66"
+  },
+  {
+   "path": "capturas/servicos-claro-1200.jpg",
+   "bytes": 453916,
+   "sha256": "427b3ba3c6739444bd4089b9451e9f050b207ac277465838f056bb5d4ececd67"
+  },
+  {
+   "path": "capturas/servicos-claro-360.jpg",
+   "bytes": 388306,
+   "sha256": "0468505dd5c97b1ae41cf6c1d6cfc7b5e97129d63a00cbcc3ed1dbf9bbaf9112"
+  },
+  {
+   "path": "capturas/servicos-escuro-1200.jpg",
+   "bytes": 435216,
+   "sha256": "8e5ec8c229b9bf54ac662606f03ea9837da0de7a72c2de0034f782bddeb907e5"
+  },
+  {
+   "path": "capturas/servicos-escuro-360.jpg",
+   "bytes": 371597,
+   "sha256": "fad7547bfc3efb28c09ba6807f40b080d9a6867a11a275ff3aa4a3b7943e7145"
+  },
+  {
+   "path": "capturas/sobre-claro-1200.jpg",
+   "bytes": 241778,
+   "sha256": "240c03ddec1e2e6a1816bed7dc1218801c2eb5c3ca2d5d16a4b2559a556a55cb"
+  },
+  {
+   "path": "capturas/sobre-claro-360.jpg",
+   "bytes": 201866,
+   "sha256": "31ed0c89c47fe7b26dc79854cc45c51f51128e7e8e21d0a5f3142ca676547061"
+  },
+  {
+   "path": "capturas/sobre-escuro-1200.jpg",
+   "bytes": 233170,
+   "sha256": "ed145516e7a5834d9f79b2b2b885aa1a40dc5a6c07287af281d5ab7595c1dda1"
+  },
+  {
+   "path": "capturas/sobre-escuro-360.jpg",
+   "bytes": 194329,
+   "sha256": "4f7c42bdf52d4e4497a053ca417f3fc451191ce9fece5e1f02b260c76265637f"
+  },
+  {
+   "path": "index.html",
+   "bytes": 29548,
+   "sha256": "b385d8a67a4e7b0863b1e22f44b97184bb6749d1e29fc364ba7b991804dd1748"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "archive": {
+  "path": "iteruno-site-prova.tar.gz",
+  "bytes": 6800435,
+  "sha256": "fcf9ac3de6336bfdd15fb87b8b1363bbf152b5def883a50d30f41748a81cd173",
+  "files_inside": 29,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf iteruno-site-prova.tar.gz"
+ }
+}

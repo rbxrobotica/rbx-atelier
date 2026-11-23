@@ -1,0 +1,27 @@
+{
+ "title": "Informat · Brand System",
+ "url": "https://claude.ai/artifact/W9iKqH8cK5ZEuoQymZZG2u",
+ "type": null,
+ "version": "1793498430-d7e4",
+ "listed_version": "1793498430-d7e4",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 496674,
+   "sha256": "cc0686035d1ecaacdf70f0823cd78813a312117e379cca4208d50f6b00684fd0"
+  }
+ ],
+ "assets": [],
+ "failures": [],
+ "notes": [
+  "untyped single page; assets capability not declared (asset list unavailable)"
+ ],
+ "archive": {
+  "path": "informat-brand-system.tar.gz",
+  "bytes": 137827,
+  "sha256": "a19e6bdf330fb5c9020cc5c71b363a791b86a7a8702bf3aa7fb61ca65ace37e2",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-brand-system.tar.gz"
+ }
+}

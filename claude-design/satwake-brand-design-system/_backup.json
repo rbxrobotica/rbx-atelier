@@ -1,0 +1,74 @@
+{
+ "title": "Satwake Brand & Design System",
+ "url": "https://claude.ai/artifact/WZDWeNUrovcJkFVKUbzbZW",
+ "type": "Design",
+ "version": "1795099376-aba0",
+ "listed_at": "2026-11-19T14:47:54Z",
+ "note": "listed version 1793407208-6042 (32 files); read returned 1795099376-aba0",
+ "files": [
+  {
+   "path": "project/AdFeed.dc.html",
+   "bytes": 3099,
+   "sha256": "6b8f7443b073a72224578d65bca241e506169af1964602d1e3d7352cd6925511"
+  },
+  {
+   "path": "project/AdStory.dc.html",
+   "bytes": 2864,
+   "sha256": "1ef45d8f97cdba638ccbcb3a8f03ab9d0bc41db34b2461b9d4c1cfcadaec6fdf"
+  },
+  {
+   "path": "project/Campaigns.dc.html",
+   "bytes": 13704,
+   "sha256": "2b0ed570eb9c963608f0855573284a0fa849964982f9b1b0734df56bbe3064f2"
+  },
+  {
+   "path": "project/Checkout.dc.html",
+   "bytes": 7438,
+   "sha256": "86061b36b0af2a154bd9724ac7d16a94e3b867c44af77b979c9e4b5cf651781f"
+  },
+  {
+   "path": "project/LandingDesktop.dc.html",
+   "bytes": 33566,
+   "sha256": "f083b447976ee0b68eea12609062fd0fbb612758c4d929ad641ece005001c756"
+  },
+  {
+   "path": "project/LandingMobile.dc.html",
+   "bytes": 22775,
+   "sha256": "a09fb479accf7ff7ac61e63222c4876bf388b0f990cbeb2d3769e1f4d433dcc0"
+  },
+  {
+   "path": "project/Main.dc.html",
+   "bytes": 20592,
+   "sha256": "a41ea2d9a1f2a1ea740d1daea935f1bcc284641315de740545008416dd337d2e"
+  },
+  {
+   "path": "project/Spec.dc.html",
+   "bytes": 9414,
+   "sha256": "1b1025c83e5bf838b2de77d8b4d66070f2c8edf6f27cc226dbd3908a6a1fae21"
+  },
+  {
+   "path": "project/System.dc.html",
+   "bytes": 21738,
+   "sha256": "8f3ae00a1e225eddf050d082a1573799529cde4d091e9239a83c85e136fb6e1b"
+  },
+  {
+   "path": "project/canvas.json",
+   "bytes": 2343,
+   "sha256": "e97e5dd572f7ece6872a16399f9f7f245a6fab9740e1d4b28cd5289b829fbdd9"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (20 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [],
+ "failures": [],
+ "archive": {
+  "path": "satwake-brand-design-system.tar.gz",
+  "bytes": 25747,
+  "sha256": "1468e15f0fc3473d5e4cc2cd56c2e87224ce22487ff15fc39d66167c753feedd",
+  "files_inside": 10,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf satwake-brand-design-system.tar.gz"
+ }
+}

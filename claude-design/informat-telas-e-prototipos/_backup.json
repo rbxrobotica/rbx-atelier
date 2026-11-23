@@ -1,0 +1,234 @@
+{
+ "title": "Informat · Telas e Protótipos",
+ "url": "https://claude.ai/artifact/WbBeWYi7VnfM5NwSuzQWTv",
+ "type": "Design",
+ "version": "1795099375-636a",
+ "listed_at": "2026-11-19T14:47:54Z",
+ "note": "listed version 1793496688-82d0 (47 files); read returned 1795099375-636a",
+ "files": [
+  {
+   "path": "project/Acompanhamento-mobile.dc.html",
+   "bytes": 937,
+   "sha256": "29adffd6f312098372d9bcc3d5d790f7faba04f8c3c921bc5bbf26d22587fc04"
+  },
+  {
+   "path": "project/Acompanhamento.dc.html",
+   "bytes": 9990,
+   "sha256": "52174f47368b219a4af376eafa0c566ec403fd4b62d14397fd9b20ab61f2379c"
+  },
+  {
+   "path": "project/Anuncio.dc.html",
+   "bytes": 4711,
+   "sha256": "3707f4e74cb637fe7e45cc03a9558a01ab205b95a2d3735c75c6e2e58a71ee99"
+  },
+  {
+   "path": "project/Aprovacao-mobile.dc.html",
+   "bytes": 939,
+   "sha256": "caa5cda7be2f3a0a1578f5de96038b308134fe17913083feeb2c37540120ec59"
+  },
+  {
+   "path": "project/Aprovacao.dc.html",
+   "bytes": 10422,
+   "sha256": "573ec7f29a84c9b1fee2de813dcb1b585c3321c88c62a428e33cf24a45480a20"
+  },
+  {
+   "path": "project/Atendimento-mobile.dc.html",
+   "bytes": 940,
+   "sha256": "5ff60070f02dd5f5fa190998e6150963605c07e7b5d01e955ba055a4db81ebe8"
+  },
+  {
+   "path": "project/Atendimento.dc.html",
+   "bytes": 12633,
+   "sha256": "91be7a87228ba9419e1b276dbc74c28280c11213f22360753f06011a36297884"
+  },
+  {
+   "path": "project/Entrega-mobile.dc.html",
+   "bytes": 923,
+   "sha256": "384ac02ed312b1c4bcf6fc523d3e8d959daaddaa3f326754d19306fbe60b41cc"
+  },
+  {
+   "path": "project/Entrega.dc.html",
+   "bytes": 11278,
+   "sha256": "1edc0c576950e643deffc70d623fb4f2084f293d82f9de52aa6ee96ff7f2476f"
+  },
+  {
+   "path": "project/Main-mobile.dc.html",
+   "bytes": 920,
+   "sha256": "e3c407bfa5a05fbf2589432c323822490889c4865e95ac8527a37d640152a8b3"
+  },
+  {
+   "path": "project/Main.dc.html",
+   "bytes": 18035,
+   "sha256": "e7d2c20cadbe4b62e76c9dd1a02c95c14d2ee76c5289c8b36f7cabcbdbf1f4a2"
+  },
+  {
+   "path": "project/Marca-Aplicacoes.dc.html",
+   "bytes": 7516,
+   "sha256": "b1e523fdbf6552ac4c45cb4c117e9254d8918e60ed4af55fd861c0e1f45b7de0"
+  },
+  {
+   "path": "project/Marca-Direcoes.dc.html",
+   "bytes": 8748,
+   "sha256": "faec4771c16ddd8dd6eb0e86f821acd63ea00cc99995b8a02018a9a97452e1f1"
+  },
+  {
+   "path": "project/Marca-Logotipos.dc.html",
+   "bytes": 8606,
+   "sha256": "ddd72218ff724dae3ed9f5575bcb5d8644f812811d824604ff3a48341964e5ff"
+  },
+  {
+   "path": "project/Orcamento-mobile.dc.html",
+   "bytes": 943,
+   "sha256": "a498ae45ec3b8fab24ae0f3161cb1d059e0f9131552fbb1859b0f6bbc14adbd5"
+  },
+  {
+   "path": "project/Orcamento.dc.html",
+   "bytes": 9807,
+   "sha256": "86e69bf52ba35d70f9461f1ad6c90d3b9e79cd10035d97ff0ad4ab370e412fa5"
+  },
+  {
+   "path": "project/Servico-mobile.dc.html",
+   "bytes": 945,
+   "sha256": "393f5d2abb6baf9df483954ba90dd46edddf4d761b25a17b29eef863e89f1dde"
+  },
+  {
+   "path": "project/Servico.dc.html",
+   "bytes": 14906,
+   "sha256": "f65231f0cc17a9fdc7dc5b20823f50265a950323f7d2c1958c8ba8fd7600a311"
+  },
+  {
+   "path": "project/Solicitar-mobile.dc.html",
+   "bytes": 939,
+   "sha256": "232ea5a651dd4f21bc4f0a360ec790eb2bcf041c637be40ee680a34e4296b0af"
+  },
+  {
+   "path": "project/Solicitar.dc.html",
+   "bytes": 9856,
+   "sha256": "2c8a97dd50cf281a1608cbfd68b15624f0b8dcbe4ed37ae76bf6b1bddfdb29d8"
+  },
+  {
+   "path": "project/canvas.json",
+   "bytes": 4510,
+   "sha256": "081ef8035896ca19d1a2b775db8771908bab8bb9ede9432141901f1ed8e1a6ec"
+  },
+  {
+   "path": "project/ds/informat/components/bundle.css",
+   "bytes": 39146,
+   "sha256": "e2e01c8e4bd7d790092e00598af0842402857221e247d1849991202459bec8d3"
+  },
+  {
+   "path": "project/ds/informat/components/bundle.js",
+   "bytes": 58096,
+   "sha256": "f4f3a28233246a151d497314a8e7ee7e0481ed0c80ac45e869bb34348bc6ce0d"
+  },
+  {
+   "path": "project/ds/informat/tokens.css",
+   "bytes": 4463,
+   "sha256": "f870790d5a954508645bedfe348f4eded4969a455079bb735e2da301ba8a4e54"
+  },
+  {
+   "path": "project/ds/informat/tokens.json",
+   "bytes": 22873,
+   "sha256": "80bfb69d839b49ef313e222a0e62c61300084659e506e61a35fbf30d1d2ae7f5"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (20 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [
+  {
+   "id": "3c62f9dd30a7210d43b9e9a9aefef8d2",
+   "type": "image/svg+xml",
+   "bytes": 3955,
+   "sha256": "1db9e5e2d15f5d1abe22692cae47157553382ca1e9a123ce90a1141f73e7e99b",
+   "uploaded_at": null
+  },
+  {
+   "id": "449c2c1d21ad49334382f6e448d5a870",
+   "type": "image/svg+xml",
+   "bytes": 3957,
+   "sha256": "e63fdec58e544828763877517ca50c51605272e8f71f092082446cc9dc2b39ab",
+   "uploaded_at": null
+  },
+  {
+   "id": "601a5a23cfa3190275f62ea06904c476",
+   "type": "image/svg+xml",
+   "bytes": 1090,
+   "sha256": "15ece00fd8d5b893859dae4935adcf21edb0b61331fcd1cd08eecf74696ab23a",
+   "uploaded_at": null
+  },
+  {
+   "id": "64b3345ed0ee5c177981c073714b2da1",
+   "type": "image/svg+xml",
+   "bytes": 3381,
+   "sha256": "a4c858314bb3c4addf7fe3e5cfb4fe020c62e240e17260720d89861d1ae33774",
+   "uploaded_at": null
+  },
+  {
+   "id": "6822301e95cc2efe4bb3b93bb916e9b9",
+   "type": "image/svg+xml",
+   "bytes": 4127,
+   "sha256": "bb72ee2106fa66844894a9943b1da5fc8e58a1fbb24357b42a5cfe17ce3f3d8d",
+   "uploaded_at": null
+  },
+  {
+   "id": "a82fa723e25252ff2c4924dc43513bcd",
+   "type": "image/svg+xml",
+   "bytes": 4023,
+   "sha256": "d3c506cbbabe211fa6ea4e02204e01fc751b9bf45fb4636b08f94cfad6debde2",
+   "uploaded_at": null
+  },
+  {
+   "id": "d75e5c4d0a4c5c01bc5fcefde23e610c",
+   "type": "image/svg+xml",
+   "bytes": 526,
+   "sha256": "a69e62e69d611f02a04433ee0791ddd96fd279fa98fb13c585702b7a6683d0f8",
+   "uploaded_at": null
+  },
+  {
+   "id": "d79db9f32424fb2fa7ca3568bccb68b6",
+   "type": "image/svg+xml",
+   "bytes": 4059,
+   "sha256": "f3b81d56d0886bc0595de7bf854be6cc0d97d35cc792ec0f480ddcab0bfc4184",
+   "uploaded_at": null
+  },
+  {
+   "id": "db582ae88bbd7b69c6522433f27e9c9f",
+   "type": "image/svg+xml",
+   "bytes": 522,
+   "sha256": "77ae36010263b5b595fc49587644b296bd0f47f2bfbe7b6e51e4b85093a95fc8",
+   "uploaded_at": null
+  },
+  {
+   "id": "de6c595187063820e30b1fe087b58d0c",
+   "type": "image/svg+xml",
+   "bytes": 3417,
+   "sha256": "d9491ed13464e027d3b73f72432dd80097ba97cba5956c52693247efa8e4a56b",
+   "uploaded_at": null
+  },
+  {
+   "id": "f3934a5a672d662b113a9ec013e8bd8c",
+   "type": "image/svg+xml",
+   "bytes": 414,
+   "sha256": "df5074b309a32e15673a36ae28ab1c00e1d5f70bdf1b0e804f14798ab73c410b",
+   "uploaded_at": null
+  },
+  {
+   "id": "ff3d13f0b48970bd8a9c57cf8a6c2959",
+   "type": "image/svg+xml",
+   "bytes": 1171,
+   "sha256": "fd0b1dfee81c198171e8f7e367ea56eacac11f3e79414a5375e3e063bc77db81",
+   "uploaded_at": null
+  }
+ ],
+ "failures": [],
+ "archive": {
+  "path": "informat-telas-e-prototipos.tar.gz",
+  "bytes": 53913,
+  "sha256": "3b442aff5ec1facbe760724aee9e93eaf7dbd749960af61385c13c16d0ebdae7",
+  "files_inside": 37,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf informat-telas-e-prototipos.tar.gz"
+ }
+}

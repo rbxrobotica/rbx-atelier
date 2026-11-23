@@ -1,0 +1,25 @@
+{
+ "title": "FlightDeck Clearance",
+ "url": "https://claude.ai/artifact/VzRaMFAQbuvAsy79QN1SrJ",
+ "type": null,
+ "version": "1788013724-db0f",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2307245,
+   "sha256": "adac044336650f8854ae5513d9f75168345bb46d16b61ee212075837984f65f9"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "archive": {
+  "path": "flightdeck-clearance.tar.gz",
+  "bytes": 793951,
+  "sha256": "53fd5542129eba2c4da4bb26a8da5ce8b9caff4737f825593aba111eafc0606f",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf flightdeck-clearance.tar.gz"
+ }
+}

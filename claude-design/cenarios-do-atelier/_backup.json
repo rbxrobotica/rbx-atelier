@@ -1,0 +1,24 @@
+{
+ "title": "Cenários do Atelier",
+ "url": "https://claude.ai/artifact/1ZEsBZb7C3o9rj1wpPZYUe",
+ "type": null,
+ "version": "1794439927-a17d",
+ "listed_at": "2026-11-19T14:50:08Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 359253,
+   "sha256": "58b279da8519b3a6392f53a0f5e88ba018e5a9b0ad5230f3145dc4c5b5729426"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "archive": {
+  "path": "cenarios-do-atelier.tar.gz",
+  "bytes": 190384,
+  "sha256": "ed5b48512d974c5db2bd7da7ff6d3bcf3ff33870bae72128f0a369cb001628ca",
+  "files_inside": 1,
+  "note": "Os caminhos de files/assets acima ficam dentro deste arquivo. Extraia com: tar -xzf cenarios-do-atelier.tar.gz"
+ }
+}
