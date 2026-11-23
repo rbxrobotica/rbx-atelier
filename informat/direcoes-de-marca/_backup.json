@@ -1,0 +1,21 @@
+{
+ "title": "Informat · Direções de Marca",
+ "url": "https://claude.ai/artifact/UvFW9iMb88uansMZRwHRry",
+ "type": null,
+ "version": "1793497296-4920",
+ "listed_version": "1793497296-4920",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 46451,
+   "sha256": "e5dfd53d76f4f2476bffb6d15f9008a3729be5b9b9f63d98d830de2dacffc6bf"
+  }
+ ],
+ "assets": [],
+ "failures": [],
+ "notes": [
+  "untyped single page; assets capability not declared (asset list unavailable)"
+ ],
+ "previous_backup_path": "claude-design/informat-direcoes-de-marca"
+}

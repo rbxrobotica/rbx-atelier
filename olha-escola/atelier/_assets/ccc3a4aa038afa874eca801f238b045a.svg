@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Ilustração de demonstração: fachada de escola">
+  <rect width="400" height="300" fill="#EAE5DA"></rect>
+  <rect x="40" y="90" width="320" height="150" fill="#F5F2EB" stroke="#1C1A17" stroke-width="3"></rect>
+  <path d="M30 92 200 40l170 52" fill="none" stroke="#1C1A17" stroke-width="3" stroke-linejoin="round"></path>
+  <rect x="170" y="160" width="60" height="80" fill="#A83A1C"></rect>
+  <g fill="#FFFFFF" stroke="#1C1A17" stroke-width="3"><rect x="70" y="120" width="50" height="40"></rect><rect x="280" y="120" width="50" height="40"></rect><rect x="70" y="185" width="50" height="30"></rect><rect x="280" y="185" width="50" height="30"></rect></g>
+  <path d="M0 240h400" stroke="#1C1A17" stroke-width="3"></path>
+  <path d="M60 240v-20m0 10c-14-4-13-18-13-18s14 2 13 18m0-5c14-4 13-19 13-19s-14 2-13 19" fill="none" stroke="#7D766C" stroke-width="2"></path>
+  <rect x="8" y="8" width="176" height="24" rx="4" fill="#1C1A17"></rect>
+  <text x="16" y="25" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F5F2EB">FOTO DE DEMONSTRAÇÃO</text>
+</svg>

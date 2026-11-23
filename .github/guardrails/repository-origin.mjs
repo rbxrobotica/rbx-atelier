@@ -1,6 +1,7 @@
 // Tells an address that stays inside this repository from one that leaves it,
 // with the URL parser a browser uses. Shared by the CDN script check and by
 // the lint rule on module specifiers.
+import { isArchived } from './archive.mjs';
 
 // Stand for the addresses a page of this repository may be opened from: a web
 // server without and with TLS, and the disk. The same text can resolve to a
@@ -44,7 +45,8 @@ export function entersNodeModules(path) {
 }
 
 // Whether the lint reads the file at `path`: eslint.config.js names these four
-// extensions, in lower case, outside node_modules.
+// extensions, in lower case, outside node_modules and outside the archive
+// directories (archive.mjs).
 export function isLinted(path) {
-  return /\.(?:js|mjs|cjs|jsx)$/.test(path) && !entersNodeModules(path);
+  return /\.(?:js|mjs|cjs|jsx)$/.test(path) && !entersNodeModules(path) && !isArchived(path);
 }

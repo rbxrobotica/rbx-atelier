@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navegação" height=72 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Tabs</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { style: { padding: 16 } }, h(G.Tabs, { label: 'Meus anúncios', items: [{ id: 'ativos', label: 'Ativos', count: 3 }, { id: 'revisao', label: 'Em revisão', count: 1 }, { id: 'pausados', label: 'Pausados', count: 1 }, { id: 'encerrados', label: 'Encerrados', count: 2 }] })));
+</script>
+</body>
+</html>

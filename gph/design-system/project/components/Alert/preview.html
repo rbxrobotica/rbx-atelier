@@ -1,0 +1,12 @@
+<!-- @dsCard group="Status" height=330 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Alert</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-stack', style: { maxWidth: 620 } }, h(G.Alert, { tone: 'info', title: 'Seu anúncio está em revisão' }, 'Revisamos cada anúncio antes de publicar. Você recebe uma mensagem quando ele for ao ar.'), h(G.Alert, { tone: 'warn', title: 'Faltam fotos' }, 'Inclua pelo menos uma foto do item.'), h(G.Alert, { tone: 'err', title: 'Anúncio recusado', action: h(G.Button, { size: 's' }, 'Editar anúncio') }, 'O preço informado não corresponde ao item. Ajuste e envie de novo.')));
+</script>
+</body>
+</html>

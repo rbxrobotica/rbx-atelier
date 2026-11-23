@@ -1,0 +1,155 @@
+{
+ "title": "RBX Design System",
+ "url": "https://claude.ai/artifact/J6UUcnNTpHvMh3TCWrw9YK",
+ "type": "Design System",
+ "version": "1795099290-bd9e",
+ "listed_at": "2026-11-19T14:50:08Z",
+ "files": [
+  {
+   "path": "project/README.md",
+   "bytes": 8553,
+   "sha256": "d18978f8ffa381c6adc6f2c20442ef98ac9c4c5b35ad6d35860cd321402b2360"
+  },
+  {
+   "path": "project/assets/Logos/README.md",
+   "bytes": 995,
+   "sha256": "f4c712aa6049cfd12bc2cc60643bd19361cfcaddf393ea65684d8f950a94a897"
+  },
+  {
+   "path": "project/components/Breadcrumb/README.md",
+   "bytes": 927,
+   "sha256": "112e4e98cfa3fac2795c5d66c191ab2e84ecb565f10482568adb3c4a9a08e1a4"
+  },
+  {
+   "path": "project/components/Breadcrumb/preview.html",
+   "bytes": 1981,
+   "sha256": "f009070056913ba0f514a254f3e2d42355b0d8fd1dead7ceadfd0faec68c112a"
+  },
+  {
+   "path": "project/components/Button/README.md",
+   "bytes": 895,
+   "sha256": "0daaeb45f4795a204cc5c3fe0917a448241954761a5fb2d05077d87519729cb2"
+  },
+  {
+   "path": "project/components/Button/preview.html",
+   "bytes": 1916,
+   "sha256": "ae883d60dd33ca34fae66bc31c082ec63e1d5bfda21eb0712c093b83fd1b4b1c"
+  },
+  {
+   "path": "project/components/Card/README.md",
+   "bytes": 632,
+   "sha256": "5fa2cc7265c46babbfdcc8f9d36fc7babca70b1e5ae78d8bbcdf6f622d4a73fe"
+  },
+  {
+   "path": "project/components/Card/preview.html",
+   "bytes": 2226,
+   "sha256": "b78e85add3f2e4d333c839a1689f548e6d21a12e066c256ac7259c48bca79794"
+  },
+  {
+   "path": "project/components/Cover/preview.html",
+   "bytes": 2123,
+   "sha256": "1d70b98486730c09a6c118e4623f215bcd650a220c91cca9550d14ac0501711e"
+  },
+  {
+   "path": "project/components/Header/README.md",
+   "bytes": 1443,
+   "sha256": "60a4567478d8a8a0578c5946ffef2b8960ed99d35d689477d0d6f627dc49934f"
+  },
+  {
+   "path": "project/components/Header/preview.html",
+   "bytes": 3981,
+   "sha256": "9fcf9f45c46dcdf1c6ba131a8cf742a86a83937ad19a74b6b502cc495a47eb32"
+  },
+  {
+   "path": "project/components/Logo/README.md",
+   "bytes": 917,
+   "sha256": "4523d82c5b0cde9696ae66b509fd643966cf94465f14466ea61624d33a3872df"
+  },
+  {
+   "path": "project/components/Logo/preview.html",
+   "bytes": 5628,
+   "sha256": "d49477df0f13d561c2606649fc17ccacafa382a8ec057bc431c296e8ad5bc9ce"
+  },
+  {
+   "path": "project/components/NavItem/README.md",
+   "bytes": 663,
+   "sha256": "173718df04be65efebfcc9261576330e9189f7511e410b94bd6ee4e32c78c69e"
+  },
+  {
+   "path": "project/components/NavItem/preview.html",
+   "bytes": 2504,
+   "sha256": "a610b948aaad4b94e1d59c10ac7eea2e736f01d4ca421e123fdd942bcf29f768"
+  },
+  {
+   "path": "project/components/PageHeader/README.md",
+   "bytes": 650,
+   "sha256": "ad707f047c748bfadae67431be23e8c344bcf350d970fe9965cf7e27dd47b9f7"
+  },
+  {
+   "path": "project/components/PageHeader/preview.html",
+   "bytes": 1515,
+   "sha256": "ded737754d49cbd90399f1d217d660d4f5c14d285af776b95ea3296b86deac43"
+  },
+  {
+   "path": "project/design-system.json",
+   "bytes": 1815,
+   "sha256": "e1788e91ce6fb52556d443a04bce8d8bec7004b236eb400fc80d9fea81bb20c5"
+  },
+  {
+   "path": "project/tokens.json",
+   "bytes": 13237,
+   "sha256": "616a5412746f4331c210b1b16d53961016cabd02723df4465a8b653c777a381d"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (21 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [
+  {
+   "id": "776632c7ef462bc52b1fe0362cfcc690",
+   "type": "image/svg+xml",
+   "bytes": 768,
+   "sha256": "1a65413acc131aa37fd60d2abc66dd08c213c5598314945c26111e4894a077f4",
+   "uploaded_at": "2026-11-08T18:16:42.873852Z"
+  },
+  {
+   "id": "56979302bab2b527a3cb5fde314a2ae5",
+   "type": "image/svg+xml",
+   "bytes": 496,
+   "sha256": "e5bd611a2d5a5382ff23d7b7dbebb9f1e5d5919edf03699062adac6c0d3481d6",
+   "uploaded_at": "2026-11-08T18:16:43.486398Z"
+  },
+  {
+   "id": "20bacf64bf7a10d103868766b90a1418",
+   "type": "image/svg+xml",
+   "bytes": 171,
+   "sha256": "2a7d62b47fe49906837e9a64eb9d6e88aaf8d367457ce69c8225d5bd04c6cc11",
+   "uploaded_at": "2026-11-08T18:16:44.095207Z"
+  },
+  {
+   "id": "6fdae20739e148276212292250499eb4",
+   "type": "image/svg+xml",
+   "bytes": 275,
+   "sha256": "21ce347765c7c338938e6399c6fb2b217dbf7b111a348e2146e57b7e73f1f827",
+   "uploaded_at": "2026-11-08T18:16:44.673159Z"
+  },
+  {
+   "id": "b086379ae92c4972cb80a4a4f171996d",
+   "type": "image/svg+xml",
+   "bytes": 275,
+   "sha256": "24275688f646d82131c1ff5cfbde7909b3f8acb7fd902fafc8832309016718b5",
+   "uploaded_at": "2026-11-08T18:16:45.255958Z"
+  },
+  {
+   "id": "a9a54bd6aacb442044f2c1681a9d8ca8",
+   "type": "image/svg+xml",
+   "bytes": 176,
+   "sha256": "84bd7113d5903b76ec9b9388cc083ec462031cdebf9a215021d61ce532b402e2",
+   "uploaded_at": "2026-11-08T22:15:20.11182Z"
+  }
+ ],
+ "failures": [],
+ "previous_backup_path": "claude-design/rbx-design-system"
+}

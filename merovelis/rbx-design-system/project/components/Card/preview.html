@@ -1,0 +1,43 @@
+<!-- @dsCard group="Conteúdo" height=232 width=1280 subtitle="Card simples, card link e card com estado" -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-6);padding:var(--s-6);box-sizing:border-box;width:1280px}
+.card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--s-5);display:flex;flex-direction:column;gap:var(--s-2);text-decoration:none;color:inherit}
+a.card:hover{border-color:var(--border-strong)}
+a.card:focus-visible{outline:none;box-shadow:var(--ring-focus)}
+.card .eyebrow{text-transform:uppercase;color:var(--fg-2)}
+.card h3{margin:0;color:var(--fg-0)}
+.card p{margin:0;color:var(--fg-1)}
+.card .caption{color:var(--fg-2);margin-top:auto;padding-top:var(--s-3)}
+.badge{display:inline-flex;align-items:center;gap:var(--s-1);padding:4px var(--s-2);border-radius:var(--radius-sm);text-transform:uppercase;align-self:flex-start}
+.ok{background:var(--ok-subtle);color:var(--ok)}
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="card">
+    <span class="eyebrow">Serviço</span>
+    <h3 class="h4">Integração que trava o próximo fluxo</h3>
+    <p class="body">Definimos os dados e conectamos os sistemas, com tratamento de falhas e testes no escopo acordado.</p>
+  </div>
+  <a class="card" href="#">
+    <span class="eyebrow">Journal</span>
+    <h3 class="h4">Uma semana com o livro aberto</h3>
+    <p class="body">O que revisar o Robson em público ensinou sobre regras de risco e sobre escrever para leitores de fora.</p>
+    <span class="caption">8 de novembro de 2026</span>
+  </a>
+  <div class="card">
+    <span class="eyebrow">API pública</span>
+    <h3 class="h4">api.robson.rbx.ia.br</h3>
+    <p class="body">Leitura aberta do estado e do histórico do sistema.</p>
+    <span class="badge eyebrow ok">Disponível</span>
+  </div>
+</div>
+</body>
+</html>

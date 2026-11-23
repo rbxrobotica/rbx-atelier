@@ -1,0 +1,34 @@
+<!-- @dsCard group="Navegação" height=176 subtitle="Repouso, hover, ativo e foco" -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>NavItem</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-5);padding:var(--s-5);box-sizing:border-box}
+.col{display:flex;flex-direction:column;gap:var(--s-3)}
+.label{text-transform:uppercase;color:var(--fg-2)}
+.p{height:var(--nav-row);display:flex;align-items:center;border-bottom:1px solid var(--border)}
+.p a{display:flex;align-items:center;height:100%;color:var(--fg-2)}
+.p a.hover{color:var(--fg-0)}
+.p a.on{color:var(--fg-0);box-shadow:inset 0 -1px 0 var(--cyan-brand)}
+.p a.focus{color:var(--fg-0);box-shadow:var(--ring-focus);border-radius:var(--radius-sm);padding:0 var(--s-2);height:28px}
+.s{height:var(--band-row);display:flex;align-items:center;background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 var(--s-4);box-sizing:border-box}
+.s a{color:var(--fg-2);line-height:1}
+.s a.hover{color:var(--fg-0)}
+.s a.on{color:var(--fg-0);padding-bottom:3px;margin-bottom:-3px;box-shadow:inset 0 -1px 0 var(--cyan-brand)}
+.s a.focus{color:var(--fg-0);box-shadow:var(--ring-focus);border-radius:var(--radius-sm);padding:6px var(--s-2)}
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="col"><span class="eyebrow label">Repouso</span><div class="p nav-primary"><a href="#">Produtos</a></div><div class="s nav-secondary"><a href="#">Robson</a></div></div>
+  <div class="col"><span class="eyebrow label">Hover</span><div class="p nav-primary"><a href="#" class="hover">Produtos</a></div><div class="s nav-secondary"><a href="#" class="hover">Robson</a></div></div>
+  <div class="col"><span class="eyebrow label">Ativo</span><div class="p nav-primary"><a href="#" class="on" aria-current="true">Produtos</a></div><div class="s nav-secondary"><a href="#" class="on" aria-current="page">Robson</a></div></div>
+  <div class="col"><span class="eyebrow label">Foco</span><div class="p nav-primary"><a href="#" class="focus">Produtos</a></div><div class="s nav-secondary"><a href="#" class="focus">Robson</a></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+ "title": "Lyra Brand & Design Canvas",
+ "url": "https://claude.ai/artifact/YMMsoDjimqZQ53FP9VqYRx",
+ "type": "Design",
+ "version": "1795099370-b166",
+ "listed_version": "1793408813-55c1",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "project/Components.dc.html",
+   "bytes": 52697,
+   "sha256": "34ef7afa68e0ea21d53b13410a17b68f0f3bd20fd0b0533e69b612429f2b17f7"
+  },
+  {
+   "path": "project/DesktopLater.dc.html",
+   "bytes": 30358,
+   "sha256": "468aa72d6064b77bf93717853fdddf065103aedfb619bee8590dea14328aac79"
+  },
+  {
+   "path": "project/Main.dc.html",
+   "bytes": 24465,
+   "sha256": "8d1c1e22006c2f17151e08d4b96c71a20b05e94cd7165c759bcb63313c40c51c"
+  },
+  {
+   "path": "project/MobileLater.dc.html",
+   "bytes": 27713,
+   "sha256": "eb89c758191cc56221550cd652a9e131a936682c7c694232533e64769e15ad2d"
+  },
+  {
+   "path": "project/Tokens.dc.html",
+   "bytes": 15890,
+   "sha256": "a544d1f4f1945f2f20f9255e2a866d61b9e32b3f94428fb9eaab537b157d398b"
+  },
+  {
+   "path": "project/WebSecaBloqueada.dc.html",
+   "bytes": 29303,
+   "sha256": "3e6e03aecc8261e0237eee442e281ef64d48a1bccaadd80d81b428afb50da163"
+  },
+  {
+   "path": "project/WebSecaConectando.dc.html",
+   "bytes": 26469,
+   "sha256": "5dc36a53e5f5c598b27cebb3e29c2bb348de140d5ada2f602d27c9ff9107c333"
+  },
+  {
+   "path": "project/WebSecaErroHash.dc.html",
+   "bytes": 27921,
+   "sha256": "28d5039257bcbea315989c34991d5f29838d5b14c7a37d41184e446765d241a0"
+  },
+  {
+   "path": "project/WebSecaLeitura.dc.html",
+   "bytes": 30639,
+   "sha256": "41d94e9c49fd9671cdd65b213bdd4af51574be62a4a4895cd5e27fa2afebbb3a"
+  },
+  {
+   "path": "project/WebSecaOffline.dc.html",
+   "bytes": 26621,
+   "sha256": "c9d72e287f5df0331bf1d5ca30aba23006bd532e53a70bafb5ddc8a4d5814669"
+  },
+  {
+   "path": "project/WebSecaPerfil.dc.html",
+   "bytes": 28166,
+   "sha256": "9afd7ade2ec35733af744fa28899dcf373a1e2bef06468e1116bf7a77f2c79f9"
+  },
+  {
+   "path": "project/WebSecaRecuperando.dc.html",
+   "bytes": 27957,
+   "sha256": "17a09fe657b79285dc1784bc1bf5b24fd6c74132d2b83ceb2dcc6b66fd83521d"
+  },
+  {
+   "path": "project/WebSecaSincronizado.dc.html",
+   "bytes": 27399,
+   "sha256": "ec004d6befdfbc2e1841ab4015a855752d1a5259a23c437201bd547139632a1d"
+  },
+  {
+   "path": "project/canvas.json",
+   "bytes": 3358,
+   "sha256": "3ea761dd76210e74aea589325715f1ef6e327598eb753e78d4b621ca0b9be94a"
+  },
+  {
+   "path": "project/ds/lyra/tokens.json",
+   "bytes": 10490,
+   "sha256": "d69ae0d52817042ef712e3360c43ce75f8dd01bc11424a5f849377b0e2cdf5aa"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (20 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [],
+ "failures": [],
+ "previous_backup_path": "claude-design/lyra-brand-design-canvas"
+}

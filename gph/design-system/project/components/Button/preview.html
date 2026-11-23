@@ -1,0 +1,12 @@
+<!-- @dsCard group="Ações" height=140 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Button</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-stack' }, h('div', { className: 'gph-row', style: { padding: 0 } }, h(G.Button, { variant: 'primary', icon: 'plus' }, 'Publique seu anúncio'), h(G.Button, null, 'Salvar rascunho'), h(G.Button, { variant: 'quiet', icon: 'share' }, 'Compartilhar'), h(G.Button, { variant: 'danger', icon: 'trash' }, 'Excluir anúncio')), h('div', { className: 'gph-row', style: { padding: 0 } }, h(G.Button, { variant: 'primary', loading: true }, 'Enviando'), h(G.Button, { disabled: true }, 'Indisponível'), h(G.Button, { size: 's' }, 'Editar'), h(G.Button, { iconOnly: true, icon: 'heart', 'aria-label': 'Salvar anúncio' }))));
+</script>
+</body>
+</html>

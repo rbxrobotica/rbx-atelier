@@ -1,0 +1,19 @@
+{
+ "title": "RBX Public Presence Design System",
+ "url": "https://claude.ai/artifact/1S3ESq9mji7dJZM41aR6AJ",
+ "type": null,
+ "version": "1788736342-6633",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2718475,
+   "sha256": "626e7214ab82dff3eb0a86722ca3c660536d27937982d54522bb97b9896c6696"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "previous_backup_path": "claude-design/rbx-public-presence-design-system"
+}

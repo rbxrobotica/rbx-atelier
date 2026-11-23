@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Detalhe do anúncio</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/gph/tokens.css">
+<link rel="stylesheet" href="ds/gph/components/bundle.css">
+<script src="ds/gph/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Archivo+Narrow:wght@500;600&amp;family=Familjen+Grotesk:wght@500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="background: var(--wall); color: var(--ink); font-family: var(--font-sans); min-height: 100%;">
+<sc-if value="{{isDesktop}}" hint-placeholder-val="{{yes}}">
+<x-import component-from-global-scope="Gph.NavBar" active="" links="{{nav}}" home-href="{{href.Main}}" publish-href="{{href.Publicar}}" login-href="#entrar"></x-import>
+</sc-if>
+<sc-if value="{{isMobile}}" hint-placeholder-val="{{no}}">
+<x-import component-from-global-scope="Gph.NavBar" compact="{{yes}}" links="{{nav}}" home-href="{{href.Main}}" publish-href="{{href.Publicar}}" login-href="#entrar"></x-import>
+</sc-if>
+<nav aria-label="Caminho" style="padding-block: 16px 0; padding-inline: {{pad}};">
+<ol style="max-width: 1240px; margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--ink-3);">
+<li><a href="{{href.Main}}" style="color: var(--ink-2);">Início</a> /</li>
+<li><a href="{{href.Resultados}}" style="color: var(--ink-2);">Imóveis</a> /</li>
+<li><a href="{{href.Resultados}}" style="color: var(--ink-2);">Aluguel</a> /</li>
+<li aria-current="page">Apartamento com varanda, 2 quartos</li>
+</ol>
+</nav>
+<section style="padding-block: 24px 48px; padding-inline: {{pad}};">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+<div style="flex: 999 1 620px; min-width: 0; display: flex; flex-direction: column; gap: 32px;">
+<x-import component-from-global-scope="Gph.PhotoGallery" category="Imóveis" total="12"></x-import>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p class="gph-label" style="margin: 0;">Imóveis · Aluguel</p>
+<h1 class="{{h3}}" style="margin: 0; text-wrap: balance;">Apartamento com varanda, 2 quartos</h1>
+<p class="small" style="margin: 0; color: var(--ink-3);">Centro · [CIDADE] · Publicado hoje, 09:40 · Anúncio revisado pelo GPH</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h2 class="title-2" style="margin: 0;">Ficha</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px 24px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-m);">
+<sc-for list="{{ficha}}" as="f" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 2px;">
+<dt class="gph-label">{{f.k}}</dt>
+<dd class="body" style="margin: 0; font-weight: 500;">{{f.v}}</dd>
+</div>
+</sc-for>
+</dl>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<h2 class="title-2" style="margin: 0;">Descrição</h2>
+<p class="body-l" style="margin: 0; max-width: 68ch; color: var(--ink-2);">Apartamento de 2 quartos com varanda voltada para o nascente, sala integrada à cozinha, um banheiro e área de serviço. Prédio com portaria em horário comercial e uma vaga coberta. Condomínio e IPTU à parte; valores com o anunciante. Visitas aos sábados, com horário combinado por mensagem.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<x-import component-from-global-scope="Gph.Button" icon="heart">Salvar</x-import>
+<x-import component-from-global-scope="Gph.Button" variant="quiet" icon="share">Compartilhar</x-import>
+</div>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; position: sticky; top: 16px;">
+<x-import component-from-global-scope="Gph.ContactPanel" price="R$ 2.300" price-note="/mês" message-href="{{href.Contato}}"></x-import>
+<x-import component-from-global-scope="Gph.AdvertiserCard" name="Marina S." type="Pessoa física" member-since="[MÊS/ANO]" location="[CIDADE]" ads-count="3" account-confirmed="{{yes}}" href="{{href.Perfil}}"></x-import>
+</div>
+</div>
+</section>
+<section style="padding-block: 0 72px; padding-inline: {{pad}};">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between;">
+<h2 class="title-1" style="margin: 0;">Anúncios parecidos</h2>
+<a href="{{href.Resultados}}" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--link);">Ver mais em Imóveis</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax({{cardMin}}, 1fr)); gap: {{gap}};">
+<sc-for list="{{similar}}" as="it" hint-placeholder-count="8">
+<x-import component-from-global-scope="Gph.ListingCard" href="{{it.href}}" category="{{it.category}}" offer-type="{{it.offerType}}" title="{{it.title}}" price="{{it.price}}" price-note="{{it.priceNote}}" location="{{it.location}}" published-at="{{it.publishedAt}}" photo-count="{{it.photoCount}}" highlight="{{it.highlight}}" status="{{it.status}}"></x-import>
+</sc-for>
+</div>
+</div>
+</section>
+<footer style="background: var(--surface); border-top: 1px solid var(--line); padding-block: 40px; padding-inline: {{pad}};">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start; justify-content: space-between;">
+<div style="display: flex; flex-direction: column; gap: 12px; flex: 1 1 260px;">
+<x-import component-from-global-scope="Gph.Logo" height="28"></x-import>
+<p class="small" style="margin: 0; color: var(--ink-3); max-width: 40ch;">Classificados apresentados como uma galeria. Um produto RBX.</p>
+</div>
+<nav aria-label="Rodapé" style="display: flex; flex-wrap: wrap; gap: 8px 24px; flex: 2 1 420px;">
+<a href="#sobre" class="small" style="color: var(--ink-2);">Sobre o GPH</a>
+<a href="#ajuda" class="small" style="color: var(--ink-2);">Ajuda</a>
+<a href="#seguranca" class="small" style="color: var(--ink-2);">Dicas de segurança</a>
+<a href="#termos" class="small" style="color: var(--ink-2);">Termos de uso</a>
+<a href="#privacidade" class="small" style="color: var(--ink-2);">Privacidade</a>
+</nav>
+</div>
+<div style="max-width: 1240px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;">
+<p class="small" style="margin: 0; color: var(--ink-3);">Entrar, mensagens e pagamentos pela plataforma RBX.</p>
+<p class="gph-label" style="margin: 0;">Anúncios fictícios para demonstração</p>
+</div>
+</footer>
+<sc-if value="{{isMobile}}" hint-placeholder-val="{{no}}">
+<div style="position: sticky; bottom: 0; z-index: 20;">
+<x-import component-from-global-scope="Gph.BottomNav" active="buscar" items="{{bottom}}"></x-import>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"device": {"editor": "enum", "options": ["desktop", "mobile"], "default": "desktop", "section": "Protótipo"}, "$preview": {"width": 1280, "height": 2400}}'>
+class Component extends DCLogic {
+  renderVals() {
+
+    var m = (this.props.device || 'desktop') === 'mobile';
+    var sfx = m ? '-mobile' : '';
+    var P = ['Main', 'Resultados', 'Anuncio', 'Perfil', 'Publicar', 'MeusAnuncios', 'Contato', 'Estados', 'Destaque'];
+    var href = {}; P.forEach(function (p) { href[p] = p + sfx + '.dc.html'; });
+    var nav = [{ id: 'buscar', label: 'Buscar', href: href.Resultados }, { id: 'meus', label: 'Meus anúncios', href: href.MeusAnuncios }, { id: 'ajuda', label: 'Ajuda', href: '#ajuda' }];
+    var bottom = [{ id: 'inicio', label: 'Início', icon: 'home', href: href.Main }, { id: 'buscar', label: 'Buscar', icon: 'search', href: href.Resultados }, { id: 'anunciar', label: 'Anunciar', icon: 'plus', href: href.Publicar, primary: true }, { id: 'meus', label: 'Meus anúncios', icon: 'list', href: href.MeusAnuncios }, { id: 'conta', label: 'Conta', icon: 'user', href: '#conta' }];
+    var L = [
+      { category: 'Imóveis', offerType: 'Aluguel', title: 'Apartamento com varanda, 2 quartos', price: 'R$ 2.300', priceNote: '/mês', location: 'Centro · [CIDADE]', publishedAt: 'Hoje, 09:40', photoCount: 12 },
+      { category: 'Veículos', offerType: 'Venda', title: 'Hatch 2019 completo, único dono', price: 'R$ 58.900', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 07:15', photoCount: 9, highlight: true },
+      { category: 'Serviços', offerType: 'Serviço', title: 'Eletricista residencial, orçamento no local', price: 'A combinar', location: '[CIDADE]', publishedAt: 'Hoje, 11:02' },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Bicicleta aro 29, quadro de alumínio', price: 'R$ 1.850', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 10:20', photoCount: 5 },
+      { category: 'Imóveis', offerType: 'Venda', title: 'Casa térrea com quintal, 3 quartos', price: 'R$ 420.000', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 08:05', photoCount: 18 },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Mesa de jantar de madeira maciça, 6 lugares', price: 'R$ 1.200', location: '[CIDADE]', publishedAt: 'Hoje, 06:50', photoCount: 4 },
+      { category: 'Serviços', offerType: 'Serviço', title: 'Aulas particulares de matemática, ensino médio', price: 'R$ 80', priceNote: '/hora', location: 'On-line ou [CIDADE]', publishedAt: 'Hoje, 12:30' },
+      { category: 'Veículos', offerType: 'Venda', title: 'Moto 160cc 2021, revisada', price: 'R$ 14.500', location: '[CIDADE]', publishedAt: 'Ontem', photoCount: 7 },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Geladeira frost free 375 L', price: 'R$ 1.600', location: '[CIDADE]', publishedAt: 'Ontem', status: 'vendido', photoCount: 3 }
+    ];
+    L.forEach(function (it) { it.href = href.Anuncio; });
+    var v = { isMobile: m, isDesktop: !m, href: href, nav: nav, bottom: bottom, listings: L, yes: true, no: false,
+      pad: m ? '16px' : '32px', cardMin: m ? '160px' : '240px', gap: m ? '16px' : '24px',
+      h1: m ? 'display-l' : 'display-xl', h2: m ? 'title-1' : 'display-l', h3: m ? 'title-2' : 'title-1',
+      sectionY: m ? '40px' : '72px' };
+
+    v.ficha = [{ k: 'Categoria', v: 'Imóveis' }, { k: 'Subcategoria', v: '[A definir]' }, { k: 'Tipo de oferta', v: 'Aluguel' }, { k: 'Quem anuncia', v: 'Pessoa física' }, { k: 'Localização', v: 'Centro · [CIDADE]' }, { k: 'Publicado', v: 'Hoje, 09:40' }];
+    v.similar = [L[4], L[0], L[4], L[0]].map(function (x, i) { var o = {}; for (var k in x) o[k] = x[k]; if (i === 2) { o.title = 'Kitnet mobiliada perto do metrô'; o.price = 'R$ 1.400'; o.priceNote = '/mês'; o.offerType = 'Aluguel'; o.photoCount = 6; } if (i === 3) { o.title = 'Sala comercial de 32 m², 2º andar'; o.price = 'R$ 1.900'; o.priceNote = '/mês'; o.photoCount = 4; } if (i === 1) { o.title = 'Apartamento térreo com quintal, 1 quarto'; o.price = 'R$ 1.750'; } return o; });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Anatomia.dc.html": {
+      "h": 1000,
+      "title": "Anatomia e tokens",
+      "w": 1440,
+      "x": 470,
+      "y": 2460
+    },
+    "Artboard-6g1y.dc.html": {
+      "h": 600,
+      "handmade": true,
+      "title": "Artboard 1",
+      "w": 800,
+      "x": 1288,
+      "y": 3287
+    },
+    "Atual.dc.html": {
+      "expand": "fill",
+      "h": 760,
+      "title": "Header atual (referência)",
+      "w": 1440,
+      "x": 0,
+      "y": 850
+    },
+    "Estudo.dc.html": {
+      "h": 1360,
+      "title": "Estudo · distintividade e legibilidade",
+      "w": 1440,
+      "x": 0,
+      "y": 3880
+    },
+    "LogoA.dc.html": {
+      "h": 420,
+      "title": "Marca A · Corte (descartada)",
+      "w": 720,
+      "x": 0,
+      "y": 0
+    },
+    "LogoB.dc.html": {
+      "h": 420,
+      "title": "Marca escolhida · B2 (dois chanfros)",
+      "w": 720,
+      "x": 800,
+      "y": 0
+    },
+    "LogoC.dc.html": {
+      "h": 420,
+      "title": "Marca C · Traço (descartada)",
+      "w": 720,
+      "x": 1600,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "title": "Proposta · página de produto",
+      "w": 1440,
+      "x": 1520,
+      "y": 850
+    },
+    "Mobile.dc.html": {
+      "h": 844,
+      "title": "Proposta · mobile",
+      "w": 390,
+      "x": 0,
+      "y": 2460
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-08T18:06:47Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/J6UUcnNTpHvMh3TCWrw9YK",
+      "copiedAt": "2026-11-08T22:21:24Z",
+      "namespace": "rbx",
+      "title": "RBX Design System",
+      "version": "1794176470-960d"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 2320,
+      "text": "Marca: B2 escolhida em 8 de novembro; A e C estudadas e descartadas",
+      "w": 240,
+      "x": 0,
+      "y": -260
+    },
+    "t2": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Header e navegação: atual à esquerda, proposta à direita",
+      "w": 240,
+      "x": 0,
+      "y": 590
+    },
+    "t3": {
+      "kind": "title1",
+      "maxW": 1910,
+      "text": "Mobile e anatomia",
+      "w": 240,
+      "x": 0,
+      "y": 2200
+    },
+    "t4": {
+      "kind": "title1",
+      "maxW": 1440,
+      "text": "Estudo: vizinhos, legibilidade e recomendação",
+      "w": 240,
+      "x": 0,
+      "y": 3640
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "LogoA.dc.html",
+    "LogoB.dc.html",
+    "LogoC.dc.html",
+    "Atual.dc.html",
+    "Mobile.dc.html",
+    "Anatomia.dc.html",
+    "Estudo.dc.html",
+    "Artboard-6g1y.dc.html"
+  ],
+  "pages": [],
+  "title": "RBX Header e Navegação"
+}

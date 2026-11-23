@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Contato com o anunciante</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/gph/tokens.css">
+<link rel="stylesheet" href="ds/gph/components/bundle.css">
+<script src="ds/gph/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;family=Archivo+Narrow:wght@500;600&amp;family=Familjen+Grotesk:wght@500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="background: var(--wall); color: var(--ink); font-family: var(--font-sans); min-height: 100%;">
+<sc-if value="{{isDesktop}}" hint-placeholder-val="{{yes}}">
+<x-import component-from-global-scope="Gph.NavBar" active="" links="{{nav}}" home-href="{{href.Main}}" publish-href="{{href.Publicar}}" login-href="#entrar"></x-import>
+</sc-if>
+<sc-if value="{{isMobile}}" hint-placeholder-val="{{no}}">
+<x-import component-from-global-scope="Gph.NavBar" compact="{{yes}}" links="{{nav}}" home-href="{{href.Main}}" publish-href="{{href.Publicar}}" login-href="#entrar"></x-import>
+</sc-if>
+<section style="padding-block: 32px 64px; padding-inline: {{pad}};">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+<div style="flex: 999 1 620px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<x-import component-from-global-scope="Gph.PhotoGallery" category="Imóveis" total="12"></x-import>
+<p class="gph-label" style="margin: 0;">Imóveis · Aluguel</p>
+<h1 class="{{h3}}" style="margin: 0;">Apartamento com varanda, 2 quartos</h1>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<x-import component-from-global-scope="Gph.ContactPanel" price="R$ 2.300" price-note="/mês" on-message="{{open}}"></x-import>
+<sc-if value="{{sent}}" hint-placeholder-val="{{no}}">
+<x-import component-from-global-scope="Gph.Alert" tone="ok" title="Mensagem enviada">Marina recebe sua mensagem pela central RBX. A resposta chega em Mensagens, na sua conta.</x-import>
+</sc-if>
+</div>
+</div>
+</section>
+<sc-if value="{{showDialog}}" hint-placeholder-val="{{yes}}">
+<x-import component-from-global-scope="Gph.Dialog" title="Fale com quem anuncia" description="Sua mensagem chega pela central de mensagens RBX. Seu telefone não é compartilhado." on-close="{{close}}">
+<x-import component-from-global-scope="Gph.TextField" label="Mensagem" multiline="{{yes}}" rows="4" counter="58/1000" default-value="Olá, Marina. O apartamento ainda está disponível para visita no sábado?"></x-import>
+<p class="small" style="margin: 0; color: var(--ink-3);">Vai junto: seu primeiro nome e o link deste anúncio. Você entra com sua conta RBX.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end;">
+<x-import component-from-global-scope="Gph.Button" on-click="{{close}}">Cancelar</x-import>
+<x-import component-from-global-scope="Gph.Button" variant="primary" icon="message" on-click="{{send}}">Enviar mensagem</x-import>
+</div>
+</x-import>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{no}}">
+<div style="position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 50;">
+<x-import component-from-global-scope="Gph.Toast">Mensagem enviada para quem anuncia.</x-import>
+</div>
+</sc-if>
+<sc-if value="{{isMobile}}" hint-placeholder-val="{{no}}">
+<div style="position: sticky; bottom: 0; z-index: 20;">
+<x-import component-from-global-scope="Gph.BottomNav" active="buscar" items="{{bottom}}"></x-import>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"device": {"editor": "enum", "options": ["desktop", "mobile"], "default": "desktop", "section": "Protótipo"}, "$preview": {"width": 1280, "height": 1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+
+    var m = (this.props.device || 'desktop') === 'mobile';
+    var sfx = m ? '-mobile' : '';
+    var P = ['Main', 'Resultados', 'Anuncio', 'Perfil', 'Publicar', 'MeusAnuncios', 'Contato', 'Estados', 'Destaque'];
+    var href = {}; P.forEach(function (p) { href[p] = p + sfx + '.dc.html'; });
+    var nav = [{ id: 'buscar', label: 'Buscar', href: href.Resultados }, { id: 'meus', label: 'Meus anúncios', href: href.MeusAnuncios }, { id: 'ajuda', label: 'Ajuda', href: '#ajuda' }];
+    var bottom = [{ id: 'inicio', label: 'Início', icon: 'home', href: href.Main }, { id: 'buscar', label: 'Buscar', icon: 'search', href: href.Resultados }, { id: 'anunciar', label: 'Anunciar', icon: 'plus', href: href.Publicar, primary: true }, { id: 'meus', label: 'Meus anúncios', icon: 'list', href: href.MeusAnuncios }, { id: 'conta', label: 'Conta', icon: 'user', href: '#conta' }];
+    var L = [
+      { category: 'Imóveis', offerType: 'Aluguel', title: 'Apartamento com varanda, 2 quartos', price: 'R$ 2.300', priceNote: '/mês', location: 'Centro · [CIDADE]', publishedAt: 'Hoje, 09:40', photoCount: 12 },
+      { category: 'Veículos', offerType: 'Venda', title: 'Hatch 2019 completo, único dono', price: 'R$ 58.900', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 07:15', photoCount: 9, highlight: true },
+      { category: 'Serviços', offerType: 'Serviço', title: 'Eletricista residencial, orçamento no local', price: 'A combinar', location: '[CIDADE]', publishedAt: 'Hoje, 11:02' },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Bicicleta aro 29, quadro de alumínio', price: 'R$ 1.850', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 10:20', photoCount: 5 },
+      { category: 'Imóveis', offerType: 'Venda', title: 'Casa térrea com quintal, 3 quartos', price: 'R$ 420.000', location: '[BAIRRO] · [CIDADE]', publishedAt: 'Hoje, 08:05', photoCount: 18 },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Mesa de jantar de madeira maciça, 6 lugares', price: 'R$ 1.200', location: '[CIDADE]', publishedAt: 'Hoje, 06:50', photoCount: 4 },
+      { category: 'Serviços', offerType: 'Serviço', title: 'Aulas particulares de matemática, ensino médio', price: 'R$ 80', priceNote: '/hora', location: 'On-line ou [CIDADE]', publishedAt: 'Hoje, 12:30' },
+      { category: 'Veículos', offerType: 'Venda', title: 'Moto 160cc 2021, revisada', price: 'R$ 14.500', location: '[CIDADE]', publishedAt: 'Ontem', photoCount: 7 },
+      { category: 'Compra & Venda', offerType: 'Venda', title: 'Geladeira frost free 375 L', price: 'R$ 1.600', location: '[CIDADE]', publishedAt: 'Ontem', status: 'vendido', photoCount: 3 }
+    ];
+    L.forEach(function (it) { it.href = href.Anuncio; });
+    var v = { isMobile: m, isDesktop: !m, href: href, nav: nav, bottom: bottom, listings: L, yes: true, no: false,
+      pad: m ? '16px' : '32px', cardMin: m ? '160px' : '240px', gap: m ? '16px' : '24px',
+      h1: m ? 'display-l' : 'display-xl', h2: m ? 'title-1' : 'display-l', h3: m ? 'title-2' : 'title-1',
+      sectionY: m ? '40px' : '72px' };
+
+    var self = this; var st = this.state || {};
+    var mode = st.mode || 'open';
+    v.showDialog = mode === 'open';
+    v.sent = mode === 'sent';
+    v.open = function () { self.setState({ mode: 'open' }); };
+    v.close = function () { self.setState({ mode: 'closed' }); };
+    v.send = function () { self.setState({ mode: 'sent' }); };
+    return v;
+  }
+}
+</script>
+</body>
+</html>

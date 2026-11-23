@@ -1,0 +1,18 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--text-link);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--tinta-800)}
+a:focus-visible{outline:var(--focus-width) solid var(--focus-ring);outline-offset:var(--focus-offset);border-radius:var(--radius-xs)}
+/* Algarismos tabulares para valores e datas */
+.ini-num{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
+/* Grifo — marca-texto atrás da palavra que importa */
+.ini-grifo{background:linear-gradient(transparent 52%,var(--surface-highlight) 52%,var(--surface-highlight) 92%,transparent 92%);padding:0 .12em;margin:0 -.12em;color:inherit}
+.ini-container{width:100%;max-width:calc(var(--container-max) + 2*var(--grid-margin));margin-inline:auto;padding-inline:var(--grid-margin)}
+.ini-measure{max-width:var(--measure)}
+.ini-overline{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-muted)}
+.ini-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ini-padrao{background-image:var(--curso-padrao);background-size:var(--curso-padrao-size)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-iteration-count:1!important}}
+/* Superfície inversa: texto claro e anel de foco amarelo */
+[data-surface="inverse"]{--focus-ring:var(--focus-ring-inverse);background:var(--surface-inverse);color:var(--text-inverse)}

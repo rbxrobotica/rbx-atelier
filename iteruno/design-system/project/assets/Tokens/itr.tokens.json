@@ -1,0 +1,669 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2024/10/tokens.json",
+  "iteruno": {
+    "color": {
+      "fundo": {
+        "$type": "color",
+        "$value": {
+          "claro": "#f3f7f5",
+          "escuro": "#0c1714"
+        },
+        "$description": "Fundo da página."
+      },
+      "superficie": {
+        "$type": "color",
+        "$value": {
+          "claro": "#ffffff",
+          "escuro": "#142019"
+        },
+        "$description": "Cartões, campos, barra de navegação, rodapé."
+      },
+      "superficie-2": {
+        "$type": "color",
+        "$value": {
+          "claro": "#e8efeb",
+          "escuro": "#0a1210"
+        },
+        "$description": "Áreas rebaixadas: fundo de código, campos desabilitados, faixas alternadas."
+      },
+      "linha": {
+        "$type": "color",
+        "$value": {
+          "claro": "#d7e2dd",
+          "escuro": "#243730"
+        },
+        "$description": "Divisores e bordas de cartões."
+      },
+      "borda-campo": {
+        "$type": "color",
+        "$value": {
+          "claro": "#6b7c76",
+          "escuro": "#6e857c"
+        },
+        "$description": "Borda de campos e de botões secundários: 3:1 sobre fundo e superfície."
+      },
+      "texto": {
+        "$type": "color",
+        "$value": {
+          "claro": "#16231f",
+          "escuro": "#e6f0ec"
+        },
+        "$description": "Texto principal e títulos."
+      },
+      "texto-2": {
+        "$type": "color",
+        "$value": {
+          "claro": "#4d5b56",
+          "escuro": "#a8b8b1"
+        },
+        "$description": "Texto de apoio, descrições, rótulos secundários."
+      },
+      "texto-3": {
+        "$type": "color",
+        "$value": {
+          "claro": "#5f6f69",
+          "escuro": "#8a9a93"
+        },
+        "$description": "Dicas, placeholders, metadados. Contraste mínimo para texto."
+      },
+      "marca": {
+        "$type": "color",
+        "$value": {
+          "claro": "#008066",
+          "escuro": "#35c4a0"
+        },
+        "$description": "Verde Iteruno: botão primário, links sobre fundo e superfície, ícones de destaque."
+      },
+      "marca-forte": {
+        "$type": "color",
+        "$value": {
+          "claro": "#00563f",
+          "escuro": "#7adfc4"
+        },
+        "$description": "Hover do primário; texto da marca sobre marca-suave ou superfície-2."
+      },
+      "marca-suave": {
+        "$type": "color",
+        "$value": {
+          "claro": "#e3f5ee",
+          "escuro": "#163a30"
+        },
+        "$description": "Fundos leves da marca: link ativo, ícone em cartão, botão fantasma em hover."
+      },
+      "sobre-marca": {
+        "$type": "color",
+        "$value": {
+          "claro": "#ffffff",
+          "escuro": "#0c1714"
+        },
+        "$description": "Texto e ícones sobre marca e marca-forte."
+      },
+      "sucesso": {
+        "$type": "color",
+        "$value": {
+          "claro": "#1e6b45",
+          "escuro": "#6fd39b"
+        },
+        "$description": "Estado de sucesso: texto, ícone, borda."
+      },
+      "sucesso-suave": {
+        "$type": "color",
+        "$value": {
+          "claro": "#e1f3e8",
+          "escuro": "#14301f"
+        },
+        "$description": "Fundo de alertas e badges de sucesso."
+      },
+      "aviso": {
+        "$type": "color",
+        "$value": {
+          "claro": "#9a5b00",
+          "escuro": "#e8b65a"
+        },
+        "$description": "Estado de aviso: texto, ícone, borda."
+      },
+      "aviso-suave": {
+        "$type": "color",
+        "$value": {
+          "claro": "#fbeedc",
+          "escuro": "#33270c"
+        },
+        "$description": "Fundo de alertas e badges de aviso."
+      },
+      "erro": {
+        "$type": "color",
+        "$value": {
+          "claro": "#b3261e",
+          "escuro": "#f08a98"
+        },
+        "$description": "Erro e ações destrutivas: texto, ícone, borda de campo inválido."
+      },
+      "erro-suave": {
+        "$type": "color",
+        "$value": {
+          "claro": "#fbe5e3",
+          "escuro": "#3a1419"
+        },
+        "$description": "Fundo de alertas e badges de erro."
+      },
+      "info": {
+        "$type": "color",
+        "$value": {
+          "claro": "#1d4f91",
+          "escuro": "#8db4f0"
+        },
+        "$description": "Informação neutra: texto, ícone, borda."
+      },
+      "info-suave": {
+        "$type": "color",
+        "$value": {
+          "claro": "#e2eaf5",
+          "escuro": "#16243a"
+        },
+        "$description": "Fundo de alertas e badges de informação."
+      },
+      "foco": {
+        "$type": "color",
+        "$value": {
+          "claro": "{iteruno.color.marca}",
+          "escuro": "{iteruno.color.marca}"
+        },
+        "$description": "Anel de foco: 2 px sólidos, afastados 2 px, em todo elemento interativo."
+      },
+      "veu": {
+        "$type": "color",
+        "$value": {
+          "claro": "rgba(22, 35, 31, 0.56)",
+          "escuro": "rgba(0, 0, 0, 0.64)"
+        },
+        "$description": "Véu atrás do menu aberto no celular e de diálogos."
+      }
+    },
+    "shadow": {
+      "shadow-1": {
+        "$type": "shadow",
+        "$value": {
+          "claro": "0 1px 2px rgba(22, 35, 31, 0.08)",
+          "escuro": "0 1px 2px rgba(0, 0, 0, 0.4)"
+        },
+        "$description": "Cartão destacado em repouso."
+      },
+      "shadow-2": {
+        "$type": "shadow",
+        "$value": {
+          "claro": "0 8px 24px rgba(22, 35, 31, 0.14)",
+          "escuro": "0 8px 24px rgba(0, 0, 0, 0.5)"
+        },
+        "$description": "Menu aberto, diálogos."
+      }
+    },
+    "spacing": {
+      "space-1": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "Entre ícone e texto."
+      },
+      "space-2": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Entre rótulo e campo; gap de chips."
+      },
+      "space-3": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Padding de badges; gap de listas."
+      },
+      "space-4": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Padding horizontal de campos; gap entre campos."
+      },
+      "space-5": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "Padding horizontal de botões."
+      },
+      "space-6": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "Padding de cartões; margem lateral no celular."
+      },
+      "space-8": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "Entre blocos de uma seção."
+      },
+      "space-10": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "Padding vertical de seções no celular."
+      },
+      "space-12": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "Entre seções."
+      },
+      "space-16": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "Padding vertical de seções no desktop."
+      },
+      "space-20": {
+        "$type": "dimension",
+        "$value": "80px",
+        "$description": "Hero no desktop."
+      },
+      "space-24": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "Respiro máximo."
+      }
+    },
+    "radius": {
+      "radius-s": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "Badges, código, checkbox."
+      },
+      "radius-m": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Botões, campos, alertas."
+      },
+      "radius-l": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Cartões, faixas, imagens."
+      },
+      "radius-pill": {
+        "$type": "dimension",
+        "$value": "999px",
+        "$description": "Pílulas e avatar."
+      }
+    },
+    "size": {
+      "control-s": {
+        "$type": "dimension",
+        "$value": "36px",
+        "$description": "Botão pequeno."
+      },
+      "control-m": {
+        "$type": "dimension",
+        "$value": "44px",
+        "$description": "Botão, campo e alvo de toque padrão (mínimo 44 px)."
+      },
+      "control-l": {
+        "$type": "dimension",
+        "$value": "52px",
+        "$description": "Botão grande do Hero e do ContactCTA."
+      },
+      "icon-s": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Ícone em texto pequeno e badges."
+      },
+      "icon-m": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "Ícone em botões e campos."
+      },
+      "icon-l": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "Ícone de serviço e de menu."
+      },
+      "icon-xl": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "Ícone em destaque nos cartões de serviço."
+      },
+      "border-hair": {
+        "$type": "dimension",
+        "$value": "1px",
+        "$description": "Bordas e divisores."
+      },
+      "border-strong": {
+        "$type": "dimension",
+        "$value": "2px",
+        "$description": "Foco, campo inválido, checkbox."
+      },
+      "content-max": {
+        "$type": "dimension",
+        "$value": "1200px",
+        "$description": "Largura máxima do conteúdo (breakpoint l)."
+      },
+      "content-narrow": {
+        "$type": "dimension",
+        "$value": "760px",
+        "$description": "Largura de texto corrido: Sobre, Política."
+      },
+      "card-min": {
+        "$type": "dimension",
+        "$value": "240px",
+        "$description": "Largura mínima de cartão na grade automática."
+      },
+      "text-max": {
+        "$type": "dimension",
+        "$value": "68ch",
+        "$description": "Medida máxima de um parágrafo."
+      }
+    },
+    "typeScale": {
+      "fs-display-xl": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": ""
+      },
+      "fs-display-xl-m": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": ""
+      },
+      "fs-display-l": {
+        "$type": "dimension",
+        "$value": "44px",
+        "$description": ""
+      },
+      "fs-display-l-m": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": ""
+      },
+      "fs-title-1": {
+        "$type": "dimension",
+        "$value": "28px",
+        "$description": ""
+      },
+      "fs-title-2": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": ""
+      },
+      "fs-body-l": {
+        "$type": "dimension",
+        "$value": "18px",
+        "$description": ""
+      },
+      "fs-body": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": ""
+      },
+      "fs-small": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": ""
+      },
+      "fs-label": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": ""
+      },
+      "fs-code": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": ""
+      },
+      "lh-display-xl": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": ""
+      },
+      "lh-display-xl-m": {
+        "$type": "dimension",
+        "$value": "42px",
+        "$description": ""
+      },
+      "lh-display-l": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": ""
+      },
+      "lh-display-l-m": {
+        "$type": "dimension",
+        "$value": "36px",
+        "$description": ""
+      },
+      "lh-title-1": {
+        "$type": "dimension",
+        "$value": "34px",
+        "$description": ""
+      },
+      "lh-title-2": {
+        "$type": "dimension",
+        "$value": "26px",
+        "$description": ""
+      },
+      "lh-body-l": {
+        "$type": "dimension",
+        "$value": "28px",
+        "$description": ""
+      },
+      "lh-body": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": ""
+      },
+      "lh-small": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": ""
+      },
+      "lh-label": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": ""
+      },
+      "lh-code": {
+        "$type": "dimension",
+        "$value": "22px",
+        "$description": ""
+      },
+      "fw-regular": {
+        "$type": "dimension",
+        "$value": "400",
+        "$description": ""
+      },
+      "fw-medium": {
+        "$type": "dimension",
+        "$value": "500",
+        "$description": ""
+      },
+      "fw-semibold": {
+        "$type": "dimension",
+        "$value": "600",
+        "$description": ""
+      },
+      "fw-bold": {
+        "$type": "dimension",
+        "$value": "700",
+        "$description": ""
+      },
+      "ls-label": {
+        "$type": "dimension",
+        "$value": "0.08em",
+        "$description": "Rótulos em caixa alta."
+      },
+      "ls-display": {
+        "$type": "dimension",
+        "$value": "0.01em",
+        "$description": "Display em Saira Condensed."
+      }
+    },
+    "breakpoint": {
+      "bp-s": {
+        "$type": "dimension",
+        "$value": "360px",
+        "$description": "Menor largura suportada."
+      },
+      "bp-m": {
+        "$type": "dimension",
+        "$value": "768px",
+        "$description": "Tablet: duas colunas, menu completo."
+      },
+      "bp-l": {
+        "$type": "dimension",
+        "$value": "1200px",
+        "$description": "Desktop: três colunas, largura máxima do conteúdo."
+      }
+    },
+    "duration": {
+      "duration-fast": {
+        "$type": "duration",
+        "$value": "120ms",
+        "$description": "Hover e foco."
+      },
+      "duration-base": {
+        "$type": "duration",
+        "$value": "200ms",
+        "$description": "Abrir e fechar menu, acordeão, alertas."
+      },
+      "ease-standard": {
+        "$type": "duration",
+        "$value": "cubic-bezier(0.2, 0, 0, 1)",
+        "$description": "Curva padrão."
+      }
+    },
+    "zIndex": {
+      "z-sticky": {
+        "$type": "number",
+        "$value": "100",
+        "$description": "Barra de navegação fixa."
+      },
+      "z-menu": {
+        "$type": "number",
+        "$value": "150",
+        "$description": "Painel do menu no celular."
+      },
+      "z-dialog": {
+        "$type": "number",
+        "$value": "200",
+        "$description": "Diálogos."
+      },
+      "z-toast": {
+        "$type": "number",
+        "$value": "300",
+        "$description": "Avisos flutuantes."
+      }
+    },
+    "fontFamily": {
+      "display": {
+        "$type": "fontFamily",
+        "$value": "'Saira Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif"
+      },
+      "sans": {
+        "$type": "fontFamily",
+        "$value": "'Public Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace"
+      }
+    },
+    "typography": {
+      "display-xl": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.display}",
+          "fontSize": "64px",
+          "lineHeight": "64px",
+          "fontWeight": 600,
+          "letterSpacing": "0.01em"
+        },
+        "$description": "Promessa no Hero. No celular (até 767 px) cai para 40/42."
+      },
+      "display-l": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.display}",
+          "fontSize": "44px",
+          "lineHeight": "48px",
+          "fontWeight": 600,
+          "letterSpacing": "0.01em"
+        },
+        "$description": "Título de página e de seção grande. No celular 32/36."
+      },
+      "title-1": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "28px",
+          "lineHeight": "34px",
+          "fontWeight": 700
+        },
+        "$description": "Título de seção."
+      },
+      "title-2": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "20px",
+          "lineHeight": "26px",
+          "fontWeight": 700
+        },
+        "$description": "Título de cartão e de bloco."
+      },
+      "body-l": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "18px",
+          "lineHeight": "28px",
+          "fontWeight": 400
+        },
+        "$description": "Parágrafo de abertura, apoio do Hero."
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "fontWeight": 400
+        },
+        "$description": "Texto corrente, campos, botões."
+      },
+      "body-strong": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "fontWeight": 600
+        },
+        "$description": "Rótulos de campo, botões, links."
+      },
+      "small": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "14px",
+          "lineHeight": "20px",
+          "fontWeight": 400
+        },
+        "$description": "Notas, dicas, metadados, rodapé."
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.sans}",
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": 600,
+          "letterSpacing": "0.08em"
+        },
+        "$description": "Rótulos pequenos em caixa alta (text-transform no CSS)."
+      },
+      "code": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{iteruno.fontFamily.mono}",
+          "fontSize": "14px",
+          "lineHeight": "22px",
+          "fontWeight": 400
+        },
+        "$description": "Comandos e trechos de código nas apostilas."
+      }
+    }
+  }
+}

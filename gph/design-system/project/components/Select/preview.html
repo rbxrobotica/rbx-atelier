@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formulários" height=120 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Select</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-stack', style: { maxWidth: 420 } }, h(G.Select, { label: 'Tipo de oferta', placeholder: 'Escolha uma opção', options: ['Venda', 'Aluguel', 'Troca', 'Serviço'] })));
+</script>
+</body>
+</html>

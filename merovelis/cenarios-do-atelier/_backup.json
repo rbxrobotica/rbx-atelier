@@ -1,0 +1,18 @@
+{
+ "title": "Cenários do Atelier",
+ "url": "https://claude.ai/artifact/1ZEsBZb7C3o9rj1wpPZYUe",
+ "type": null,
+ "version": "1794439927-a17d",
+ "listed_at": "2026-11-19T14:50:08Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 359253,
+   "sha256": "58b279da8519b3a6392f53a0f5e88ba018e5a9b0ad5230f3145dc4c5b5729426"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "previous_backup_path": "claude-design/cenarios-do-atelier"
+}

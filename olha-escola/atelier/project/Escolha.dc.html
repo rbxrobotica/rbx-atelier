@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Escolha da escola</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>body{margin:0}a{color:#1C1A17}a:hover{color:#A83A1C}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F5F2EB; color: #1C1A17; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <div style="background: #fff; border-bottom: 1px solid #D8D2C8; padding: 0 16px; min-height: 56px; display: flex; align-items: center;"><img src="/_blob/73d8714b8322cc7cc1f385d78884c277" alt="Olha Escola" style="height: 40px; width: auto;"></div>
+  <div style="padding: 20px 16px; display: flex; flex-direction: column; gap: 12px;">
+    <label style="display: flex; align-items: center; gap: 8px; min-height: 56px; padding: 0 16px; border-radius: 10px; border: 1.5px solid #7D766C; background: #fff; font-size: 16px; color: #5E5952;">Nome da escola ou cidade</label>
+    <div style="background: #fff; border: 1.5px solid #7D766C; border-radius: 14px; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; padding: 12px 16px; background: #EAE5DA; font-size: 14px; font-weight: 700;"><span>Perto de você · confirme nome e endereço</span><span style="font-weight: 400; color: #4A4641;">3 escolas</span></div>
+      <a href="Composer.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 16px; border-top: 1px solid #D8D2C8; text-decoration: none; color: #1C1A17;"><span style="font-size: 18px; font-weight: 700; line-height: 1.25;">EM de Demonstração Vila Alta</span><span style="grid-column: 2; grid-row: 1 / span 3; align-self: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 64px; min-height: 48px; border-radius: 6px; background: #F8E1D8; color: #A83A1C; font-weight: 700; font-size: 14px;">120<span style="font-weight: 400; color: #4A4641;">metros</span></span><span style="font-size: 16px; color: #4A4641;">Cidade Exemplo · UF</span><span style="font-size: 14px; color: #5E5952;">Rua da Amostra, 100 · Centro</span></a>
+      <a href="Composer.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 16px; border-top: 1px solid #D8D2C8; text-decoration: none; color: #1C1A17;"><span style="font-size: 18px; font-weight: 700; line-height: 1.25;">EE de Demonstração Vila Alta (anexo)</span><span style="grid-column: 2; grid-row: 1 / span 3; align-self: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 64px; min-height: 48px; border-radius: 6px; background: #F8E1D8; color: #A83A1C; font-weight: 700; font-size: 14px;">120<span style="font-weight: 400; color: #4A4641;">metros</span></span><span style="font-size: 16px; color: #4A4641;">Cidade Exemplo · UF</span><span style="font-size: 14px; color: #5E5952;">Rua da Amostra, 100 · Centro</span><span style="grid-column: 1 / -1; font-size: 14px; color: #8A5A00; font-weight: 700;">⚠ Mesmo prédio da escola acima. Confira o nome na fachada.</span></a>
+      <a href="Composer.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 16px; border-top: 1px solid #D8D2C8; text-decoration: none; color: #1C1A17;"><span style="font-size: 18px; font-weight: 700; line-height: 1.25;">Escola Estadual de Demonstração Professor Exemplo</span><span style="grid-column: 2; grid-row: 1 / span 3; align-self: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 64px; min-height: 48px; border-radius: 6px; background: #F8E1D8; color: #A83A1C; font-weight: 700; font-size: 14px;">650<span style="font-weight: 400; color: #4A4641;">metros</span></span><span style="font-size: 16px; color: #4A4641;">Cidade Exemplo · UF</span><span style="font-size: 14px; color: #5E5952;">Av. Modelo, 2500 · Bairro Teste</span></a>
+    </div>
+    <p style="margin: 0; font-size: 14px; color: #5E5952;">Não é nenhuma destas? Algumas escolas não têm localização no cadastro. Busque pelo nome.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

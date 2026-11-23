@@ -1,0 +1,63 @@
+.ini-icon{flex:none;display:inline-block;vertical-align:middle}
+/* Logo (PROPOSTA) */
+.ini-logo{display:inline-flex;align-items:center;gap:.3em;font-family:var(--font-display);font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--tinta-700);user-select:none;white-space:nowrap}
+.ini-logo__word{font-size:.9em;display:inline-flex}
+.ini-logo__i{position:relative;display:inline-block}
+.ini-logo__pingo{position:absolute;left:51%;top:-.035em;width:.2em;height:.2em;margin-left:-.1em;border-radius:50%;background:var(--grifo-600)}
+.ini-logo__sym{width:1em;height:1em;flex:none;border-radius:.2em;background:var(--tinta-700);display:grid;place-items:center}
+.ini-logo__sym--round{border-radius:50%}
+.ini-logo__sym .ini-logo__i{font-size:.76em;color:var(--papel-50);transform:translateY(.13em)}
+.ini-logo__sym .ini-logo__pingo{background:var(--grifo-400);width:.23em;height:.23em;margin-left:-.115em;top:-.08em}
+.ini-logo--escura{color:var(--papel-50)}
+.ini-logo--escura .ini-logo__pingo{background:var(--grifo-400)}
+.ini-logo--escura .ini-logo__sym{background:var(--papel-50)}
+.ini-logo--escura .ini-logo__sym .ini-logo__i{color:var(--tinta-800)}
+.ini-logo--escura .ini-logo__sym .ini-logo__pingo{background:var(--grifo-600)}
+.ini-logo--mono{color:inherit}
+.ini-logo--mono .ini-logo__pingo,.ini-logo--mono .ini-logo__sym{background:currentColor}
+.ini-logo--mono .ini-logo__sym .ini-logo__i{color:var(--surface-page)}
+.ini-logo--mono .ini-logo__sym .ini-logo__pingo{background:var(--surface-page)}
+/* Botão */
+.ini-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border:1.5px solid transparent;border-radius:var(--radius-md);font:600 16px/1 var(--font-text);cursor:pointer;text-decoration:none;white-space:nowrap;transition:background var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease);-webkit-tap-highlight-color:transparent}
+.ini-btn--sm{height:36px;padding:0 12px;font-size:14px;gap:6px}
+.ini-btn--lg{height:52px;padding:0 24px;font-size:17px}
+.ini-btn--full{width:100%}
+.ini-btn--primary{background:var(--action-primary);color:var(--text-on-action)}
+.ini-btn--primary:hover,.ini-btn--primary.is-hover{background:var(--action-primary-hover);color:var(--text-on-action)}
+.ini-btn--primary:active,.ini-btn--primary.is-active{background:var(--action-primary-active)}
+.ini-btn--secondary{background:var(--surface-card);border-color:var(--action-primary);color:var(--action-primary)}
+.ini-btn--secondary:hover,.ini-btn--secondary.is-hover{background:var(--action-secondary-hover);color:var(--action-primary-hover)}
+.ini-btn--secondary:active,.ini-btn--secondary.is-active{background:var(--tinta-100)}
+.ini-btn--ghost{background:transparent;color:var(--action-primary)}
+.ini-btn--ghost:hover,.ini-btn--ghost.is-hover{background:var(--action-ghost-hover);color:var(--action-primary-hover)}
+.ini-btn--danger{background:var(--feedback-error);color:var(--text-on-action)}
+.ini-btn--danger:hover,.ini-btn--danger.is-hover{background:var(--erro-700);color:var(--text-on-action)}
+.ini-btn:focus-visible,.ini-btn.is-focus,.ini-iconbtn:focus-visible,.ini-iconbtn.is-focus{outline:var(--focus-width) solid var(--focus-ring);outline-offset:var(--focus-offset)}
+.ini-btn:disabled,.ini-btn[aria-disabled="true"]{background:var(--action-disabled-bg);border-color:transparent;color:var(--action-disabled-text);cursor:not-allowed}
+.ini-btn.is-loading{cursor:progress}
+.ini-spinner{display:inline-block;width:1em;height:1em;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:ini-spin .8s linear infinite}
+@keyframes ini-spin{to{transform:rotate(360deg)}}
+/* Botão de ícone */
+.ini-iconbtn{display:inline-grid;place-items:center;width:44px;height:44px;flex:none;padding:0;border:1.5px solid transparent;border-radius:var(--radius-md);background:transparent;color:var(--text-body);cursor:pointer;transition:background var(--dur-fast) var(--ease)}
+.ini-iconbtn--sm{width:36px;height:36px}
+.ini-iconbtn--outlined{border-color:var(--border-strong);background:var(--surface-card)}
+.ini-iconbtn:hover,.ini-iconbtn.is-hover{background:var(--action-ghost-hover)}
+.ini-iconbtn:disabled{color:var(--action-disabled-text);cursor:not-allowed;background:transparent}
+/* Selo de status */
+.ini-badge{display:inline-flex;align-items:center;gap:4px;min-height:24px;padding:2px 8px;border-radius:var(--radius-sm);font:600 13px/1.2 var(--font-text);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);white-space:nowrap}
+.ini-badge--success{background:var(--feedback-success-surface);border-color:var(--feedback-success-border);color:var(--feedback-success-text)}
+.ini-badge--warning{background:var(--feedback-warning-surface);border-color:var(--feedback-warning-border);color:var(--feedback-warning-text)}
+.ini-badge--error{background:var(--feedback-error-surface);border-color:var(--feedback-error-border);color:var(--feedback-error-text)}
+.ini-badge--info{background:var(--feedback-info-surface);border-color:var(--feedback-info-border);color:var(--feedback-info-text)}
+.ini-badge--course{background:var(--curso-cor-suave);border-color:var(--curso-linha);color:var(--curso-cor-forte)}
+.ini-badge--proposal{background:var(--surface-card);border:1px dashed var(--border-strong);color:var(--text-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;min-height:20px;padding:2px 6px}
+/* Selo de curso — etiqueta de caderno (PROPOSTA) */
+.ini-selo{display:inline-flex;align-items:stretch;background:var(--surface-card);border:1.5px solid var(--curso-cor);border-radius:var(--radius-sm);overflow:hidden;color:var(--curso-cor-forte);text-align:left;max-width:100%}
+.ini-selo__num{display:grid;place-items:center;padding:0 12px;background:var(--curso-cor);color:var(--papel-0);font:500 26px/1 var(--font-display);font-variant-numeric:lining-nums}
+.ini-selo__corpo{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 14px 9px;background-image:var(--curso-padrao);background-size:var(--curso-padrao-size);min-width:0}
+.ini-selo__kind{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--curso-cor)}
+.ini-selo__title{font:500 18px/1.2 var(--font-display);color:var(--curso-cor-forte)}
+.ini-selo--compact{border:0;background:none;align-items:center;gap:8px;overflow:visible}
+.ini-selo--compact .ini-selo__num{width:24px;height:24px;padding:0;border-radius:var(--radius-xs);font:600 12px/1 var(--font-text)}
+.ini-selo--compact .ini-selo__corpo{padding:0;background:none}
+.ini-selo--compact .ini-selo__title{font:600 14px/1.2 var(--font-text)}

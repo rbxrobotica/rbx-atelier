@@ -1,0 +1,21 @@
+{
+ "title": "Informat · Brand System",
+ "url": "https://claude.ai/artifact/W9iKqH8cK5ZEuoQymZZG2u",
+ "type": null,
+ "version": "1793498430-d7e4",
+ "listed_version": "1793498430-d7e4",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 496674,
+   "sha256": "cc0686035d1ecaacdf70f0823cd78813a312117e379cca4208d50f6b00684fd0"
+  }
+ ],
+ "assets": [],
+ "failures": [],
+ "notes": [
+  "untyped single page; assets capability not declared (asset list unavailable)"
+ ],
+ "previous_backup_path": "claude-design/informat-brand-system"
+}

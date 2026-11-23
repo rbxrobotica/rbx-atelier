@@ -9,7 +9,8 @@
 //
 // It reads the .js, .mjs, .cjs and .jsx files and the inline scripts of the
 // pages named .html or .htm (inline-scripts.mjs finds them), outside
-// node_modules. It does not read code written in an HTML attribute (onclick,
+// node_modules and outside the archive directories, which hold copies of
+// published artifacts and no code of the repository (archive.mjs). It does not read code written in an HTML attribute (onclick,
 // a javascript: address, srcdoc) or inside an SVG file, and it reads every
 // file as UTF-8. cdn-scripts.mjs fails on a page that loads a file of the
 // repository this lint does not read, or that a browser could read in
@@ -20,6 +21,7 @@
 import noUnsanitized from 'eslint-plugin-no-unsanitized';
 import security from 'eslint-plugin-security';
 import globals from 'globals';
+import { ARCHIVE_DIRECTORIES } from './archive.mjs';
 import inlineScripts from './inline-scripts.mjs';
 import { entersNodeModules, otherOrigins } from './repository-origin.mjs';
 
@@ -64,6 +66,12 @@ const noRemoteModule = {
 };
 
 export default [
+  {
+    // The archive directories, whole: an entry with `ignores` alone leaves
+    // them out of every entry below. archive.mjs says what they are and what
+    // leaving them out gives up.
+    ignores: ARCHIVE_DIRECTORIES.map((directory) => `${directory}/**`)
+  },
   {
     // The inline scripts of an HTML page reach the lint as files named
     // <page>/<n>.js (a classic script) or <page>/<n>.mjs (a module). A page

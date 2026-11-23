@@ -1,0 +1,19 @@
+{
+ "title": "Kulinaryos — Setup: lista vs. stepper",
+ "url": "https://claude.ai/artifact/BgMP7HA7XA4WVYgVRzPFMg",
+ "type": null,
+ "version": "1786296918-ab45",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 421896,
+   "sha256": "983892c0e7972a7f62e8d764fb5c75c62f4a8a1b6126dc99702e9fe71538fe4c"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "previous_backup_path": "claude-design/kulinaryos-setup-lista-vs-stepper"
+}

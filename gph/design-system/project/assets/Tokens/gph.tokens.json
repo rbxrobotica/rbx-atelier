@@ -1,0 +1,437 @@
+{
+  "name": "GPH",
+  "version": "0.1.0",
+  "prefix": "gph",
+  "color": {
+    "wall": {
+      "$type": "color",
+      "$value": "#F4F4F2",
+      "$description": "Fundo da página: a parede branca da galeria. Nunca use como fundo de foto."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Cartões, fichas, campos, diálogos e a etiqueta do anúncio."
+    },
+    "sunken": {
+      "$type": "color",
+      "$value": "#EAEAE6",
+      "$description": "Faixas recuadas: área de filtros, cabeçalho de tabela, fundo atrás da galeria de fotos."
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#DCDCD6",
+      "$description": "Divisores decorativos e contorno de cartões. Nunca borda de campo (use field)."
+    },
+    "field": {
+      "$type": "color",
+      "$value": "#83837C",
+      "$description": "Borda de campos, seletores, chips e caixas de seleção. Precisa de 3:1 sobre surface e wall."
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#15161A",
+      "$description": "Texto principal e títulos sobre wall, surface e sunken."
+    },
+    "ink-2": {
+      "$type": "color",
+      "$value": "#44454C",
+      "$description": "Texto secundário: descrições, metadados longos, sobre wall, surface e sunken."
+    },
+    "ink-3": {
+      "$type": "color",
+      "$value": "#5F6068",
+      "$description": "Legendas e etiquetas curtas (localização, data), sobre wall e surface. Evite em sunken para textos longos."
+    },
+    "klein": {
+      "$type": "color",
+      "$value": "#1F3AB0",
+      "$description": "Azul Klein: a única cor de ação e de marca. Botão primário, links, seleção, anel de foco. Como texto, sobre wall, surface e klein-soft."
+    },
+    "klein-strong": {
+      "$type": "color",
+      "$value": "#172D8A",
+      "$description": "Hover e pressionado do primário; texto de destaque sobre klein-soft."
+    },
+    "klein-soft": {
+      "$type": "color",
+      "$value": "#E7EBFB",
+      "$description": "Fundo de seleção, chip ativo, aviso informativo e selo Em revisão. Texto sobre ele: klein-strong ou ink."
+    },
+    "on-klein": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Texto e ícones sobre preenchimento klein (rótulo do botão primário)."
+    },
+    "ouro": {
+      "$type": "color",
+      "$value": "#C08B2C",
+      "$description": "Ouro velho, decorativo: moldura e estrela do Destaque (Hipótese). Nunca texto."
+    },
+    "ouro-ink": {
+      "$type": "color",
+      "$value": "#7A5414",
+      "$description": "Texto do selo Destaque sobre ouro-soft e surface."
+    },
+    "ouro-soft": {
+      "$type": "color",
+      "$value": "#F8EED8",
+      "$description": "Fundo do selo Destaque e da faixa de plano profissional (Hipótese)."
+    },
+    "ponto": {
+      "$type": "color",
+      "$value": "#D7352B",
+      "$description": "O ponto vermelho da galeria: marca anúncio vendido ou indisponível. Só o ponto, sempre com a palavra ao lado; nunca texto."
+    },
+    "ok": {
+      "$type": "color",
+      "$value": "#1F6B45",
+      "$description": "Sucesso: anúncio publicado, mensagem enviada. Como texto sobre surface e ok-soft, sempre com ícone."
+    },
+    "ok-soft": {
+      "$type": "color",
+      "$value": "#E5F2EA",
+      "$description": "Fundo de alerta e selo de sucesso."
+    },
+    "warn": {
+      "$type": "color",
+      "$value": "#8A5A00",
+      "$description": "Atenção: anúncio pausado, expirando, foto pendente. Texto sobre surface e warn-soft, sempre com ícone."
+    },
+    "warn-soft": {
+      "$type": "color",
+      "$value": "#FBF1DC",
+      "$description": "Fundo de alerta e selo de atenção."
+    },
+    "err": {
+      "$type": "color",
+      "$value": "#B3261E",
+      "$description": "Erro e recusa: campo inválido, anúncio recusado, falha de envio. Texto sobre surface e err-soft, sempre com ícone e explicação."
+    },
+    "err-soft": {
+      "$type": "color",
+      "$value": "#FCEBEA",
+      "$description": "Fundo de alerta e selo de erro."
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "#0A0B0D8F",
+      "$description": "Véu atrás de diálogos e da galeria em tela cheia."
+    }
+  },
+  "color-dark": {
+    "wall": {
+      "$type": "color",
+      "$value": "#101114"
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#191A1F"
+    },
+    "sunken": {
+      "$type": "color",
+      "$value": "#0A0B0D"
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#2B2C33"
+    },
+    "field": {
+      "$type": "color",
+      "$value": "#747680"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#F1F1EE"
+    },
+    "ink-2": {
+      "$type": "color",
+      "$value": "#C5C6CD"
+    },
+    "ink-3": {
+      "$type": "color",
+      "$value": "#9D9EA7"
+    },
+    "klein": {
+      "$type": "color",
+      "$value": "#8FA3FF"
+    },
+    "klein-strong": {
+      "$type": "color",
+      "$value": "#B9C5FF"
+    },
+    "klein-soft": {
+      "$type": "color",
+      "$value": "#1A2147"
+    },
+    "on-klein": {
+      "$type": "color",
+      "$value": "#0B1029"
+    },
+    "ouro": {
+      "$type": "color",
+      "$value": "#E3B65C"
+    },
+    "ouro-ink": {
+      "$type": "color",
+      "$value": "#F2D08F"
+    },
+    "ouro-soft": {
+      "$type": "color",
+      "$value": "#382A0E"
+    },
+    "ponto": {
+      "$type": "color",
+      "$value": "#FF6A5C"
+    },
+    "ok": {
+      "$type": "color",
+      "$value": "#7ED3A1"
+    },
+    "ok-soft": {
+      "$type": "color",
+      "$value": "#13301F"
+    },
+    "warn": {
+      "$type": "color",
+      "$value": "#E8B65A"
+    },
+    "warn-soft": {
+      "$type": "color",
+      "$value": "#33270C"
+    },
+    "err": {
+      "$type": "color",
+      "$value": "#FF8A80"
+    },
+    "err-soft": {
+      "$type": "color",
+      "$value": "#3B1513"
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "#000000B3"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Familjen Grotesk",
+        "Archivo",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "sans": {
+      "$type": "fontFamily",
+      "$value": [
+        "Archivo",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "sans-serif"
+      ]
+    },
+    "narrow": {
+      "$type": "fontFamily",
+      "$value": [
+        "Archivo Narrow",
+        "Archivo",
+        "Arial Narrow",
+        "sans-serif-condensed",
+        "sans-serif"
+      ]
+    }
+  },
+  "type": {
+    "display-xl": {
+      "fontSize": "64px",
+      "lineHeight": "68px",
+      "fontWeight": 600,
+      "letterSpacing": "-0.02em",
+      "family": "display"
+    },
+    "display-l": {
+      "fontSize": "44px",
+      "lineHeight": "50px",
+      "fontWeight": 600,
+      "letterSpacing": "-0.015em",
+      "family": "display"
+    },
+    "title-1": {
+      "fontSize": "32px",
+      "lineHeight": "38px",
+      "fontWeight": 600,
+      "letterSpacing": "-0.01em",
+      "family": "display"
+    },
+    "title-2": {
+      "fontSize": "22px",
+      "lineHeight": "28px",
+      "fontWeight": 600,
+      "family": "display"
+    },
+    "body-l": {
+      "fontSize": "18px",
+      "lineHeight": "28px",
+      "fontWeight": 400,
+      "family": "sans"
+    },
+    "body": {
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontWeight": 400,
+      "family": "sans"
+    },
+    "body-strong": {
+      "fontSize": "16px",
+      "lineHeight": "24px",
+      "fontWeight": 600,
+      "family": "sans"
+    },
+    "small": {
+      "fontSize": "14px",
+      "lineHeight": "20px",
+      "fontWeight": 400,
+      "family": "sans"
+    },
+    "label": {
+      "fontSize": "12px",
+      "lineHeight": "16px",
+      "fontWeight": 600,
+      "letterSpacing": "0.08em",
+      "family": "narrow"
+    },
+    "price": {
+      "fontSize": "20px",
+      "lineHeight": "24px",
+      "fontWeight": 600,
+      "family": "narrow"
+    },
+    "price-l": {
+      "fontSize": "34px",
+      "lineHeight": "38px",
+      "fontWeight": 600,
+      "letterSpacing": "-0.01em",
+      "family": "narrow"
+    }
+  },
+  "space": {
+    "space-1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "space-2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "space-3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "space-4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "space-5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "space-6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "space-7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "space-8": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "space-9": {
+      "$type": "dimension",
+      "$value": "96px"
+    }
+  },
+  "radius": {
+    "radius-none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "radius-s": {
+      "$type": "dimension",
+      "$value": "3px"
+    },
+    "radius-m": {
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "radius-l": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "radius-pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  },
+  "shadow": {
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(21,22,26,0.06)",
+      "dark": "0 1px 2px rgba(0,0,0,0.5)"
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": "0 10px 28px rgba(21,22,26,0.10)",
+      "dark": "0 10px 28px rgba(0,0,0,0.55)"
+    },
+    "shadow-3": {
+      "$type": "shadow",
+      "$value": "0 24px 64px rgba(21,22,26,0.22)",
+      "dark": "0 24px 64px rgba(0,0,0,0.7)"
+    }
+  },
+  "size": {
+    "control-s": "36px",
+    "control-m": "44px",
+    "control-l": "52px",
+    "container": "1240px",
+    "measure": "68ch",
+    "nav-height": "64px"
+  },
+  "breakpoint": {
+    "bp-s": "640px",
+    "bp-m": "960px",
+    "bp-l": "1280px"
+  },
+  "motion": {
+    "duration-fast": {
+      "$type": "duration",
+      "$value": "120ms"
+    },
+    "duration-base": {
+      "$type": "duration",
+      "$value": "200ms"
+    },
+    "duration-slow": {
+      "$type": "duration",
+      "$value": "320ms"
+    },
+    "ease": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.2, 0.7, 0.2, 1)"
+    }
+  },
+  "zIndex": {
+    "z-nav": "20",
+    "z-overlay": "40",
+    "z-toast": "50"
+  },
+  "focus": {
+    "ring": "2px solid var(--gph-klein)",
+    "offset": "2px"
+  }
+}

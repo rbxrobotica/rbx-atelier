@@ -1,0 +1,12 @@
+<!-- @dsCard group="Anúncios" height=420 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>ListingCard</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 24, padding: 16 } }, h(G.ListingCard, { category: 'Imóveis', offerType: 'Aluguel', title: 'Apartamento com varanda, 2 quartos', price: 'R$ 2.300', priceNote: '/mês', location: 'Centro · [CIDADE]', publishedAt: 'Hoje, 09:40', photoCount: 12 }), h(G.ListingCard, { category: 'Veículos', offerType: 'Venda', title: 'Hatch 2019 completo, único dono', price: 'R$ 58.900', location: '[CIDADE]', publishedAt: 'Hoje, 07:15', highlight: true }), h(G.ListingCard, { category: 'Compra & Venda', offerType: 'Venda', title: 'Bicicleta aro 29, quadro de alumínio', price: 'R$ 1.850', location: '[CIDADE]', publishedAt: 'Ontem', status: 'vendido' })));
+</script>
+</body>
+</html>

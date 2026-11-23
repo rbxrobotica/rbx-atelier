@@ -1,0 +1,586 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Informat · Direções de Marca</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Saira+Condensed:wght@500;600;700&family=Atkinson+Hyperlegible+Next:wght@400;700;800&family=Atkinson+Hyperlegible+Mono:wght@500&family=Bricolage+Grotesque:wght@500;600;700&family=Nunito+Sans:wght@400;700&display=swap">
+<style>
+/* Layout: uma coluna de pranchas; cada direção é uma prancha com espécime à esquerda e argumento à direita; empilha no celular. */
+:root{
+  --bg:#F4F4F1; --surface:#FFFFFF; --ink:#1B1F1D; --ink-2:#5A605D; --line:#DBDED9;
+  --accent:#008066; --accent-ink:#00563F; --soft:#E7F2EC; --rec:#00563F; --rec-soft:#DCF0E7;
+  --font-ui:"Public Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131614; --surface:#1B1F1D; --ink:#ECEEEC; --ink-2:#A7AEAA; --line:#2C3230;
+    --accent:#35C4A0; --accent-ink:#8FE0C9; --soft:#1A2824; --rec:#8FE0C9; --rec-soft:#1A2E27; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131614; --surface:#1B1F1D; --ink:#ECEEEC; --ink-2:#A7AEAA; --line:#2C3230;
+  --accent:#35C4A0; --accent-ink:#8FE0C9; --soft:#1A2824; --rec:#8FE0C9; --rec-soft:#1A2E27; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:16px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:32px 72px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-0.01em}
+h2{font-size:clamp(22px,2.6vw,28px);font-weight:700}
+h3{font-size:18px;font-weight:700}
+p{margin:0}
+a{color:var(--accent-ink)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.meta{color:var(--ink-2);font-size:14px}
+.lead{font-size:18px;max-width:68ch}
+header.top{display:flex;flex-direction:column;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:15px}
+.card p{font-size:14px;color:var(--ink-2)}
+.fact-img{display:flex;align-items:center;gap:14px}
+.fact-img img{width:72px;height:72px;border-radius:50%;flex:none;image-rendering:auto}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+ul li{font-size:15px}
+ul.plain{list-style:none;padding:0}
+
+/* Pranchas de direção */
+.board{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board.rec{border-color:var(--rec);box-shadow:0 0 0 1px var(--rec)}
+.board-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px;padding:22px 24px;border-bottom:1px solid var(--line)}
+.board-head .letter{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--ink-2)}
+.board-head h2{flex:1 1 auto;min-width:0}
+.board-head .thesis{flex-basis:100%;color:var(--ink-2);font-size:15px;max-width:72ch}
+.badge{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--rec-soft);color:var(--rec);padding:4px 10px;border-radius:999px}
+.board-body{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0}
+@media (max-width:860px){.board-body{grid-template-columns:1fr}}
+.spec{padding:24px;display:flex;flex-direction:column;gap:22px;border-right:1px solid var(--line);min-width:0}
+@media (max-width:860px){.spec{border-right:0;border-bottom:1px solid var(--line)}}
+.arg{padding:24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.arg h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
+.arg ul li{font-size:14.5px}
+.label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+
+/* espécimes: cada um é um "papel" com cores próprias da direção, iguais nos dois temas */
+.paper{border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lockup{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.lockup svg{flex:none}
+.sizes{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.sizes figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.sizes figcaption{font-size:11px;color:inherit;opacity:.75}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.sw{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sw i{display:block;height:40px;border-radius:6px;border:1px solid rgba(0,0,0,.08)}
+.sw b{font-size:12px;font-weight:600;line-height:1.2}
+.sw span{font-size:11.5px;opacity:.8;font-variant-numeric:tabular-nums}
+.type-sample{display:flex;flex-direction:column;gap:8px}
+.type-sample .d{font-size:30px;line-height:1.1;text-wrap:balance}
+.type-sample .b{font-size:15.5px;line-height:1.5;max-width:52ch}
+.type-sample .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.hero{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:10px}
+.hero .t{font-size:24px;line-height:1.12;text-wrap:balance}
+.hero .s{font-size:14px;line-height:1.5;max-width:46ch}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.btn{font-size:14px;font-weight:600;padding:10px 16px;border-radius:8px;border:1.5px solid transparent;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.chip svg{width:14px;height:14px}
+.dark-strip{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 18px;border-radius:10px}
+.dark-strip .t{font-size:17px;line-height:1.2}
+.dark-strip small{font-size:12px;opacity:.8}
+
+/* direção A · Sinal */
+.pa{background:#F3F7F5;color:#16231F}
+.wm-a{font-family:"Saira Condensed","Public Sans",sans-serif;font-weight:600;letter-spacing:.08em;font-size:44px;line-height:1;color:#16231F}
+.wm-a small{display:block;font-weight:500;font-size:13px;letter-spacing:.32em;color:#4D5B56;margin-top:2px}
+.pa .d{font-family:"Saira Condensed",sans-serif;font-weight:600;color:#00563F;letter-spacing:.01em}
+.pa .b{font-family:"Public Sans",sans-serif;color:#16231F}
+.pa .l{font-family:"Public Sans",sans-serif;color:#4D5B56}
+.pa .hero{background:#FFFFFF;border:1px solid #D7E2DD}
+.pa .hero .t{font-family:"Saira Condensed",sans-serif;font-weight:600;color:#16231F;font-size:28px;letter-spacing:.01em}
+.pa .hero .s{color:#4D5B56}
+.pa .btn-p{background:#008066;color:#FFFFFF}
+.pa .btn-s{border-color:#008066;color:#00563F}
+.pa .chip-ok{background:#D9F2EA;color:#00563F}
+.pa .chip-warn{background:#FBEEDC;color:#9A5B00}
+.pa .chip-err{background:#FBE5E3;color:#B3261E}
+.pa .dark-strip{background:#0C1714;color:#E6F0EC}
+.pa .dark-strip .t{font-family:"Saira Condensed",sans-serif;font-weight:600;color:#E6F0EC}
+.pa .dark-strip .btn{background:#35C4A0;color:#0C1714}
+
+/* direção B · Placa */
+.pb{background:#F4F6F3;color:#111A15}
+.wm-b{font-family:"Atkinson Hyperlegible Next","Public Sans",sans-serif;font-weight:800;letter-spacing:-0.022em;font-size:44px;line-height:1;color:#111A15;position:relative;display:inline-block}
+.wm-b .via{position:absolute;left:.06em;top:-.1em;width:.26em;height:.26em;border-radius:50%;border:.07em solid #B4652A;background:transparent;box-sizing:border-box}
+.pb .d{font-family:"Atkinson Hyperlegible Next",sans-serif;font-weight:800;color:#111A15}
+.pb .b{font-family:"Atkinson Hyperlegible Next",sans-serif;color:#111A15}
+.pb .l{font-family:"Atkinson Hyperlegible Mono",monospace;color:#8A4A17}
+.pb .hero{background:#FFFFFF;border:1px solid #D5DCD6}
+.pb .hero .t{font-family:"Atkinson Hyperlegible Next",sans-serif;font-weight:800;color:#111A15}
+.pb .hero .s{color:#3E4A43}
+.pb .btn-p{background:#1B5E3B;color:#FFFFFF}
+.pb .btn-s{border-color:#1B5E3B;color:#1B5E3B}
+.pb .chip-ok{background:#E5F2EA;color:#1E6B45}
+.pb .chip-warn{background:#FBF1DC;color:#8A5A00}
+.pb .chip-err{background:#FBEDEF;color:#A3283A}
+.pb .dark-strip{background:#0E1411;color:#E9EFEA}
+.pb .dark-strip .t{font-family:"Atkinson Hyperlegible Next",sans-serif;font-weight:800;color:#E9EFEA}
+.pb .dark-strip .btn{background:#74D19B;color:#0E1411}
+
+/* direção C · Farol */
+.pc{background:#FAF7F0;color:#1E1B16}
+.wm-c{font-family:"Bricolage Grotesque","Public Sans",sans-serif;font-weight:600;letter-spacing:-0.02em;font-size:46px;line-height:1;color:#1E1B16}
+.pc .d{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:#0B6B55;letter-spacing:-0.01em}
+.pc .b{font-family:"Nunito Sans",sans-serif;color:#1E1B16}
+.pc .l{font-family:"Nunito Sans",sans-serif;color:#B84A12}
+.pc .hero{background:#FFFFFF;border:1px solid #E6E0D3}
+.pc .hero .t{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:#1E1B16;letter-spacing:-0.01em}
+.pc .hero .s{font-family:"Nunito Sans",sans-serif;color:#4B463D}
+.pc .btn-p{background:#0B6B55;color:#FAF7F0}
+.pc .btn-s{border-color:#B84A12;color:#B84A12}
+.pc .chip-ok{background:#DCE8E1;color:#0B6B55}
+.pc .chip-warn{background:#FBE8D6;color:#B84A12}
+.pc .chip-err{background:#F8E1DF;color:#A8261E}
+.pc .dark-strip{background:#171A17;color:#EEEAE2}
+.pc .dark-strip .t{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:#EEEAE2}
+.pc .dark-strip .btn{background:#4FC9A8;color:#171A17}
+
+/* tabela comparativa */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:700;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+th.rec-col{color:var(--rec)}
+
+.recbox{background:var(--rec-soft);border:1px solid var(--rec);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.recbox h2{color:var(--rec)}
+.recbox p{max-width:72ch}
+ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+ol li{font-size:15px}
+ol li b{font-weight:700}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--accent-ink);margin-left:6px;vertical-align:middle}
+footer{color:var(--ink-2);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+code{font-family:ui-monospace,"Atkinson Hyperlegible Mono",monospace;font-size:.92em;background:var(--soft);padding:1px 5px;border-radius:4px}
+@media (prefers-reduced-motion:no-preference){.board{transition:box-shadow .2s}}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Entrega 1 · Brand System · rodada de direções</div>
+  <h1>Três direções para a Informat Tecnologias</h1>
+  <p class="meta">31 de outubro de 2026 · São Paulo · para escolha do proprietário antes de fechar o <code>marca.md</code></p>
+  <p class="lead">A Informat nasceu em 2021 com um avatar verde e um satélite. O código do site se perdeu, mas o avatar sobreviveu no Instagram e serve de ponto de partida. Abaixo, o que foi encontrado, uma leitura do que é forte e fraco nesse material, três caminhos possíveis com prós e contras, e uma recomendação.</p>
+</header>
+
+<section class="stack">
+  <h2>O que foi encontrado</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="fact-img">
+        <img src="data:image/jpeg;base64,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" alt="Avatar do Instagram @informat.tec.br em 2021: círculo verde com satélite branco e a palavra INFORMAT" width="72" height="72">
+        <div><h3>Avatar de 2021, recuperado</h3><p>Única arte original disponível hoje: 100 × 100 px, do perfil @informat.tec.br. Verde medido: <code>#008066</code>.</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Site de 2021: sem cópia</h3>
+      <p>O Wayback Machine tem duas capturas de informat.tec.br (08/12/2021 e 18/02/2022), e as duas são páginas de erro 503 do Apache. Não há o que recuperar; o site será reconstruído.</p>
+    </div>
+    <div class="card">
+      <h3>Sistema de 10/10/2026 existe</h3>
+      <p>Há um "Informat Design System" pronto, com outro conceito: placa de circuito, assistência Linux, ordem de serviço, assinatura "um produto RBX". Foi feito sem conhecer o avatar de 2021. Entra aqui como a direção B.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>Leitura do avatar de 2021</h2>
+  <div class="two">
+    <div class="card">
+      <h3>O que é forte e vale manter</h3>
+      <ul>
+        <li><b>O verde.</b> Quase toda marca de TI é azul; o verde <code>#008066</code> é raro, já passa AA como texto sobre branco (4,9:1) e tem 22 posts de história.</li>
+        <li><b>O satélite.</b> Símbolo concreto, fácil de lembrar e de desenhar: fala de sinal, alcance e suporte à distância.</li>
+        <li><b>A composição.</b> Círculo cheio, símbolo em cima, nome embaixo: já funciona como avatar e selo.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>O que é fraco e será corrigido</h3>
+      <ul>
+        <li><b>Wordmark fina demais.</b> Condensada e leve, some abaixo de 40 px e não serve de favicon. Precisa de peso.</li>
+        <li><b>Traço do satélite muito fino</b> para o tamanho em que é usado; a vetorização vai engrossar e simplificar.</li>
+        <li><b>"Tecnologias" não aparece</b> em lugar nenhum. A assinatura precisa de uma regra para o nome completo.</li>
+        <li><b>Verde vizinho do verde de sucesso e do WhatsApp.</b> Todo estado terá ícone e palavra, nunca só cor.</li>
+        <li><b>Só existe em 100 px.</b> Nada será traçado automaticamente: o símbolo será redesenhado fiel, e a origem registrada.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── Direção A ───────────── -->
+<section class="board rec" id="a">
+  <div class="board-head">
+    <span class="letter">DIREÇÃO A</span>
+    <h2>Sinal</h2>
+    <span class="badge">Recomendada</span>
+    <p class="thesis">O satélite e o verde de 2021 continuam. O resto cresce para aguentar site, cursos, papelaria e tema escuro: wordmark com peso, paleta completa, tipografia de texto legível.</p>
+  </div>
+  <div class="board-body">
+    <div class="spec">
+      <div class="paper pa">
+        <div class="label" style="color:#4D5B56">Assinatura</div>
+        <div class="lockup">
+          <svg width="72" height="72" viewBox="0 0 100 100" role="img" aria-label="Símbolo: satélite com arcos de sinal, em traço verde">
+            <g fill="none" stroke="#008066" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 54 42)">
+              <rect x="40" y="31" width="28" height="22" rx="3"/>
+              <rect x="10" y="36" width="22" height="12" rx="2"/>
+              <rect x="76" y="36" width="22" height="12" rx="2"/>
+              <path d="M32 42h8M68 42h8M54 53v9"/>
+            </g>
+            <g fill="none" stroke="#008066" stroke-width="5" stroke-linecap="round">
+              <path d="M22 72a8 8 0 0 1 8 8"/>
+              <path d="M22 64a16 16 0 0 1 16 16"/>
+              <path d="M22 56a24 24 0 0 1 24 24"/>
+            </g>
+          </svg>
+          <div class="wm-a">INFORMAT<small>TECNOLOGIAS</small></div>
+        </div>
+        <div class="sizes">
+          <figure>
+            <svg width="96" height="96" viewBox="0 0 100 100" role="img" aria-label="Avatar: satélite branco sobre círculo verde">
+              <circle cx="50" cy="50" r="50" fill="#008066"/>
+              <g fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 53 38) translate(0 -5)">
+                <rect x="41" y="31" width="24" height="19" rx="3"/>
+                <rect x="15" y="35" width="19" height="11" rx="2"/>
+                <rect x="72" y="35" width="19" height="11" rx="2"/>
+                <path d="M34 40.5h7M65 40.5h7M53 50v8"/>
+              </g>
+              <g fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round">
+                <path d="M27 56a6 6 0 0 1 6 6"/>
+                <path d="M27 50a12 12 0 0 1 12 12"/>
+                <path d="M27 44a18 18 0 0 1 18 18"/>
+              </g>
+              <text x="50" y="88" text-anchor="middle" font-family="Saira Condensed, sans-serif" font-weight="600" font-size="14" letter-spacing="1.2" fill="#FFFFFF">INFORMAT</text>
+            </svg>
+            <figcaption>avatar 96 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="50" fill="#008066"/>
+              <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 54 46)">
+                <rect x="40" y="35" width="28" height="22" rx="4"/>
+                <rect x="10" y="40" width="22" height="12" rx="3"/>
+                <rect x="76" y="40" width="22" height="12" rx="3"/>
+                <path d="M32 46h8M68 46h8"/>
+              </g>
+              <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round">
+                <path d="M24 68a10 10 0 0 1 10 10"/>
+                <path d="M24 56a22 22 0 0 1 22 22"/>
+              </g>
+            </svg>
+            <figcaption>40 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+              <rect width="100" height="100" rx="22" fill="#008066"/>
+              <g fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45 54 46)">
+                <rect x="38" y="33" width="32" height="26" rx="5"/>
+                <path d="M14 46h18M74 46h18"/>
+              </g>
+              <path d="M22 62a16 16 0 0 1 16 16" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+            <figcaption>favicon 24 px</figcaption>
+          </figure>
+        </div>
+
+        <div class="label" style="color:#4D5B56">Paleta · tema claro</div>
+        <div class="swatches">
+          <div class="sw"><i style="background:#008066"></i><b>verde-sinal</b><span>#008066 · marca, ação, link · 4,9:1</span></div>
+          <div class="sw"><i style="background:#00563F"></i><b>verde-profundo</b><span>#00563F · hover, títulos · 8,7:1</span></div>
+          <div class="sw"><i style="background:#D9F2EA"></i><b>menta</b><span>#D9F2EA · seleção, fundo suave</span></div>
+          <div class="sw"><i style="background:#F3F7F5"></i><b>névoa</b><span>#F3F7F5 · fundo da página</span></div>
+          <div class="sw"><i style="background:#FFFFFF"></i><b>branco</b><span>#FFFFFF · superfície, cartão</span></div>
+          <div class="sw"><i style="background:#16231F"></i><b>grafite</b><span>#16231F · texto · 16,2:1</span></div>
+          <div class="sw"><i style="background:#4D5B56"></i><b>cinza-verde</b><span>#4D5B56 · texto secundário · 7,1:1</span></div>
+          <div class="sw"><i style="background:#9A5B00"></i><b>âmbar</b><span>#9A5B00 · aviso · 5,4:1</span></div>
+          <div class="sw"><i style="background:#B3261E"></i><b>erro</b><span>#B3261E · erro · 6,5:1</span></div>
+          <div class="sw"><i style="background:#1D4F91"></i><b>info</b><span>#1D4F91 · informação · 8,1:1</span></div>
+        </div>
+
+        <div class="label" style="color:#4D5B56">Tipografia · Saira Condensed + Public Sans</div>
+        <div class="type-sample">
+          <div class="d">Suporte de TI que resolve, sem jargão.</div>
+          <div class="b">Manutenção de computadores, sites e cursos práticos para pequenas empresas e profissionais em São Paulo. Você fala com quem faz.</div>
+          <div class="l">Suporte &amp; Manutenção · Desenvolvimento Web · Cursos</div>
+        </div>
+
+        <div class="label" style="color:#4D5B56">Peça · hero e estados</div>
+        <div class="hero">
+          <div class="t">Seu computador lento tem conserto. E a gente explica antes.</div>
+          <div class="s">Diagnóstico claro, orçamento antes de mexer e atendimento por WhatsApp.</div>
+          <div class="btns"><span class="btn btn-p">Chamar no WhatsApp</span><span class="btn btn-s">Ver serviços</span></div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-ok"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>Concluído</span>
+          <span class="chip chip-warn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v6M8 12v.5"/></svg>Aguardando você</span>
+          <span class="chip chip-err"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>Falhou</span>
+        </div>
+        <div class="dark-strip">
+          <div><div class="t">Tema escuro</div><small>verde-sinal vira #35C4A0 · 8,3:1 sobre #0C1714</small></div>
+          <span class="btn">Chamar no WhatsApp</span>
+        </div>
+      </div>
+    </div>
+    <div class="arg">
+      <div><h4>Por que esta direção</h4><p>É a única que respeita o que a Informat já publicou. Quem viu os posts de 2021 reconhece a marca; quem nunca viu encontra um símbolo claro e um verde que ninguém mais usa no setor.</p></div>
+      <div><h4>Prós</h4><ul>
+        <li>Continuidade com os 22 posts e os seguidores de 2021.</li>
+        <li>Símbolo concreto e desenhável, bom em selo, carimbo e bordado.</li>
+        <li>Verde original já é acessível como texto e botão; não precisa de ajuste.</li>
+        <li>Saira Condensed mantém o ar técnico da wordmark antiga com peso para funcionar pequeno.</li>
+        <li>Reaproveita a engenharia do sistema de 10/10 (tokens, botões, campos, alertas, ícones) trocando paleta, tipo e logo.</li>
+      </ul></div>
+      <div><h4>Contras</h4><ul>
+        <li>Satélite pode ler como antena ou telecom; o claim e a arquitetura de serviços precisam corrigir isso na primeira dobra.</li>
+        <li>Abaixo de 24 px o satélite precisa de uma versão simplificada (favicon) separada.</li>
+        <li>Verde da marca é vizinho do verde de sucesso e do WhatsApp: estados sempre com ícone e palavra.</li>
+      </ul></div>
+      <div><h4>Esforço na Entrega 2</h4><p>Médio. Metade dos componentes pedidos já existe no sistema de 10/10 e só troca de pele; Hero, PriceCard, CourseCard, Testimonial, FAQ e ContactCTA são novos em qualquer direção.</p></div>
+      <div><h4>Escolha se</h4><p>Você quer que a Informat de 2026 seja reconhecida como a mesma de 2021, com um visual mais firme.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── Direção B ───────────── -->
+<section class="board" id="b">
+  <div class="board-head">
+    <span class="letter">DIREÇÃO B</span>
+    <h2>Placa</h2>
+    <p class="thesis">Continuar o sistema de 10/10/2026: a ordem de serviço como objeto central, paleta de placa de circuito (verde de máscara, cobre, serigrafia), tipografia Atkinson Hyperlegible. Reposicionado para os três serviços.</p>
+  </div>
+  <div class="board-body">
+    <div class="spec">
+      <div class="paper pb">
+        <div class="label" style="color:#56625B">Assinatura (como está no sistema de 10/10)</div>
+        <div class="lockup">
+          <svg width="72" height="72" viewBox="0 0 48 48" role="img" aria-label="Símbolo: letra i branca com via de cobre no lugar do pingo, sobre quadro verde">
+            <rect width="48" height="48" rx="12" fill="#1B5E3B"/>
+            <rect x="18.5" y="20" width="4" height="5" fill="#F7FAF8"/>
+            <rect x="22.5" y="20" width="7" height="21" fill="#F7FAF8"/>
+            <circle cx="26" cy="12" r="5" fill="#E09A5F"/>
+            <circle cx="26" cy="12" r="2.25" fill="#1B5E3B"/>
+          </svg>
+          <div class="wm-b">ınformat<i class="via" aria-hidden="true"></i></div>
+        </div>
+        <div class="sizes">
+          <figure>
+            <svg width="96" height="96" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#1B5E3B"/><rect x="18.5" y="20" width="4" height="5" fill="#F7FAF8"/><rect x="22.5" y="20" width="7" height="21" fill="#F7FAF8"/><circle cx="26" cy="12" r="5" fill="#E09A5F"/><circle cx="26" cy="12" r="2.25" fill="#1B5E3B"/></svg>
+            <figcaption>avatar 96 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#1B5E3B"/><rect x="18.5" y="20" width="4" height="5" fill="#F7FAF8"/><rect x="22.5" y="20" width="7" height="21" fill="#F7FAF8"/><circle cx="26" cy="12" r="5" fill="#E09A5F"/><circle cx="26" cy="12" r="2.25" fill="#1B5E3B"/></svg>
+            <figcaption>40 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="24" height="24" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" rx="4" fill="#1B5E3B"/><rect x="7.5" y="7.75" width="2.5" height="5.5" fill="#F7FAF8"/><circle cx="8.75" cy="4.5" r="2.25" fill="#E09A5F"/></svg>
+            <figcaption>favicon 24 px</figcaption>
+          </figure>
+        </div>
+
+        <div class="label" style="color:#56625B">Paleta · tema claro</div>
+        <div class="swatches">
+          <div class="sw"><i style="background:#1B5E3B"></i><b>placa</b><span>#1B5E3B · marca, ação · 7,8:1</span></div>
+          <div class="sw"><i style="background:#B4652A"></i><b>cobre</b><span>#B4652A · vias, decoração</span></div>
+          <div class="sw"><i style="background:#8A4A17"></i><b>cobre-ink</b><span>#8A4A17 · cobre como texto · 6,8:1</span></div>
+          <div class="sw"><i style="background:#F7FAF8"></i><b>serigrafia</b><span>#F7FAF8 · texto sobre placa</span></div>
+          <div class="sw"><i style="background:#F4F6F3"></i><b>base</b><span>#F4F6F3 · fundo (bancada)</span></div>
+          <div class="sw"><i style="background:#FFFFFF"></i><b>surface</b><span>#FFFFFF · cartão, folha da OS</span></div>
+          <div class="sw"><i style="background:#111A15"></i><b>ink</b><span>#111A15 · texto</span></div>
+          <div class="sw"><i style="background:#1E6B45"></i><b>ok</b><span>#1E6B45 · concluído</span></div>
+          <div class="sw"><i style="background:#8A5A00"></i><b>warn</b><span>#8A5A00 · pede ação</span></div>
+          <div class="sw"><i style="background:#A3283A"></i><b>err</b><span>#A3283A · erro</span></div>
+        </div>
+
+        <div class="label" style="color:#56625B">Tipografia · Atkinson Hyperlegible Next + Mono</div>
+        <div class="type-sample">
+          <div class="d">Diagnóstico antes do orçamento.</div>
+          <div class="b">Formatação, reparo de notebooks e computadores e consultoria em Linux. Você aprova cada passo e o combinado sobre os seus dados fica registrado.</div>
+          <div class="l">OS-0427 · Aguardando aprovação</div>
+        </div>
+
+        <div class="label" style="color:#56625B">Peça · hero e estados</div>
+        <div class="hero">
+          <div class="t">Nada é feito sem a sua aprovação.</div>
+          <div class="s">Você vê o diagnóstico, aprova o escopo e acompanha cada etapa da ordem de serviço.</div>
+          <div class="btns"><span class="btn btn-p">Solicitar atendimento</span><span class="btn btn-s">Como funciona</span></div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-ok"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>Entregue</span>
+          <span class="chip chip-warn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v6M8 12v.5"/></svg>Aguardando aprovação</span>
+          <span class="chip chip-err"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>Cancelado</span>
+        </div>
+        <div class="dark-strip">
+          <div><div class="t">Tema escuro</div><small>placa vira #74D19B · 10,1:1 sobre #0E1411</small></div>
+          <span class="btn">Solicitar atendimento</span>
+        </div>
+      </div>
+    </div>
+    <div class="arg">
+      <div><h4>Por que considerar</h4><p>É trabalho pronto e medido: 24 componentes, 38 ícones, 10 arquivos de logo, contrastes AA nos dois temas e um conceito forte para assistência técnica.</p></div>
+      <div><h4>Prós</h4><ul>
+        <li>Entrega 2 quase feita para a metade "assistência" do negócio.</li>
+        <li>Acessibilidade como promessa (Atkinson Hyperlegible foi desenhada para baixa visão).</li>
+        <li>Verde e cobre fogem do azul genérico de TI.</li>
+      </ul></div>
+      <div><h4>Contras</h4><ul>
+        <li>Posicionamento diferente do briefing: assistência Linux, OS numerada e "um produto RBX". Não tem lugar para Desenvolvimento Web nem para Cursos.</li>
+        <li>Logo criado em 2026 sem relação com 2021; o sistema registrou "nenhuma referência histórica" porque o avatar ainda não tinha sido encontrado.</li>
+        <li>O "i" com via lembra o ícone genérico de informação.</li>
+        <li>Componentes centrais (OsHeader, QuoteSummary, ServiceTimeline) servem a um app de atendimento, não a um site institucional.</li>
+      </ul></div>
+      <div><h4>Esforço na Entrega 2</h4><p>Baixo para componentes básicos, alto para reposicionar: refazer marca.md, decisões e assinatura, e remover ou confirmar a dependência da RBX.</p></div>
+      <div><h4>Escolha se</h4><p>A assistência técnica é o negócio principal, os cursos e o desenvolvimento web são secundários, e a Informat deve aparecer como produto RBX.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── Direção C ───────────── -->
+<section class="board" id="c">
+  <div class="board-head">
+    <span class="letter">DIREÇÃO C</span>
+    <h2>Farol</h2>
+    <p class="thesis">Nova síntese: o "i" de Informat como farol, com o pingo emitindo os arcos de sinal herdados do satélite. Verde mais profundo sobre papel quente, laranja de giz para cursos, tipografia mais próxima e humana.</p>
+  </div>
+  <div class="board-body">
+    <div class="spec">
+      <div class="paper pc">
+        <div class="label" style="color:#4B463D">Assinatura</div>
+        <div class="lockup">
+          <svg width="72" height="72" viewBox="0 0 48 48" role="img" aria-label="Símbolo: letra i verde cujo pingo laranja emite dois arcos de sinal">
+            <rect x="21" y="22" width="6" height="18" rx="3" fill="#0B6B55"/>
+            <circle cx="24" cy="14" r="3.5" fill="#B84A12"/>
+            <path d="M19.05 9.05A7 7 0 0 1 28.95 9.05" fill="none" stroke="#0B6B55" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M16.22 6.22A11 11 0 0 1 31.78 6.22" fill="none" stroke="#0B6B55" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <div class="wm-c">informat</div>
+        </div>
+        <div class="sizes">
+          <figure>
+            <svg width="96" height="96" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0B6B55"/><rect x="21" y="22" width="6" height="18" rx="3" fill="#FAF7F0"/><circle cx="24" cy="14" r="3.5" fill="#F08A52"/><path d="M19.05 9.05A7 7 0 0 1 28.95 9.05" fill="none" stroke="#FAF7F0" stroke-width="2.6" stroke-linecap="round"/><path d="M16.22 6.22A11 11 0 0 1 31.78 6.22" fill="none" stroke="#FAF7F0" stroke-width="2.6" stroke-linecap="round"/></svg>
+            <figcaption>avatar 96 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0B6B55"/><rect x="21" y="22" width="6" height="18" rx="3" fill="#FAF7F0"/><circle cx="24" cy="14" r="3.5" fill="#F08A52"/><path d="M19.05 9.05A7 7 0 0 1 28.95 9.05" fill="none" stroke="#FAF7F0" stroke-width="2.6" stroke-linecap="round"/><path d="M16.22 6.22A11 11 0 0 1 31.78 6.22" fill="none" stroke="#FAF7F0" stroke-width="2.6" stroke-linecap="round"/></svg>
+            <figcaption>40 px</figcaption>
+          </figure>
+          <figure>
+            <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0B6B55"/><rect x="20" y="22" width="8" height="18" rx="4" fill="#FAF7F0"/><circle cx="24" cy="13" r="4.5" fill="#F08A52"/><path d="M15.5 7A12 12 0 0 1 32.5 7" fill="none" stroke="#FAF7F0" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <figcaption>favicon 24 px</figcaption>
+          </figure>
+        </div>
+
+        <div class="label" style="color:#4B463D">Paleta · tema claro</div>
+        <div class="swatches">
+          <div class="sw"><i style="background:#0B6B55"></i><b>verde-mar</b><span>#0B6B55 · marca, ação · 6,0:1</span></div>
+          <div class="sw"><i style="background:#B84A12"></i><b>giz</b><span>#B84A12 · cursos, destaque em texto · 4,9:1</span></div>
+          <div class="sw"><i style="background:#E0662A"></i><b>giz-gráfico</b><span>#E0662A · só em formas grandes · 3,2:1</span></div>
+          <div class="sw"><i style="background:#FAF7F0"></i><b>papel</b><span>#FAF7F0 · fundo da página</span></div>
+          <div class="sw"><i style="background:#FFFFFF"></i><b>branco</b><span>#FFFFFF · cartão</span></div>
+          <div class="sw"><i style="background:#DCE8E1"></i><b>musgo</b><span>#DCE8E1 · fundo suave</span></div>
+          <div class="sw"><i style="background:#1E1B16"></i><b>tinta</b><span>#1E1B16 · texto · 16,0:1</span></div>
+          <div class="sw"><i style="background:#4B463D"></i><b>tinta-2</b><span>#4B463D · texto secundário</span></div>
+          <div class="sw"><i style="background:#A8261E"></i><b>erro</b><span>#A8261E · erro</span></div>
+          <div class="sw"><i style="background:#1D4F91"></i><b>info</b><span>#1D4F91 · informação</span></div>
+        </div>
+
+        <div class="label" style="color:#4B463D">Tipografia · Bricolage Grotesque + Nunito Sans</div>
+        <div class="type-sample">
+          <div class="d">Tecnologia que a gente explica.</div>
+          <div class="b">Suporte, sites e cursos para quem precisa que a tecnologia funcione e não quer aprender jargão para isso. Atendimento em São Paulo e à distância.</div>
+          <div class="l">Próxima turma · Informática para o dia a dia</div>
+        </div>
+
+        <div class="label" style="color:#4B463D">Peça · hero e estados</div>
+        <div class="hero">
+          <div class="t">Aprenda a cuidar do seu computador. Ou deixe com a gente.</div>
+          <div class="s">Cursos práticos, suporte sem enrolação e sites simples que funcionam.</div>
+          <div class="btns"><span class="btn btn-p">Falar no WhatsApp</span><span class="btn btn-s">Ver cursos</span></div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-ok"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>Concluído</span>
+          <span class="chip chip-warn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v6M8 12v.5"/></svg>Vagas acabando</span>
+          <span class="chip chip-err"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>Falhou</span>
+        </div>
+        <div class="dark-strip">
+          <div><div class="t">Tema escuro</div><small>verde-mar vira #4FC9A8 · 8,6:1 · giz vira #F08A52 · 7,1:1 sobre #171A17</small></div>
+          <span class="btn">Falar no WhatsApp</span>
+        </div>
+      </div>
+    </div>
+    <div class="arg">
+      <div><h4>Por que considerar</h4><p>É a direção mais quente e a que melhor abraça os cursos. Mantém o DNA (verde e sinal) sem o literalismo do satélite, e o monograma funciona em 16 px sem versão especial.</p></div>
+      <div><h4>Prós</h4><ul>
+        <li>Tom "próximo" do briefing aparece no visual, não só no texto.</li>
+        <li>Segunda cor (giz) dá identidade própria aos cursos e às chamadas.</li>
+        <li>Monograma simples: avatar, favicon, carimbo e bordado com o mesmo desenho.</li>
+      </ul></div>
+      <div><h4>Contras</h4><ul>
+        <li>Rompe com as artes de 2021: quem segue o perfil não reconhece.</li>
+        <li>Papel quente, verde e laranja juntos podem parecer loja de bairro ou escola infantil se a execução afrouxar.</li>
+        <li>Bricolage Grotesque é expressiva: boa em títulos, cansa em texto longo (por isso o texto é Nunito Sans).</li>
+        <li>Mais desenho novo: monograma, paleta, tipografia e peças partem do zero.</li>
+      </ul></div>
+      <div><h4>Esforço na Entrega 2</h4><p>Alto. Tudo é novo, exceto a estrutura dos componentes, que pode ser copiada do sistema de 10/10.</p></div>
+      <div><h4>Escolha se</h4><p>Os cursos vão puxar o negócio em 2026 e você prefere recomeçar a marca a carregar o satélite.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2>Comparação</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Critério</th><th class="rec-col">A · Sinal</th><th>B · Placa</th><th>C · Farol</th></tr></thead>
+      <tbody>
+        <tr><td>Fidelidade a 2021</td><td>Alta: símbolo e verde originais</td><td>Nenhuma: logo e paleta de 2026</td><td>Média: verde e sinal, sem o satélite</td></tr>
+        <tr><td>Distinção no mercado</td><td>Alta: verde + satélite</td><td>Alta: placa + cobre</td><td>Média: verde + laranja é comum</td></tr>
+        <tr><td>Funciona em 16 px</td><td>Com favicon simplificado</td><td>Sim</td><td>Sim</td></tr>
+        <tr><td>Encaixe nos 3 serviços</td><td>Alto, com claim que corrija "telecom"</td><td>Baixo: feito para assistência e OS</td><td>Alto, com vantagem para cursos</td></tr>
+        <tr><td>Esforço na Entrega 2</td><td>Médio</td><td>Baixo nos componentes, alto no reposicionamento</td><td>Alto</td></tr>
+        <tr><td>Risco principal</td><td>Ler como antena ou telecom</td><td>Marca certa para o negócio errado</td><td>Perder o reconhecimento de 2021</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="recbox">
+  <div class="eyebrow" style="color:var(--rec)">Recomendação</div>
+  <h2>Direção A · Sinal, com a engenharia do sistema de 10/10</h2>
+  <p>O avatar de 2021 é a única coisa que a Informat possui de identidade, e ele é bom: verde raro, símbolo claro, composição limpa. Jogar fora seria recomeçar sem motivo. A direção A o mantém, corrige as fraquezas (peso da wordmark, traço, nome completo, estados por cor) e deixa tudo que o briefing pede: três serviços no mesmo nível, tema escuro, acessibilidade AA.</p>
+  <p>O sistema de 10/10 não se perde: a estrutura de tokens, os componentes de formulário, alertas, navegação e os 38 ícones migram para a Entrega 2 com a nova pele. O conceito de ordem de serviço fica guardado para um futuro app de atendimento, se fizer sentido.</p>
+  <p>Se você escolher B, eu reposiciono o sistema existente para os três serviços e abro a questão da RBX. Se escolher C, começo pelo desenho do monograma em três variações antes de qualquer paleta.</p>
+</section>
+
+<section class="stack">
+  <h2>Pendências para você</h2>
+  <ol>
+    <li><b>Direção:</b> A, B ou C. <span class="tag">bloqueia a Entrega 1</span></li>
+    <li><b>Prints das artes de 9 a 19/11/2021.</b> Sem eles, o satélite será redesenhado a partir do avatar de 100 px; prints maiores melhoram a fidelidade. <span class="tag">não bloqueia</span></li>
+    <li><b>Relação com a RBX:</b> a Informat é marca independente ou "um produto RBX" no rodapé, como no sistema de 10/10? O briefing não cita a RBX. <span class="tag">bloqueia a assinatura</span></li>
+    <li><b>Nome nas peças:</b> "Informat" ou "Informat Tecnologias"? Se não responder, adoto wordmark INFORMAT com "TECNOLOGIAS" como linha de apoio, e o nome completo em texto corrido e documentos.</li>
+    <li><b>Destino do sistema de 10/10:</b> arquivar como está, reaproveitar a engenharia (minha sugestão) ou apagar.</li>
+    <li><b>Dados para cartão e assinatura de e-mail:</b> nome, cargo, WhatsApp, e-mail, cidade. Até lá ficam como <code>[[CONFIRMAR]]</code>. <span class="tag">bloqueia só as peças</span></li>
+    <li><b>Cópia por engano de informat.com.br</b> salva em <code>~/app/informat/backup/live-2026-10-31/</code>: posso apagar? Nada dela será usado.</li>
+  </ol>
+</section>
+
+<footer>
+  Arquivos desta rodada: <code>~/rbx/informat/marca/decisoes.md</code>, <code>~/rbx/informat/marca/referencias/</code> (avatar de 2021 e índice do Wayback) e esta prancha em <code>~/rbx/informat/marca/pranchas/direcoes.html</code>. Contrastes medidos em WCAG 2.
+</footer>
+
+</div>
+
+</body></html>

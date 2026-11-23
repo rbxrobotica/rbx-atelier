@@ -1,0 +1,263 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Anuncio-mobile.dc.html": {
+      "h": 3550,
+      "is_interactive": true,
+      "title": "Detalhe do anúncio · celular",
+      "w": 390,
+      "x": 2722,
+      "y": 3070
+    },
+    "Anuncio.dc.html": {
+      "expand": "fill",
+      "h": 2400,
+      "is_interactive": true,
+      "title": "Detalhe do anúncio",
+      "w": 1280,
+      "x": 2722,
+      "y": 0
+    },
+    "Atendimento.dc.html": {
+      "h": 1000,
+      "title": "Aplicação: mensagens de atendimento",
+      "w": 1280,
+      "x": 4202,
+      "y": 7890
+    },
+    "Contato-mobile.dc.html": {
+      "h": 1150,
+      "is_interactive": true,
+      "title": "Contato com o anunciante · celular",
+      "w": 390,
+      "x": 8162,
+      "y": 3070
+    },
+    "Contato.dc.html": {
+      "expand": "fill",
+      "h": 1100,
+      "is_interactive": true,
+      "title": "Contato com o anunciante",
+      "w": 1280,
+      "x": 8162,
+      "y": 0
+    },
+    "Destaque-mobile.dc.html": {
+      "h": 3000,
+      "is_interactive": true,
+      "title": "Destaque e plano profissional (Hipótese) · celular",
+      "w": 390,
+      "x": 10882,
+      "y": 3070
+    },
+    "Destaque.dc.html": {
+      "expand": "fill",
+      "h": 1800,
+      "is_interactive": true,
+      "title": "Destaque e plano profissional (Hipótese)",
+      "w": 1280,
+      "x": 10882,
+      "y": 0
+    },
+    "Direcoes.dc.html": {
+      "h": 900,
+      "title": "Direções exploradas: A e B",
+      "w": 1440,
+      "x": 1522,
+      "y": 7890
+    },
+    "Estados-mobile.dc.html": {
+      "h": 4400,
+      "is_interactive": true,
+      "title": "Estados: revisão, publicação, indisponível · celular",
+      "w": 390,
+      "x": 9522,
+      "y": 3070
+    },
+    "Estados.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "is_interactive": true,
+      "title": "Estados: revisão, publicação, indisponível",
+      "w": 1280,
+      "x": 9522,
+      "y": 0
+    },
+    "Main-mobile.dc.html": {
+      "h": 4150,
+      "is_interactive": true,
+      "title": "Início · celular",
+      "w": 390,
+      "x": 2,
+      "y": 3070
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 2650,
+      "is_interactive": true,
+      "title": "Início",
+      "w": 1280,
+      "x": 2,
+      "y": 0
+    },
+    "Marca.dc.html": {
+      "h": 1000,
+      "title": "Marca: logo e assinaturas",
+      "w": 1440,
+      "x": 2,
+      "y": 7890
+    },
+    "MeusAnuncios-mobile.dc.html": {
+      "h": 2650,
+      "is_interactive": true,
+      "title": "Meus anúncios · celular",
+      "w": 390,
+      "x": 6802,
+      "y": 3070
+    },
+    "MeusAnuncios.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "is_interactive": true,
+      "title": "Meus anúncios",
+      "w": 1280,
+      "x": 6802,
+      "y": 0
+    },
+    "Perfil-mobile.dc.html": {
+      "h": 1950,
+      "is_interactive": true,
+      "title": "Perfil do anunciante · celular",
+      "w": 390,
+      "x": 4082,
+      "y": 3070
+    },
+    "Perfil.dc.html": {
+      "expand": "fill",
+      "h": 1250,
+      "is_interactive": true,
+      "title": "Perfil do anunciante",
+      "w": 1280,
+      "x": 4082,
+      "y": 0
+    },
+    "PostAnuncio.dc.html": {
+      "h": 1080,
+      "title": "Aplicação: post de anúncio 1080 x 1080",
+      "w": 1080,
+      "x": 3042,
+      "y": 7890
+    },
+    "Publicar-mobile.dc.html": {
+      "h": 1600,
+      "is_interactive": true,
+      "title": "Publicar e editar anúncio · celular",
+      "w": 390,
+      "x": 5442,
+      "y": 3070
+    },
+    "Publicar.dc.html": {
+      "expand": "fill",
+      "h": 1350,
+      "is_interactive": true,
+      "title": "Publicar e editar anúncio",
+      "w": 1280,
+      "x": 5442,
+      "y": 0
+    },
+    "Resultados-mobile.dc.html": {
+      "h": 3150,
+      "is_interactive": true,
+      "title": "Resultados · celular",
+      "w": 390,
+      "x": 1362,
+      "y": 3070
+    },
+    "Resultados.dc.html": {
+      "expand": "fill",
+      "h": 2050,
+      "is_interactive": true,
+      "title": "Resultados",
+      "w": 1280,
+      "x": 1362,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-09T23:49:42Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/1Kz8T2FFgd3PoYeGDQ35BF",
+      "copiedAt": "2026-10-09T23:49:42Z",
+      "namespace": "gph",
+      "title": "GPH Design System",
+      "version": "1791589474-b390"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "sticky-exemplo": {
+      "fill": "orange",
+      "size": 24,
+      "text": "Anúncios, nomes e preços nas telas são fictícios, para demonstração. Itens entre colchetes, como [CIDADE] e [PRAZO], dependem de decisão do proprietário. Destaque e plano profissional são hipóteses comerciais, não decisões. Use Play em qualquer tela para navegar pelo protótipo.",
+      "w": 420,
+      "x": 12282,
+      "y": 0
+    },
+    "t-desktop": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "GPH · Desktop (protótipo navegável)",
+      "w": 240,
+      "x": 2,
+      "y": -300
+    },
+    "t-marca": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "GPH · Marca e aplicações",
+      "w": 240,
+      "x": 2,
+      "y": 7590
+    },
+    "t-mobile": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "GPH · Celular (protótipo navegável)",
+      "w": 240,
+      "x": 2,
+      "y": 2770
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Resultados.dc.html",
+    "Anuncio.dc.html",
+    "Perfil.dc.html",
+    "Publicar.dc.html",
+    "MeusAnuncios.dc.html",
+    "Contato.dc.html",
+    "Estados.dc.html",
+    "Destaque.dc.html",
+    "Main-mobile.dc.html",
+    "Resultados-mobile.dc.html",
+    "Anuncio-mobile.dc.html",
+    "Perfil-mobile.dc.html",
+    "Publicar-mobile.dc.html",
+    "MeusAnuncios-mobile.dc.html",
+    "Contato-mobile.dc.html",
+    "Estados-mobile.dc.html",
+    "Destaque-mobile.dc.html",
+    "Marca.dc.html",
+    "Direcoes.dc.html",
+    "PostAnuncio.dc.html",
+    "Atendimento.dc.html"
+  ],
+  "pages": [],
+  "title": "GPH · Telas e Protótipos"
+}

@@ -1,0 +1,24 @@
+<!-- @dsCard group="Initelo — Design System" viewport="700x640" name="Progresso e alertas" subtitle="Alertas (informação, sucesso, atenção, erro), barras de progresso, etapas e carregamento" -->
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Progresso e alertas</title><link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="../../guidelines/card.css"><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div><script type="text/babel">const {Alert,ProgressBar,Stepper,Skeleton,Spinner,Button}=window.IniteloDesignSystem_b8cd96;
+const steps=['Monte a tabela','Pergunte à IA','Confira','Decida'];
+function Card(){return <div className="col" style={{gap:18}}>
+<div className="g2" style={{gap:12}}>
+<Alert tone="info" title="A IA não conhece as suas contas">Ela só sabe o que você informar na pergunta.</Alert>
+<Alert tone="success" title="Exercício concluído">Você conferiu 5 de 5 itens.</Alert>
+<Alert tone="warning" title="A soma não confere">A IA somou R$ 3.038,65; suas contas somam R$ 3.083,65.</Alert>
+<Alert tone="error" title="Não foi possível salvar" onClose={function(){}}>Verifique a conexão e tente de novo.</Alert>
+</div>
+<div className="g2" style={{gap:'14px 24px'}} data-curso="financas">
+<ProgressBar label="Não iniciado" value={0} max={24} valueText="0 de 24 aulas"/>
+<ProgressBar label="Em andamento" value={5} max={24} valueText="5 de 24 aulas"/>
+<ProgressBar label="Cor do curso" tone="course" value={14} max={24} valueText="14 de 24 aulas"/>
+<ProgressBar label="Concluído" value={24} max={24} valueText="24 de 24 aulas"/>
+</div>
+<div><p className="lbl">Etapas do exercício</p><Stepper steps={steps} current={2}/></div>
+<div className="g2" style={{gap:24}}>
+<div><p className="lbl">Etapas — mobile</p><Stepper compact steps={steps} current={2}/></div>
+<div><p className="lbl">Etapas — tudo concluído</p><Stepper compact steps={steps} current={4}/></div>
+</div>
+<div className="g2" style={{gap:24,alignItems:'center'}}><div><p className="lbl">Esqueleto</p><Skeleton lines={3}/></div><div><p className="lbl">Indicador</p><Spinner label="Salvando sua tabela…"/></div></div>
+</div>;}
+ReactDOM.createRoot(document.getElementById("root")).render(<Card/>);</script></body></html>

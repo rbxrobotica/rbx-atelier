@@ -1,0 +1,46 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap">
+<style>
+body{margin:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+.cover{position:relative;width:960px;height:288px;overflow:hidden;background:var(--bg-0)}
+.cover svg{position:absolute;left:0;top:0}
+.brand{fill:var(--cyan-brand)}
+.dim{fill:var(--cyan-dim)}
+.ink{fill:var(--fg-0)}
+.surf{fill:var(--bg-3)}
+.ground{fill:var(--bg-0)}
+.name{position:absolute;left:48px;bottom:40px;width:440px}
+.name h1{margin:0;font:300 72px/0.95 var(--font-sans);letter-spacing:-0.015em;color:var(--fg-0)}
+.name p{margin:12px 0 0;font:400 13px/1.4 var(--font-sans);color:var(--fg-2)}
+</style>
+</head>
+<body>
+<div class="cover">
+<!--
+blocks: cyan-brand 160×288 (s-10 + s-6, altura inteira), fg-0 96×80 (s-9 × s-8 + s-4), cyan-dim 96×192 (s-9 × 2·s-9), bg-3 128×160 (s-10 × s-10 + s-6); cantos radius-none
+arrangement: uma laje alta com satélites, sangrando no topo e à direita, tudo à direita de x = 480
+pattern: o motivo da própria marca, dois cortes a 45° em ground (bg-0), s-2 de espessura e s-7 de distância, atravessando os blocos; escolhido porque o README define o DNA como "o corte diagonal a 45° em ciano"
+scales: s-2 8, s-4 16, s-6 32, s-7 48, s-8 64, s-9 96, s-10 128; radius-none 0
+-->
+<svg viewBox="0 0 960 288" width="960" height="288" aria-hidden="true">
+  <rect class="brand" x="544" y="0" width="160" height="288"/>
+  <rect class="ink" x="720" y="0" width="96" height="80"/>
+  <rect class="dim" x="720" y="96" width="96" height="192"/>
+  <rect class="surf" x="832" y="0" width="128" height="160"/>
+  <g transform="rotate(-45 752 144)">
+    <rect class="ground" x="400" y="116" width="704" height="8"/>
+    <rect class="ground" x="400" y="164" width="704" height="8"/>
+  </g>
+</svg>
+<div class="name">
+  <h1>RBX Design<br>System</h1>
+  <p>Escuro por padrão, um acento, três faixas de navegação.</p>
+</div>
+</div>
+</body>
+</html>

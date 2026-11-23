@@ -1,0 +1,1074 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Máquina de Vendas RBX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --ground:#0A0A0B; --raised:#0F1012; --card:#15161A; --line:#26272C; --line-strong:#33343A;
+  --fg:#F5F5F3; --fg-2:#B4B5B8; --fg-3:#7C7E84;
+  --accent:#D9CBA3; --accent-ink:#0A0A0B; --accent-tint:rgba(217,203,163,.10); --accent-line:rgba(217,203,163,.38);
+  --ok:#7FB77E; --warn:#D9B55A; --err:#C56A6A;
+  --ok-tint:rgba(127,183,126,.12); --warn-tint:rgba(217,181,90,.12); --err-tint:rgba(197,106,106,.12);
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --prose:44rem; --wide:72rem;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme: light;
+    --ground:#F4F3EF; --raised:#ECEAE4; --card:#FBFAF7; --line:#DCD9D1; --line-strong:#C6C2B8;
+    --fg:#141518; --fg-2:#3F4146; --fg-3:#686A70;
+    --accent:#7A6A3C; --accent-ink:#FBFAF7; --accent-tint:rgba(122,106,60,.09); --accent-line:rgba(122,106,60,.45);
+    --ok:#3E7A3D; --warn:#86660F; --err:#9A3D3D;
+    --ok-tint:rgba(62,122,61,.10); --warn-tint:rgba(134,102,15,.10); --err-tint:rgba(154,61,61,.10);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --ground:#F4F3EF; --raised:#ECEAE4; --card:#FBFAF7; --line:#DCD9D1; --line-strong:#C6C2B8;
+  --fg:#141518; --fg-2:#3F4146; --fg-3:#686A70;
+  --accent:#7A6A3C; --accent-ink:#FBFAF7; --accent-tint:rgba(122,106,60,.09); --accent-line:rgba(122,106,60,.45);
+  --ok:#3E7A3D; --warn:#86660F; --err:#9A3D3D;
+  --ok-tint:rgba(62,122,61,.10); --warn-tint:rgba(134,102,15,.10); --err-tint:rgba(154,61,61,.10);
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#0A0A0B; --raised:#0F1012; --card:#15161A; --line:#26272C; --line-strong:#33343A;
+  --fg:#F5F5F3; --fg-2:#B4B5B8; --fg-3:#7C7E84;
+  --accent:#D9CBA3; --accent-ink:#0A0A0B; --accent-tint:rgba(217,203,163,.10); --accent-line:rgba(217,203,163,.38);
+  --ok:#7FB77E; --warn:#D9B55A; --err:#C56A6A;
+  --ok-tint:rgba(127,183,126,.12); --warn-tint:rgba(217,181,90,.12); --err-tint:rgba(197,106,106,.12);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--fg);font-family:var(--sans);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;padding-inline:20px;padding-block:0 64px}
+a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.wrap{max-width:var(--wide);margin:0 auto}
+.prose{max-width:var(--prose)}
+.eyebrow,.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);font-weight:500}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{font-weight:300;letter-spacing:-.015em;text-wrap:balance;margin:0;color:var(--fg)}
+h1{font-size:clamp(2.1rem,5.2vw,3.6rem);line-height:1.08}
+h2{font-size:clamp(1.55rem,3vw,2.1rem);line-height:1.2;font-weight:300}
+h3{font-size:1.1rem;font-weight:500;letter-spacing:0;line-height:1.35}
+p{margin:0;color:var(--fg-2)}
+p strong,li strong,td strong{color:var(--fg);font-weight:500}
+ul,ol{margin:0;padding-left:1.15rem;color:var(--fg-2)}
+li+li{margin-top:.45rem}
+
+/* header */
+header.top{padding-block:56px 36px;border-bottom:1px solid var(--line)}
+header.top .eyebrow{display:flex;flex-wrap:wrap;gap:6px 14px}
+header.top h1{margin-top:18px}
+header.top .lead{margin-top:18px;font-size:1.15rem;font-weight:300;color:var(--fg);max-width:46rem}
+.meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 9px;border:1px solid var(--line-strong);border-radius:2px;color:var(--fg-2);white-space:nowrap}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);margin-inline:-20px;padding-inline:20px}
+nav.toc .inner{max-width:var(--wide);margin:0 auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.toc .inner::-webkit-scrollbar{display:none}
+nav.toc a{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);text-decoration:none;padding:12px 10px;white-space:nowrap;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* answer */
+.answer{padding-block:40px 8px;display:grid;gap:0}
+.answer .row{display:grid;grid-template-columns:11rem 1fr;gap:6px 28px;padding-block:16px;border-top:1px solid var(--line)}
+.answer .row:first-child{border-top:0}
+.answer .row p{color:var(--fg);font-size:1.02rem}
+.answer .row p span{color:var(--fg-2)}
+.answer .label{padding-top:4px;color:var(--accent)}
+@media (max-width:640px){.answer .row{grid-template-columns:1fr}}
+
+.facts{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;background:var(--raised)}
+.facts > div{padding:18px 20px;border-left:1px solid var(--line)}
+.facts > div:first-child{border-left:0}
+.facts .num{display:block;font-size:1.5rem;color:var(--fg);letter-spacing:-.01em;margin-top:6px}
+.facts p{font-size:.9rem;margin-top:6px}
+@media (max-width:760px){.facts{grid-template-columns:1fr}.facts > div{border-left:0;border-top:1px solid var(--line)}.facts > div:first-child{border-top:0}}
+
+/* sections */
+section.s{padding-block:64px 8px;border-top:1px solid var(--line);margin-top:48px;scroll-margin-top:48px}
+section.s > .head{display:grid;gap:10px;margin-bottom:26px}
+section.s > .head .eyebrow{color:var(--accent)}
+.stack{display:grid;gap:18px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:860px){.two,.three{grid-template-columns:1fr}}
+.panel{border:1px solid var(--line);border-radius:4px;padding:20px 22px;background:var(--raised)}
+.panel h3{margin-bottom:10px}
+.panel .label{display:block;margin-bottom:8px}
+.note{font-size:.9rem;color:var(--fg-3)}
+.pull{border-left:1px solid var(--accent);padding:4px 0 4px 20px;font-size:1.2rem;font-weight:300;color:var(--fg);line-height:1.5;max-width:48rem}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+th,td{text-align:left;vertical-align:top;padding:11px 14px;border-top:1px solid var(--line)}
+thead th{border-top:0;background:var(--raised);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);font-weight:500}
+td{color:var(--fg-2)}
+td.k{color:var(--fg);font-weight:500}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr.hl td{background:var(--accent-tint)}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid var(--line-strong);color:var(--fg-2);white-space:nowrap}
+.tag.ok{border-color:transparent;background:var(--ok-tint);color:var(--ok)}
+.tag.warn{border-color:transparent;background:var(--warn-tint);color:var(--warn)}
+.tag.err{border-color:transparent;background:var(--err-tint);color:var(--err)}
+.tag.acc{border-color:transparent;background:var(--accent-tint);color:var(--accent)}
+
+/* layers */
+.layer{display:grid;grid-template-columns:9rem 1fr;gap:18px;padding-block:18px;border-top:1px solid var(--line)}
+.layer:first-child{border-top:0;padding-top:0}
+@media (max-width:640px){.layer{grid-template-columns:1fr;gap:8px}}
+
+/* cadence */
+.cad{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.cad div{padding:14px 14px;border-left:1px solid var(--line);background:var(--raised)}
+.cad div:first-child{border-left:0}
+.cad .num{display:block;color:var(--accent);font-size:.8rem}
+.cad p{font-size:.86rem;margin-top:6px}
+@media (max-width:860px){.cad{grid-template-columns:repeat(2,minmax(0,1fr))}.cad div:nth-child(odd){border-left:0}.cad div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* qualification */
+ol.q{padding-left:1.4rem;display:grid;gap:6px}
+ol.q li{margin:0}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,22rem) minmax(0,1fr);gap:0;border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}
+.calc .in{padding:20px 22px;background:var(--raised);border-right:1px solid var(--line);display:grid;gap:14px;align-content:start}
+.calc .out{padding:20px 22px;background:var(--card)}
+@media (max-width:860px){.calc{grid-template-columns:1fr}.calc .in{border-right:0;border-bottom:1px solid var(--line)}}
+.field{display:grid;gap:6px}
+.field .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.field label{font-size:.86rem;color:var(--fg-2)}
+.field output{font-family:var(--mono);font-size:.86rem;color:var(--fg)}
+input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+.seg{display:flex;border:1px solid var(--line-strong);border-radius:2px;overflow:hidden}
+.seg button{flex:1;background:transparent;color:var(--fg-2);border:0;border-left:1px solid var(--line-strong);padding:8px 0;font-family:var(--mono);font-size:13px;cursor:pointer}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.mixbar{display:flex;height:6px;border-radius:1px;overflow:hidden;background:var(--line)}
+.mixbar span{display:block;height:100%}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:4px}
+.res div{padding:14px 16px;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.res div:nth-child(3n+1){border-left:0}
+.res div:nth-child(-n+3){border-top:0}
+.res .num{display:block;font-size:1.35rem;color:var(--fg);margin-top:4px}
+.res p{font-size:.8rem;color:var(--fg-3);margin-top:2px}
+@media (max-width:560px){.res{grid-template-columns:repeat(2,minmax(0,1fr))}.res div{border-left:1px solid var(--line);border-top:1px solid var(--line)}.res div:nth-child(odd){border-left:0}.res div:nth-child(-n+2){border-top:0}.res div:nth-child(3){border-top:1px solid var(--line)}}
+.warns{margin-top:14px;display:grid;gap:8px}
+.warns div{font-size:.86rem;padding:9px 12px;border-radius:2px}
+.warns .w{background:var(--warn-tint);color:var(--warn)}
+.warns .e{background:var(--err-tint);color:var(--err)}
+.warns .o{background:var(--ok-tint);color:var(--ok)}
+
+/* timeline */
+.tl{display:grid;gap:0;border-left:1px solid var(--line-strong);margin-left:6px}
+.tl .step{position:relative;padding:0 0 26px 26px}
+.tl .step::before{content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;border-radius:999px;background:var(--ground);border:1px solid var(--accent)}
+.tl .step.gate::before{background:var(--accent)}
+.tl .when{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tl p{margin-top:6px}
+.tl .g{margin-top:10px;font-size:.88rem;padding:9px 12px;border:1px solid var(--accent-line);border-radius:2px;color:var(--fg)}
+
+/* bars */
+.bars{display:grid;gap:12px}
+.bar{display:grid;grid-template-columns:12rem 1fr 3.2rem;gap:14px;align-items:center}
+.bar .t{font-size:.9rem;color:var(--fg)}
+.bar .t small{display:block;color:var(--fg-3);font-size:.78rem}
+.bar .track{height:10px;background:var(--line);border-radius:1px;position:relative}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--fg-3);border-radius:1px}
+.bar.win .fill{background:var(--accent)}
+.bar .v{font-family:var(--mono);font-size:.9rem;text-align:right;color:var(--fg)}
+.scale{display:grid;grid-template-columns:12rem 1fr 3.2rem;gap:14px;font-family:var(--mono);font-size:10.5px;color:var(--fg-3)}
+.scale .ticks{display:flex;justify-content:space-between}
+@media (max-width:640px){.bar,.scale{grid-template-columns:7.5rem 1fr 2.6rem;gap:10px}}
+
+/* decisions */
+.dec{display:grid;gap:0;border:1px solid var(--line);border-radius:4px}
+.dec label{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:16px 18px;border-top:1px solid var(--line);cursor:pointer}
+.dec label:first-child{border-top:0}
+.dec input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px}
+.dec strong{display:block;color:var(--fg);font-weight:500}
+.dec span{color:var(--fg-2);font-size:.92rem}
+.dec input:checked + div strong{color:var(--fg-3);text-decoration:line-through;text-decoration-color:var(--fg-3)}
+
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:14px}
+footer p{font-size:.86rem;color:var(--fg-3)}
+.src{columns:2 22rem;column-gap:32px;font-size:.86rem}
+.src li{break-inside:avoid;margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+html{scroll-behavior:smooth}
+</style>
+<style>
+.f{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.f.forte{color:var(--ok)} .f.media{color:var(--fg-2)} .f.fraca{color:var(--warn)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:.84rem;color:var(--fg-3)}
+.sens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:4px;margin-top:20px}
+.sens div{padding:14px 16px;border-left:1px solid var(--line)}
+.sens div:first-child{border-left:0}
+.sens p{font-size:.88rem;margin-top:6px}
+@media (max-width:760px){.sens{grid-template-columns:1fr}.sens div{border-left:0;border-top:1px solid var(--line)}.sens div:first-child{border-top:0}}
+</style>
+
+
+<style>
+.gl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin:0}
+.gl div{padding:14px 0;border-top:1px solid var(--line)}
+.gl dt{font-weight:500;color:var(--fg)}
+.gl dd{margin:4px 0 0;color:var(--fg-2);font-size:.92rem}
+@media (max-width:760px){.gl{grid-template-columns:1fr}}
+.grid-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.grid-in{grid-template-columns:1fr}}
+.field input[type=number]{width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line-strong);border-radius:2px;padding:7px 9px;font-family:var(--mono);font-size:.9rem}
+.okr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.okr{grid-template-columns:1fr}}
+.okr .panel ol{padding-left:1.1rem;margin-top:8px}
+.okr .panel li{font-size:.9rem}
+.pos{color:var(--ok)} .neg{color:var(--err)}
+</style>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow"><span>RBX Systems</span><span>Vertical de Serviços</span><span>Blueprint v3 · 2026-09-26</span></div>
+  <h1>Máquina de Vendas de Serviços</h1>
+  <p class="lead">Como a RBX conquista os primeiros clientes de IA em produção sem depender de tráfego pago, o que testar nas duas primeiras semanas, quanto isso retorna e como virar metas de domingo no FlightDeck.</p>
+  <div class="meta">
+    <span class="chip">11 dimensões pesquisadas</span>
+    <span class="chip">20 afirmações verificadas</span>
+    <span class="chip">5 planos concorrentes</span>
+    <span class="chip">3 juízes</span>
+    <span class="chip">1 crítica de completude</span>
+  </div>
+</header>
+</div>
+
+<nav class="toc" aria-label="Seções">
+  <div class="inner">
+    <a href="#resposta">Resposta</a>
+    <a href="#testes">Semana 0 e testes</a>
+    <a href="#achados">Achados</a>
+    <a href="#pago">Tráfego pago</a>
+    <a href="#nichos">Nichos</a>
+    <a href="#marca">Marca</a>
+    <a href="#ofertas">Ofertas</a>
+    <a href="#canais">Canais</a>
+    <a href="#maquina">Máquina</a>
+    <a href="#criativos">Criativos</a>
+    <a href="#funil">Funil</a>
+    <a href="#roadmap">90 dias</a>
+    <a href="#riscos">Riscos</a>
+    <a href="#2027">2027</a>
+    <a href="#decisoes">Decisões</a>
+    <a href="#glossario">Glossário</a>
+    <a href="#lacunas">Lacunas</a>
+    <a href="#painel">Painel</a>
+    <a href="#fontes">Fontes</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="resposta" class="answer" aria-label="Resposta direta">
+  <div class="row"><span class="label">Tráfego pago</span><p>Não serve como motor agora. <span>R$150 por semana compra dado, não cliente: 36 a 160 cliques e 2 a 4 formulários por mês no Google Search Brasil. Estimativa interna, não verificada: mídia só vira fonte de reuniões na faixa de R$3 mil a 6 mil por mês, e só depois de existir página com preço e case publicado.</span></p></div>
+  <div class="row"><span class="label">Canais</span><p>São outros. <span>O Satwake vive de Meta, busca B2C, X e YouTube, com ciclo de dias. Serviços vivem de indicação, LinkedIn, outbound pequeno e busca de intenção, com CPC de R$4 a 18 no Google e R$15 a 60 no LinkedIn e ciclo de 60 a 180 dias. Compartilha-se infraestrutura; nunca contas, pixels, públicos ou número de WhatsApp.</span></p></div>
+  <div class="row"><span class="label">O foco</span><p>IA em produção, no padrão RBX. <span>Fluxos de negócio com LLM, gateway de modelos com orçamento e auditoria e agentes orquestrados com governança, construídos com GitHub, ArgoCD, k3s, Go, Svelte e Postgres, operados na infra da RBX ou na infra do cliente, com o time do cliente aprendendo junto.</span></p></div>
+  <div class="row"><span class="label">A aposta</span><p>A porta de entrada é uma revisão paga, com preço público. <span>Production Readiness Review de IA: R$12 a 18 mil em duas semanas, 50% creditado no projeto seguinte. Vendida por indicação, conteúdo do fundador e outbound operado pela Flavia, com a semana planejada todo domingo no FlightDeck.</span></p></div>
+  <div class="row"><span class="label">A meta</span><p>1 cliente pagante em 6 meses é plausível com R$600 por mês, se os três testes passarem. <span>Três exigem que as taxas hipotéticas se confirmem. Com 40 horas por semana, a capacidade comporta de 3 a 5 clientes, com um projeto grande por vez. O plano vencedor se deu 70% de chance para 1 cliente; nenhum juiz validou esse número.</span></p></div>
+  <div class="row"><span class="label">Cliente, aqui</span><p>É contrato pago de ao menos uma Review. <span>Barra mais baixa que a meta anterior de 3 parcerias. Uma Review vira projeto em 30 a 50% dos casos, por hipótese.</span></p></div>
+  <div class="row"><span class="label">O gargalo</span><p>Execução, não mercado nem capacidade. <span>O plano de growth de 2026 H2 teve 25 semanas de calendário e 0% executado. Por isso tudo aqui vira meta semanal agendada no FlightDeck, com critério de abandono.</span></p></div>
+
+  <div class="facts">
+    <div><span class="label">R$150 por semana no Google BR</span><span class="num">36 a 160 cliques</span><p>2 a 4 formulários por mês; menos de um lead qualificado.</p></div>
+    <div><span class="label">Canal nº 1 de agências no Brasil</span><span class="num">Indicação, 28%</span><p>Prospecção ativa 20%, parcerias 17%. RD Station 2026, n=349 agências.</p></div>
+    <div><span class="label">Capacidade com 40 h por semana</span><span class="num">3 a 5 clientes</span><p>Em 6 meses, se a maioria começar por Review e houver um projeto grande por vez.</p></div>
+  </div>
+</section>
+
+<section id="testes" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 01 · Semana 0 e os três testes</span>
+    <h2>Antes de qualquer canal, quatro números e três testes baratos</h2>
+    <p>As taxas do funil são quase todas hipóteses. Duas semanas e menos de R$500 trocam as três mais pesadas por dados.</p>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <span class="label">Semana 0 · domingo, no FlightDeck</span>
+      <p>Quatro números antes de começar:</p>
+      <ol style="margin-top:10px">
+        <li><strong>Horas:</strong> cerca de 40 por semana para serviços. Falta confirmar se o cliente italiano está dentro ou fora delas.</li>
+        <li><strong>SDR:</strong> a Flavia, com contratação prevista. Faltam valor, horas por semana e data de início.</li>
+        <li><strong>Meses de caixa:</strong> por quantos meses a RBX paga as contas sem receita nova. O primeiro dinheiro de cliente novo só entra entre as semanas 8 e 12.</li>
+        <li><strong>Nomes pedíveis:</strong> quantas pessoas você conhece bem o bastante para pedir "me apresenta a fulano?". É o tamanho real do canal de indicação.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <span class="label">Conformidade desde o dia 1</span>
+      <ul>
+        <li>O perfil do LinkedIn do fundador só é operado por ele. A SDR prospecta pelo próprio perfil.</li>
+        <li>Postmark fica fora do outbound: os termos dele exigem listas por permissão. E-mail frio sai de caixas num domínio secundário, com um sequenciador feito para isso.</li>
+        <li>Coleta manual de contatos, com URL de origem registrada. Base de terceiros só para verificar e-mail, declarada como fonte no LIA.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl" style="margin-top:24px"><table>
+    <thead><tr><th>Teste</th><th>O que testa</th><th>Como</th><th>Passa se</th><th>Se falhar</th></tr></thead>
+    <tbody>
+      <tr><td class="k">E1 · Rede quente</td><td>A premissa de maior peso: indicação com metade dos contratos e 15% de pedido para apresentação</td><td>Planilha em três anéis, com a empresa que cada pessoa pode apresentar. 30 pedidos do perfil do fundador, cada um com empresa nomeada</td><td>60 ou mais nomes; 5 ou mais apresentações; 3 reuniões até o dia 21</td><td>Menos de 40 nomes ou até 2 apresentações: indicação cai para no máximo 20% e o outbound vira o motor</td></tr>
+      <tr><td class="k">E2 · Preço com dinheiro</td><td>Se R$12 a 18 mil é preço brasileiro</td><td>Página /diagnostico com Review a R$15 mil e Clínica de R$1.500 paga antes; oferta às conversas de E1 e E3 e a 20 contatos quentes</td><td>1 Clínica paga ou 1 Review aceita, e 3 de 8 conversas dizendo que cabe no trimestre</td><td>Testar Review de R$6 a 9 mil antes de escalar. Menos de 8 conversas: estender uma semana</td></tr>
+      <tr><td class="k">E3 · Micro-lote e busca</td><td>O 1,25% de contato para reunião, o nicho, e se existe busca</td><td>50 contas com porte rechecado, um decisor cada; convite e uma mensagem manual pela SDR. Uma hora de Keyword Planner com 40 termos</td><td>Aceite de 30%; 3 respostas positivas; 1 reunião. Busca: 300 ou mais buscas exatas por mês com lance de topo até R$20</td><td>Reescrever gancho e rever nicho. Abaixo do corte de busca, Google Search sai de 2026</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note prose" style="margin-top:12px">Regra comum: fundador e SDR registram horas reais. Com o fundador abaixo de 6 horas por semana, o teste mede execução, não mercado.</p>
+</section>
+
+<section id="achados" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 02 · O que a pesquisa verificada mudou</span>
+    <h2>Doze fatos, na forma corrigida e com a força declarada</h2>
+    <p>Cada afirmação decisiva passou por dois testes: a fonte diz isso mesmo, e o número vale para uma boutique brasileira pequena em 2026. Nenhuma saiu intacta.</p>
+    <div class="legend"><span><span class="f forte">Forte</span> fonte primária com metodologia</span><span><span class="f media">Média</span> primária, mas de outro país, porte ou setor</span><span><span class="f fraca">Fraca</span> fornecedor, agência ou hipótese</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th style="width:52%">Achado</th><th>Força</th><th>Consequência para a RBX</th></tr></thead>
+    <tbody>
+      <tr><td>Indicação é o canal nº 1 de agências e consultorias no Brasil, com 28%; prospecção ativa 20%; marketing digital 18%; parcerias 17% (RD Station 2026, n=349).</td><td><span class="f media">Média</span></td><td class="k">Indicação lidera, mas como pluralidade, não maioria.</td></tr>
+      <tr><td>51,9% dos compradores de serviços profissionais já descartaram uma firma indicada antes de conversar; o motivo mais citado, 43,6%, foi não entender como ela ajudaria (Hinge 2015, n=523, EUA).</td><td><span class="f media">Média</span></td><td class="k">Oferta nomeada e página publicada antes de pedir indicação.</td></tr>
+      <tr><td>O primeiro contato acontece com 61% da jornada percorrida, e o primeiro fornecedor contatado vence 77% das vezes (6sense 2025, empresas médias e grandes).</td><td><span class="f media">Média</span></td><td class="k">Expertise visível e quem apresenta cedo valem mais que outbound frio.</td></tr>
+      <tr><td>Cold e-mail em massa responde 0,45%, incluindo negativas (Belkins, 7,5 milhões de e-mails). Em 150 a 300 contatos por mês, com LinkedIn, a síntese de fornecedores indica 1 a 6 reuniões por mês; não há dado brasileiro.</td><td><span class="f fraca">Fraca</span></td><td class="k">Outbound em lotes de 50; a taxa é testada em E3.</td></tr>
+      <tr><td>Propostas formais fecham 36% (Proposify); serviços de TI cerca de 32%; logo novo frio cerca de 19% (Ebsta, segunda mão).</td><td><span class="f media">Média</span></td><td class="k">Review quente 35 a 45%; fria 20 a 25%.</td></tr>
+      <tr><td>Nenhuma das 13 boutiques brasileiras visitadas publica preço no próprio site; boutiques suíças pequenas publicam faixas; SaaS de agentes anunciam R$150 a 997 por mês.</td><td><span class="f media">Média</span></td><td class="k">Publicar piso, escopo e prazo das ofertas produtizadas; nunca preço mensal de "agente de IA".</td></tr>
+      <tr><td>Sênior generalista no Brasil vale R$150 a 250 por hora; R$250 a 400 com posicionamento de especialista (13 fontes, todas de fornecedores).</td><td><span class="f fraca">Fraca</span></td><td class="k">Vender pacote e ciclo, nunca hora.</td></tr>
+      <tr><td>17% das empresas brasileiras com 10 ou mais pessoas usaram IA em 2025; 15% das pequenas. Das usuárias, 80% compraram software pronto e 54% pagaram terceiros para desenvolver ou adaptar (Cetic 2025).</td><td><span class="f forte">Forte</span></td><td class="k">O comprador de engenharia de IA é o SaaS que embute IA e a média empresa.</td></tr>
+      <tr><td>42% das empresas abandonaram a maioria das iniciativas de IA em 2025, contra 17% no ano anterior (S&amp;P Global); 25% levaram 40% ou mais dos pilotos a produção (Deloitte 2026). O "95%" do MIT mede outra coisa.</td><td><span class="f forte">Forte</span></td><td class="k">"Do piloto à produção" é descritor forte para SaaS e médias empresas.</td></tr>
+      <tr><td>VC no Brasil: US$350 milhões no segundo trimestre de 2026, 11% abaixo do ano anterior (Crunchbase). A queda de 76% que circulou não se sustenta.</td><td><span class="f forte">Forte</span></td><td class="k">Startup financiada é alvo oportunista.</td></tr>
+      <tr><td>A demanda brasileira visível por "consertar app Lovable" é de ticket baixo, com 60 a 123 propostas por vaga em marketplace. A Lovable abriu programa de parceiros em 09/09/2026.</td><td><span class="f media">Média</span></td><td class="k">App gerado por IA é porta de entrada filtrada por ticket.</td></tr>
+      <tr><td>O Regulamento (UE) 2026/1744 está em vigor desde 27/07/2026; o art. 50 aplica-se desde 02/08/2026; o alto risco do Anexo III, em 02/12/2027.</td><td><span class="f forte">Forte</span></td><td class="k">Gancho regulatório para a Itália agora e para a Suíça em 2027.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="pago" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 03 · Tráfego pago e o Satwake</span>
+    <h2>O que R$150 por semana compra, e quando a mídia liga</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Canal</th><th>R$650 por mês compra</th><th>Faixa para virar fonte de reuniões</th><th>Canal do Satwake?</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Google Search Brasil <span class="f fraca">CPC R$4 a 18</span></td><td>36 a 160 cliques; 2 a 4 formulários</td><td>R$1,5 mil a 3 mil em teste; R$3 mil a 8 mil em geração (agências, não verificado)</td><td><span class="tag">conta separada</span></td></tr>
+      <tr><td class="k">LinkedIn Ads Brasil <span class="f fraca">CPC R$15 a 60</span></td><td>11 a 43 cliques; reunião a R$800 a 2.000</td><td>R$3 mil a 5 mil por 90 dias (agência)</td><td><span class="tag">não</span></td></tr>
+      <tr><td class="k">LinkedIn Thought Leader Ads</td><td>Só em rajadas: R$650 por mês fica abaixo do mínimo diário citado de USD 10</td><td>Rajada de 2 a 3 semanas a partir de cerca de R$1.500, com público mínimo (300 membros é o número citado, não confirmado)</td><td><span class="tag">não</span></td></tr>
+      <tr><td class="k">Meta</td><td>4 a 13 leads, em geral desqualificados</td><td>Só retargeting, com 500 ou mais visitantes em 30 dias</td><td><span class="tag acc">sim</span></td></tr>
+      <tr><td class="k">X, YouTube, TikTok, Reddit</td><td>Alcance sem lead B2B mensurável</td><td>Não recomendado para serviços</td><td><span class="tag acc">sim</span></td></tr>
+      <tr><td class="k">Google Search Itália</td><td>Poucos cliques</td><td>EUR 1.000 a 1.500 por mês</td><td><span class="tag">não</span></td></tr>
+      <tr><td class="k">Suíça, busca e LinkedIn</td><td>3 a 37 cliques</td><td>CHF 1.500 a 3.000; sem presença local o descarte é alto</td><td><span class="tag">não</span></td></tr>
+      <tr><td class="k">Diretórios (Clutch, Sortlist)</td><td>Perfil gratuito com reviews</td><td>Pago só com 5 ou mais reviews</td><td><span class="tag">não</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="two" style="margin-top:28px">
+    <div class="stack prose">
+      <h3>Duas correções que mudam a leitura</h3>
+      <p>As 30 conversões em 30 dias do Google são critério para <strong>avaliar</strong> Target CPA, não pré-requisito, segundo a página oficial. Com CPC manual, correspondência exata e conversões offline, R$600 por mês rodam sem período de aprendizado e medem CPC real e volume.</p>
+      <p>O custo por cliente via LinkedIn Ads na base Metadata (SaaS B2B dos EUA, empresas-alvo de 51 a 200 funcionários, n=29) foi de <strong>USD 30,7 mil</strong>. É teto de referência, não previsão.</p>
+    </div>
+    <div class="panel">
+      <span class="label">Com o Satwake</span>
+      <p><strong>Compartilha:</strong> conta administradora do Google Ads, Business Manager do Meta (se a política de cripto permitir), faturamento, motor de criativos, Plausible, eventos server-side, método e relatório.</p>
+      <p style="margin-top:10px"><strong>Separa:</strong> conta de anúncio, pixel, Insight Tag, públicos, UTM, P&amp;L e, a partir de 20 conversas por mês, número e WABA do WhatsApp.</p>
+      <p class="note" style="margin-top:10px">WhatsApp agora pela Meta. Se serviços usarem o mesmo Business Manager ou número do Satwake, um erro em serviços derruba a vertical SaaS.</p>
+    </div>
+  </div>
+</section>
+
+<section id="nichos" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 04 · Nichos e mercados</span>
+    <h2>Um problema, dois compradores, três mercados</h2>
+  </div>
+  <div class="three">
+    <div class="panel"><span class="label">Brasil</span><h3>Pista de volume</h3><p>Idioma, rede, e-mail frio B2B defensável por legítimo interesse, comunidades gratuitas.</p></div>
+    <div class="panel"><span class="label">Itália</span><h3>Pista de prova europeia</h3><p>Onde está o único cliente real. Só por indicação dele, LinkedIn e Italian Tech Alliance; e-mail frio exige consentimento.</p></div>
+    <div class="panel"><span class="label">Suíça e DACH</span><h3>Relacionamento</h3><p>Página em inglês, preços em CHF, comunidades gratuitas. Sem gasto até o terceiro contrato europeu.</p></div>
+  </div>
+  <p class="pull" style="margin-top:32px">O problema: IA que já existe na empresa e precisa ir para produção com controle de custo, dados e qualidade.</p>
+  <div class="two" style="margin-top:22px">
+    <div class="panel"><span class="label">Pista de ticket</span><h3>Empresa média com IA em uso ou piloto travado</h3><p>100 a 1.000 pessoas. Dor: custo de LLM sem controle, dados sensíveis passando por modelos, fluxo que precisa de avaliação, WhatsApp com LLM. Comprador: CTO, head de dados ou diretor de operações. Ciclo mais longo, contrato maior.</p></div>
+    <div class="panel"><span class="label">Pista de velocidade</span><h3>SaaS B2B founder-led com IA no produto</h3><p>5 a 50 pessoas no Brasil, 10 a 60 no norte da Itália. Dor: feature de IA sem avaliação, custo por chamada, dívida técnica. Comprador: fundador ou CTO. Ciclo curto.</p></div>
+  </div>
+  <p class="prose" style="margin-top:16px">A favor da pista de ticket: 86% das empresas com mais de 100 funcionários vão ampliar o orçamento de TI em 2026, e IA generativa e agentes são a prioridade de 53% (ABES e IDC, 107 decisores). Entre as médias empresas brasileiras, 32% já usam IA (Cetic 2025). Contra: contratos acima de R$50 mil levam de 3 a 9 meses para fechar (opinião de consultoria) e passam por comitê. Por isso a Review é a entrada nas duas pistas.</p>
+  <div class="tbl" style="margin-top:24px"><table>
+    <thead><tr><th>Comprador</th><th class="num">Nota</th><th>Papel</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td class="k">Empresa média com IA em uso ou piloto travado</td><td class="num">8</td><td>Pista de ticket</td></tr>
+      <tr class="hl"><td class="k">SaaS B2B founder-led com IA no produto</td><td class="num">7,5</td><td>Pista de velocidade</td></tr>
+      <tr><td class="k">Fundador com app gerado por IA e usuários pagantes</td><td class="num">9, rebaixado</td><td>Porta de entrada filtrada por ticket</td></tr>
+      <tr><td class="k">SaaS italiano parecido com o cliente atual</td><td class="num">8</td><td>Pista europeia por indicação</td></tr>
+      <tr><td class="k">Software houses de 5 a 30 pessoas, IA e plataforma em marca branca</td><td class="num">6</td><td>Opção de ciclo curto</td></tr>
+      <tr><td class="k">Contabilidades médias, franqueadoras, PMEs com ERP</td><td class="num">7 a 8</td><td>Parceiros de canal em 2027: indicam, não compram</td></tr>
+      <tr><td class="k">Startups com funding</td><td class="num">7</td><td>Oportunista: não se prospecta; se chegar, atende</td></tr>
+      <tr><td class="k">Corporate, agro, fintech regulada</td><td class="num">5,5 a 6</td><td>Fora: não se persegue nestes 6 meses</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="prose" style="margin-top:16px">
+    <li>As 5 contas da lista antiga (Logcomex, Involves, Superlógica, Convenia, Aegro) podem servir à pista de ticket; rechecar porte e se há IA em uso.</li>
+    <li>Lista nova a partir de páginas públicas de aceleradoras, comunidades e associações setoriais, com URL de origem.</li>
+    <li>Critérios de recusa, publicados: nenhuma IA em uso nem plano concreto; app sem usuário pagante; orçamento abaixo de R$10 mil; busca de hora de freelancer; decisor ausente; CNPJ negativado. Serviços concentram 55,8% das empresas inadimplentes no Brasil.</li>
+  </ul>
+</section>
+
+<section id="marca" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 05 · Posicionamento e marca</span>
+    <h2>RBX Systems vende agora; a marca nova espera o terceiro cliente</h2>
+  </div>
+  <p class="pull">A RBX Systems é a boutique de engenharia com padrão suíço que coloca IA em produção: fluxos de negócio com LLM, gateway de modelos com orçamento e auditoria e agentes orquestrados com governança, operados na infra da RBX ou na infra soberana do cliente, com o time do cliente aprendendo junto.</p>
+  <div class="two" style="margin-top:32px">
+    <div class="stack">
+      <div><span class="label">Descritor sob o logo</span><p style="margin-top:6px;color:var(--fg)">Engenharia de IA em produção · AI Production Engineering</p><p class="note" style="margin-top:6px">Substitui o catálogo de 16 serviços genéricos, que dilui a mensagem.</p></div>
+      <div><span class="label">Fase 1 · até o terceiro cliente</span><p style="margin-top:6px">RBX Systems vende em rbx.ia.br e rbxsystems.ch; o rosto é o perfil do fundador; cripto sai do perfil pessoal e vai para a conta Satwake.</p></div>
+      <div><span class="label">Fase 2 · terceiro cliente ou entidade em Zug</span><p style="margin-top:6px">Sub-marca de serviços endossada "by RBX Systems", domínio próprio, tabela em CHF.</p></div>
+      <p class="note">Por que não marca nova agora: indicação e outbound vendem uma pessoa e uma oferta, não um nome sem histórico. Os três juízes concordaram.</p>
+    </div>
+    <div class="panel">
+      <span class="label">Registrar agora, sem lançar</span>
+      <p>Os .com, .ch e .com.br dos dois nomes preferidos continuavam livres na rechecagem por RDAP de 26/09:</p>
+      <ul style="margin-top:10px">
+        <li><strong>Lorzewerk</strong>: o rio de Zug mais "obra". Sóbrio, sem conflito conhecido.</li>
+        <li><strong>Rigiwerk</strong>: a montanha entre Zug e Lucerna. Mais pronunciável em português.</li>
+      </ul>
+      <p style="margin-top:10px">Menos de USD 130 no primeiro ano. Buscar marca em Swissreg, EUIPO e INPI antes de uso público. O .ch pode exigir endereço de correspondência suíço em 30 dias. O namespace "rbx" está ocupado em rbx.ch, rbx.com.br, rbx.dev e rbx.ai.</p>
+      <p class="note" style="margin-top:10px">zugbrief.com não entra nesta decisão.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ofertas" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 06 · Escada de ofertas</span>
+    <h2>Uma entrada, quatro projetos no padrão RBX, dois modos de operação</h2>
+    <p>Todo projeto usa GitHub, ArgoCD, k3s, Go, Svelte e Postgres e inclui transferência para o time do cliente: runbooks, ADRs e pareamento. Faixas marcadas como hipótese não têm preço de mercado verificado.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Oferta</th><th>Escopo</th><th>Base RBX</th><th class="num">Horas</th><th class="num">Brasil</th><th class="num">Europa</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Diagnóstico rápido</td><td>12 perguntas sobre IA em produção, relatório por e-mail</td><td></td><td class="num">0</td><td class="num">grátis</td><td class="num">grátis</td></tr>
+      <tr><td class="k">Clínica de IA em Produção</td><td>90 min ao vivo sobre um sistema ou repositório, 5 riscos; creditada na Review</td><td></td><td class="num">3 a 4</td><td class="num">R$1.500</td><td class="num">EUR 400</td></tr>
+      <tr class="hl"><td class="k">Production Readiness Review de IA</td><td>fluxos com LLM, custo por chamada, dados e PII, avaliação, agentes, plataforma; scorecard, 10 riscos, roadmap de 90 dias; 50% creditado no projeto</td><td>Thalamus, Verentir</td><td class="num">35 a 45</td><td class="num">R$12 a 18 mil</td><td class="num">EUR 6.500</td></tr>
+      <tr><td class="k">Gateway de LLM</td><td>proxy governado: roteamento de modelos, orçamento por time, cache, fallback, redação de PII, auditoria</td><td>Thalamus sobre LiteLLM</td><td class="num">80 a 120</td><td class="num">R$30 a 60 mil <span class="f fraca">hipótese</span></td><td class="num">EUR 12 a 25 mil</td></tr>
+      <tr><td class="k">Fluxo de negócio com LLM em produção</td><td>um processo com avaliação contratada, guardrails e custo por transação; gate pago na semana 2</td><td>Thalamus, Verentir</td><td class="num">180 a 220</td><td class="num">R$60 a 120 mil</td><td class="num">EUR 25 a 45 mil</td></tr>
+      <tr><td class="k">Orquestração de agentes governada</td><td>vários agentes com papéis separados (executor, revisor, aprovador), gates humanos, trilha de auditoria</td><td>Maestro, Thalamus</td><td class="num">250 a 350</td><td class="num">R$90 a 200 mil <span class="f fraca">hipótese</span></td><td class="num">EUR 35 a 70 mil</td></tr>
+      <tr><td class="k">Plataforma padrão RBX</td><td>GitOps, observabilidade, backup com restore testado, custos</td><td>rbx-infra</td><td class="num">120 a 160</td><td class="num">R$45 a 90 mil</td><td class="num">EUR 18 a 35 mil</td></tr>
+      <tr><td class="k">Operação na infra RBX</td><td>a RBX hospeda e opera: SLO, backup, atualizações; infra repassada</td><td>cluster RBX</td><td class="num">8 a 20 por mês</td><td class="num">R$5 a 20 mil/mês <span class="f fraca">hipótese</span></td><td class="num">EUR 2 a 6 mil</td></tr>
+      <tr><td class="k">Operação soberana</td><td>na infra do cliente, no padrão RBX; suporte e evolução</td><td></td><td class="num">8 a 20 por mês</td><td class="num">R$5 a 20 mil/mês <span class="f fraca">hipótese</span></td><td class="num">EUR 2 a 6 mil</td></tr>
+      <tr><td class="k">Engineering Partnership</td><td>evolução e operação governada, 2 dias por semana, slot único</td><td></td><td class="num">65 por mês</td><td class="num">R$25 a 45 mil/mês <span class="f fraca">hipótese</span></td><td class="num">EUR 8 a 15 mil</td></tr>
+      <tr><td class="k">Head de IA fracionado (advisory)</td><td>8 a 16 h por mês, só para ex-clientes</td><td></td><td class="num">8 a 16 por mês</td><td class="num">R$12 a 25 mil/mês</td><td class="num">EUR 3 a 6 mil</td></tr>
+    </tbody>
+  </table></div>
+  <div class="two" style="margin-top:20px">
+    <div class="stack prose">
+      <p><strong>Capacidade com 40 horas.</strong> Cerca de 9 horas de venda e 31 de entrega. A Review cabe em duas semanas; cabe um projeto grande por vez. Dois projetos grandes em paralelo pedem contratação, de preferência um pleno PJ contra contrato assinado.</p>
+      <p><strong>Faixas de mercado encontradas:</strong> implantação de plano de controle de IA R$30 a 120 mil; projetos de IA em empresas médias R$60 a 300 mil; operação assistida R$5 a 20 mil por mês. A escada contraria o offers.md vigente e precisa de decisão registrada.</p>
+    </div>
+    <div class="panel"><span class="label">Antes de hospedar cliente na infra da RBX</span><p>Operação na infra da RBX é receita recorrente e vitrine do padrão. A revisão de 14/09 apontou Postgres sem backup, esteira de promoção quebrada e exposições de segurança. Hospedar o primeiro cliente exige backup com restore testado, alertas e essas correções feitas e provadas.</p></div>
+  </div>
+</section>
+
+<section id="canais" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 07 · Canais e orçamento</span>
+    <h2>Núcleo, suporte e experimento</h2>
+  </div>
+  <div class="panel" style="padding:24px">
+    <div class="layer"><div><span class="tag acc">Núcleo</span><p class="note" style="margin-top:8px">semanas 1 a 13</p></div>
+      <ul>
+        <li><strong>Página de oferta.</strong> /diagnostico e /diagnostic já existem no código e respondem 404. Publicar com Review, faixas, critérios de recusa e agenda.</li>
+        <li><strong>Indicação.</strong> Planilha em três anéis; 30 pedidos nas semanas 1 e 2 (E1); depois 3 a 5 por semana, limitados pelo tamanho da rede.</li>
+        <li><strong>Conteúdo do fundador.</strong> Três posts por semana a partir dos 34 artigos do Journal, no perfil pessoal. Fornecedores relatam que páginas de empresa perderam 60 a 66% de alcance (sem amostra declarada).</li>
+        <li><strong>Outbound pequeno no Brasil.</strong> LinkedIn pela SDR desde a semana 1; e-mail a partir da semana 7, depois do aquecimento. Teto único: 150 a 300 contatos por mês, cerca de 70 por semana, cerca de 1.100 em 16 semanas de envio.</li>
+      </ul>
+    </div>
+    <div class="layer"><div><span class="tag">Suporte</span></div>
+      <ul>
+        <li><strong>Pista italiana:</strong> case em PT, EN e IT; Italian Tech Alliance; LinkedIn e InMail.</li>
+        <li><strong>Página Trust</strong> em inglês: DPA, SCC, segurança, opção de lei suíça.</li>
+        <li><strong>Parceiros de co-selling</strong> a partir do mês 3, contados como motor de 2027. Fee de 10% do primeiro ano recebido; a mediana citada é 20%.</li>
+        <li><strong>Diretórios gratuitos</strong> com review do cliente atual; cadastro gratuito no programa de parceiros da Lovable.</li>
+      </ul>
+    </div>
+    <div class="layer"><div><span class="tag warn">Experimento</span><p class="note" style="margin-top:8px">só com case e preço visível</p></div>
+      <ul>
+        <li><strong>Google Search de intenção</strong> com CPC manual e conversões offline, se passar no corte de busca de E3.</li>
+        <li><strong>Thought Leader Ads</strong> em rajadas com orçamento total, se a lista atingir o público mínimo.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl" style="margin-top:24px"><table>
+    <thead><tr><th>Por mês</th><th class="num">R$600</th><th class="num">R$2.500</th><th class="num">R$8.000</th></tr></thead>
+    <tbody>
+      <tr><td>Domínio secundário e 2 caixas</td><td class="num">120</td><td class="num">120</td><td class="num">120</td></tr>
+      <tr><td>Sequenciador de e-mail frio (preço a verificar)</td><td class="num">200</td><td class="num">200</td><td class="num">200</td></tr>
+      <tr><td>Verificador de e-mail, API de CNPJ, tokens de LLM</td><td class="num">180</td><td class="num">180</td><td class="num">180</td></tr>
+      <tr><td>Comunidades e eventos</td><td class="num">100</td><td class="num">150</td><td class="num">900</td></tr>
+      <tr><td>Sales Navigator para a SDR</td><td class="num">0</td><td class="num">550</td><td class="num">550</td></tr>
+      <tr><td>Thought Leader Ads, rajada trimestral amortizada</td><td class="num">0</td><td class="num">600</td><td class="num">1.500</td></tr>
+      <tr><td>Google Search de intenção, a partir da semana 9</td><td class="num">0</td><td class="num">700</td><td class="num">2.000</td></tr>
+      <tr><td>Viagem anual Milão ou Zug, amortizada</td><td class="num">0</td><td class="num">0</td><td class="num">1.000</td></tr>
+      <tr><td>Sortlist+, Crypto Valley Association, reserva</td><td class="num">0</td><td class="num">0</td><td class="num">1.550</td></tr>
+      <tr class="hl"><td class="k">Clientes pagantes em 6 meses (juízo, condicionado a E1 a E3)</td><td class="num">0 a 1</td><td class="num">1 a 3</td><td class="num">1 a 3</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose" style="margin-top:14px">Dinheiro não resolve capacidade: por isso R$8.000 não rende mais que R$2.500. <strong>Recomendação:</strong> R$600 por mês nos primeiros 90 dias; R$2.500 só se o gate da semana 9 passar.</p>
+</section>
+
+<section id="maquina" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 08 · Máquina de vendas</span>
+    <h2>Quem faz o quê, com que ferramenta, em que ritmo</h2>
+  </div>
+  <div class="two">
+    <div class="stack">
+      <div><h3>Stack, cerca de R$500 por mês</h3><p style="margin-top:8px">RD Station CRM Free como ponte, com limite de 4 usuários e 200 e-mails por mês, ou Twenty self-hosted. O rbx-relations só entra se o MVP com pipeline, tarefas, timeline e relatório semanal sair em 30 dias. Caixas no domínio secundário com sequenciador próprio; Postmark só para transacional. WhatsApp oficial da Meta só após opt-in. Cal.com. Plausible. Proposta de Review em 1 página; de sprint em 8 a 11 páginas com vídeo de 3 minutos.</p></div>
+      <div><h3>Agentes de IA</h3><p style="margin-top:8px">Analistas e redatores: dossiê por conta, gancho, rascunho, resumo de reunião. Nunca remetentes. Juízo, com fonte fraca: a categoria de SDR autônomo teve banimentos e perda de clientes em 2025.</p></div>
+      <div><h3>LGPD e WhatsApp</h3><p style="margin-top:8px">LIA em três fases; registro por contato com URL de origem, data, base legal e opt-outs; opt-out em toda mensagem; sem raspagem e sem lista comprada. WhatsApp só depois de resposta positiva com número fornecido.</p></div>
+    </div>
+    <div class="stack">
+      <div class="panel"><span class="label">Flavia, SDR · 12 a 15 h por semana</span><p>Dona do CRM, das listas, dos lotes, dos convites pelo próprio perfil, da agenda, do pré e do pós de reunião e do relatório de segunda. Resposta a lead no mesmo dia útil, em até 2 horas nas janelas dela. Para 3 clientes, 15 a 19 horas.</p></div>
+      <div class="panel"><span class="label">Fundador · cerca de 9 h de venda por semana</span>
+        <ul>
+          <li>Domingo: 45 min no FlightDeck para revisar a semana, escolher o lote e agendar posts, pedidos e janelas de reunião; 20 min de aprovação de criativos.</li>
+          <li>Segunda: 30 min com a Flavia.</li>
+          <li>Terça, quinta e sexta: 40 min de post.</li>
+          <li>Terça e quinta: janela de reuniões das 11h às 13h, dois slots cada, um reservado à Itália.</li>
+          <li>Quinta: 30 min de pedidos de indicação já redigidos.</li>
+          <li>Sexta: 90 min de propostas. Todo dia: 10 min de DMs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:36px;margin-bottom:14px">Cadência de outbound, lote de 50 contas por semana</h3>
+  <div class="cad">
+    <div><span class="num">Dia 1</span><p>Convite no LinkedIn, do perfil da SDR</p></div>
+    <div><span class="num">Dia 2</span><p>E-mail de 70 palavras com gancho da conta e uma pergunta</p></div>
+    <div><span class="num">Dia 5</span><p>E-mail com um artigo do Journal ou o case</p></div>
+    <div><span class="num">Dia 9</span><p>Mensagem no LinkedIn</p></div>
+    <div><span class="num">Dia 16</span><p>E-mail com a Review, preço, prazo e crédito</p></div>
+    <div><span class="num">Dia 23</span><p>Encerramento cordial</p></div>
+  </div>
+  <p class="note" style="margin-top:10px">Reunião marcada na próxima janela do fundador, terça ou quinta. No-show recuperado em 48 horas.</p>
+  <div class="two" style="margin-top:32px">
+    <div><h3 style="margin-bottom:12px">Qualificação: 8 perguntas, nota mínima 7 de 10</h3>
+      <ol class="q">
+        <li>O que está em produção hoje, e quem opera quando cai?</li>
+        <li>O que mudou nos últimos 60 dias?</li>
+        <li>Se nada mudar em seis meses, o que acontece com receita, cliente ou time?</li>
+        <li>Quem já tentou resolver, e por que parou?</li>
+        <li>Quem mais precisa dizer sim?</li>
+        <li>A Review custa R$12 a 18 mil, metade creditada se virar sprint. Cabe numa decisão sua neste trimestre?</li>
+        <li>Se o relatório chegar em três semanas, quando quer começar a corrigir?</li>
+        <li>Faz sentido eu mandar a proposta amanhã?</li>
+      </ol>
+    </div>
+    <div><h3 style="margin-bottom:12px">Relatório de domingo, dentro do FlightDeck</h3>
+      <ul>
+        <li>Pedidos de indicação feitos e apresentações recebidas</li>
+        <li>Contas sequenciadas e respostas positivas</li>
+        <li>Reuniões marcadas, realizadas e no-show</li>
+        <li>Propostas enviadas e aceitas; ganhos e perdas por motivo e fonte</li>
+        <li>Bounces e opt-outs</li>
+        <li>Horas reais do fundador e da SDR</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="criativos" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 09 · Motor de criativos</span>
+    <h2>Existe em partes, e não pode virar pré-requisito de venda</h2>
+  </div>
+  <div class="three">
+    <div class="panel"><span class="label">Reaproveitar</span><p>O renderizador de templates HTML com Playwright e tokens de marca do rbx-atelier; as variantes em JSON; os formatos 1:1, 4:5, 9:16 e 1.91:1; os adaptadores e a aprovação do rbx-public-presence; o tema do Satwake como prova de que a troca por tokens funciona.</p></div>
+    <div class="panel"><span class="label">Acrescentar</span><p>Camada de marca "services" nos tokens (Style Dictionary v4); voice.json com as regras Zurich-coded; proof.json só com fatos verificáveis; rascunhos semanais por LLM a partir dos 34 artigos; QA de voz, contraste e claims com falha fechada; imagens abstratas a USD 0,039 cada; foto real do fundador.</p></div>
+    <div class="panel"><span class="label">Custo e ordem</span><p>Menos de R$150 por mês em API e 20 minutos semanais de aprovação. Saídas por valor: posts e carrosséis do fundador; títulos de busca; imagens para Thought Leader Ads; hero das páginas de oferta.</p></div>
+  </div>
+  <p class="note prose" style="margin-top:14px">O rbx-public-presence não está em produção. Nas semanas 1 a 6 os posts saem à mão; o pipeline entra depois do gate da semana 6.</p>
+</section>
+
+<section id="funil" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 10 · Matemática do funil</span>
+    <h2>De trás para frente, com as premissas à vista</h2>
+    <p>O mix é a fatia dos contratos por canal, não das reuniões. As faixas ficam pré-registradas: o dado da semana 12 deve confirmá-las ou refutá-las.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Premissa</th><th class="num">Valor</th><th class="num">Faixa</th><th>Origem</th><th>Força</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Pedido nomeado para apresentação</td><td class="num">15%</td><td class="num">5 a 25%</td><td>hipótese; testada em E1</td><td><span class="f fraca">Fraca</span></td></tr>
+      <tr><td class="k">Apresentação para reunião marcada</td><td class="num">60%</td><td class="num"></td><td>hipótese do plano</td><td><span class="f fraca">Fraca</span></td></tr>
+      <tr><td class="k">Comparecimento quente / frio</td><td class="num">90% / 70%</td><td class="num"></td><td>no-show de 19 a 20% no Brasil (Meetime, inbound)</td><td><span class="f media">Média</span></td></tr>
+      <tr><td class="k">Reunião para proposta quente / frio</td><td class="num">50% / 35%</td><td class="num"></td><td>hipótese</td><td><span class="f fraca">Fraca</span></td></tr>
+      <tr><td class="k">Proposta para ganho quente / frio</td><td class="num">40% / 22%</td><td class="num">35-45 / 20-25%</td><td>Proposify 36%, Champify 37%, Ebsta cerca de 19%</td><td><span class="f media">Média</span></td></tr>
+      <tr><td class="k">Contato de outbound para reunião marcada</td><td class="num">1,25%</td><td class="num">0,5 a 2%</td><td>síntese de fornecedores, sem dado brasileiro; testada em E3</td><td><span class="f fraca">Fraca</span></td></tr>
+      <tr><td class="k">LinkedIn: DM para reunião, comparecimento, proposta, ganho</td><td class="num">30 / 85 / 45 / 35%</td><td class="num"></td><td>First Page Sage; Meetime inbound 23 a 31%</td><td><span class="f fraca">Fraca</span></td></tr>
+      <tr><td class="k">Review para sprint ou parceria em 60 dias</td><td class="num">30 a 50%</td><td class="num"></td><td>hipótese</td><td><span class="f fraca">Fraca</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="margin-top:32px;margin-bottom:14px">Calculadora: ajuste as premissas</h3>
+  <div class="calc" id="calc">
+    <div class="in">
+      <div class="field">
+        <div class="top"><label>Meta de clientes pagantes em 6 meses</label></div>
+        <div class="seg" role="group" aria-label="Meta de clientes">
+          <button type="button" data-t="1" aria-pressed="true">1</button>
+          <button type="button" data-t="2" aria-pressed="false">2</button>
+          <button type="button" data-t="3" aria-pressed="false">3</button>
+          <button type="button" data-t="4" aria-pressed="false">4</button>
+          <button type="button" data-t="5" aria-pressed="false">5</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="top"><label for="mixI">Contratos vindos de indicação</label><output id="oMixI"></output></div>
+        <input type="range" id="mixI" min="0" max="100" step="5" value="50">
+      </div>
+      <div class="field">
+        <div class="top"><label for="mixO">Contratos vindos de outbound</label><output id="oMixO"></output></div>
+        <input type="range" id="mixO" min="0" max="100" step="5" value="30">
+        <div class="mixbar" aria-hidden="true"><span id="bI" style="background:var(--accent)"></span><span id="bO" style="background:var(--fg-3)"></span><span id="bL" style="background:var(--line-strong)"></span></div>
+        <p class="note">O restante vem de conversas por DM no LinkedIn: <span id="oMixL" class="mono"></span></p>
+      </div>
+      <div class="field">
+        <div class="top"><label for="rReq">Pedido de indicação que vira apresentação</label><output id="oReq"></output></div>
+        <input type="range" id="rReq" min="5" max="40" step="1" value="15">
+      </div>
+      <div class="field">
+        <div class="top"><label for="rCon">Contato de outbound que vira reunião marcada</label><output id="oCon"></output></div>
+        <input type="range" id="rCon" min="0.25" max="3" step="0.05" value="1.25">
+      </div>
+      <div class="field">
+        <div class="top"><label for="rWinW">Proposta quente que fecha</label><output id="oWinW"></output></div>
+        <input type="range" id="rWinW" min="15" max="60" step="1" value="40">
+      </div>
+      <div class="field">
+        <div class="top"><label for="rWinC">Proposta fria que fecha</label><output id="oWinC"></output></div>
+        <input type="range" id="rWinC" min="8" max="40" step="1" value="22">
+      </div>
+      <p class="note">Fixas: as demais linhas da tabela de premissas acima.</p>
+    </div>
+    <div class="out">
+      <span class="label">Necessário em 6 meses</span>
+      <div class="res" style="margin-top:10px">
+        <div><span class="num" id="xProp"></span><p>propostas</p></div>
+        <div><span class="num" id="xMeet"></span><p>reuniões realizadas</p></div>
+        <div><span class="num" id="xBook"></span><p>reuniões marcadas</p></div>
+        <div><span class="num" id="xReq"></span><p>pedidos de indicação</p></div>
+        <div><span class="num" id="xCont"></span><p>contatos de outbound</p></div>
+        <div><span class="num" id="xDm"></span><p>conversas por DM</p></div>
+        <div><span class="num" id="xHF"></span><p>h/semana de venda do fundador</p></div>
+        <div><span class="num" id="xHS"></span><p>h/semana da SDR</p></div>
+        <div><span class="num" id="xWk"></span><p>contatos por semana</p></div>
+      </div>
+      <div class="warns" id="warns" aria-live="polite"></div>
+      <p class="note" style="margin-top:14px">Fundador: 5,5 h fixas por semana, mais 1,5 h por reunião e 4 h por proposta. SDR: 3 h fixas, 12 min por contato, 15 min por pedido. Não inclui entrega: cada Review consome 35 a 45 horas.</p>
+    </div>
+  </div>
+
+  <div class="tbl" style="margin-top:28px"><table>
+    <thead><tr><th>Meta</th><th>Mix indicação / outbound / LinkedIn</th><th class="num">Propostas</th><th class="num">Reuniões</th><th>Topo do funil</th><th>Orçamento compatível</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1 cliente</td><td>50 / 30 / 20</td><td class="num">3,2</td><td class="num">7,7</td><td>31 pedidos, 445 contatos (28 por semana), 5 conversas</td><td>R$600 por mês</td></tr>
+      <tr><td class="k">3 clientes</td><td>55 / 25 / 20</td><td class="num">9,2</td><td class="num">21,8</td><td>102 pedidos, 1.113 contatos (70 por semana, no teto), 15 conversas</td><td>R$2.500 por mês após o gate 9</td></tr>
+      <tr><td class="k">5 clientes</td><td colspan="5">Não cabe em 6 meses: capacidade de entrega.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="sens">
+    <div><span class="label">Indicação a 5%</span><p>Os pedidos para 1 cliente sobem de 31 para 93. Exige rede de cerca de 90 nomes.</p></div>
+    <div><span class="label">Outbound a 0,5%</span><p>Os contatos para 1 cliente sobem de 445 para 1.113, o teto da SDR.</p></div>
+    <div><span class="label">As duas pessimistas</span><p>1 cliente ainda cabe, se a rede tiver cerca de 90 nomes. 3 clientes não: 306 pedidos e 2.783 contatos.</p></div>
+  </div>
+  <p class="note prose" style="margin-top:12px">Receita esperada, por hipótese: 1 cliente rende R$12 a 18 mil, ou cerca de R$60 mil se a Review virar sprint; 3 clientes, R$75 a 180 mil. Para comparar: o plano de tráfego pago estimou R$21,5 mil de mídia por cliente com premissas otimistas e R$60 a 75 mil com a cadeia genérica de benchmarks.</p>
+
+  <h3 style="margin-top:36px;margin-bottom:6px">ROI da máquina</h3>
+  <p class="prose note" style="margin-bottom:14px">Usa as metas e as horas da calculadora acima. Horizonte: 6 meses de aquisição e 12 meses de receita por cliente. Todas as entradas são hipóteses editáveis.</p>
+  <div class="calc" id="roi">
+    <div class="in">
+      <div class="grid-in">
+        <div class="field"><label for="iRv">Ticket da Review (R$)</label><input type="number" id="iRv" value="15000" step="1000" min="0"></div>
+        <div class="field"><label for="iPt">Ticket médio do projeto (R$)</label><input type="number" id="iPt" value="70000" step="5000" min="0"></div>
+        <div class="field"><label for="iOm">Operação mensal (R$)</label><input type="number" id="iOm" value="12000" step="1000" min="0"></div>
+        <div class="field"><label for="iMm">Meses de operação no ano 1</label><input type="number" id="iMm" value="6" step="1" min="0" max="12"></div>
+        <div class="field"><label for="iBud">Orçamento mensal (R$)</label><input type="number" id="iBud" value="600" step="100" min="0"></div>
+        <div class="field"><label for="iSdr">Hora da SDR (R$)</label><input type="number" id="iSdr" value="49" step="1" min="0"></div>
+        <div class="field"><label for="iHf">Hora do fundador em venda (R$)</label><input type="number" id="iHf" value="250" step="10" min="0"></div>
+      </div>
+      <div class="field">
+        <div class="top"><label for="iPp">Reviews que viram projeto</label><output id="oPp"></output></div>
+        <input type="range" id="iPp" min="10" max="80" step="5" value="40">
+      </div>
+      <div class="field">
+        <div class="top"><label for="iPo">Projetos que viram operação</label><output id="oPo"></output></div>
+        <input type="range" id="iPo" min="0" max="100" step="5" value="50">
+      </div>
+      <div class="field">
+        <div class="top"><label for="iMg">Margem de contribuição</label><output id="oMg"></output></div>
+        <input type="range" id="iMg" min="20" max="80" step="5" value="50">
+      </div>
+      <p class="note">Hora da SDR: mediana de R$8.550 por mês em 40 horas (Meetime). Hora do fundador: custo de oportunidade, na faixa de R$150 a 400 do mercado.</p>
+    </div>
+    <div class="out">
+      <span class="label">Resultado para a meta escolhida acima</span>
+      <div class="res" style="margin-top:10px">
+        <div><span class="num" id="yRc"></span><p>receita por cliente em 12 meses</p></div>
+        <div><span class="num" id="yRt"></span><p>receita total</p></div>
+        <div><span class="num" id="yCt"></span><p>contribuição total</p></div>
+        <div><span class="num" id="yCc"></span><p>CAC caixa</p></div>
+        <div><span class="num" id="yCf"></span><p>CAC completo, com horas</p></div>
+        <div><span class="num" id="yLc"></span><p>LTV sobre CAC completo</p></div>
+        <div><span class="num" id="yRoiC"></span><p>ROI no caixa</p></div>
+        <div><span class="num" id="yRoiF"></span><p>ROI completo</p></div>
+        <div><span class="num" id="yPb"></span><p>payback em meses</p></div>
+      </div>
+      <p class="note" style="margin-top:14px">CAC caixa: orçamento mais Flavia, por 6 meses. CAC completo: soma as horas de venda do fundador. LTV aqui é a contribuição do cliente em 12 meses. Com os valores iniciais, a máquina se paga no caixa desde o primeiro cliente, e só a partir de cerca de 3 clientes quando a hora do fundador entra na conta.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px;margin-bottom:6px">KPIs semanais para o plano de domingo</h3>
+  <p class="prose note" style="margin-bottom:14px">Indicadores de esforço, calculados a partir da meta e do mix acima. São eles que entram no FlightDeck. Os de resultado confirmam depois.</p>
+  <div class="two">
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th>Esforço, por semana</th><th class="num">Meta</th></tr></thead>
+      <tbody id="kpiBody"></tbody>
+    </table></div>
+    <div class="panel"><span class="label">Resultado, acompanhados todo mês</span>
+      <ul>
+        <li>Conversas qualificadas acumuladas</li>
+        <li>Propostas enviadas e aceitas</li>
+        <li>Taxa de ganho, quente e fria</li>
+        <li>Ciclo em dias, da primeira conversa ao contrato</li>
+        <li>Reviews que viram projeto</li>
+        <li>Receita contratada e CAC observado</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px;margin-bottom:6px">OKRs do 4º trimestre de 2026 · rascunho</h3>
+  <p class="prose note" style="margin-bottom:14px">De 28/09 a 31/12, as 13 semanas do roadmap. Metas de esforço ficam nos KPIs; aqui entram resultados.</p>
+  <div class="okr">
+    <div class="panel"><span class="label">O1</span><h3>Provar que a RBX vende IA em produção</h3>
+      <ol>
+        <li>Testes E1, E2 e E3 concluídos e registrados até 18/10.</li>
+        <li>20 conversas qualificadas acumuladas até 20/12.</li>
+        <li>6 propostas enviadas e 2 Reviews pagas até 31/12.</li>
+        <li>1 projeto contratado (gateway, fluxo, orquestração ou plataforma) até 31/12.</li>
+      </ol></div>
+    <div class="panel"><span class="label">O2</span><h3>Máquina rodando toda semana</h3>
+      <ol>
+        <li>13 de 13 domingos com plano e relatório no FlightDeck.</li>
+        <li>100% dos contatos no CRM com fonte e base legal.</li>
+        <li>Flavia contratada e com acesso a todos os sistemas até 31/10.</li>
+        <li>5 premissas do funil com taxa observada no relatório de 90 dias.</li>
+      </ol></div>
+    <div class="panel"><span class="label">O3</span><h3>Prova pública de IA em produção</h3>
+      <ol>
+        <li>Página de oferta no ar até 18/10 e página Trust até 15/11.</li>
+        <li>36 posts do fundador no trimestre.</li>
+        <li>Case do cliente italiano publicado, anonimizado, até 30/11.</li>
+        <li>Relatório-exemplo da Review e demo público do gateway de LLM até 15/12.</li>
+      </ol></div>
+  </div>
+</section>
+
+<section id="roadmap" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 11 · Roadmap de 90 dias</span>
+    <h2>Gates de atividade primeiro, de resultado depois</h2>
+    <p>Com 4 Reviews não se distingue 25% de 40%. Gates de resultado só com 20 ou mais observações. Contagens de conversas são acumuladas.</p>
+  </div>
+  <div class="tl">
+    <div class="step gate"><span class="when">Semana 0 · domingo 27/09</span>
+      <p>No FlightDeck, duas horas: confirmar as 40 horas e o cliente italiano, definir a contratação da Flavia, contar meses de caixa e nomes pedíveis, e agendar a semana 1.</p>
+      <div class="g">Sem esses números, o roadmap não começa.</div></div>
+    <div class="step gate"><span class="when">Semanas 1 e 2</span>
+      <p>No máximo quatro entregas: página /diagnostico com Review e Clínica pagas; planilha da rede em três anéis; scorecard da Review v0, com 20 a 30 critérios; pedido ao cliente italiano de case anonimizado e três apresentações. Em paralelo, os testes E1, E2 e E3.</p>
+      <div class="g">Os critérios de cada teste, na seção 01.</div></div>
+    <div class="step"><span class="when">Semana 3</span>
+      <p>Decidir preço, mix e busca com o resultado dos testes. CRM ponte; domínio secundário e sequenciador em aquecimento; LIA.</p></div>
+    <div class="step gate"><span class="when">Semanas 3 a 6</span>
+      <p>Relatório-exemplo anonimizado da Review. Lotes de 50 no LinkedIn pela SDR. Três posts por semana. Pedidos de indicação dentro do limite da rede. Case publicado, se autorizado.</p>
+      <div class="g">Semana 6: 10 conversas qualificadas acumuladas, ou trocar mensagem e nicho antes de qualquer outra coisa.</div></div>
+    <div class="step gate"><span class="when">Semanas 7 a 9</span>
+      <p>E-mail começa a 10 por caixa por dia e sobe a 30. Cinco conversas com parceiros candidatos. Diretórios, página Trust, cadastro na Lovable.</p>
+      <div class="g">Semana 9: 16 conversas qualificadas acumuladas ou 1 proposta aceita. Se passar, o orçamento sobe para R$2.500.</div></div>
+    <div class="step gate"><span class="when">Semanas 10 a 12</span>
+      <p>Entrega da primeira Review em duas semanas, sem comer o bloco de 9 horas de venda. Proposta do projeto seguinte a quem fez Review. Pedido de indicação ao novo cliente.</p>
+      <div class="g">Semana 12: 1 proposta aceita, ou encerrar esta forma e escrever por quê.</div></div>
+    <div class="step"><span class="when">Semana 13</span>
+      <p>Recalibrar o funil com taxas próprias e escolher o motor do trimestre seguinte pelo custo por conversa qualificada.</p></div>
+  </div>
+  <p class="prose" style="margin-top:6px"><strong>Abandono geral:</strong> a partir da semana 3, menos de 3 conversas qualificadas em duas semanas seguidas encerra a tentativa.</p>
+</section>
+
+<section id="riscos" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 12 · Riscos</span>
+    <h2>O que quebra primeiro, e o gatilho de parada</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Risco</th><th>Mitigação</th><th>Gatilho</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Não execução</td><td>Metas semanais com gatilho se-então, relatório de segunda, compromisso entre cofundadores.</td><td><span class="tag err">3 conversas por quinzena</span></td></tr>
+      <tr><td class="k">Entrega come a venda</td><td>Bloco de 9 horas de venda agendado no domingo; a Flavia faz pré e pós; um projeto grande por vez.</td><td><span class="tag warn">venda abaixo de 6 h por 4 semanas</span></td></tr>
+      <tr><td class="k">Ciclo longo na empresa média</td><td>Review como entrada; pista SaaS para velocidade.</td><td><span class="tag warn">nenhuma Review de empresa média até a semana 12</span></td></tr>
+      <tr><td class="k">Hospedar cliente sem base</td><td>Backup com restore testado, alertas e correções de segurança antes do primeiro cliente na infra RBX.</td><td><span class="tag err">qualquer incidente sem backup</span></td></tr>
+      <tr><td class="k">Construir em vez de vender</td><td>Scanner, ferramentas públicas e marca nova atrás do gate 6, com teto de horas.</td><td><span class="tag warn">40 h sem lead congelam o build</span></td></tr>
+      <tr><td class="k">Rede quente pequena</td><td>E1 mede na semana 2; segundo anel de parceiros no mês 3.</td><td><span class="tag warn">menos de 40 nomes</span></td></tr>
+      <tr><td class="k">Restrição da conta do fundador no LinkedIn</td><td>Só ele opera o perfil; nenhuma automação nele; a SDR usa o próprio.</td><td><span class="tag err">qualquer aviso da plataforma</span></td></tr>
+      <tr><td class="k">Reação do cliente italiano a três pedidos</td><td>Agora só case e apresentações; reprecificação só na renovação, depois do primeiro contrato novo.</td><td><span class="tag">sinal de desconforto adia os pedidos</span></td></tr>
+      <tr><td class="k">SDR como ponto único</td><td>Contratação da Flavia com data; processo documentado no CRM.</td><td><span class="tag warn">ausência de 2 semanas</span></td></tr>
+      <tr><td class="k">Queima do domínio de envio</td><td>Domínio secundário, 50 por caixa por dia, verificação prévia.</td><td><span class="tag warn">bounce acima de 5%</span></td></tr>
+      <tr><td class="k">WhatsApp derrubando o Satwake</td><td>Só após opt-in; número e conta de WhatsApp na Meta separados do Satwake.</td><td><span class="tag err">um aviso de qualidade da Meta</span></td></tr>
+      <tr><td class="k">Câmbio</td><td>Preço em moeda forte com reajuste anual; as taxas usadas na pesquisa não foram verificadas.</td><td><span class="tag">EUR abaixo de R$5,30</span></td></tr>
+      <tr><td class="k">Saúde e qualidade de entrega</td><td>Um projeto grande por vez; contratar para o segundo.</td><td><span class="tag warn">3 semanas seguidas acima de 45 h</span></td></tr>
+      <tr><td class="k">Inadimplência</td><td>50% adiantado, marcos quinzenais, consulta de CNPJ.</td><td><span class="tag">dois atrasos no mesmo cliente</span></td></tr>
+      <tr><td class="k">Concentração no único cliente</td><td>Teto de 40% por cliente após o terceiro contrato.</td><td><span class="tag err">saída antes do segundo contrato</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="2027" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 13 · Como turbinar em 2027</span>
+    <h2>Escalar o que foi medido, na moeda que paga mais</h2>
+  </div>
+  <div class="two">
+    <ul>
+      <li><strong>Dobrar o canal</strong> com menor custo por conversa qualificada observado.</li>
+      <li><strong>Mídia de R$3 mil a 6 mil por mês</strong> só com LTV sobre CAC de 3 ou mais em 2 a 3 fechamentos. Target CPA com 30 qualificados por mês.</li>
+      <li><strong>Parceiros</strong> com 20 a 30 membros em níveis, e os programas de AWS, Google Cloud, Microsoft, Supabase e Vercel, ainda não pesquisados.</li>
+      <li><strong>Itália como canal pleno.</strong> Suíça via Crypto Valley Association (CHF 500 por ano, aceita remotos), Crypto Valley Conference em junho e "AI Act engineering" com parceiro de conformidade antes de 02/12/2027.</li>
+    </ul>
+    <ul>
+      <li><strong>Fase 2 da marca;</strong> GmbH em 2027 só se um contrato suíço exigir.</li>
+      <li><strong>Segundo operador de outbound</strong> e um pleno PJ contra contrato.</li>
+      <li><strong>Esta calculadora em Svelte,</strong> ligada ao FlightDeck e ao Strategos e lendo taxas reais do CRM, depois do gate da semana 12.</li>
+      <li><strong>Autoridade própria:</strong> pesquisa anual sobre IA em produção nas PMEs brasileiras e benchmark público de agentes de WhatsApp com o Verentir.</li>
+      <li><strong>Moeda e tributo:</strong> exportação de serviços é imune a IBS e CBS (LC 214/2025, art. 8). No mercado interno, a CBS entra plena em 2027 e o IBS sobe em degraus de 2029 a 2032. O efeito líquido depende do regime (Simples, Fator R, Lucro Presumido), que ninguém verificou: decisão com contador.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="decisoes" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 14 · Decisões que são suas</span>
+    <h2>O que nenhum plano pode decidir por você</h2>
+    <p>As quatro primeiras são a semana 0. Marque o que já decidiu; a marcação fica só neste navegador.</p>
+  </div>
+  <div class="dec" id="dec">
+    <label><input type="checkbox" id="d1"><div><strong>Horas reais e horário</strong><span>Resposta: cerca de 40 horas para serviços. Falta: o cliente italiano está dentro ou fora delas, e em que horário.</span></div></label>
+    <label><input type="checkbox" id="d2"><div><strong>Contratação da Flavia</strong><span>Valor, horas por semana e data de início. O custo dela entra no CAC da calculadora de ROI.</span></div></label>
+    <label><input type="checkbox" id="d3"><div><strong>Runway</strong><span>O primeiro dinheiro novo entra com 50% de uma Review, R$6 mil a 9 mil, entre as semanas 8 e 12.</span></div></label>
+    <label><input type="checkbox" id="d4"><div><strong>Tamanho da rede quente</strong><span>Medido em E1. Abaixo de 40 nomes, o plano vira outbound.</span></div></label>
+    <label><input type="checkbox" id="d5"><div><strong>Contratação para entrega</strong><span>Com 40 horas cabe um projeto grande por vez. Decidir o gatilho para contratar um pleno PJ: o segundo projeto simultâneo.</span></div></label>
+    <label><input type="checkbox" id="d6"><div><strong>O contrato atual</strong><span>A hora efetiva no cliente italiano fica perto de um décimo da tabela europeia. Reprecificar na renovação é o único ganho com custo de aquisição zero.</span></div></label>
+    <label><input type="checkbox" id="d7"><div><strong>Satwake nos próximos 90 dias</strong><span>Uma Review equivale a 385 meses de assinatura Pro. Limitar as horas do Satwake precisa ser decisão explícita.</span></div></label>
+    <label><input type="checkbox" id="d8"><div><strong>Governança</strong><span>A escada contraria o offers.md; o ADR-0601 mantém LinkedIn como único canal pago B2B; o ADR-0603 segue proposto; a meta de 3 parcerias até 31/12/2026 precisa ser rebaixada.</span></div></label>
+  </div>
+</section>
+
+<section id="glossario" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ Glossário</span>
+    <h2>Termos usados neste relatório</h2>
+  </div>
+  <dl class="gl">
+    <div><dt>Pixel</dt><dd>Trecho de código do Google, da Meta ou do LinkedIn instalado no site. Registra quem visitou e quem converteu, para medir anúncios e montar públicos. No LinkedIn chama Insight Tag. Satwake e serviços precisam de pixels separados.</dd></div>
+    <div><dt>Retargeting</dt><dd>Anúncio mostrado só para quem já visitou o site. Precisa de pixel e de volume, cerca de 500 visitantes em 30 dias.</dd></div>
+    <div><dt>Parceiros de canal</dt><dd>Empresas que já atendem o seu cliente e podem indicar a RBX: contabilidades, agências, integradores de ERP. Ficam para 2027 porque levam de 8 a 16 semanas para gerar a primeira apresentação.</dd></div>
+    <div><dt>Oportunista</dt><dd>Segmento que não se prospecta ativamente. Se chegar por indicação ou pelo site, atende.</dd></div>
+    <div><dt>Fora</dt><dd>Segmento que não se persegue nestes 6 meses: ciclo longo, compra por comitê ou acesso difícil.</dd></div>
+    <div><dt>Clínica</dt><dd>Sessão paga de 90 minutos, ao vivo, sobre um sistema ou repositório do cliente, com 5 riscos priorizados. É a porta de menor atrito; o valor vira crédito na Review.</dd></div>
+    <div><dt>Review</dt><dd>Production Readiness Review de IA: diagnóstico pago de duas semanas com scorecard, 10 riscos e roadmap de 90 dias. A porta de entrada principal.</dd></div>
+    <div><dt>Advisory</dt><dd>Consultoria recorrente de 8 a 16 horas por mês, como head de engenharia ou de IA fracionado. Vendida só para quem já foi cliente.</dd></div>
+    <div><dt>Meses de caixa</dt><dd>Também chamado de runway: por quantos meses a empresa paga as contas sem receita nova.</dd></div>
+    <div><dt>Nomes pedíveis</dt><dd>Pessoas a quem você pode pedir uma apresentação sem constrangimento. É o tamanho real do canal de indicação.</dd></div>
+    <div><dt>LIA</dt><dd>Teste de legítimo interesse da LGPD. Documenta por que é razoável abordar um contato B2B sem consentimento prévio.</dd></div>
+    <div><dt>CAC e LTV</dt><dd>CAC é o custo para conquistar um cliente; no caixa conta só dinheiro, no completo soma as horas do fundador. LTV é a contribuição que o cliente gera no período.</dd></div>
+    <div><dt>CPC</dt><dd>Custo por clique num anúncio.</dd></div>
+    <div><dt>WABA</dt><dd>A conta do WhatsApp Business na Meta. Separar a de serviços da do Satwake evita que um bloqueio derrube as duas.</dd></div>
+  </dl>
+</section>
+
+
+<section id="lacunas" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 15 · O que a pesquisa não cobriu</span>
+    <h2>Onze buracos, em ordem de peso</h2>
+  </div>
+  <div class="two">
+    <div class="stack">
+      <span class="label">Alta prioridade</span>
+      <ol>
+        <li><strong>Voz do comprador.</strong> Nenhuma entrevista com fundador ou CTO brasileiro. Resolve-se com 10 a 15 conversas de 20 minutos, que também alimentam E2.</li>
+        <li><strong>Universo de contas.</strong> Quantos SaaS B2B brasileiros com 5 a 50 pessoas e pagantes existem. O cenário de 3 clientes pede 300 a 500 contas.</li>
+        <li><strong>O entregável da Review.</strong> Ainda não existe. Falta dizer por que ela vale R$15 mil diante de ferramentas de IA de revisão de código que o próprio fundador pode usar.</li>
+        <li><strong>Tributo, contrato e responsabilidade.</strong> Simples e Fator R, exportação, faturamento em EUR e CHF, limitação de responsabilidade, propriedade intelectual e seguro para uma Review que aponta falhas de segurança.</li>
+        <li><strong>Canais de fornecedores.</strong> Lovable, AWS, Google Cloud, Microsoft, Supabase e Vercel; marca branca para software houses.</li>
+      </ol>
+    </div>
+    <div class="stack">
+      <span class="label">Média prioridade</span>
+      <ol start="6">
+        <li><strong>Dados brasileiros de conversão e ciclo.</strong> Não existem em fonte aberta; por isso as faixas ficam pré-registradas.</li>
+        <li><strong>Ativos do fundador.</strong> Conexões no LinkedIn, fatia dentro do ICP, desempenho dos 34 artigos.</li>
+        <li><strong>Gancho regulatório brasileiro.</strong> PL 2338/2023, ANPD e IA, normas do BCB para fintechs.</li>
+        <li><strong>Âncora de preço na Itália.</strong> Boutiques italianas de IA para PMI não foram pesquisadas.</li>
+        <li><strong>Autoridade técnica gratuita.</strong> Palestras em meetups, podcasts, newsletters.</li>
+        <li><strong>Financiamento do comprador.</strong> Lei do Bem, Embrapii e Finep como redutores de preço efetivo.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="painel" class="s">
+  <div class="head prose">
+    <span class="eyebrow">§ 16 · O painel</span>
+    <h2>Cinco planos, três juízes, o mesmo vencedor</h2>
+    <p>Média das notas de um economista, um operador solo e um CMO de serviços B2B. Pesos: probabilidade de 1 a 5 clientes em 6 meses 35%, aderência ao time 20%, custo 15%, escalabilidade 15%, evidência 15%.</p>
+  </div>
+  <div class="bars" role="img" aria-label="Nota média de cada plano, escala de 0 a 10">
+    <div class="bar win"><span class="t">Outbound e founder-led<small>plano B</small></span><span class="track"><span class="fill" style="width:69.8%"></span></span><span class="v">6,98</span></div>
+    <div class="bar"><span class="t">Oferta, indicação, parceiros<small>plano C</small></span><span class="track"><span class="fill" style="width:66.5%"></span></span><span class="v">6,65</span></div>
+    <div class="bar"><span class="t">IA em produção<small>plano E</small></span><span class="track"><span class="fill" style="width:64.1%"></span></span><span class="v">6,41</span></div>
+    <div class="bar"><span class="t">Europa primeiro<small>plano D</small></span><span class="track"><span class="fill" style="width:55.1%"></span></span><span class="v">5,51</span></div>
+    <div class="bar"><span class="t">Tráfego pago primeiro<small>plano A</small></span><span class="track"><span class="fill" style="width:45.5%"></span></span><span class="v">4,55</span></div>
+    <div class="scale" aria-hidden="true"><span></span><span class="ticks"><span>0</span><span>5</span><span>10</span></span><span></span></div>
+  </div>
+  <div class="tbl" style="margin-top:24px"><table>
+    <thead><tr><th>Plano</th><th class="num">Economista</th><th class="num">Operador</th><th class="num">CMO</th><th>O que entrou no blueprint</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td class="k">B · Outbound e founder-led</td><td class="num">6,60</td><td class="num">7,20</td><td class="num">7,15</td><td>Núcleo: cadência, qualificação por nota, gates e abandono</td></tr>
+      <tr><td class="k">C · Oferta, indicação, parceiros</td><td class="num">6,55</td><td class="num">6,45</td><td class="num">6,95</td><td>Escada, Clínica, reversão de risco, três anéis de indicação</td></tr>
+      <tr><td class="k">E · IA em produção</td><td class="num">6,18</td><td class="num">6,20</td><td class="num">6,85</td><td>Descritor de categoria, critérios de recusa, gancho regulatório</td></tr>
+      <tr><td class="k">D · Europa primeiro</td><td class="num">5,57</td><td class="num">5,55</td><td class="num">5,40</td><td>Tabela europeia, página Trust, reprecificação na renovação</td></tr>
+      <tr><td class="k">A · Tráfego pago primeiro</td><td class="num">4,80</td><td class="num">3,90</td><td class="num">4,95</td><td>Keyword Planner com corte, CPC manual, separação de contas</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer id="fontes">
+  <span class="eyebrow">§ 17 · Método e fontes</span>
+  <p>Leitura do monorepo ~/rbx; 11 pesquisadores com fontes web; 20 verificadores adversariais, cada um testando fidelidade da fonte e aplicabilidade à RBX; 5 estrategistas com ângulos opostos; 3 juízes; uma crítica de completude, incorporada nesta versão. Material bruto, com a URL de cada número, em ~/rbx/.claude/services-gtm-research-2026-09-25/.</p>
+  <ul class="src">
+    <li><a href="https://www.rdstation.com/pesquisas/panorama-marketing-vendas/edicao-2026/agencias-consultorias/clientes/" target="_blank" rel="noopener">RD Station, Panorama 2026: Agências e Consultorias</a></li>
+    <li><a href="https://prometheanresearch.com/how-marketing-agencies-get-clients/" target="_blank" rel="noopener">Promethean Research, How agencies get clients</a></li>
+    <li><a href="https://hingemarketing.com/uploads/hinge-research-referral-marketing.pdf" target="_blank" rel="noopener">Hinge, Referral Marketing for Professional Services Firms (2015)</a></li>
+    <li><a href="https://6sense.com/report/buyer-experience/" target="_blank" rel="noopener">6sense, 2025 B2B Buyer Experience Report</a></li>
+    <li><a href="https://belkins.io/blog/cold-email-response-rates" target="_blank" rel="noopener">Belkins, cold e-mail response rates 2025</a></li>
+    <li><a href="https://www.saleshandy.com/blog/cold-email-statistics/" target="_blank" rel="noopener">Saleshandy, cold e-mail statistics 2026</a></li>
+    <li><a href="https://www.proposify.com/state-of-proposals-2026" target="_blank" rel="noopener">Proposify, State of Proposals 2026</a></li>
+    <li><a href="https://benchmarks.ebsta.com/2025-gtm-benchmarks" target="_blank" rel="noopener">Ebsta e Pavilion, 2025 GTM Benchmarks</a></li>
+    <li><a href="https://metadata.io/benchmark-report-2026" target="_blank" rel="noopener">Metadata, 2026 B2B Paid Media Benchmark</a></li>
+    <li><a href="https://leadster.com.br/panorama-de-geracao-de-leads-no-brasil-2025/conteudo/b2b/" target="_blank" rel="noopener">Leadster, Panorama de Geração de Leads 2025, B2B</a></li>
+    <li><a href="https://support.google.com/google-ads/answer/6268632?hl=pt-BR" target="_blank" rel="noopener">Google Ads, Sobre o CPA desejado</a></li>
+    <li><a href="https://cetic.br/pt/tics/pesquisa/2025/empresas/H9B/" target="_blank" rel="noopener">Cetic.br, TIC Empresas 2025, indicador H9B</a></li>
+    <li><a href="https://abes.org.br/brasil-mantem-lideranca-em-ti-na-america-latina-cresce-acima-da-expectativa-em-2025-mas-desacelera-ritmo-de-crescimento-neste-ano-e-consolida-nova-fase-do-mercado-aponta-estudo-da-abes/" target="_blank" rel="noopener">ABES e IDC, Mercado Brasileiro de Software 2026</a></li>
+    <li><a href="https://www.deloitte.com/us/en/about/press-room/state-of-ai-report-2026.html" target="_blank" rel="noopener">Deloitte, State of AI in the Enterprise 2026</a></li>
+    <li><a href="https://news.crunchbase.com/venture/mexico-leads-latin-america-funding-q2-2026/" target="_blank" rel="noopener">Crunchbase, LatAm funding Q2 2026</a></li>
+    <li><a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj" target="_blank" rel="noopener">Regulamento (UE) 2026/1744</a></li>
+    <li><a href="https://www.nic.ch/support/general/" target="_blank" rel="noopener">SWITCH, regras do domínio .ch</a></li>
+    <li><a href="https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_legitimo_interesse.pdf/@@download/file" target="_blank" rel="noopener">ANPD, Guia de Legítimo Interesse</a></li>
+    <li><a href="https://whatsappbusiness.com/pt-br/policy/" target="_blank" rel="noopener">WhatsApp Business, Política de Mensagens (23/09/2026)</a></li>
+    <li><a href="https://postmarkapp.com/terms-of-service" target="_blank" rel="noopener">Postmark, termos de serviço</a></li>
+    <li><a href="https://www.rdstation.com/crm/" target="_blank" rel="noopener">RD Station CRM</a></li>
+    <li><a href="https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/" target="_blank" rel="noopener">Veracode, 2025 GenAI Code Security Report</a></li>
+    <li><a href="https://onezero.co.il/en/services/vibe-coding-rescue" target="_blank" rel="noopener">OneZero, vibe coding rescue (tabela publicada)</a></li>
+    <li><a href="https://lovable.dev/partners" target="_blank" rel="noopener">Lovable, programa de parceiros</a></li>
+    <li><a href="https://tytos.ch/" target="_blank" rel="noopener">TYTOS, preços publicados na Suíça</a></li>
+    <li><a href="https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-chegou-a-9-milhoes-de-empresas-em-julho-e-dividas-somaram-238-bilhoes-revela-serasa-experian/" target="_blank" rel="noopener">Serasa Experian, inadimplência de empresas</a></li>
+  </ul>
+  <p>Blueprint v3: incorpora as respostas do fundador de 26/09 (40 horas, Flavia, WhatsApp pela Meta, foco em IA em produção, ciclo de domingo no FlightDeck) e acrescenta ROI, KPIs, OKRs e glossário. Voz Zurich-coded da RBX. Probabilidades de fechamento são juízo, não evidência. Câmbio de referência: EUR R$5,93 e CHF R$6,28 (BCB, 25/09/2026).</p>
+</footer>
+</main>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var target=1, last={};
+  var fmt=function(n,d){return n.toLocaleString('pt-BR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  var brl=function(n){var a=Math.abs(n); var s=a>=1e6?fmt(a/1e6,1)+' mi':a>=1e3?fmt(a/1e3,0)+' mil':fmt(a); return (n<0?'-':'')+'R$'+s};
+  var btns=document.querySelectorAll('.seg button');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    target=+b.dataset.t; btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')}); calc();
+  })});
+  ['mixI','mixO','rReq','rCon','rWinW','rWinC'].forEach(function(id){$(id).addEventListener('input',function(){
+    if(id==='mixI'||id==='mixO'){var i=+$('mixI').value,o=+$('mixO').value; if(i+o>100){ if(id==='mixI'){$('mixO').value=100-i}else{$('mixI').value=100-o} }}
+    calc();
+  })});
+  ['iRv','iPt','iOm','iMm','iBud','iSdr','iHf','iPp','iPo','iMg'].forEach(function(id){$(id).addEventListener('input',roi)});
+  function calc(){
+    var mi=+$('mixI').value/100, mo=+$('mixO').value/100, ml=Math.max(0,1-mi-mo);
+    var req=+$('rReq').value/100, con=+$('rCon').value/100, ww=+$('rWinW').value/100, wc=+$('rWinC').value/100;
+    $('oMixI').textContent=Math.round(mi*100)+'%'; $('oMixO').textContent=Math.round(mo*100)+'%'; $('oMixL').textContent=Math.round(ml*100)+'%';
+    $('bI').style.width=(mi*100)+'%'; $('bO').style.width=(mo*100)+'%'; $('bL').style.width=(ml*100)+'%';
+    $('oReq').textContent=Math.round(req*100)+'%'; $('oCon').textContent=fmt(con*100,2)+'%';
+    $('oWinW').textContent=Math.round(ww*100)+'%'; $('oWinC').textContent=Math.round(wc*100)+'%';
+    var ci=target*mi, pi=ci/ww, mti=pi/0.50, bi=mti/0.90, ii=bi/0.60, ri=ii/req;
+    var co=target*mo, po=co/wc, mto=po/0.35, bo=mto/0.70, ko=bo/con;
+    var cl=target*ml, pl=cl/0.35, mtl=pl/0.45, bl=mtl/0.85, dl=bl/0.30;
+    var prop=pi+po+pl, meet=mti+mto+mtl, book=bi+bo+bl;
+    var hf=(5.5*26+1.5*meet+4*prop)/26;
+    var hs=(3*26+ko*0.2+ri*0.25)/26;
+    var wk=ko/16;
+    last={prop:prop,meet:meet,book:book,ri:ri,ko:ko,dl:dl,hf:hf,hs:hs};
+    $('xProp').textContent=fmt(prop,1); $('xMeet').textContent=fmt(meet,1); $('xBook').textContent=fmt(book,1);
+    $('xReq').textContent=fmt(ri); $('xCont').textContent=fmt(ko); $('xDm').textContent=fmt(dl);
+    $('xHF').textContent=fmt(hf,1); $('xHS').textContent=fmt(hs,1); $('xWk').textContent=fmt(wk);
+    var w=[];
+    if(ko>1115) w.push(['e','Outbound acima do teto de personalização da SDR: cerca de 1.100 contatos em 16 semanas de envio (70 por semana).']);
+    if(hf>12) w.push(['e','Venda do fundador acima de 12 horas por semana: sobra pouco das 40 horas para entregar.']);
+    else if(hf>9) w.push(['w','Venda do fundador acima do bloco de 9 horas: reveja a divisão entre venda e entrega.']);
+    if(ri>120) w.push(['w','Mais de 120 pedidos de indicação em 20 semanas: exige rede grande ou parceiros ativos antes do mês 4.']);
+    if(target>=4) w.push(['w','Capacidade com 40 horas: cabe se a maioria for Review. Dois projetos grandes ao mesmo tempo pedem contratação.']);
+    if(dl>30) w.push(['w','Mais de 30 conversas por DM: acima do que o conteúdo orgânico sustenta sem Thought Leader Ads.']);
+    if(!w.length) w.push(['o','Cabe no tempo do fundador e no teto da SDR com estas premissas.']);
+    $('warns').innerHTML=w.map(function(x){return '<div class="'+x[0]+'">'+x[1]+'</div>'}).join('');
+    var k=[['Pedidos de indicação',ri/20,1],['Contatos de outbound',ko/16,0],['Conversas por DM no LinkedIn',dl/20,1],['Posts do fundador',3,0],['Reuniões realizadas',meet/20,1],['Propostas enviadas por mês',prop/5,1]];
+    $('kpiBody').innerHTML=k.map(function(r){return '<tr><td>'+r[0]+'</td><td class="num">'+fmt(r[1],r[2])+'</td></tr>'}).join('');
+    roi();
+  }
+  function roi(){
+    var v=function(id){var x=parseFloat($(id).value);return isFinite(x)?x:0};
+    var rv=v('iRv'), pt=v('iPt'), om=v('iOm'), mm=Math.min(12,v('iMm')), bud=v('iBud'), sdrh=v('iSdr'), hfv=v('iHf');
+    var pp=v('iPp')/100, po=v('iPo')/100, mg=v('iMg')/100;
+    $('oPp').textContent=Math.round(pp*100)+'%'; $('oPo').textContent=Math.round(po*100)+'%'; $('oMg').textContent=Math.round(mg*100)+'%';
+    var rc=rv+pp*(pt+po*om*mm);
+    var rt=rc*target, ct=rt*mg;
+    var sdrM=(last.hs||0)*sdrh*4.33;
+    var cash=(bud+sdrM)*6;
+    var full=cash+(last.hf||0)*26*hfv;
+    var cacC=cash/target, cacF=full/target;
+    var ltv=rc*mg;
+    var lc=cacF>0?ltv/cacF:0;
+    var roiC=cash>0?(ct-cash)/cash:0, roiF=full>0?(ct-full)/full:0;
+    var pb=ltv>0?cacF/(ltv/12):0;
+    $('yRc').textContent=brl(rc); $('yRt').textContent=brl(rt); $('yCt').textContent=brl(ct);
+    $('yCc').textContent=brl(cacC); $('yCf').textContent=brl(cacF);
+    $('yLc').textContent=fmt(lc,1)+'x';
+    var pc=function(el,x){el.textContent=(x>=0?'+':'')+fmt(x*100)+'%'; el.className='num '+(x>=0?'pos':'neg')};
+    pc($('yRoiC'),roiC); pc($('yRoiF'),roiF);
+    $('yPb').textContent=fmt(pb,1);
+  }
+  calc();
+  var KEY='rbx-mv-decisoes';
+  var saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){saved={}}
+  document.querySelectorAll('#dec input').forEach(function(cb){
+    if(saved[cb.id]) cb.checked=true;
+    cb.addEventListener('change',function(){saved[cb.id]=cb.checked; try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}});
+  });
+})();
+</script>
+
+</body></html>

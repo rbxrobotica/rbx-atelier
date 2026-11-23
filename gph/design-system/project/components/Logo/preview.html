@@ -1,0 +1,12 @@
+<!-- @dsCard group="Marca" height=96 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Logo</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-row', style: { gap: 40 } }, h(G.Logo, { height: 40 }), h(G.Logo, { height: 40, symbolOnly: true })));
+</script>
+</body>
+</html>

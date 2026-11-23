@@ -4,6 +4,7 @@ import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node
 import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { test } from 'node:test';
+import { ARCHIVE_DIRECTORIES, isArchived } from './archive.mjs';
 import { pageFindings, walk } from './cdn-scripts.mjs';
 import { isLinted, otherOrigins, repositoryPaths } from './repository-origin.mjs';
 
@@ -14,7 +15,7 @@ const NOT_EXACT = 'is not pinned to an exact version';
 const NO_INTEGRITY = 'has no integrity attribute made only of well-formed sha384 or sha512 hashes';
 const NOT_CHECKED = 'is not a classic HTML <script>, the one kind whose integrity check covers all that the browser loads for it';
 const REACT = 'https://unpkg.com/react@18.3.1/umd/react.js';
-const NOT_LINTED = 'is a file of the repository that the lint does not read: it reads .js, .mjs, .cjs and .jsx files outside node_modules';
+const NOT_LINTED = 'is a file of the repository that the lint does not read: it reads .js, .mjs, .cjs and .jsx files outside node_modules and outside the archive directories';
 const NO_DECLARATION = 'has a script or characters outside ASCII and does not open with <meta charset="utf-8">: within its first 1024 bytes, with no element before it but <html> and <head>';
 const NBSP = String.fromCharCode(0xa0);
 // The findings of a page that declares UTF-8, as every page with a script has to.
@@ -356,6 +357,24 @@ test('the lint reads four extensions, in lower case, outside node_modules', () =
   assert.equal(isLinted('/100%/x.js'), true);
 });
 
+test('a path is archived when its first segment is an archive directory', () => {
+  for (const directory of ARCHIVE_DIRECTORIES) assert.equal(isArchived(`${directory}/artifact/project/app.js`), true, directory);
+  for (const path of ['initelo/a.js', './initelo/a.js', '/initelo/a.js', '//initelo/a.js', 'INITELO/a.js', 'initelo\\a.js', '/%69nitelo/a.js', '/initelo%2fa.js', 'initelo']) {
+    assert.equal(isArchived(path), true, path);
+  }
+  for (const path of ['', '/', 'a.js', 'design-systems/initelo/a.js', 'kits/initelo/a.js', 'initelo.js', 'initelo-site/a.js', 'docs/satwake/a.js', '.github/guardrails/archive.mjs']) {
+    assert.equal(isArchived(path), false, path);
+  }
+});
+
+test('a script of an archive directory is a file the lint does not read', () => {
+  for (const path of ['/initelo/design-system/project/components/bundle.js', '/SATWAKE/a/app.js', '/gph%2Fa/app.mjs']) assert.equal(isLinted(path), false, path);
+  for (const path of ['/design-systems/satwake/app.js', '/kits/initelo/app.js', '/initelo.js']) assert.equal(isLinted(path), true, path);
+  for (const script of ['<script src="/initelo/design-system/project/components/bundle.js"></script>', '<script src="satwake/a/app.js"></script>', '<script src="../../gph/a/Kit.jsx" type="text/babel"></script>']) {
+    assert.deepEqual(findings(script).map(({ problems }) => problems), [[NOT_LINTED]], script);
+  }
+});
+
 test('each finding carries the line of its element', () => {
   const html = '<html>\n<script src="https://example.test/a.js"></script>\n\n<script\n src="https://example.test/b.js"></script>';
   assert.deepEqual(findings(html).map(({ line }) => line), [2, 4]);
@@ -378,6 +397,25 @@ test('the walk finds the HTML files and every symbolic link, outside .git and no
     const { pages, links } = walk(root);
     assert.deepEqual(pages.map((file) => relative(root, file)), ['index.html', 'kits/a/page.HTM']);
     assert.deepEqual(links.map((file) => relative(root, file)), ['kits/a/dangling.html', 'kits/a/linked.html', 'kits/directory.html', 'kits/linked']);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+  /* eslint-enable security/detect-non-literal-fs-filename */
+});
+
+test('the walk leaves out the pages of the archive directories and still reports their links', () => {
+  /* eslint-disable security/detect-non-literal-fs-filename -- a throwaway directory under the system temporary directory */
+  const root = mkdtempSync(join(tmpdir(), 'cdn-scripts-'));
+  try {
+    for (const directory of ['initelo/design-system/project', 'kits/initelo', 'initelo-site']) mkdirSync(join(root, directory), { recursive: true });
+    for (const file of ['initelo/index.html', 'initelo/design-system/project/page.html', 'kits/initelo/page.html', 'initelo-site/page.html', 'initelo.html']) {
+      writeFileSync(join(root, file), '');
+    }
+    symlinkSync('page.html', join(root, 'initelo/design-system/project/linked.html'));
+    symlinkSync('../kits', join(root, 'initelo/kits'));
+    const { pages, links } = walk(root);
+    assert.deepEqual(pages.map((file) => relative(root, file)), ['initelo-site/page.html', 'initelo.html', 'kits/initelo/page.html']);
+    assert.deepEqual(links.map((file) => relative(root, file)), ['initelo/design-system/project/linked.html', 'initelo/kits']);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

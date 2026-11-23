@@ -1,0 +1,33 @@
+<!-- @dsCard group="Finance" height=1432 -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>BudgetTable — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Source+Sans+3:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<style>
+body{padding:16px 20px}
+p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.col{display:flex;flex-direction:column;gap:12px}
+.g2,.g3,.g4{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lbl{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-muted);margin:0 0 8px}
+.state{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.state>small{font:var(--type-caption);color:var(--text-muted)}
+.tile{border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--surface-card);padding:16px}
+.ic{display:flex;align-items:center;gap:8px;font:var(--type-body-sm);font-size:14px;color:var(--text-body)}
+.ic svg{color:var(--tinta-700);flex:none}
+</style>
+</head>
+<body>
+<div id="ds-preview"></div>
+<script>
+const { BudgetTable, Button } = window.IniteloDesignSystem_b8cd96;
+const rows = [{ id: "s", date: "05/12", day: 5, description: "Salário", kind: "income", value: 4200 }, { id: "a", date: "10/12", day: 10, description: "Aluguel", kind: "expense", value: 1450 }, { id: "e", date: "15/12", day: 15, description: "Energia elétrica", kind: "expense", value: 186.4 }, { id: "i", date: "20/12", day: 20, description: "Internet", kind: "expense", value: 119.9 }, { id: "c", date: "28/12", day: 28, description: "Cartão de crédito", kind: "expense", value: 1327.35 }];
+const err = rows.slice(0, 3);
+err[2] = Object.assign({}, err[2], { value: null, error: "Informe o valor desta conta." });
+ReactDOM.createRoot(document.getElementById("ds-preview")).render(/* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "col", style: { gap: 24 } }, /* @__PURE__ */ React.createElement(BudgetTable, { description: "Dezembro de 2026 · dados fictícios", rows }), /* @__PURE__ */ React.createElement("div", { className: "g2", style: { alignItems: "start", gridTemplateColumns: "340px 1fr" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("p", { className: "lbl" }, "Mobile · com erro de linha"), /* @__PURE__ */ React.createElement(BudgetTable, { description: "Dezembro de 2026", rows: err })), /* @__PURE__ */ React.createElement("div", { className: "col", style: { gap: 16 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("p", { className: "lbl" }, "Vazio"), /* @__PURE__ */ React.createElement(BudgetTable, { showBalance: false, rows: [], emptyAction: /* @__PURE__ */ React.createElement(Button, { size: "sm", icon: "plus" }, "Adicionar entrada") })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("p", { className: "lbl" }, "Carregando · erro geral"), /* @__PURE__ */ React.createElement(BudgetTable, { showBalance: false, loading: true, error: "Verifique a conexão e tente de novo." })))))));
+</script>
+</body>
+</html>

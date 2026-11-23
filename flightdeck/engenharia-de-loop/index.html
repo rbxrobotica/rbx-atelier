@@ -1,0 +1,358 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Engenharia de Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #F7F8F6;
+    --ink: #17201D;
+    --pass: #0E7A4E;
+    --find: #A34A2A;
+    --muted: #5C6B64;
+    --line: #D9DFD9;
+    --card: #EFF2EE;
+    --term: #101614;
+    --term-ink: #D7E4DB;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101614;
+      --ink: #E8EDE8;
+      --pass: #4CC38A;
+      --find: #E0876B;
+      --muted: #93A39A;
+      --line: #24302A;
+      --card: #161E1A;
+      --term: #0B100E;
+      --term-ink: #C9D8CE;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #101614;
+    --ink: #E8EDE8;
+    --pass: #4CC38A;
+    --find: #E0876B;
+    --muted: #93A39A;
+    --line: #24302A;
+    --card: #161E1A;
+    --term: #0B100E;
+    --term-ink: #C9D8CE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 1.14rem;
+    line-height: 1.62;
+    font-optical-sizing: auto;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem 6rem; }
+  .wide { max-width: 62rem; margin-left: auto; margin-right: auto; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  header.hero { padding: 5rem 0 2.5rem; }
+  h1 {
+    font-family: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+    font-weight: 750;
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    margin: .5rem 0 1rem;
+    text-wrap: balance;
+  }
+  .dek {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--muted);
+    font-style: italic;
+    max-width: 38rem;
+    margin: 0;
+  }
+  .byline {
+    margin-top: 1.75rem;
+    display: flex; gap: .75rem; align-items: baseline; flex-wrap: wrap;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .78rem; color: var(--muted);
+  }
+  .byline b { color: var(--ink); font-weight: 600; }
+
+  h2 {
+    font-family: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: -.01em;
+    line-height: 1.15;
+    margin: 3.2rem 0 1rem;
+    text-wrap: balance;
+  }
+  h2 .n {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .8rem; font-weight: 500;
+    color: var(--pass);
+    display: block;
+    letter-spacing: .12em;
+    margin-bottom: .35rem;
+  }
+  p { margin: 0 0 1.1rem; }
+  strong { font-weight: 650; }
+  a { color: var(--pass); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--pass); outline-offset: 2px; }
+
+  .term {
+    background: var(--term);
+    color: var(--term-ink);
+    border-radius: 6px;
+    padding: 1.1rem 1.3rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .86rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 1.6rem 0;
+  }
+  .term .p { color: var(--pass); font-weight: 600; }
+  .term .f { color: var(--find); }
+  .term .dim { opacity: .55; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .stat { background: var(--card); padding: 1rem 1.1rem; }
+  .stat .v {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 2rem; font-weight: 750; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .v.pass { color: var(--pass); }
+  .stat .l {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin-top: .45rem;
+  }
+
+  figure.chart { margin: 2.5rem 0; }
+  .chart-scroll { overflow-x: auto; }
+  .chart svg { display: block; width: 100%; min-width: 620px; height: auto; }
+  figcaption {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .74rem; color: var(--muted);
+    margin-top: .6rem; line-height: 1.6;
+  }
+  .key { display: inline-block; width: .62em; height: .62em; border-radius: 2px; vertical-align: baseline; margin-right: .3em; }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: .98rem; margin: 1.5rem 0;
+  }
+  .tbl-scroll { overflow-x: auto; }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); text-align: left;
+    padding: .5rem .75rem .5rem 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  td {
+    padding: .6rem .75rem .6rem 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  td.r {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .82rem; white-space: nowrap;
+    color: var(--pass); font-weight: 600;
+  }
+  blockquote {
+    margin: 2.2rem 0;
+    padding: 0 0 0 1.4rem;
+    border-left: 3px solid var(--pass);
+    font-size: 1.32rem;
+    line-height: 1.45;
+    font-style: italic;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  ul.rules { padding-left: 1.2rem; margin: 1rem 0 1.4rem; }
+  ul.rules li { margin-bottom: .8rem; }
+  ul.rules li::marker { color: var(--pass); }
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .84em;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .08em .35em;
+  }
+  .close {
+    margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid var(--ink);
+  }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">RBX Journal · Processo de Engenharia</span>
+    <h1>Engenharia de Loop</h1>
+    <p class="dek">Como 58 rodadas de revisão adversarial entre dois modelos, com um humano no gatilho, levaram um plano de migração de runtime de 12 achados a zero.</p>
+    <div class="byline">
+      <span><b>RBX Robótica</b></span>
+      <span>·</span>
+      <span>31 ago 2026</span>
+      <span>·</span>
+      <span>rbx-flightdeck / ADR 0006</span>
+    </div>
+  </header>
+
+  <p>No sábado, o plano de migração do FlightDeck para Bun entrou em revisão com 12 achados na primeira rodada. No domingo à noite, depois de 58 rodadas, o veredito chegou assim:</p>
+
+  <div class="term" role="img" aria-label="Saída de terminal do reviewer: Checkpoint A passes, zero achados">
+    <span class="dim">$ codex exec --ephemeral -s read-only -m gpt-5.6-sol \</span><br>
+    <span class="dim">&nbsp;&nbsp;-c model_reasoning_effort=max "&lt;checkpoint A round 58&gt;"</span><br><br>
+    No material findings.<br><br>
+    <span class="p">Checkpoint A passes: 0 critical, 0 high, 0 medium, 0 low</span>
+  </div>
+
+  <p>Este post documenta o processo que chamamos de <strong>Engenharia de Loop</strong>: o que é, o que ele encontrou, e a lição contraintuitiva que ficou, a de que o valor do loop não está só no rigor que ele adiciona, mas no que ele nos obriga a remover.</p>
+
+  <h2><span class="n">01</span>O loop</h2>
+  <p>O processo vem do nosso ADR-0004 e tem três papéis fixos. O <strong>Claude</strong> escreve e emenda o plano. O <strong>Codex</strong>, um modelo de outro fornecedor, revisa em sandbox read-only com esforço máximo de raciocínio, sem poder editar nada, e termina cada rodada com uma linha de veredito e uma lista de achados com severidade e correção concreta. O <strong>owner</strong> humano faz a triagem: nenhum achado é aceito automaticamente, e nenhuma emenda dispensa registro.</p>
+  <p>Cada rodada é o mesmo ciclo: revisão, triagem documentada, emenda no mesmo dia, commit, próxima rodada com um prompt que exige verificar se as resoluções anteriores foram de fato refletidas nos documentos. Esse último detalhe importa mais do que parece: o reviewer relê tudo a cada rodada e cobra resolução por resolução, então uma correção prometida na triagem mas ausente no texto vira achado novo. O plano não pode fingir.</p>
+
+  <h2><span class="n">02</span>Os números</h2>
+  <div class="stats">
+    <div class="stat"><div class="v">58</div><div class="l">rodadas</div></div>
+    <div class="stat"><div class="v">257</div><div class="l">achados triados</div></div>
+    <div class="stat"><div class="v pass">0</div><div class="l">críticos, sempre</div></div>
+    <div class="stat"><div class="v">8</div><div class="l">retiradas de design</div></div>
+    <div class="stat"><div class="v">3</div><div class="l">dias corridos</div></div>
+  </div>
+
+  <figure class="chart wide">
+    <div class="chart-scroll"><svg id="rounds" viewBox="0 0 928 190" xmlns="http://www.w3.org/2000/svg" aria-label="Achados por rodada, 58 rodadas"></svg></div>
+    <figcaption>
+      Achados por rodada, 1 a 58.
+      <span class="key" style="background:var(--find)"></span>achados
+      &nbsp;<span class="key" style="background:var(--pass)"></span>retirada deliberada de design
+      &nbsp;<span class="key" style="border:1.5px solid var(--pass); background:transparent"></span>rodada 58: passa com zero.
+      A curva não desce em linha reta: cada mecanismo novo que o plano ganhava abria superfície nova, e os picos (rodadas 29 a 34) coincidem com a maquinaria que depois decidimos extrair ou retirar.
+    </figcaption>
+  </figure>
+
+  <p>Para contexto: esta foi a segunda missão a passar pelo loop. A primeira, o plano de estados de execução externa do ADR 0005, passou em 25 rodadas. O programa inteiro soma 83 rodadas de revisão adversarial em uma semana, tudo em documentos de arquitetura, antes de qualquer linha de implementação.</p>
+
+  <h2><span class="n">03</span>O que um reviewer incansável encontra</h2>
+  <p>A objeção óbvia ao processo é que 58 rodadas seriam pedantismo. A resposta está na qualidade do que apareceu depois da rodada 20, quando um revisor humano já teria aprovado por cansaço:</p>
+  <ul class="rules">
+    <li>O SvelteKit só chama <code>handleError</code> para erros inesperados, então nosso ponto de emissão de telemetria deixaria escapar um <code>error(503)</code> esperado. O reviewer citou o código-fonte do framework.</li>
+    <li><code>[run] bun = true</code> no bunfig aliasa <code>node</code> para Bun recursivamente, o que rodaria o CLI do Playwright, nossa única exceção Node declarada, sob o runtime errado. E omitir a flag não basta: o Bun faz merge raso com a config global da máquina.</li>
+    <li>O digest de uma imagem OCI não é uma identidade única: proveniência do BuildKit gera um index cujo digest difere do manifesto implantável, e o <code>imageID</code> do Kubernetes adiciona uma terceira camada. Nossas igualdades exigidas comparavam objetos diferentes.</li>
+    <li>As conditions do ExternalSecret v1 não expõem <code>observedGeneration</code>. O predicado de frescor que escrevemos bloquearia para sempre ou seria enfraquecido na implementação. De novo: citação do CRD oficial.</li>
+    <li>O Promtail chegou ao fim de vida em março. Estávamos prestes a instalar uma fronteira permanente de privacidade num coletor sem suporte.</li>
+    <li>Numa aritmética de gerações CAS, contamos +11 onde duas transições bifásicas somam +13. O reviewer refez a conta.</li>
+  </ul>
+  <p>Nenhum desses seis sobreviveria a um teste de fumaça. Todos sobreviveriam a um code review humano típico.</p>
+
+  <h2><span class="n">04</span>A lição: o loop ensina a remover</h2>
+  <blockquote>Um reviewer adversarial não deixa você esconder complexidade. Ou o mecanismo fica executável em cada detalhe, ou ele sai do plano.</blockquote>
+  <p>O padrão mais valioso das 58 rodadas foi este: sempre que um subsistema entrava em espiral, cada correção abrindo dois problemas novos por três rodadas seguidas, a resposta certa nunca foi a nona camada de correção. Foi retirada. Fizemos isso oito vezes, e cada retirada está registrada no próprio plano com a justificativa por extenso:</p>
+
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Rodada</th><th>O que saiu</th><th>O que entrou no lugar</th></tr></thead>
+    <tbody>
+      <tr><td class="r">r19</td><td>Coletor de evidência in-cluster (ServiceAccount, RBAC entre namespaces, TokenRequest)</td><td>O owner com um script pinado: a automação removida era cerimônia, não controle</td></tr>
+      <tr><td class="r">r20</td><td>Tabela <code>ops_event</code> no banco</td><td>Schema congelado; evidência por identidade de pod e logs varridos</td></tr>
+      <tr><td class="r">r21</td><td>Sonda ativa de handoff em produção</td><td>Vetores de compatibilidade em CI como prova, produção como evidência passiva tipada</td></tr>
+      <tr><td class="r">r30</td><td>Modo RESTORE de recuperação</td><td>Proibido: rewind de banco apaga ledger append-only; só forward</td></tr>
+      <tr><td class="r">r31</td><td>Maquinaria inteira de releases incompatíveis</td><td>Compatibilidade como requisito de publish; o resto deferido a um ADR futuro</td></tr>
+      <tr><td class="r">r34</td><td>Contrato de release steady-state (crescido dentro do plano)</td><td>Extraído para o ADR 0007 companheiro, com checkpoint próprio e gate fail-closed</td></tr>
+      <tr><td class="r">r40</td><td>Gerações imutáveis de Secrets, cutovers drenados, verificadores</td><td>Detecção por metadados mais disciplina do owner: prevenção brigava com a plataforma</td></tr>
+      <tr><td class="r">r45</td><td>Job de fingerprint HMAC</td><td>Prova nativa do controller: o ciclo de vida da chave era superfície de ataque própria</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Repare no que essas oito linhas têm em comum: em todas, a versão retirada era mais impressionante no papel. O loop forçou a pergunta que planos raramente respondem: <em>quem executa isto, com que credencial, em que ordem, e o que acontece quando falha no meio?</em> Quando a resposta honesta era um castelo de cartas, o castelo caía.</p>
+
+  <h2><span class="n">05</span>O playbook que fica</h2>
+  <ul class="rules">
+    <li><strong>Veredito literal, sempre.</strong> Cada rodada termina com uma linha padronizada e contagens. Sem "parece bom": ou passa, ou não passa, com números.</li>
+    <li><strong>O prompt seguinte cobra o anterior.</strong> Resolução alegada e não refletida é achado. Isso transforma triagem em contrato.</li>
+    <li><strong>Zero críticos é o sinal de saúde.</strong> Em 83 rodadas do programa, nenhum achado crítico: a arquitetura de base aguentou; o loop lapidou executabilidade.</li>
+    <li><strong>Espiral de três rodadas pede retirada, não correção.</strong> Se o mesmo subsistema gera achados novos por três rodadas, o design está errado, não incompleto.</li>
+    <li><strong>Honestidade declarada vence garantia fingida.</strong> O reviewer aceitou repetidamente "este residual existe, está limitado por X e dito por extenso" e rejeitou toda garantia que o mecanismo não sustentava.</li>
+    <li><strong>Escopo é ferramenta de convergência.</strong> A extração do ADR 0007 devolveu o checkpoint ao tamanho da missão e destravou a reta final.</li>
+  </ul>
+
+  <h2><span class="n">06</span>O que vem agora</h2>
+  <p>Com o Checkpoint A fechado, a missão entra em implementação sob o mesmo processo: Checkpoint B no slice vertical, Checkpoint C no final. Depois vêm a mudança coordenada de infra, o canário em produção, o soak de um ciclo semanal completo e a aposentadoria do Node. Só então o ADR 0005, que passou pelo seu próprio loop de 25 rodadas, rebaseia e implementa sobre o contrato novo.</p>
+
+  <div class="close">
+    <p class="eyebrow">tese</p>
+    <blockquote>Dois modelos em adversário, um humano na triagem, e a regra de que nada passa sem virar texto executável. O resto é repetição barata. É isso a Engenharia de Loop.</blockquote>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var data = [12,7,6,7,5,5,8,5,5,4,5,6,2,3,2,4,4,5,5,5,3,2,3,4,5,4,4,5,7,6,8,5,5,7,4,6,5,5,5,4,5,3,4,4,3,3,3,3,4,4,4,4,2,2,2,3,2,0];
+    var withdrawals = {19:1,20:1,21:1,30:1,31:1,34:1,40:1,45:1};
+    var svg = document.getElementById('rounds');
+    var W = 928, H = 190, pad = 24, baseline = H - 34, max = 12;
+    var n = data.length, gap = 3;
+    var bw = (W - pad * 2 - gap * (n - 1)) / n;
+    var css = getComputedStyle(document.documentElement);
+    function v(name) { return css.getPropertyValue(name).trim(); }
+    var ns = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      var e = document.createElementNS(ns, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+    var ax = el('line', {x1: pad, y1: baseline + .5, x2: W - pad, y2: baseline + .5, stroke: v('--line'), 'stroke-width': 1});
+    svg.appendChild(ax);
+    for (var i = 0; i < n; i++) {
+      var r = i + 1;
+      var x = pad + i * (bw + gap);
+      var h = (data[i] / max) * (baseline - pad - 14);
+      var isPass = r === 58;
+      if (data[i] > 0) {
+        svg.appendChild(el('rect', {x: x, y: baseline - h, width: bw, height: h, rx: 1.5, fill: v('--find'), opacity: withdrawals[r] ? .95 : .68}));
+      } else if (isPass) {
+        svg.appendChild(el('rect', {x: x, y: baseline - 26, width: bw, height: 26, rx: 1.5, fill: 'none', stroke: v('--pass'), 'stroke-width': 1.6}));
+      }
+      if (withdrawals[r]) {
+        svg.appendChild(el('circle', {cx: x + bw / 2, cy: baseline + 10, r: 3, fill: v('--pass')}));
+      }
+      if (r === 1 || r === 10 || r === 20 || r === 30 || r === 40 || r === 50 || r === 58) {
+        var t = el('text', {x: x + bw / 2, y: H - 8, 'text-anchor': 'middle', 'font-size': 10, fill: v('--muted'), 'font-family': 'IBM Plex Mono, monospace'});
+        t.textContent = r;
+        svg.appendChild(t);
+      }
+      if (r === 1 || r === 31) {
+        var lbl = el('text', {x: x + bw / 2, y: baseline - h - 6, 'text-anchor': 'middle', 'font-size': 10.5, 'font-weight': 600, fill: v('--find'), 'font-family': 'IBM Plex Mono, monospace'});
+        lbl.textContent = data[i];
+        svg.appendChild(lbl);
+      }
+      if (isPass) {
+        var z = el('text', {x: x + bw / 2, y: baseline - 32, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: v('--pass'), 'font-family': 'IBM Plex Mono, monospace'});
+        z.textContent = '0';
+        svg.appendChild(z);
+      }
+    }
+  })();
+</script>
+
+</body></html>
