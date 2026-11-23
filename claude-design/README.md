@@ -2,6 +2,8 @@
 
 Cópia de todos os artefatos da conta feitos no Claude Design e nos tipos de artefato do claude.ai (Design System, Design, Docs e páginas próprias), tirada em 19 de novembro de 2026 porque o claude.ai/design standalone fecha em 14 de dezembro de 2026.
 
+Acréscimo de 22 de novembro de 2026: `initelo-design-system`, criado no claude.ai/design standalone nesse dia, movido para o Claude e copiado aqui já na versão convertida.
+
 ## O que tem em cada pasta
 
 - `_backup.json`: título, link, tipo, versão lida, data, e a lista de arquivos e assets com tamanho e sha256.
@@ -38,6 +40,7 @@ Para abrir um design system de novo no claude.ai, crie um artefato do tipo Desig
 | `informat-direcoes-do-design-system` | Informat · Direções do Design System | página única | 1 | 0 | https://claude.ai/artifact/KVnHLDZVnVvVsN36s8Vhr6 |
 | `informat-direcoes-do-site` | Informat · Direções do Site | página única | 1 | 0 | https://claude.ai/artifact/XQcvwiw9Bzgvow1sk446rW |
 | `informat-telas-e-prototipos` | Informat · Telas e Protótipos | Design | 25 | 12 | https://claude.ai/artifact/WbBeWYi7VnfM5NwSuzQWTv |
+| `initelo-design-system` | Initelo Design System | Design System | 211 | 0 | https://claude.ai/artifact/B71osy1venY5CQUQsfsFiC |
 | `iteruno-design-system` | Iteruno Design System | Design System | 103 | 115 | https://claude.ai/artifact/3N63RvzQ4yS5EGzHnQh3K5 |
 | `iteruno-site-prova` | Iteruno · Site (prova) | página única | 29 | 0 | https://claude.ai/artifact/PsHi6hAZ6kHDRmPPKc5NTd |
 | `kairos-freeze` | Kairos Freeze | página única | 1 | 0 | https://claude.ai/artifact/KZGHtSQtQGZbCKs7xSWeRJ |
