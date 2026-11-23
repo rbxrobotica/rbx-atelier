@@ -1,0 +1,596 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-09T23:58:51Z"
+ },
+ "title": "Informat Design System",
+ "namespace": "Informat",
+ "libraries": [
+  {
+   "name": "react",
+   "version": "18"
+  },
+  {
+   "name": "react-dom",
+   "version": "18"
+  }
+ ],
+ "sections": {},
+ "groups": [
+  "Logotipos",
+  "Icones",
+  "Padroes",
+  "Exportacoes PNG",
+  "Tokens"
+ ],
+ "assetGroups": {
+  "Logotipos": {
+   "name": "Logotipos",
+   "tile": "l",
+   "order": [
+    "informat-horizontal.svg",
+    "informat-horizontal-escuro.svg",
+    "informat-vertical.svg",
+    "informat-simbolo.svg",
+    "informat-logotipo.svg",
+    "informat-logotipo-escuro.svg",
+    "informat-mono-tinta.svg",
+    "informat-mono-branco.svg",
+    "informat-favicon.svg",
+    "informat-app-icon.svg"
+   ],
+   "files": {
+    "informat-app-icon.svg": {
+     "name": "informat-app-icon.svg",
+     "blob": "d1d6bf92dd1ce905d33eee30c8c94b4a",
+     "size": 509,
+     "type": "image/svg+xml"
+    },
+    "informat-favicon.svg": {
+     "name": "informat-favicon.svg",
+     "blob": "522bcdc19eef4f9ba1773772d3d5ba3f",
+     "size": 397,
+     "type": "image/svg+xml"
+    },
+    "informat-horizontal-escuro.svg": {
+     "name": "informat-horizontal-escuro.svg",
+     "blob": "5adc811a33d635f74a65f51612b2e9ba",
+     "size": 4030,
+     "type": "image/svg+xml"
+    },
+    "informat-horizontal.svg": {
+     "name": "informat-horizontal.svg",
+     "blob": "1845bba25161a7ed24a0af63a6189b87",
+     "size": 3994,
+     "type": "image/svg+xml"
+    },
+    "informat-logotipo-escuro.svg": {
+     "name": "informat-logotipo-escuro.svg",
+     "blob": "72e520b9b37e07dbf663fcd37f84c625",
+     "size": 3406,
+     "type": "image/svg+xml"
+    },
+    "informat-logotipo.svg": {
+     "name": "informat-logotipo.svg",
+     "blob": "05d58e89df4fb9b119c1ad7857f82877",
+     "size": 3370,
+     "type": "image/svg+xml"
+    },
+    "informat-mono-branco.svg": {
+     "name": "informat-mono-branco.svg",
+     "blob": "10de1e2104951b082a20af105640fd7c",
+     "size": 3940,
+     "type": "image/svg+xml"
+    },
+    "informat-mono-tinta.svg": {
+     "name": "informat-mono-tinta.svg",
+     "blob": "605fa66fd762dedd1ca8493b77823cb3",
+     "size": 3938,
+     "type": "image/svg+xml"
+    },
+    "informat-simbolo.svg": {
+     "name": "informat-simbolo.svg",
+     "blob": "53fe25dd8aef00917b291d84263a0e28",
+     "size": 505,
+     "type": "image/svg+xml"
+    },
+    "informat-vertical.svg": {
+     "name": "informat-vertical.svg",
+     "blob": "dc172be7ef4d3905113cf5875cbab53e",
+     "size": 4098,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Icones": {
+   "name": "Icones",
+   "tile": "xs",
+   "order": [
+    "alert-triangle.svg",
+    "arrow-right.svg",
+    "calendar.svg",
+    "camera.svg",
+    "check-circle.svg",
+    "check.svg",
+    "chevron-down.svg",
+    "chevron-left.svg",
+    "chevron-right.svg",
+    "clock.svg",
+    "cpu.svg",
+    "file-text.svg",
+    "hard-drive.svg",
+    "home.svg",
+    "hourglass.svg",
+    "image.svg",
+    "info.svg",
+    "laptop.svg",
+    "log-in.svg",
+    "mail.svg",
+    "map-pin.svg",
+    "menu.svg",
+    "message.svg",
+    "minus-circle.svg",
+    "monitor.svg",
+    "package.svg",
+    "phone.svg",
+    "plus.svg",
+    "search.svg",
+    "server.svg",
+    "shield-data.svg",
+    "terminal.svg",
+    "upload.svg",
+    "user.svg",
+    "video.svg",
+    "wrench.svg",
+    "x-circle.svg",
+    "x.svg"
+   ],
+   "files": {
+    "alert-triangle.svg": {
+     "name": "alert-triangle.svg",
+     "blob": "816f69ad7d23f52c6c98d6a2343f23cc",
+     "size": 336,
+     "type": "image/svg+xml"
+    },
+    "arrow-right.svg": {
+     "name": "arrow-right.svg",
+     "blob": "558581e3058209bdf11df84121154644",
+     "size": 302,
+     "type": "image/svg+xml"
+    },
+    "calendar.svg": {
+     "name": "calendar.svg",
+     "blob": "59b5a8c4ba3dd2c3a847058e4c92878d",
+     "size": 438,
+     "type": "image/svg+xml"
+    },
+    "camera.svg": {
+     "name": "camera.svg",
+     "blob": "8387609d142b2b9662231a80d4310f6f",
+     "size": 426,
+     "type": "image/svg+xml"
+    },
+    "check-circle.svg": {
+     "name": "check-circle.svg",
+     "blob": "29a7a26876872a0f6c0afa5a01864e98",
+     "size": 334,
+     "type": "image/svg+xml"
+    },
+    "check.svg": {
+     "name": "check.svg",
+     "blob": "e3ca6428f2f5b216b91de6ba9226158e",
+     "size": 269,
+     "type": "image/svg+xml"
+    },
+    "chevron-down.svg": {
+     "name": "chevron-down.svg",
+     "blob": "924f843ff1600ac829d658871d8d79a9",
+     "size": 277,
+     "type": "image/svg+xml"
+    },
+    "chevron-left.svg": {
+     "name": "chevron-left.svg",
+     "blob": "7521a7f45d03605b56e5c3955049a45d",
+     "size": 278,
+     "type": "image/svg+xml"
+    },
+    "chevron-right.svg": {
+     "name": "chevron-right.svg",
+     "blob": "75c25be4b6c1c17e708f9c9f06ff8b50",
+     "size": 279,
+     "type": "image/svg+xml"
+    },
+    "clock.svg": {
+     "name": "clock.svg",
+     "blob": "1ec6f6c8d259ecf43bc8bad5a886c5ca",
+     "size": 315,
+     "type": "image/svg+xml"
+    },
+    "cpu.svg": {
+     "name": "cpu.svg",
+     "blob": "24196ce3fade9caf275e2fcae93ad2ae",
+     "size": 699,
+     "type": "image/svg+xml"
+    },
+    "file-text.svg": {
+     "name": "file-text.svg",
+     "blob": "9064a81a86c237e07b351e934b73c224",
+     "size": 416,
+     "type": "image/svg+xml"
+    },
+    "hard-drive.svg": {
+     "name": "hard-drive.svg",
+     "blob": "0299c0d9373bb4524f04b03a7d26fcd1",
+     "size": 492,
+     "type": "image/svg+xml"
+    },
+    "home.svg": {
+     "name": "home.svg",
+     "blob": "ec99791be1e3ca27f611a001c9fdd3d6",
+     "size": 323,
+     "type": "image/svg+xml"
+    },
+    "hourglass.svg": {
+     "name": "hourglass.svg",
+     "blob": "8d5e8fd2b61dd9d8f44bd00e7e4120cc",
+     "size": 452,
+     "type": "image/svg+xml"
+    },
+    "image.svg": {
+     "name": "image.svg",
+     "blob": "42aaecf61d543d23d01686b20c679a49",
+     "size": 462,
+     "type": "image/svg+xml"
+    },
+    "info.svg": {
+     "name": "info.svg",
+     "blob": "f0ce219267d66765aa5738a64c03cd6b",
+     "size": 332,
+     "type": "image/svg+xml"
+    },
+    "laptop.svg": {
+     "name": "laptop.svg",
+     "blob": "51a7386875e957cd4aad65a1a8db834b",
+     "size": 354,
+     "type": "image/svg+xml"
+    },
+    "log-in.svg": {
+     "name": "log-in.svg",
+     "blob": "2779e89e93d642f162a41027f2cb11e3",
+     "size": 370,
+     "type": "image/svg+xml"
+    },
+    "mail.svg": {
+     "name": "mail.svg",
+     "blob": "ef8c8123fb5c3e76f382c3e6c8b5631c",
+     "size": 390,
+     "type": "image/svg+xml"
+    },
+    "map-pin.svg": {
+     "name": "map-pin.svg",
+     "blob": "39087c7cbda3c2dd2c0ab5f2a4a2fb3c",
+     "size": 379,
+     "type": "image/svg+xml"
+    },
+    "menu.svg": {
+     "name": "menu.svg",
+     "blob": "2970fb672fe63026dfff54ef2e373cae",
+     "size": 301,
+     "type": "image/svg+xml"
+    },
+    "message.svg": {
+     "name": "message.svg",
+     "blob": "85853b5b801806e49d38ad8914f2ec99",
+     "size": 383,
+     "type": "image/svg+xml"
+    },
+    "minus-circle.svg": {
+     "name": "minus-circle.svg",
+     "blob": "06cac26cb15ef6e1da1b3b27e40d14dd",
+     "size": 321,
+     "type": "image/svg+xml"
+    },
+    "monitor.svg": {
+     "name": "monitor.svg",
+     "blob": "5f620e527985ee90d17403ded930caa7",
+     "size": 410,
+     "type": "image/svg+xml"
+    },
+    "package.svg": {
+     "name": "package.svg",
+     "blob": "e2c386ac069484f581cd5197405b57d1",
+     "size": 359,
+     "type": "image/svg+xml"
+    },
+    "phone.svg": {
+     "name": "phone.svg",
+     "blob": "d2c3911105874eee61249600ac3afc2b",
+     "size": 351,
+     "type": "image/svg+xml"
+    },
+    "plus.svg": {
+     "name": "plus.svg",
+     "blob": "92081c4303f05302cb52d346bd085a7d",
+     "size": 280,
+     "type": "image/svg+xml"
+    },
+    "search.svg": {
+     "name": "search.svg",
+     "blob": "6a1515f4499c6a6cf5cb2ca627ae24ba",
+     "size": 330,
+     "type": "image/svg+xml"
+    },
+    "server.svg": {
+     "name": "server.svg",
+     "blob": "96755833cfefce5b19813cd3bc100f93",
+     "size": 576,
+     "type": "image/svg+xml"
+    },
+    "shield-data.svg": {
+     "name": "shield-data.svg",
+     "blob": "5a23e47955415b96c9d516bc1fe6c85c",
+     "size": 363,
+     "type": "image/svg+xml"
+    },
+    "terminal.svg": {
+     "name": "terminal.svg",
+     "blob": "c881ea30f8a0b30f2eaf5c3b38ece63f",
+     "size": 418,
+     "type": "image/svg+xml"
+    },
+    "upload.svg": {
+     "name": "upload.svg",
+     "blob": "6dd316164bbb9d6393347ba728468621",
+     "size": 365,
+     "type": "image/svg+xml"
+    },
+    "user.svg": {
+     "name": "user.svg",
+     "blob": "0c3b32bff1832011fb2d245206875fae",
+     "size": 336,
+     "type": "image/svg+xml"
+    },
+    "video.svg": {
+     "name": "video.svg",
+     "blob": "c57033b69c08d3a75911caabb02cdc8a",
+     "size": 409,
+     "type": "image/svg+xml"
+    },
+    "wrench.svg": {
+     "name": "wrench.svg",
+     "blob": "c3df45ee786e8c3d1830769b58c7a858",
+     "size": 390,
+     "type": "image/svg+xml"
+    },
+    "x-circle.svg": {
+     "name": "x-circle.svg",
+     "blob": "95918cd86b98a78a5617149e6406fd3d",
+     "size": 334,
+     "type": "image/svg+xml"
+    },
+    "x.svg": {
+     "name": "x.svg",
+     "blob": "43284e55208ecdcc01a1076127788ad7",
+     "size": 272,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Padroes": {
+   "name": "Padroes",
+   "tile": "l",
+   "order": [
+    "informat-trilhas-mascara.svg",
+    "informat-trilhas.svg"
+   ],
+   "files": {
+    "informat-trilhas-mascara.svg": {
+     "name": "informat-trilhas-mascara.svg",
+     "blob": "0a18dfec0569360dccc7a977bb760bd6",
+     "size": 1058,
+     "type": "image/svg+xml"
+    },
+    "informat-trilhas.svg": {
+     "name": "informat-trilhas.svg",
+     "blob": "36f5610c4075bb66c1410f7b7ed0a31f",
+     "size": 983,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Exportacoes PNG": {
+   "name": "Exportacoes PNG",
+   "tile": "m",
+   "order": [
+    "informat-horizontal-1x.png",
+    "informat-horizontal-4x.png",
+    "informat-horizontal-escuro-1x.png",
+    "informat-horizontal-escuro-4x.png",
+    "informat-vertical-1x.png",
+    "informat-vertical-4x.png",
+    "informat-simbolo-1x.png",
+    "informat-simbolo-4x.png",
+    "informat-logotipo-1x.png",
+    "informat-logotipo-4x.png",
+    "informat-logotipo-escuro-1x.png",
+    "informat-logotipo-escuro-4x.png",
+    "informat-mono-tinta-1x.png",
+    "informat-mono-tinta-4x.png",
+    "informat-mono-branco-1x.png",
+    "informat-mono-branco-4x.png",
+    "informat-favicon-1x.png",
+    "informat-favicon-4x.png",
+    "informat-app-icon-1x.png",
+    "informat-app-icon-4x.png",
+    "informat-trilhas-1x.png",
+    "informat-trilhas-4x.png",
+    "informat-trilhas-mascara-1x.png",
+    "informat-trilhas-mascara-4x.png"
+   ],
+   "files": {
+    "informat-app-icon-1x.png": {
+     "name": "informat-app-icon-1x.png",
+     "blob": "ceb6f910c4c032ded91de074834d73f7",
+     "size": 4936,
+     "type": "image/png"
+    },
+    "informat-app-icon-4x.png": {
+     "name": "informat-app-icon-4x.png",
+     "blob": "03b5ec6b331a1540b513386131405e9f",
+     "size": 28267,
+     "type": "image/png"
+    },
+    "informat-favicon-1x.png": {
+     "name": "informat-favicon-1x.png",
+     "blob": "feed3bea2ae6b0195d670c65df080361",
+     "size": 383,
+     "type": "image/png"
+    },
+    "informat-favicon-4x.png": {
+     "name": "informat-favicon-4x.png",
+     "blob": "58b771357a551510d9de63d1ca337592",
+     "size": 1262,
+     "type": "image/png"
+    },
+    "informat-horizontal-1x.png": {
+     "name": "informat-horizontal-1x.png",
+     "blob": "007afc45390b8442a430c49eda13998a",
+     "size": 5267,
+     "type": "image/png"
+    },
+    "informat-horizontal-4x.png": {
+     "name": "informat-horizontal-4x.png",
+     "blob": "5fb67fe34c082ef30fa00081550e21c4",
+     "size": 21370,
+     "type": "image/png"
+    },
+    "informat-horizontal-escuro-1x.png": {
+     "name": "informat-horizontal-escuro-1x.png",
+     "blob": "f2e68c51c19c21e8ef6c2c6d8d9f7fe0",
+     "size": 5648,
+     "type": "image/png"
+    },
+    "informat-horizontal-escuro-4x.png": {
+     "name": "informat-horizontal-escuro-4x.png",
+     "blob": "3d99613421d8d8788ba79c834d3b2bc5",
+     "size": 20669,
+     "type": "image/png"
+    },
+    "informat-logotipo-1x.png": {
+     "name": "informat-logotipo-1x.png",
+     "blob": "f604012b9ef9c01580d499c56723560e",
+     "size": 4441,
+     "type": "image/png"
+    },
+    "informat-logotipo-4x.png": {
+     "name": "informat-logotipo-4x.png",
+     "blob": "8a3d1f542a08fb2f64b1669d10c17a4e",
+     "size": 17650,
+     "type": "image/png"
+    },
+    "informat-logotipo-escuro-1x.png": {
+     "name": "informat-logotipo-escuro-1x.png",
+     "blob": "d8d8da6471dc8f7ce81a9b1b221bb4da",
+     "size": 4523,
+     "type": "image/png"
+    },
+    "informat-logotipo-escuro-4x.png": {
+     "name": "informat-logotipo-escuro-4x.png",
+     "blob": "9dd62ba9bc46fd9467a5b34b60ece76e",
+     "size": 18874,
+     "type": "image/png"
+    },
+    "informat-mono-branco-1x.png": {
+     "name": "informat-mono-branco-1x.png",
+     "blob": "a0175899fcfcf4b24e8bcf568944690e",
+     "size": 5562,
+     "type": "image/png"
+    },
+    "informat-mono-branco-4x.png": {
+     "name": "informat-mono-branco-4x.png",
+     "blob": "e80a747be8eee49008269ca9220dee12",
+     "size": 20824,
+     "type": "image/png"
+    },
+    "informat-mono-tinta-1x.png": {
+     "name": "informat-mono-tinta-1x.png",
+     "blob": "5de5f30d7ce198bfead366bf974252c6",
+     "size": 5113,
+     "type": "image/png"
+    },
+    "informat-mono-tinta-4x.png": {
+     "name": "informat-mono-tinta-4x.png",
+     "blob": "f1fffd51c8a9617f662ddaa42a1ac4a9",
+     "size": 20912,
+     "type": "image/png"
+    },
+    "informat-simbolo-1x.png": {
+     "name": "informat-simbolo-1x.png",
+     "blob": "f401babfaa429b507222b79a1dd6b7c9",
+     "size": 954,
+     "type": "image/png"
+    },
+    "informat-simbolo-4x.png": {
+     "name": "informat-simbolo-4x.png",
+     "blob": "2b3bce01a093e52e25817eb1eef895ef",
+     "size": 3944,
+     "type": "image/png"
+    },
+    "informat-trilhas-1x.png": {
+     "name": "informat-trilhas-1x.png",
+     "blob": "39fc53d1862e606fa8faded06db69e28",
+     "size": 3837,
+     "type": "image/png"
+    },
+    "informat-trilhas-4x.png": {
+     "name": "informat-trilhas-4x.png",
+     "blob": "d3bbcd7d9899d2fdb773b482c20ac006",
+     "size": 25875,
+     "type": "image/png"
+    },
+    "informat-trilhas-mascara-1x.png": {
+     "name": "informat-trilhas-mascara-1x.png",
+     "blob": "7f04b208347026aafda612398715b09e",
+     "size": 4002,
+     "type": "image/png"
+    },
+    "informat-trilhas-mascara-4x.png": {
+     "name": "informat-trilhas-mascara-4x.png",
+     "blob": "8fe451e2452777e4c607159b1c17ec97",
+     "size": 23543,
+     "type": "image/png"
+    },
+    "informat-vertical-1x.png": {
+     "name": "informat-vertical-1x.png",
+     "blob": "6962b6148da1070c00298e74706064e2",
+     "size": 6340,
+     "type": "image/png"
+    },
+    "informat-vertical-4x.png": {
+     "name": "informat-vertical-4x.png",
+     "blob": "592275befb9b2ce1f5c5ef789a2c1e64",
+     "size": 26198,
+     "type": "image/png"
+    }
+   }
+  },
+  "Tokens": {
+   "name": "Tokens",
+   "tile": "s",
+   "order": [],
+   "files": {}
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Leandro Damasio",
+  "at": "2026-10-10T00:03:35Z",
+  "via": "Claude Code",
+  "note": "ServiceTimeline ganha o modo explain (etapas como vias de cobre) para Início e páginas de serviço; marca.md descreve o hero do site."
+ }
+}

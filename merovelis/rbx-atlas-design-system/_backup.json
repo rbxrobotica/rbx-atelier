@@ -1,0 +1,19 @@
+{
+ "title": "RBX Atlas Design System",
+ "url": "https://claude.ai/artifact/JHAqrNVCr7tsoCesncacmQ",
+ "type": null,
+ "version": "1788417968-241b",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2608795,
+   "sha256": "7ba23c6bc8de834ff24c57f5564617a4d9dfe28a19595d5ed7ddfd861cfde33b"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "previous_backup_path": "claude-design/rbx-atlas-design-system"
+}

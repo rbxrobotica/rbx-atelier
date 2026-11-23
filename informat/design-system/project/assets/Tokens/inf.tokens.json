@@ -1,0 +1,670 @@
+{
+  "name": "Informat",
+  "version": "0.1.0",
+  "prefix": "inf",
+  "color": {
+    "base": {
+      "$type": "color",
+      "$value": "#F4F6F3",
+      "$description": "Fundo da página (bancada). Recebe ink, ink-2, ink-3, placa, cobre-ink e os textos de status."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Cartões, formulários, a folha da OS, diálogos. Recebe ink, ink-2, ink-3, placa, placa-strong, cobre-ink e os textos de status."
+    },
+    "sunken": {
+      "$type": "color",
+      "$value": "#E8ECE7",
+      "$description": "Áreas rebaixadas: linhas de especificação, trilha da linha do tempo, campo desabilitado, esqueleto. Recebe ink, ink-2, ink-3 e placa."
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#D5DCD6",
+      "$description": "Divisórias e contornos decorativos de cartões sobre surface e base. Nunca é a única borda de um controle (use field)."
+    },
+    "field": {
+      "$type": "color",
+      "$value": "#7B877F",
+      "$description": "Borda de controles (campo, select, caixa de seleção, cartão de escolha) sobre surface, base e sunken: mínimo 3:1 nos dois temas."
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#111A15",
+      "$description": "Texto principal sobre base, surface, sunken e sobre todos os fundos -soft (placa-soft, cobre-soft, info-soft, warn-soft, ok-soft, err-soft). Também é o fundo do Toast, com surface como texto."
+    },
+    "ink-2": {
+      "$type": "color",
+      "$value": "#3E4A43",
+      "$description": "Texto secundário (descrições, legendas de seção) sobre base, surface, sunken e fundos -soft."
+    },
+    "ink-3": {
+      "$type": "color",
+      "$value": "#56625B",
+      "$description": "Metadados, dicas de campo, carimbos de data sobre base, surface, sunken e fundos -soft. Nunca abaixo de 14px."
+    },
+    "placa": {
+      "$type": "color",
+      "$value": "#1B5E3B",
+      "$description": "Cor da marca (máscara de solda): ação primária, links e foco. Como texto, sobre base, surface, sunken e placa-soft."
+    },
+    "on-placa": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Texto e ícones sobre preenchimento placa ou placa-strong (rótulo do botão primário)."
+    },
+    "placa-strong": {
+      "$type": "color",
+      "$value": "#134A2E",
+      "$description": "Hover e pressionado da ação primária; texto forte de marca sobre surface, base e placa-soft."
+    },
+    "placa-soft": {
+      "$type": "color",
+      "$value": "#E3F0E8",
+      "$description": "Fundo de destaque leve: item de navegação ativo, cartão de escolha selecionado, etapa atual. Recebe ink, ink-2, placa e placa-strong."
+    },
+    "mascara": {
+      "$type": "color",
+      "$value": "#1B5E3B",
+      "$description": "Faixa de marca (a placa vista de cima): hero, capa, quadro do símbolo, ícone de app. A placa não muda com o tema: o mesmo verde nos dois. Recebe serigrafia e cobre-via; nunca recebe ink."
+    },
+    "serigrafia": {
+      "$type": "color",
+      "$value": "#F7FAF8",
+      "$description": "Texto e traços de serigrafia sobre mascara (nos dois temas) e sobre placa no tema claro. Grande ou médio: título, número da OS na faixa."
+    },
+    "cobre": {
+      "$type": "color",
+      "$value": "#B4652A",
+      "$description": "Decorativo: vias, trilhas, ilustração e o anel do i no logotipo, sobre base, surface e sunken (3:1 como marca gráfica). Nunca texto corrido."
+    },
+    "cobre-via": {
+      "$type": "color",
+      "$value": "#E09A5F",
+      "$description": "Cobre sobre a faixa mascara: vias e trilhas do padrão e do símbolo quando o fundo é verde. 3:1 sobre mascara nos dois temas. Nunca texto."
+    },
+    "cobre-ink": {
+      "$type": "color",
+      "$value": "#8A4A17",
+      "$description": "Cobre como texto (número da OS em destaque, rótulo técnico) sobre surface, base e cobre-soft."
+    },
+    "cobre-soft": {
+      "$type": "color",
+      "$value": "#F6E7DA",
+      "$description": "Fundo de destaque cobre (nota técnica, carimbo de OS). Recebe ink, ink-2 e cobre-ink."
+    },
+    "info": {
+      "$type": "color",
+      "$value": "#1D4F91",
+      "$description": "Status em andamento (Em diagnóstico, Em execução) e alertas informativos; texto e ícone sobre info-soft, surface e base."
+    },
+    "info-soft": {
+      "$type": "color",
+      "$value": "#E2EAF5",
+      "$description": "Fundo do carimbo e do alerta informativo. Recebe info e ink."
+    },
+    "warn": {
+      "$type": "color",
+      "$value": "#8A5A00",
+      "$description": "Status que pede ação do cliente (Aguardando aprovação) e avisos; texto e ícone sobre warn-soft, surface e base."
+    },
+    "warn-soft": {
+      "$type": "color",
+      "$value": "#FBF1DC",
+      "$description": "Fundo do carimbo e do alerta de atenção. Recebe warn e ink."
+    },
+    "ok": {
+      "$type": "color",
+      "$value": "#1E6B45",
+      "$description": "Status concluído (Aprovado, Pronto para entrega, Entregue) e confirmações; texto e ícone sobre ok-soft, surface e base. Sempre com ícone e palavra, para não depender do verde da placa."
+    },
+    "ok-soft": {
+      "$type": "color",
+      "$value": "#E5F2EA",
+      "$description": "Fundo do carimbo e do alerta de sucesso. Recebe ok e ink."
+    },
+    "err": {
+      "$type": "color",
+      "$value": "#A3283A",
+      "$description": "Erro de campo, falha, Cancelado e ações destrutivas; texto e ícone sobre err-soft, surface e base."
+    },
+    "err-soft": {
+      "$type": "color",
+      "$value": "#FBEDEF",
+      "$description": "Fundo do carimbo e do alerta de erro. Recebe err e ink."
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "#1B5E3B",
+      "$description": "Anel de foco: contorno sólido de 2px com 2px de afastamento, sobre base, surface e sunken (3:1 ou mais nos dois temas). Alias de placa."
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "rgba(17, 26, 21, 0.56)",
+      "$description": "Véu atrás de Dialog e do menu móvel, sobre qualquer fundo. Não recebe texto."
+    }
+  },
+  "color-dark": {
+    "base": {
+      "$type": "color",
+      "$value": "#0E1411",
+      "$description": "Fundo da página (bancada). Recebe ink, ink-2, ink-3, placa, cobre-ink e os textos de status."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#151C18",
+      "$description": "Cartões, formulários, a folha da OS, diálogos. Recebe ink, ink-2, ink-3, placa, placa-strong, cobre-ink e os textos de status."
+    },
+    "sunken": {
+      "$type": "color",
+      "$value": "#0A0F0C",
+      "$description": "Áreas rebaixadas: linhas de especificação, trilha da linha do tempo, campo desabilitado, esqueleto. Recebe ink, ink-2, ink-3 e placa."
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#26302A",
+      "$description": "Divisórias e contornos decorativos de cartões sobre surface e base. Nunca é a única borda de um controle (use field)."
+    },
+    "field": {
+      "$type": "color",
+      "$value": "#6B7A71",
+      "$description": "Borda de controles (campo, select, caixa de seleção, cartão de escolha) sobre surface, base e sunken: mínimo 3:1 nos dois temas."
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#E9EFEA",
+      "$description": "Texto principal sobre base, surface, sunken e sobre todos os fundos -soft (placa-soft, cobre-soft, info-soft, warn-soft, ok-soft, err-soft). Também é o fundo do Toast, com surface como texto."
+    },
+    "ink-2": {
+      "$type": "color",
+      "$value": "#B9C4BD",
+      "$description": "Texto secundário (descrições, legendas de seção) sobre base, surface, sunken e fundos -soft."
+    },
+    "ink-3": {
+      "$type": "color",
+      "$value": "#94A099",
+      "$description": "Metadados, dicas de campo, carimbos de data sobre base, surface, sunken e fundos -soft. Nunca abaixo de 14px."
+    },
+    "placa": {
+      "$type": "color",
+      "$value": "#74D19B",
+      "$description": "Cor da marca (máscara de solda): ação primária, links e foco. Como texto, sobre base, surface, sunken e placa-soft."
+    },
+    "on-placa": {
+      "$type": "color",
+      "$value": "#0E1411",
+      "$description": "Texto e ícones sobre preenchimento placa ou placa-strong (rótulo do botão primário)."
+    },
+    "placa-strong": {
+      "$type": "color",
+      "$value": "#9BE3B8",
+      "$description": "Hover e pressionado da ação primária; texto forte de marca sobre surface, base e placa-soft."
+    },
+    "placa-soft": {
+      "$type": "color",
+      "$value": "#17301F",
+      "$description": "Fundo de destaque leve: item de navegação ativo, cartão de escolha selecionado, etapa atual. Recebe ink, ink-2, placa e placa-strong."
+    },
+    "mascara": {
+      "$type": "color",
+      "$value": "#1B5E3B",
+      "$description": "Faixa de marca (a placa vista de cima): hero, capa, quadro do símbolo, ícone de app. A placa não muda com o tema: o mesmo verde nos dois. Recebe serigrafia e cobre-via; nunca recebe ink."
+    },
+    "serigrafia": {
+      "$type": "color",
+      "$value": "#E9F2EC",
+      "$description": "Texto e traços de serigrafia sobre mascara (nos dois temas) e sobre placa no tema claro. Grande ou médio: título, número da OS na faixa."
+    },
+    "cobre": {
+      "$type": "color",
+      "$value": "#E09A5F",
+      "$description": "Decorativo: vias, trilhas, ilustração e o anel do i no logotipo, sobre base, surface e sunken (3:1 como marca gráfica). Nunca texto corrido."
+    },
+    "cobre-via": {
+      "$type": "color",
+      "$value": "#E09A5F",
+      "$description": "Cobre sobre a faixa mascara: vias e trilhas do padrão e do símbolo quando o fundo é verde. 3:1 sobre mascara nos dois temas. Nunca texto."
+    },
+    "cobre-ink": {
+      "$type": "color",
+      "$value": "#F0B88A",
+      "$description": "Cobre como texto (número da OS em destaque, rótulo técnico) sobre surface, base e cobre-soft."
+    },
+    "cobre-soft": {
+      "$type": "color",
+      "$value": "#3A2414",
+      "$description": "Fundo de destaque cobre (nota técnica, carimbo de OS). Recebe ink, ink-2 e cobre-ink."
+    },
+    "info": {
+      "$type": "color",
+      "$value": "#8DB4F0",
+      "$description": "Status em andamento (Em diagnóstico, Em execução) e alertas informativos; texto e ícone sobre info-soft, surface e base."
+    },
+    "info-soft": {
+      "$type": "color",
+      "$value": "#16243A",
+      "$description": "Fundo do carimbo e do alerta informativo. Recebe info e ink."
+    },
+    "warn": {
+      "$type": "color",
+      "$value": "#E8B65A",
+      "$description": "Status que pede ação do cliente (Aguardando aprovação) e avisos; texto e ícone sobre warn-soft, surface e base."
+    },
+    "warn-soft": {
+      "$type": "color",
+      "$value": "#33270C",
+      "$description": "Fundo do carimbo e do alerta de atenção. Recebe warn e ink."
+    },
+    "ok": {
+      "$type": "color",
+      "$value": "#7FD3A0",
+      "$description": "Status concluído (Aprovado, Pronto para entrega, Entregue) e confirmações; texto e ícone sobre ok-soft, surface e base. Sempre com ícone e palavra, para não depender do verde da placa."
+    },
+    "ok-soft": {
+      "$type": "color",
+      "$value": "#14301F",
+      "$description": "Fundo do carimbo e do alerta de sucesso. Recebe ok e ink."
+    },
+    "err": {
+      "$type": "color",
+      "$value": "#F08A98",
+      "$description": "Erro de campo, falha, Cancelado e ações destrutivas; texto e ícone sobre err-soft, surface e base."
+    },
+    "err-soft": {
+      "$type": "color",
+      "$value": "#3A1419",
+      "$description": "Fundo do carimbo e do alerta de erro. Recebe err e ink."
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "#74D19B",
+      "$description": "Anel de foco: contorno sólido de 2px com 2px de afastamento, sobre base, surface e sunken (3:1 ou mais nos dois temas). Alias de placa."
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0.64)",
+      "$description": "Véu atrás de Dialog e do menu móvel, sobre qualquer fundo. Não recebe texto."
+    }
+  },
+  "font": {
+    "sans": {
+      "$type": "fontFamily",
+      "$value": "\"Atkinson Hyperlegible Next\", system-ui, sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "\"Atkinson Hyperlegible Mono\", ui-monospace, monospace"
+    }
+  },
+  "type": {
+    "display-xl": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "56px",
+        "lineHeight": "60px",
+        "fontWeight": 800,
+        "letterSpacing": "-0.02em"
+      },
+      "$description": "Uma vez por página: a promessa do hero (desktop)."
+    },
+    "display-xl-mobile": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "36px",
+        "lineHeight": "40px",
+        "fontWeight": 800,
+        "letterSpacing": "-0.02em"
+      },
+      "$description": "O mesmo hero abaixo de 768px."
+    },
+    "display-l": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "40px",
+        "lineHeight": "46px",
+        "fontWeight": 800,
+        "letterSpacing": "-0.015em"
+      },
+      "$description": "Título de página de serviço e de etapa do atendimento."
+    },
+    "title-1": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "30px",
+        "lineHeight": "36px",
+        "fontWeight": 700,
+        "letterSpacing": "-0.01em"
+      },
+      "$description": "Título de seção."
+    },
+    "title-2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "22px",
+        "lineHeight": "28px",
+        "fontWeight": 700,
+        "letterSpacing": "0"
+      },
+      "$description": "Título de cartão, de diálogo e de bloco de formulário."
+    },
+    "body-l": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "18px",
+        "lineHeight": "28px",
+        "fontWeight": 400,
+        "letterSpacing": "0"
+      },
+      "$description": "Abertura de seção, explicação ao cliente."
+    },
+    "body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": 400,
+        "letterSpacing": "0"
+      },
+      "$description": "Texto padrão de interface e de conteúdo."
+    },
+    "body-strong": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": 600,
+        "letterSpacing": "0"
+      },
+      "$description": "Rótulos de campo, títulos de item, botões."
+    },
+    "small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "fontWeight": 400,
+        "letterSpacing": "0"
+      },
+      "$description": "Dicas, metadados, notas de rodapé. Mínimo de texto da interface."
+    },
+    "label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.mono}",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "fontWeight": 500,
+        "letterSpacing": "0.06em"
+      },
+      "$description": "Rótulos técnicos em CAIXA ALTA, cabeçalho de linha de especificação, carimbo de status."
+    },
+    "os-number": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.mono}",
+        "fontSize": "15px",
+        "lineHeight": "20px",
+        "fontWeight": 600,
+        "letterSpacing": "0.02em"
+      },
+      "$description": "Número da ordem de serviço, sempre no formato OS-0000."
+    },
+    "spec": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.mono}",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "fontWeight": 400,
+        "letterSpacing": "0"
+      },
+      "$description": "Valores técnicos: modelo, série, capacidade, versão de sistema."
+    }
+  },
+  "space": {
+    "space-1": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Ícone até o rótulo; ajustes finos dentro de carimbos."
+    },
+    "space-2": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Entre rótulo e campo; padding vertical de carimbo."
+    },
+    "space-3": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Entre itens de lista e linhas de especificação."
+    },
+    "space-4": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Padding de controle e de cartão compacto; margem lateral móvel."
+    },
+    "space-5": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Padding de alerta e de item de checklist."
+    },
+    "space-6": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Padding de cartão; espaço entre campos de formulário."
+    },
+    "space-8": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Padding de diálogo; espaço entre blocos de um formulário."
+    },
+    "space-10": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "Espaço entre grupos de conteúdo dentro de uma seção."
+    },
+    "space-12": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Margem lateral desktop; topo de seção móvel."
+    },
+    "space-16": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Espaço entre seções no móvel; hero móvel."
+    },
+    "space-20": {
+      "$type": "dimension",
+      "$value": "80px",
+      "$description": "Espaço entre seções no desktop."
+    },
+    "space-24": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "Respiro do hero desktop."
+    }
+  },
+  "radius": {
+    "radius-s": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Carimbos de status, campos pequenos, checkbox, tags."
+    },
+    "radius-m": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Botões, campos, alertas, cartões de escolha."
+    },
+    "radius-l": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Cartões grandes, folha da OS, diálogos, símbolo da marca (12 em 48)."
+    },
+    "radius-pill": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Só o contador de etapas e o indicador de progresso. Botões não são pílulas."
+    }
+  },
+  "shadow": {
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": "0 1px 2px #111a150f, 0 1px 1px #111a150a",
+      "$description": "Cartão elevado sobre base (folha da OS, cartão de serviço). Em geral basta a borda line."
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": "0 12px 32px -8px #111a1533, 0 4px 8px #111a1514",
+      "$description": "Dialog, menu móvel e Toast: tudo o que flutua."
+    }
+  },
+  "shadow-dark": {
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": "0 1px 2px #00000066",
+      "$description": "Cartão elevado sobre base (folha da OS, cartão de serviço). Em geral basta a borda line."
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": "0 16px 40px -8px #000000b3",
+      "$description": "Dialog, menu móvel e Toast: tudo o que flutua."
+    }
+  },
+  "motion": {
+    "duration-fast": {
+      "$type": "duration",
+      "$value": "120ms",
+      "$description": "Hover, pressionado, troca de cor de borda."
+    },
+    "duration-base": {
+      "$type": "duration",
+      "$value": "200ms",
+      "$description": "Abrir diálogo, menu móvel, Toast, recolher detalhe técnico."
+    },
+    "ease-standard": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.2, 0, 0, 1)",
+      "$description": "Curva única, sem rebote. Com prefers-reduced-motion, as durações vão a 0."
+    }
+  },
+  "layout": {
+    "control-s": {
+      "$type": "dimension",
+      "$value": "36px",
+      "$description": "Altura de controle compacto, só em tabelas internas e desktop. Não usar em toque."
+    },
+    "control-m": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Altura padrão de botão, campo e select: alvo de toque mínimo."
+    },
+    "control-l": {
+      "$type": "dimension",
+      "$value": "52px",
+      "$description": "Botão principal do hero e da aprovação do escopo."
+    },
+    "icon-s": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Ícone dentro de carimbo e de texto small."
+    },
+    "icon-m": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Ícone dentro de botão, campo e alerta."
+    },
+    "icon-l": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Ícone de cartão de serviço e de estado vazio (grade de desenho dos ícones)."
+    },
+    "border-hair": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "Bordas de cartão, divisórias e campos em repouso."
+    },
+    "border-strong": {
+      "$type": "dimension",
+      "$value": "2px",
+      "$description": "Campo em erro, cartão de escolha selecionado, anel de foco."
+    },
+    "content-max": {
+      "$type": "dimension",
+      "$value": "1200px",
+      "$description": "Largura máxima do conteúdo das páginas."
+    },
+    "card-min": {
+      "$type": "dimension",
+      "$value": "240px",
+      "$description": "Largura mínima de coluna nas grades auto-fit (cartões de serviço, cartões de escolha, rodapé)."
+    },
+    "dialog-max": {
+      "$type": "dimension",
+      "$value": "520px",
+      "$description": "Largura máxima de Dialog e de Toast."
+    },
+    "dialog-max-l": {
+      "$type": "dimension",
+      "$value": "720px",
+      "$description": "Largura máxima de Dialog grande (detalhe técnico, termos)."
+    },
+    "text-max": {
+      "$type": "dimension",
+      "$value": "68ch",
+      "$description": "Medida máxima de parágrafo."
+    },
+    "bp-s": {
+      "$type": "dimension",
+      "$value": "480px",
+      "$description": "Telefone grande: formulários continuam em uma coluna."
+    },
+    "bp-m": {
+      "$type": "dimension",
+      "$value": "768px",
+      "$description": "Tablet: hero troca display-xl-mobile por display-xl; NavBar mostra links."
+    },
+    "bp-l": {
+      "$type": "dimension",
+      "$value": "1024px",
+      "$description": "Desktop: OS e orçamento ficam lado a lado."
+    },
+    "bp-xl": {
+      "$type": "dimension",
+      "$value": "1280px",
+      "$description": "Desktop largo: largura de referência das telas."
+    },
+    "z-base": {
+      "$type": "number",
+      "$value": "0",
+      "$description": "Conteúdo da página."
+    },
+    "z-sticky": {
+      "$type": "number",
+      "$value": "10",
+      "$description": "NavBar fixa no topo."
+    },
+    "z-overlay": {
+      "$type": "number",
+      "$value": "100",
+      "$description": "Scrim e menu móvel."
+    },
+    "z-dialog": {
+      "$type": "number",
+      "$value": "110",
+      "$description": "Dialog."
+    },
+    "z-toast": {
+      "$type": "number",
+      "$value": "120",
+      "$description": "Toast, acima de tudo."
+    }
+  }
+}

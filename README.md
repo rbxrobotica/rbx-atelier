@@ -12,14 +12,16 @@ Este repositório reúne a marca canônica (Brand Voltage), o sistema de escrita
 rbx-atelier/
 ├── brand-voltage/              ← Identidade Visual Merovelis (source of truth)
 ├── brand-voice/                ← Sistema de Escrita Merovelis (source of truth)
-├── claude-design/              ← Backup dos artefatos do Claude Design (2026-11-19)
 ├── design-systems/             ← Design Systems por produto
 │   ├── rbx-systems/            ← Merovelis Systems (institucional / site)
 │   ├── rbx-design-system/      ← Robson (trading / execução e risco)
 │   ├── eden-system-creator/    ← Éden System Creator
 │   ├── strategos/              ← Strategos (situation room)
 │   └── satwake/                ← Satwake (leitura diária BTC, antes Briefing BTC)
-└── docs/                       ← Documentação de alinhamento e decisões
+├── docs/                       ← Documentação de alinhamento e decisões
+└── <projeto>/                  ← Acervo de artefatos por projeto (ver seção 6)
+    flightdeck · gph · informat · initelo · iteruno · kairos · kulinaryos
+    lyra · merovelis · olha-escola · psyctl · robson · satwake
 ```
 
 ---
@@ -134,15 +136,26 @@ Tudo o que o workflow executa tem versão fixa: as actions pelo SHA do commit, g
 
 Um achado do lint se resolve no código ou com uma justificativa na própria linha: `// eslint-disable-next-line <regra> -- <motivo>`. Uma exceção do osv-scanner fica em um `osv-scanner.toml` ao lado do lockfile, com motivo e data de validade.
 
-As verificações apoiam a revisão e não a substituem. Um pull request pode alterar o próprio workflow, as ferramentas e as exceções, e essas alterações aparecem no diff. Sete coisas ficam fora do alcance, quatro do lint e da leitura das páginas e três da varredura de segredos:
+As verificações apoiam a revisão e não a substituem. Um pull request pode alterar o próprio workflow, as ferramentas e as exceções, e essas alterações aparecem no diff. Oito coisas ficam fora do alcance, cinco do lint e da leitura das páginas e três da varredura de segredos:
 
 1. Código escrito em atributo HTML (`onclick`, endereço `javascript:`, `srcdoc`).
 2. Script dentro de arquivo SVG ou de qualquer arquivo que não seja página `.html` ou `.htm`.
 3. O que o código carrega ou executa em tempo de execução.
 4. O que o servidor decide ao servir um arquivo, como a codificação ou o tipo anunciados em cabeçalho HTTP.
-5. Segredo em arquivo que as regras do gitleaks pulam pelo nome, como imagens (SVG incluído), fontes, PDF, lockfiles e pastas `node_modules`.
-6. Segredo que nenhuma regra do gitleaks reconhece, como uma senha comum, ou escrito em arquivo UTF-16.
-7. Commit que nenhum branch ou tag do repositório alcança.
+5. Os arquivos das pastas de acervo (seção 6), que o lint e a leitura das páginas deixam de fora. A lista fechada dessas pastas está em `.github/guardrails/archive.mjs`. Uma página de fora do acervo reprova se carregar um script de dentro dele, e link simbólico reprova também lá.
+6. Segredo em arquivo que as regras do gitleaks pulam pelo nome, como imagens (SVG incluído), fontes, PDF, lockfiles e pastas `node_modules`.
+7. Segredo que nenhuma regra do gitleaks reconhece, como uma senha comum, ou escrito em arquivo UTF-16.
+8. Commit que nenhum branch ou tag do repositório alcança.
+
+---
+
+## 6. Acervo de artefatos por projeto
+
+`<projeto>/<artefato>/` na raiz · índice em `docs/ACERVO-DE-ARTEFATOS.md`
+
+Cópias dos artefatos publicados no claude.ai, guardadas para consulta e organizadas por projeto: `flightdeck/`, `gph/`, `informat/`, `initelo/`, `iteruno/`, `kairos/`, `kulinaryos/`, `lyra/`, `merovelis/`, `olha-escola/`, `psyctl/`, `robson/` e `satwake/`. Cada artefato traz um `_backup.json` com o link original, a versão lida e o sha256 de cada arquivo.
+
+São retratos, não fonte: quando um projeto também está em `design-systems/`, vale o que está lá. Código que roda não entra nestas pastas, porque o lint de segurança e a leitura de scripts de CDN não as leem.
 
 ---
 

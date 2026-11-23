@@ -1,0 +1,1074 @@
+{
+ "title": "Initelo Design System",
+ "url": "https://claude.ai/artifact/B71osy1venY5CQUQsfsFiC",
+ "type": "Design System",
+ "version": "1795381501-9223 (listing and read)",
+ "listed_at": "2026-11-22T22:05:12Z",
+ "source_note": "Criado no claude.ai/design standalone em 2026-11-22 (https://claude.ai/design/p/b8cd96e8-1a38-457d-a1b1-99dd2a8fd135), movido para o Claude e convertido com 'Finish setting up' no mesmo dia. Esta copia e a versao convertida.",
+ "files": [
+  {
+   "path": "project/README.md",
+   "bytes": 12482,
+   "sha256": "133f7aebe9bc7d7d9242ff06a1aaaff3e963059a2447a9a4e035cecdc2cecb0a"
+  },
+  {
+   "path": "project/_ds_manifest.json",
+   "bytes": 38321,
+   "sha256": "f414c6fee35294e1cbabc1311d76ebc3c7b084b0c1d13088bacb082af0dd3347"
+  },
+  {
+   "path": "project/archived/components/cards/cards.css",
+   "bytes": 4007,
+   "sha256": "b967a7e115744deb371b328f8cc6c56fb9f52101b67f159082ab532900618455"
+  },
+  {
+   "path": "project/archived/components/cards/course.card.html",
+   "bytes": 2298,
+   "sha256": "8a457f0d502bb1d397195b5be63a277ac78c24b108171b2e5cfbc96c9ee93885"
+  },
+  {
+   "path": "project/archived/components/cards/lesson.card.html",
+   "bytes": 2327,
+   "sha256": "7df786650b363dc0633138520a11a59f67e5917a06317c55c9bb23b5247a9afc"
+  },
+  {
+   "path": "project/archived/components/core/core.card.html",
+   "bytes": 3167,
+   "sha256": "1ebaca1f9a06dc55b3a1bbe914e9ad9f605afc93f58ac3f9d7d6a51797ebd4ef"
+  },
+  {
+   "path": "project/archived/components/core/core.css",
+   "bytes": 6686,
+   "sha256": "b0a377c78f5056f1135f800a773f17abcc4c0b3f88cc4d397dcb50af94dd62cc"
+  },
+  {
+   "path": "project/archived/components/feedback/feedback.card.html",
+   "bytes": 2993,
+   "sha256": "1fb05c5de44c5b676c7a34afccf902aa822c06a20ed528e5352bf55f276e16be"
+  },
+  {
+   "path": "project/archived/components/feedback/feedback.css",
+   "bytes": 4072,
+   "sha256": "a1679e3908218895ce043384cc2e5051d3cfac8cc440ed3c537773a476111e7e"
+  },
+  {
+   "path": "project/archived/components/finance/budget-states.card.html",
+   "bytes": 2472,
+   "sha256": "01ea6aa7e08ceeef940d38134c3555e59e9c8fe8e161e4b433fd0954e7390b4f"
+  },
+  {
+   "path": "project/archived/components/finance/budget.card.html",
+   "bytes": 1894,
+   "sha256": "59df3189ecb5bd4042a095f46a9981e86e7253acfa7eca81909ac5a718c67e9c"
+  },
+  {
+   "path": "project/archived/components/finance/finance.css",
+   "bytes": 4503,
+   "sha256": "e98e1446792011ea5d2af48b2ac933a63fd3ceec438b5c0e2ac6886a84350067"
+  },
+  {
+   "path": "project/archived/components/forms/forms.card.html",
+   "bytes": 3160,
+   "sha256": "6a9c2956b54dc78e0eb72a9e2eae246b8d4a8dacd719a54bae6983ebd238a5eb"
+  },
+  {
+   "path": "project/archived/components/forms/forms.css",
+   "bytes": 3596,
+   "sha256": "fa7f2dd238b6c5ccc26ebf7b3c999992b7ca288e6adf9acc10032df95a74e480"
+  },
+  {
+   "path": "project/archived/components/navigation/navigation.card.html",
+   "bytes": 2982,
+   "sha256": "942eb53ee6b1efbb4ac26457d0848eaff539f7fd6759947211c995f8fb5baaff"
+  },
+  {
+   "path": "project/archived/components/navigation/navigation.css",
+   "bytes": 4392,
+   "sha256": "aa185a0a51113b498887370a132fd108690140af43904cca9fb830ae506e056a"
+  },
+  {
+   "path": "project/archived/components/tutor/tutor-states.card.html",
+   "bytes": 2664,
+   "sha256": "1d059a5a6c02e56c042c31b06da83d712572f9581861debffcc77fc6b2c80a84"
+  },
+  {
+   "path": "project/archived/components/tutor/tutor.card.html",
+   "bytes": 2036,
+   "sha256": "1119fdec91358e577a34376e3d57b48f5da5bbd3603a88e1235ee997703eec26"
+  },
+  {
+   "path": "project/archived/components/tutor/tutor.css",
+   "bytes": 4419,
+   "sha256": "7e06e7d9c612a705efd7a4f4461c052b8e7a9a0cb14254634f24ed62575a69a9"
+  },
+  {
+   "path": "project/archived/styles.css",
+   "bytes": 562,
+   "sha256": "e95f8308fd66049fc3fd1c0b6ffd4304e02295911a5f632e7005f96872a0db79"
+  },
+  {
+   "path": "project/archived/tokens/base.css",
+   "bytes": 1691,
+   "sha256": "1e1402d0f8fe2c157198d107b954654dfe8d994c24b4e69eed2a06271598bc29"
+  },
+  {
+   "path": "project/archived/tokens/colors.css",
+   "bytes": 4916,
+   "sha256": "0366553f6ad58c2caf8158208b5fa62cd2c89dae9352d99fcf8bde251d3ba38a"
+  },
+  {
+   "path": "project/archived/tokens/elevation.css",
+   "bytes": 533,
+   "sha256": "c07e69c51352d513da0d14fd6bbd5d0a4de0cfc31e1b5fd7bdbc40d1a075f2d0"
+  },
+  {
+   "path": "project/archived/tokens/fonts.css",
+   "bytes": 365,
+   "sha256": "b366e5f0c7473cea2b27cca90a9662b2d58e13881da84a3c1795412517388f1b"
+  },
+  {
+   "path": "project/archived/tokens/layout.css",
+   "bytes": 611,
+   "sha256": "162f19e1a5319cbff06c509439bff77fe026fbc068155889aabd4b3ffde43d6e"
+  },
+  {
+   "path": "project/archived/tokens/spacing.css",
+   "bytes": 348,
+   "sha256": "4ded728ebb21b1fb82dd45f0665b6fdab9eade90d6e261e4b5c048010b5911c8"
+  },
+  {
+   "path": "project/archived/tokens/typography.css",
+   "bytes": 1143,
+   "sha256": "cb00ab90e4b9bb3c1f0499ec4246b04035a5d80d093d9186852d4b30d263c3f8"
+  },
+  {
+   "path": "project/assets/notes/COMPONENTS.md",
+   "bytes": 5120,
+   "sha256": "00d267df4da3da4785b8266d40c22d8added8275015dda51314dc55a1220ec97"
+  },
+  {
+   "path": "project/assets/notes/MIGRATION-REPORT.md",
+   "bytes": 6321,
+   "sha256": "61a9255d096354b2315143a26350c1afab541c75b84b98c9cc3c11c3a530f06f"
+  },
+  {
+   "path": "project/assets/notes/SKILL.from-standalone.md",
+   "bytes": 1241,
+   "sha256": "68bc26ab0b5629112b1c475eb78e7ad1f6ec26302c1ef4f6377345ffefb248cf"
+  },
+  {
+   "path": "project/components/Alert/Alert.d.ts",
+   "bytes": 415,
+   "sha256": "b5dfb5e2c150c42adc706c436fd7399cfecb61107a70c3425c209d8c40ba0da3"
+  },
+  {
+   "path": "project/components/Alert/README.md",
+   "bytes": 406,
+   "sha256": "95bdf504d5adcb325859c3432365fbd835a600de1c2294d58feee56e5c4d7220"
+  },
+  {
+   "path": "project/components/Alert/preview.html",
+   "bytes": 2227,
+   "sha256": "28daff7f5023eec1aca66076974f580c3da25d6ff469a3eb6ef62c364e582c62"
+  },
+  {
+   "path": "project/components/Badge/Badge.d.ts",
+   "bytes": 448,
+   "sha256": "5d3ee4ce87182a4ddee632035581a9dcd5c7bf1b382586ff5826094a78da8561"
+  },
+  {
+   "path": "project/components/Badge/README.md",
+   "bytes": 317,
+   "sha256": "f3cf0c08629ff5971ce5e9597397bd66408940c59aac94245f265fc013a6478d"
+  },
+  {
+   "path": "project/components/Badge/preview.html",
+   "bytes": 2340,
+   "sha256": "edb81233d5977c952f7557592b09f9c05334815558d05c6c38d5021b7ee489da"
+  },
+  {
+   "path": "project/components/Breadcrumb/Breadcrumb.d.ts",
+   "bytes": 324,
+   "sha256": "81de422c891bab67c283135588214fa0872d05ae694ecfd0b0676be7bffb8a7b"
+  },
+  {
+   "path": "project/components/Breadcrumb/README.md",
+   "bytes": 175,
+   "sha256": "0c88544d5a31bd5d4b58ccb5014c445463e17b63280db1454251dc17554d15af"
+  },
+  {
+   "path": "project/components/Breadcrumb/preview.html",
+   "bytes": 1698,
+   "sha256": "7a30948b693be64f55f0638bab3930c199ce5da2420471bfcdc4ba338c841b15"
+  },
+  {
+   "path": "project/components/BudgetTable/BudgetTable.d.ts",
+   "bytes": 1151,
+   "sha256": "28babfd03a10ad5b22b64a9fbf20eb4a4abc8e98cce38d98178b136491809fc6"
+  },
+  {
+   "path": "project/components/BudgetTable/README.md",
+   "bytes": 698,
+   "sha256": "f63aec1f154bd01d3eb9c3fa733dfdbe77cbaa7b9590334598e889e1a5b87645"
+  },
+  {
+   "path": "project/components/BudgetTable/preview.html",
+   "bytes": 3433,
+   "sha256": "35d85c94d3a3262235a36f08e2b569de2957cbd903dbf0e09dd3d8b045c957a1"
+  },
+  {
+   "path": "project/components/Button/Button.d.ts",
+   "bytes": 985,
+   "sha256": "1197ff81d4df64192c7bd7a69fb657831b2c2d6a69945a628ecd066dfd66c07a"
+  },
+  {
+   "path": "project/components/Button/README.md",
+   "bytes": 571,
+   "sha256": "6bbc57e70555351f8cd21c34d096d07499fc1c1a9a4ff347fe42e05b901b4500"
+  },
+  {
+   "path": "project/components/Button/preview.html",
+   "bytes": 3955,
+   "sha256": "6384a4808073dc7b56b4ed95c5119a74736aa7ffb590edf58543def03fcc5de3"
+  },
+  {
+   "path": "project/components/Checkbox/Checkbox.d.ts",
+   "bytes": 478,
+   "sha256": "6287493708092cd7e0f2e61f5dd681df163c73ad426b7198ad7dc606ab4f6e25"
+  },
+  {
+   "path": "project/components/Checkbox/README.md",
+   "bytes": 226,
+   "sha256": "93ad410cc33eb06d28aff1c4a95fae3eb7a509bdbf787c029d37114eb3c55570"
+  },
+  {
+   "path": "project/components/Checkbox/preview.html",
+   "bytes": 2199,
+   "sha256": "e569a96b90594ff79835de897b7ee282a3fe27538865582e0384c3e4cd2f1611"
+  },
+  {
+   "path": "project/components/CourseCard/CourseCard.d.ts",
+   "bytes": 879,
+   "sha256": "3cb7e95a18d03ae79b81f4df8adff0b7ddbcae1e4a1738bea082f28fe8106815"
+  },
+  {
+   "path": "project/components/CourseCard/README.md",
+   "bytes": 593,
+   "sha256": "1789ce88c97a3176bf88d2e61a844a6ccad1dc56e09e1aaea9fde29fcb14dd9f"
+  },
+  {
+   "path": "project/components/CourseCard/preview.html",
+   "bytes": 3059,
+   "sha256": "e021a57d7f6618650de7be395a273aae4479aa42ea50cf22aed1253c968cc686"
+  },
+  {
+   "path": "project/components/CourseSeal/CourseSeal.d.ts",
+   "bytes": 564,
+   "sha256": "a2c8d42ee0f79cdd7397cef135a37fc296438bb3740a41d98440112ea3459c6c"
+  },
+  {
+   "path": "project/components/CourseSeal/README.md",
+   "bytes": 448,
+   "sha256": "8755f1f879614294cdbc02cec1e311d0daf0de91d0f946af94614afc2dfd5088"
+  },
+  {
+   "path": "project/components/CourseSeal/preview.html",
+   "bytes": 2518,
+   "sha256": "a8a7e55fe154a315aea5c3cd7682578718789750c34e1c27c17806aef1873ae9"
+  },
+  {
+   "path": "project/components/Cover/preview.html",
+   "bytes": 3176,
+   "sha256": "b87f0b7230d009d7ce950a1f30af0c2d77ebea81befd66fd94336aa2e86614c4"
+  },
+  {
+   "path": "project/components/DueDate/DueDate.d.ts",
+   "bytes": 604,
+   "sha256": "6028f60f0cb1a3bbd7a8655baf70d16b5127754e87b7083a572b04e36d91ef90"
+  },
+  {
+   "path": "project/components/DueDate/README.md",
+   "bytes": 372,
+   "sha256": "a752a2aac9a1c92bead192ff190a09d75c8140cdcdc30c970cab352e59ea6f53"
+  },
+  {
+   "path": "project/components/DueDate/preview.html",
+   "bytes": 2044,
+   "sha256": "41bf8141080508a723a424466e8faa98f7a706bfff217691fdeedd3e9aba4e2b"
+  },
+  {
+   "path": "project/components/EmptyState/EmptyState.d.ts",
+   "bytes": 395,
+   "sha256": "5ca8e84e94cfc894c6060260df16bc42037fffaf5d56dc72b6b1bab57f0627fc"
+  },
+  {
+   "path": "project/components/EmptyState/README.md",
+   "bytes": 285,
+   "sha256": "68bf7b79fc5def14362dca1411fa840e36dd742b35f4280af7bb1983211f4d00"
+  },
+  {
+   "path": "project/components/EmptyState/preview.html",
+   "bytes": 1894,
+   "sha256": "4fbd0af8db6570f1f842d698777cf3aaa1d12b04aec5f916f72612d1b93a06ac"
+  },
+  {
+   "path": "project/components/FlowTag/FlowTag.d.ts",
+   "bytes": 244,
+   "sha256": "9a0e977a88758e657933f739e2b880f6815167b45fea32f94f1bedc46e1fb612"
+  },
+  {
+   "path": "project/components/FlowTag/README.md",
+   "bytes": 119,
+   "sha256": "1eca9bad8115ffe0ab9d9a0b54c743b0da1fb3b2d85f0bfac596c349b9f03ded"
+  },
+  {
+   "path": "project/components/FlowTag/preview.html",
+   "bytes": 1741,
+   "sha256": "c4fa450e52359aa075b001eef97eb1433acfa50ce7cbe0d3cdb085ce6d51d971"
+  },
+  {
+   "path": "project/components/Icon/Icon.d.ts",
+   "bytes": 564,
+   "sha256": "d7b14666c7ede7c149dbe6a4d1c4819e131b5558333a3be3f9dfd9dbf1b204e0"
+  },
+  {
+   "path": "project/components/Icon/README.md",
+   "bytes": 510,
+   "sha256": "a75849bb9dbc3e3f1a31bf79aebcd77313cf7b7f9a673593ecac636403d49333"
+  },
+  {
+   "path": "project/components/Icon/preview.html",
+   "bytes": 2259,
+   "sha256": "6b0a4671eac33edb64781e9f75b437c2ea6876363d390e593d14e84745825022"
+  },
+  {
+   "path": "project/components/IconButton/IconButton.d.ts",
+   "bytes": 444,
+   "sha256": "06a18e6d3be9fa6f066b21b6ad46fba8d8be2b2aeb70e153dc2c06633aad9103"
+  },
+  {
+   "path": "project/components/IconButton/README.md",
+   "bytes": 265,
+   "sha256": "2970ab8e3c697db220f76c441d02091c584042b4b576198d18e2903eb26c02e5"
+  },
+  {
+   "path": "project/components/IconButton/preview.html",
+   "bytes": 1929,
+   "sha256": "010aa9d8ade728b5e5da853524b6c56024b3e93c2806eb96d0c6b854b370616b"
+  },
+  {
+   "path": "project/components/LessonCard/LessonCard.d.ts",
+   "bytes": 521,
+   "sha256": "96fcc84a38e0020cf79536d79d91bf0332364a7e2f14188983a0a3f861d3e1f5"
+  },
+  {
+   "path": "project/components/LessonCard/README.md",
+   "bytes": 467,
+   "sha256": "ac0dacc75fa21e13622de22b122435a3e817d1192328b8562f0d3399897dbd09"
+  },
+  {
+   "path": "project/components/LessonCard/preview.html",
+   "bytes": 2422,
+   "sha256": "0ac567d1c6342cce9d034ffca96980048e48a2974dcd00c034def53496177bd2"
+  },
+  {
+   "path": "project/components/LessonList/LessonList.d.ts",
+   "bytes": 539,
+   "sha256": "3c0543ec115e303c8b937828bb9c14f944670d091b5ec04032d9d7470afb0783"
+  },
+  {
+   "path": "project/components/LessonList/README.md",
+   "bytes": 582,
+   "sha256": "aab33f0cf6785b3777ee06374c0078647c0b19337bee9e0dbe4baeae3853ba53"
+  },
+  {
+   "path": "project/components/LessonList/preview.html",
+   "bytes": 2130,
+   "sha256": "046428bd89324963cd19fcfa28a490b3f7f2aac2fb1c32e81a2332997a0ab21a"
+  },
+  {
+   "path": "project/components/Logo/Logo.d.ts",
+   "bytes": 871,
+   "sha256": "263fd96294082ef27bd6b8731c1aa4b5c0abedd0463d8f07a7d6e4430f5c3ae7"
+  },
+  {
+   "path": "project/components/Logo/README.md",
+   "bytes": 433,
+   "sha256": "3c3b64dd94963f379130f566007280423aa89148711b960ed3e44df789e10fcd"
+  },
+  {
+   "path": "project/components/Logo/preview.html",
+   "bytes": 3632,
+   "sha256": "36dd15b786e26f2aa59e37d93419bc243b1d3520f829595c2f83499d1d6571f3"
+  },
+  {
+   "path": "project/components/Money/Money.d.ts",
+   "bytes": 485,
+   "sha256": "cc886ca45d1194d05ecc940486f9a8531b7fad3f7c177a7d1432483b333f05c2"
+  },
+  {
+   "path": "project/components/Money/README.md",
+   "bytes": 462,
+   "sha256": "b12075d8bf9fa78a0150722dc8ad8a5846f513d933dfcf44d2d39bb1329e9af2"
+  },
+  {
+   "path": "project/components/Money/preview.html",
+   "bytes": 1846,
+   "sha256": "4893badd7b6ac7b043c85a21a87dcb4eaf047b68b1d709451c7b544e626f4def"
+  },
+  {
+   "path": "project/components/ProgressBar/ProgressBar.d.ts",
+   "bytes": 539,
+   "sha256": "a5c225b2a420d5aaf5c761be2de3f710000fe224aac437718f3c112b75ea770d"
+  },
+  {
+   "path": "project/components/ProgressBar/README.md",
+   "bytes": 353,
+   "sha256": "2ffb74f394e3af29d383d4b75102e3d1fee650f4b370b216873b13ac128c5e51"
+  },
+  {
+   "path": "project/components/ProgressBar/preview.html",
+   "bytes": 2187,
+   "sha256": "5c8b33a05d9c3dc6edd0f9e083f1812f018708863dc4295d4fb991722dff55e3"
+  },
+  {
+   "path": "project/components/PromptSuggestion/PromptSuggestion.d.ts",
+   "bytes": 541,
+   "sha256": "01188fb29d470dcee405b311b48511b9db1edf9e5832f8d83e825e046680a36e"
+  },
+  {
+   "path": "project/components/PromptSuggestion/README.md",
+   "bytes": 385,
+   "sha256": "cbfe57ebc78587f1c5023aa9651f89b4b001361ea2fad370ef968d187e2b0128"
+  },
+  {
+   "path": "project/components/PromptSuggestion/preview.html",
+   "bytes": 1850,
+   "sha256": "0aafe2898c66fdedc75e819595a8fb8cc3a1ba7fc4430ed51eb2e119511d2206"
+  },
+  {
+   "path": "project/components/Radio/README.md",
+   "bytes": 290,
+   "sha256": "317dcbd5b58b6bd99d0029b6399ff504d97faf6d8fffce7492fec785850cc344"
+  },
+  {
+   "path": "project/components/Radio/Radio.d.ts",
+   "bytes": 491,
+   "sha256": "a0aa630462fd1615721dec3d04f0edbacdc832eafec4d5fc1433b67b8b9025be"
+  },
+  {
+   "path": "project/components/Radio/preview.html",
+   "bytes": 2134,
+   "sha256": "458fcf08cbd8321f4cdb0b8974a9e263ebf12b6a4a395066f0f82f3f4396ac03"
+  },
+  {
+   "path": "project/components/Select/README.md",
+   "bytes": 280,
+   "sha256": "71fc6835a4ccd401923de36f45cef777f1edef0e3080cf2d7913cd9ec65dcfa2"
+  },
+  {
+   "path": "project/components/Select/Select.d.ts",
+   "bytes": 658,
+   "sha256": "bbbfbc702aaed7586c3e5683891c2c74c0d63635d3affc11a66088fb2e53fc68"
+  },
+  {
+   "path": "project/components/Select/preview.html",
+   "bytes": 2034,
+   "sha256": "b2d1a45678632926ed8db4984187ded253ce845d8f49a60da49808230cc61404"
+  },
+  {
+   "path": "project/components/Skeleton/README.md",
+   "bytes": 174,
+   "sha256": "a1e684c25671d753f1e4f4ac429b5f28bca56cb175c93c621a610682761f8d28"
+  },
+  {
+   "path": "project/components/Skeleton/Skeleton.d.ts",
+   "bytes": 389,
+   "sha256": "3958a3323f84cc361bdc8d3f29616ea0e67014146dcd7c750fae534b6a5f7e84"
+  },
+  {
+   "path": "project/components/Skeleton/preview.html",
+   "bytes": 1681,
+   "sha256": "26107091c08c56171a42c20d6ba901994fa9418ca4b90e56aeb662c076945829"
+  },
+  {
+   "path": "project/components/Spinner/README.md",
+   "bytes": 115,
+   "sha256": "9cae53640255aa81475926726d53bde2943b71a4a46e94cc510d874ef5a2fc4d"
+  },
+  {
+   "path": "project/components/Spinner/Spinner.d.ts",
+   "bytes": 343,
+   "sha256": "cf2ef1d097a6049f72fc0ffa587fef7ea4f897f3ec047c78627a93c335a913ba"
+  },
+  {
+   "path": "project/components/Spinner/preview.html",
+   "bytes": 1626,
+   "sha256": "324678b94aa576cd8b0797debd217a19fea703f2e909099252af4b1c063b3dc4"
+  },
+  {
+   "path": "project/components/Stepper/README.md",
+   "bytes": 294,
+   "sha256": "2636926aae845e1e415fdd3f7ebf74bb46db4d159bd79cc0a91476eb2a0c2f09"
+  },
+  {
+   "path": "project/components/Stepper/Stepper.d.ts",
+   "bytes": 506,
+   "sha256": "8d1c5dfdcb60a942a550f3708fa838344c3ea4d30afe40156892ce7b7abd730c"
+  },
+  {
+   "path": "project/components/Stepper/preview.html",
+   "bytes": 2442,
+   "sha256": "56cc8874a75a0b49f03812b28b13a3244947d49d3fda875d3f04cbd79d9637b5"
+  },
+  {
+   "path": "project/components/Tabs/README.md",
+   "bytes": 267,
+   "sha256": "d6cd83852591e28aa52333aab919157cf6fa274a6297884372ee26f8ded0cede"
+  },
+  {
+   "path": "project/components/Tabs/Tabs.d.ts",
+   "bytes": 401,
+   "sha256": "06dad7b425301756561cec03876b207536ad2080fbc45dbbd95007080031f2ff"
+  },
+  {
+   "path": "project/components/Tabs/preview.html",
+   "bytes": 1933,
+   "sha256": "f7a2f570c3b131a62ac16bc4cf2a2416fb815333c7a646b0446cca02e82fbc51"
+  },
+  {
+   "path": "project/components/TextField/README.md",
+   "bytes": 553,
+   "sha256": "5f6ced2b4008288c0cfb97d3dc940740485ee4308178617067338a4689422a54"
+  },
+  {
+   "path": "project/components/TextField/TextField.d.ts",
+   "bytes": 879,
+   "sha256": "b96eac416cac238d91c178e0ec7d7215ecedfcf144a224138d6684966b4d001d"
+  },
+  {
+   "path": "project/components/TextField/preview.html",
+   "bytes": 2662,
+   "sha256": "92a72472d13702c0ea6b1093a6db784ac1587cdb45c901e9c364ec3da997c960"
+  },
+  {
+   "path": "project/components/TopNav/README.md",
+   "bytes": 393,
+   "sha256": "2a0f5a751032a07f3b8543e72b4dde792077a929a749a10832f8ebe4e74520fb"
+  },
+  {
+   "path": "project/components/TopNav/TopNav.d.ts",
+   "bytes": 761,
+   "sha256": "d50dd56a946a1f68212d774c1f2cf66f6a0c65ea2d9fb6e7e47030d56c3c5706"
+  },
+  {
+   "path": "project/components/TopNav/preview.html",
+   "bytes": 2348,
+   "sha256": "dfa005bb6483cffd1768925134bbad31cba01452d43839b899524d3b1254b41e"
+  },
+  {
+   "path": "project/components/TutorMessage/README.md",
+   "bytes": 419,
+   "sha256": "201a6ac85e87a4624b1e6947b18f5b9bd53f044b9ed3719a78239e348d24f44b"
+  },
+  {
+   "path": "project/components/TutorMessage/TutorMessage.d.ts",
+   "bytes": 524,
+   "sha256": "9d45137e95a5ec6a2f39ea7b76db64ab6df278767757e228d3afa71a0811a93f"
+  },
+  {
+   "path": "project/components/TutorMessage/preview.html",
+   "bytes": 1946,
+   "sha256": "119ef7506215e477106324e8ab68d184a2b59dccc4ee1f1fdcfa89547bc830d9"
+  },
+  {
+   "path": "project/components/TutorPanel/README.md",
+   "bytes": 533,
+   "sha256": "0f4d35c8b30b6d57c630f48528bce69b00057c3bdbe6e85e1869687d082732f3"
+  },
+  {
+   "path": "project/components/TutorPanel/TutorPanel.d.ts",
+   "bytes": 976,
+   "sha256": "1c8083f3c8d89ea4720cfea3ff54bf7cb298eefffaef200a8fdd0b27b9b31fed"
+  },
+  {
+   "path": "project/components/TutorPanel/preview.html",
+   "bytes": 2845,
+   "sha256": "9823e7712fbd9ca97d4063da9537c87a32a6e94d6dedaa8176053a22b057d3ba"
+  },
+  {
+   "path": "project/components/VerifyChecklist/README.md",
+   "bytes": 603,
+   "sha256": "faf31c2731dd6ce1f299075d56a06c19e4c2e0b16b77d90e2b70448e49ee262d"
+  },
+  {
+   "path": "project/components/VerifyChecklist/VerifyChecklist.d.ts",
+   "bytes": 599,
+   "sha256": "97ee6384d819a6b5e40b9647181154244b93fef750d487cfd39560125f6147c9"
+  },
+  {
+   "path": "project/components/VerifyChecklist/preview.html",
+   "bytes": 2238,
+   "sha256": "3688d19e3771c12a65eeeb1f1ea42d7614eb61a3609919ed7e5833a4e36268fc"
+  },
+  {
+   "path": "project/components/bundle.css",
+   "bytes": 36859,
+   "sha256": "6c653e5572acb3c37e627e4ecb5d47fead8df9a86baefe71bd3b276545e4c0f5"
+  },
+  {
+   "path": "project/components/bundle.js",
+   "bytes": 89643,
+   "sha256": "2247adfd4d5c23f29d00f3b91e78ef27a4cd51d52a104d8fb631c93d53ee6040"
+  },
+  {
+   "path": "project/components/cards/CourseCard.jsx",
+   "bytes": 2079,
+   "sha256": "52188adb63a9b68076e25258c640eae76a0ade9a432e39c2c3b9c04fc4bd77d9"
+  },
+  {
+   "path": "project/components/cards/EmptyState.jsx",
+   "bytes": 521,
+   "sha256": "72a35c66a0667e1c6a0d099135c71cd01fcba28dee6a09d902605f060300f49f"
+  },
+  {
+   "path": "project/components/cards/LessonCard.jsx",
+   "bytes": 1353,
+   "sha256": "7a830bb84964e52d3920baa398acfa94ccee631dd3f59f366e3ba7f889d92e8f"
+  },
+  {
+   "path": "project/components/core/Badge.jsx",
+   "bytes": 383,
+   "sha256": "0111355e671db49a4f40fe366100b671eeef507db5796dfdec88885dd8e5f2d7"
+  },
+  {
+   "path": "project/components/core/Button.jsx",
+   "bytes": 1041,
+   "sha256": "67c1a74973c5ab6b638b3b334677ec74eeb95335533a2f8230ab5f2bf2fd39f4"
+  },
+  {
+   "path": "project/components/core/CourseSeal.jsx",
+   "bytes": 573,
+   "sha256": "b2a3cdee2c79c89bda86b69e271af6ccb7cb51c2bcff277338058056757b5471"
+  },
+  {
+   "path": "project/components/core/Icon.jsx",
+   "bytes": 1770,
+   "sha256": "8b19fe490c776928e974ac5a4c244618bf51aebbdaa7ac2daf6aca143d32dd3f"
+  },
+  {
+   "path": "project/components/core/IconButton.jsx",
+   "bytes": 514,
+   "sha256": "51c96711042b49a72d08855261f87b2e2ba725297fab712d267a7aab43d9ac51"
+  },
+  {
+   "path": "project/components/core/Logo.jsx",
+   "bytes": 879,
+   "sha256": "f8e6816f897dbecd7686f2227a6242409e14677c157be110a214e3bdecd9611a"
+  },
+  {
+   "path": "project/components/feedback/Alert.jsx",
+   "bytes": 891,
+   "sha256": "66070480da587266a5814a4a64310dc5bf139c5f7bcadf14fb6fc39ee86237c4"
+  },
+  {
+   "path": "project/components/feedback/ProgressBar.jsx",
+   "bytes": 1082,
+   "sha256": "06830d6abbe50d015027b93fa23b61d649812444664ca34c4fb616f5b4dbf0d2"
+  },
+  {
+   "path": "project/components/feedback/Skeleton.jsx",
+   "bytes": 559,
+   "sha256": "f534e422de116a6f74d362f27026e59add11c69537360f0dcc28e5e5440c845a"
+  },
+  {
+   "path": "project/components/feedback/Spinner.jsx",
+   "bytes": 397,
+   "sha256": "57c94c55b5bd19204a3f05de42355b450e080a161c15732d79af3bc2855a6a60"
+  },
+  {
+   "path": "project/components/feedback/Stepper.jsx",
+   "bytes": 971,
+   "sha256": "5398efacada6324ceef2da8efe0607f07c1ee757dbd93f117212a1e64c13342b"
+  },
+  {
+   "path": "project/components/finance/BudgetTable.jsx",
+   "bytes": 3579,
+   "sha256": "050871c6ebd87bea0f8aab58a5e017d906d5c466def1c0955ffb93ed04888282"
+  },
+  {
+   "path": "project/components/finance/DueDate.jsx",
+   "bytes": 832,
+   "sha256": "619a2bb5628762493b37c4c7fee29f0de6555cffd279f35751460efc2d21575a"
+  },
+  {
+   "path": "project/components/finance/FlowTag.jsx",
+   "bytes": 429,
+   "sha256": "637ee63d622ae1d960551a765ee758607a592674d073d297ba0c79801dc70b31"
+  },
+  {
+   "path": "project/components/finance/Money.jsx",
+   "bytes": 723,
+   "sha256": "8c67d99507e41c7f8f3a991e789cf01f7e7b88c891804f33ade2cc60b55dc477"
+  },
+  {
+   "path": "project/components/forms/Checkbox.jsx",
+   "bytes": 684,
+   "sha256": "fc519aff1f73b0d2dfe884288cee558cd42fbd7177ac3eb2a4a352c84411a420"
+  },
+  {
+   "path": "project/components/forms/Radio.jsx",
+   "bytes": 571,
+   "sha256": "757158383686a246fbf93d98c2b52366fbfefee85007a31c76da21a7c74398bd"
+  },
+  {
+   "path": "project/components/forms/Select.jsx",
+   "bytes": 1292,
+   "sha256": "1a2c6cd774a4a0986aad6d967e62c9d1440633162fe5e6a58391296a59a0162d"
+  },
+  {
+   "path": "project/components/forms/TextField.jsx",
+   "bytes": 1373,
+   "sha256": "1925f823001bf26db676c182c7faf63741099cd17005214e56cce1eaacbe94f9"
+  },
+  {
+   "path": "project/components/index.d.ts",
+   "bytes": 18573,
+   "sha256": "735edce57927d89f5c0ee38b42f09f0e4ad15c11787ad9a24bbdffe1a2454189"
+  },
+  {
+   "path": "project/components/navigation/Breadcrumb.jsx",
+   "bytes": 523,
+   "sha256": "ca89a0bbc05fa0c8c9882d5c48fb9ad049255c83c4fe793ae03ce8535c550543"
+  },
+  {
+   "path": "project/components/navigation/LessonList.jsx",
+   "bytes": 1272,
+   "sha256": "4417301bc1dc4d5209c9d9c09650fc8bcc39d49ff11010ff0333212820c4f4ef"
+  },
+  {
+   "path": "project/components/navigation/Tabs.jsx",
+   "bytes": 599,
+   "sha256": "5e6c8ceffac7e4ef78af390fdeb064b275a255528ae461f3eaea597268763635"
+  },
+  {
+   "path": "project/components/navigation/TopNav.jsx",
+   "bytes": 1253,
+   "sha256": "300e17240af4d488f11e94a857cd59e34666d35b3a7c493336b4131fb09f466c"
+  },
+  {
+   "path": "project/components/tutor/PromptSuggestion.jsx",
+   "bytes": 1280,
+   "sha256": "a5be09fceaeeab2deadc4a42067c0338be0f82d7b474e851271689914ed1dc90"
+  },
+  {
+   "path": "project/components/tutor/TutorMessage.jsx",
+   "bytes": 833,
+   "sha256": "b7ba157013588a542e315b891846be8494d175aeefd7fab2939e2c497b175ea9"
+  },
+  {
+   "path": "project/components/tutor/TutorPanel.jsx",
+   "bytes": 2660,
+   "sha256": "4b9ce6602efaf175b01bc5d51c34a254d8da464216b852b912784c65778ea39a"
+  },
+  {
+   "path": "project/components/tutor/VerifyChecklist.jsx",
+   "bytes": 1545,
+   "sha256": "15064e5d8264140c922debc0c3cac8f0d3c4b57c8a0c8ca2958c8b53846216d8"
+  },
+  {
+   "path": "project/design-system.json",
+   "bytes": 860,
+   "sha256": "9d6dcf3d797006d5b8e60558e5c1c050796099f5ebd589d6e5f4ee87ab30fe01"
+  },
+  {
+   "path": "project/guidelines/brand/01-posicionamento.html",
+   "bytes": 1888,
+   "sha256": "69a9dfefc2e68950af969f2d64438e267a2cd7bdf7f25ecf79b69293e607aba0"
+  },
+  {
+   "path": "project/guidelines/brand/02-tom-de-voz.html",
+   "bytes": 2416,
+   "sha256": "179f5fa1450c1c7f73c38d577fe568e40c13964e187696f05723fe082573683c"
+  },
+  {
+   "path": "project/guidelines/brand/03-texto-pagina-curso.html",
+   "bytes": 1580,
+   "sha256": "777f795bbf70c8b3a5e13947cf9105a5301736690a6c154947153f764c43b00d"
+  },
+  {
+   "path": "project/guidelines/brand/04-texto-exercicio.html",
+   "bytes": 1601,
+   "sha256": "4ffb6f7bca5cc96470e9ac2ebbb5e341e3c0a8036d9abf7aaebd21a5a99b91b6"
+  },
+  {
+   "path": "project/guidelines/brand/05-texto-conferir.html",
+   "bytes": 1743,
+   "sha256": "03e9e02b5e454549442017ee8fb181d84af402b66721c005c6cc0cee7ac74f49"
+  },
+  {
+   "path": "project/guidelines/brand/06-direcoes-visuais.html",
+   "bytes": 3240,
+   "sha256": "2ef7df69832a9a023dbec1e4a71190afd01d0f9112f8f1c7072868f4609e4edc"
+  },
+  {
+   "path": "project/guidelines/brand/07-logotipo.html",
+   "bytes": 2155,
+   "sha256": "d5ca8fce60124ae7bb65f4340ac1b50a103b1ae127d7f2bb88240ab222935f99"
+  },
+  {
+   "path": "project/guidelines/brand/08-logotipo-variantes.html",
+   "bytes": 2487,
+   "sha256": "f93201720d0108994f8144f236f712e1e2e93c7522870b4704f4a8b0042918ea"
+  },
+  {
+   "path": "project/guidelines/brand/09-logotipo-reduzido.html",
+   "bytes": 2790,
+   "sha256": "e11b2f8731a29f2a8180dd6db9914f72ceee8157e198e53c28b4515acd490731"
+  },
+  {
+   "path": "project/guidelines/brand/10-paleta-marca.html",
+   "bytes": 2303,
+   "sha256": "99aab587f183a97c540a2928f155b72eaf69d5f37ce826ebbc607fd454347c06"
+  },
+  {
+   "path": "project/guidelines/brand/11-paleta-neutros.html",
+   "bytes": 1700,
+   "sha256": "c28253c7c6b0735acc6798772215c3b796e7a0429b64ee1f0c2e3f31bc9012d1"
+  },
+  {
+   "path": "project/guidelines/brand/12-paleta-feedback.html",
+   "bytes": 3044,
+   "sha256": "16653439e514216da967426ce72a4f25eecd31dfab123f35e923ddd52d35b856"
+  },
+  {
+   "path": "project/guidelines/brand/13-tipografia-display.html",
+   "bytes": 1269,
+   "sha256": "c86d9f770469d0cbc1ae9ee3b95fcda761da6cd555225546ec465516f339c632"
+  },
+  {
+   "path": "project/guidelines/brand/14-tipografia-texto.html",
+   "bytes": 1512,
+   "sha256": "8f860a30f02d7e373e3af51564cfac64a5cf669ee0dd27b3ddb9e3b739d62203"
+  },
+  {
+   "path": "project/guidelines/brand/15-tipografia-acentos.html",
+   "bytes": 1992,
+   "sha256": "7fb009eaa4101cb18ac6d539cb00680811b35c54c4688c4658eda8d9511e1cfb"
+  },
+  {
+   "path": "project/guidelines/brand/16-tipografia-numeros.html",
+   "bytes": 1582,
+   "sha256": "c59c582d8ada5a0bb6e421240afa2a458e31c19d3b056c6bce012fbd79324f7b"
+  },
+  {
+   "path": "project/guidelines/brand/17-iconografia.html",
+   "bytes": 2341,
+   "sha256": "2233afd2fd0aaabc9b902cc0b7e3eb84d2f548bf7ee65659fd2fdd549e9bb0ad"
+  },
+  {
+   "path": "project/guidelines/brand/18-ilustracao.html",
+   "bytes": 4196,
+   "sha256": "3a1b9faa2da205ae3ba6dfda1f94fac6b6b5b6be016973e84b927657b21a489c"
+  },
+  {
+   "path": "project/guidelines/brand/19-graficos.html",
+   "bytes": 4267,
+   "sha256": "191a420e29920ae70490aca50f8d5bf84f347cb4802c8f73b0600f4cdf53267f"
+  },
+  {
+   "path": "project/guidelines/brand/20-identidade-curso.html",
+   "bytes": 2896,
+   "sha256": "5767b19048bdc4db4bf908268826a216ac63eca2dcad0d674b95fbf886adcbbb"
+  },
+  {
+   "path": "project/guidelines/brand/21-cursos-futuros.html",
+   "bytes": 3386,
+   "sha256": "9dde30f69fdb9826b5698761d131fa19e451ab6aa2e94c311f7194747f4df218"
+  },
+  {
+   "path": "project/guidelines/brand/22-material-didatico.html",
+   "bytes": 4614,
+   "sha256": "20a4f918a0651a036e9be32aa678dbcc6f60fba0783dbb74d0cf3e5caf02ff91"
+  },
+  {
+   "path": "project/guidelines/card.css",
+   "bytes": 3902,
+   "sha256": "0f0b6a3f7926c8f5eab650e179288e65e9b615c2758717cdb95a2cfc27844efd"
+  },
+  {
+   "path": "project/guidelines/system/01-superficie.html",
+   "bytes": 1560,
+   "sha256": "6aa8258ce7f320b2aa93d4205ba2bfcadc0a273f43caf7fd98b567070b211f44"
+  },
+  {
+   "path": "project/guidelines/system/02-texto.html",
+   "bytes": 2449,
+   "sha256": "7c3c35c968b09f0475b1f7a7dad3079688dc3488c460440aaf507512dc33afd9"
+  },
+  {
+   "path": "project/guidelines/system/03-borda.html",
+   "bytes": 1253,
+   "sha256": "e0c7d145279b3fe5e27c662595fbece9c0a621b79c1b31abdfcf5402a311ef84"
+  },
+  {
+   "path": "project/guidelines/system/04-acao.html",
+   "bytes": 1798,
+   "sha256": "72fd681835302b5ef26abddeb764943d6947230350ba16fb72c0220458c79db9"
+  },
+  {
+   "path": "project/guidelines/system/05-foco.html",
+   "bytes": 1662,
+   "sha256": "d9a83018149d08c15d10b1239a9b9e976c73b4179af78199b181cc29e0ab83bd"
+  },
+  {
+   "path": "project/guidelines/system/06-feedback.html",
+   "bytes": 6288,
+   "sha256": "e52b198a600bab7edbbcf55a955347e76eeb57c62836a4b731dc82ef0dfa3051"
+  },
+  {
+   "path": "project/guidelines/system/07-escala-tipografica.html",
+   "bytes": 7079,
+   "sha256": "0612297a08d8622a19ce418436b507a93cf655ce76fa744fcd469c46b55115ee"
+  },
+  {
+   "path": "project/guidelines/system/08-espacamento.html",
+   "bytes": 4288,
+   "sha256": "ee78a55a5b0cf5c86f2bec56a7e7d8ef8516465f613830e971bde4cccf710665"
+  },
+  {
+   "path": "project/guidelines/system/09-raios.html",
+   "bytes": 2188,
+   "sha256": "671ede75daf5083524086bf3f2bf631895d2dabf99b501ce3977956ba1396433"
+  },
+  {
+   "path": "project/guidelines/system/10-elevacao.html",
+   "bytes": 2396,
+   "sha256": "a65aca78f553215afc169558f3a650c2ede9269c108ea5642214def5f40fb94a"
+  },
+  {
+   "path": "project/guidelines/system/11-layout-grid.html",
+   "bytes": 4168,
+   "sha256": "fbe650013f0a9dcccb7b0836dafe357ce45b55c52312137f856a56fbc9e4af02"
+  },
+  {
+   "path": "project/guidelines/system/12-larguras-leitura.html",
+   "bytes": 2271,
+   "sha256": "4928da57a8e06cf29323f013d7ed5ff037d3c590165f1a1c4b8ad1a948d2cbf2"
+  },
+  {
+   "path": "project/guidelines/system/13-valores.html",
+   "bytes": 2971,
+   "sha256": "8732a19cd0fdd64c409099a086afb6e4c1a2df6076ebc49f9129ca93671d328a"
+  },
+  {
+   "path": "project/guidelines/system/14-datas.html",
+   "bytes": 2917,
+   "sha256": "afd56dcbf62f755aee54bf790e923d4331649d1d4a54999b20b1c42dd785430a"
+  },
+  {
+   "path": "project/guidelines/system/15-entrada-despesa.html",
+   "bytes": 3476,
+   "sha256": "7ba0b3f897fb6eb15f4268ff32a64a8ca0ca11c6dc2c2a94d077058205e8b460"
+  },
+  {
+   "path": "project/guidelines/system/16-contraste.html",
+   "bytes": 3750,
+   "sha256": "a75065440f6d97211c8903b0c40267175a4cbf68f6d99f2b80972ebb391a653b"
+  },
+  {
+   "path": "project/guidelines/system/17-foco-visivel.html",
+   "bytes": 3085,
+   "sha256": "a2f97b3438fc752ab0048dc1c24225d884794858ae34006cc2a6b2d1a2562aaf"
+  },
+  {
+   "path": "project/styles.css",
+   "bytes": 430,
+   "sha256": "e58dac77590e48786160e0c0420eda3c0e6c8ecc390e810307a228ac52041534"
+  },
+  {
+   "path": "project/tokens.css",
+   "bytes": 5948,
+   "sha256": "e431e8c2d641c5ab761e4065072704ef93f884c2e3f0dde4075a818d8da9a83f"
+  },
+  {
+   "path": "project/tokens.json",
+   "bytes": 27155,
+   "sha256": "9e17fab7dc1cae222356c099394f6fe5e015edaed28906aabc8534a8c3c64511"
+  },
+  {
+   "path": "project/ui_kits/plataforma/App.jsx",
+   "bytes": 379,
+   "sha256": "bb344a9714b516d1fa46cf9e4e3548601cf85e544f005ceadf131a216b63f040"
+  },
+  {
+   "path": "project/ui_kits/plataforma/CoursePage.jsx",
+   "bytes": 4415,
+   "sha256": "2ff79da61d2c4da5d2029a07c49b248bf6ac7f611edf01830b9a3e7fe92863a3"
+  },
+  {
+   "path": "project/ui_kits/plataforma/ExercisePage.jsx",
+   "bytes": 5452,
+   "sha256": "059950e4f100a4bf2e1f0e72b87545f943d89b2b99b4ba59443014be1539125e"
+  },
+  {
+   "path": "project/ui_kits/plataforma/LessonPage.jsx",
+   "bytes": 5028,
+   "sha256": "f8a2e9598566831d6e0437334156012e1e49e2865d6fc556798a46d9d825ba52"
+  },
+  {
+   "path": "project/ui_kits/plataforma/README.md",
+   "bytes": 1158,
+   "sha256": "18bd6d61a4c2aa9f60634717290b67c081ff77823af5297562738dad27d39f19"
+  },
+  {
+   "path": "project/ui_kits/plataforma/aula-desktop.html",
+   "bytes": 1682,
+   "sha256": "b0b0207cb65ce3a9801ed11c06e373067343e6fa3327e588bfbf36d7e140f727"
+  },
+  {
+   "path": "project/ui_kits/plataforma/aula-mobile.html",
+   "bytes": 1492,
+   "sha256": "8f2ab7254dad673d3b859dbb48e1dbcd1e02859f87256cd7afca7611746f6b49"
+  },
+  {
+   "path": "project/ui_kits/plataforma/curso-mobile.html",
+   "bytes": 1492,
+   "sha256": "21157713477035c47e4dc1008c2c1169c1d165379a005752f3f93ec954319ceb"
+  },
+  {
+   "path": "project/ui_kits/plataforma/data.js",
+   "bytes": 5294,
+   "sha256": "81b0186c75910f50484077b8ede178411d468a3bb833bb4cf4fd4a3be66e6146"
+  },
+  {
+   "path": "project/ui_kits/plataforma/exercicio-desktop.html",
+   "bytes": 1697,
+   "sha256": "55faa60eedce534b908248d5649ee8246d58ea153c725bf0bd4f8d18f9a0d355"
+  },
+  {
+   "path": "project/ui_kits/plataforma/exercicio-mobile.html",
+   "bytes": 1505,
+   "sha256": "22d3ae2d5e23008451aa697d151fa371af9951303e2d3a62a59263e20c092bba"
+  },
+  {
+   "path": "project/ui_kits/plataforma/index.html",
+   "bytes": 1677,
+   "sha256": "2f54276eaefee05bd5956a0b0434dbb76d52e2cfcde0bdabb07516c8005bcf04"
+  },
+  {
+   "path": "project/ui_kits/plataforma/kit.css",
+   "bytes": 10089,
+   "sha256": "8cec8880a0d73484434d6f1b2e3236880fd906244e109eb4ae947a2f2f38671c"
+  }
+ ],
+ "assets": [],
+ "standalone_export": {
+  "path": "_standalone/initelo-design-system-claude-design.zip",
+  "bytes": 194773,
+  "files_inside": 175,
+  "sha256": "ddf38beefde76efe6a1d88ac09216b7bfffac0d80c4504063977115afa5d88c0",
+  "note": "Export 'Project HTML' do claude.ai/design, baixado em 2026-11-22: o projeto como estava antes da conversao."
+ },
+ "previous_backup_path": "claude-design/initelo-design-system"
+}

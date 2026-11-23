@@ -1,0 +1,45 @@
+.ini-topnav{background:var(--surface-card);border-bottom:1px solid var(--border-default)}
+.ini-topnav__inner{display:flex;align-items:center;gap:var(--space-6);height:64px;max-width:calc(var(--container-max) + 2*var(--grid-margin));margin:0 auto;padding:0 var(--grid-margin)}
+.ini-topnav__brand{display:inline-flex;text-decoration:none;border-radius:var(--radius-sm);padding:4px}
+.ini-topnav__nav{flex:1;min-width:0}
+.ini-topnav__links{display:flex;gap:4px;margin:0;padding:0;list-style:none}
+.ini-topnav__link{position:relative;display:inline-flex;align-items:center;height:40px;padding:0 12px;border-radius:var(--radius-md);font:600 15px/1 var(--font-text);color:var(--text-body);text-decoration:none;white-space:nowrap}
+.ini-topnav__link:hover,.ini-topnav__link.is-hover{background:var(--action-ghost-hover);color:var(--text-strong)}
+.ini-topnav__link[aria-current="page"]{color:var(--text-strong)}
+.ini-topnav__link[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-12px;height:3px;background:var(--action-primary)}
+.ini-topnav__right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.ini-topnav__menu{display:none}
+.ini-avatar{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--tinta-100);color:var(--tinta-800);font:600 14px/1 var(--font-text);border:0;padding:0;cursor:pointer}
+.ini-avatar:focus-visible,.ini-topnav__link:focus-visible,.ini-topnav__link.is-focus,.ini-topnav__brand:focus-visible,.ini-lesson:focus-visible,.ini-lesson.is-focus{outline:var(--focus-width) solid var(--focus-ring);outline-offset:var(--focus-offset)}
+.ini-topnav--compact .ini-topnav__nav{display:none}
+.ini-topnav--compact .ini-topnav__menu{display:inline-grid}
+.ini-topnav--compact .ini-topnav__inner{height:56px;gap:12px;padding:0 12px}
+@media (max-width:767px){.ini-topnav__nav{display:none}.ini-topnav__menu{display:inline-grid}.ini-topnav__inner{height:56px;gap:12px;padding:0 12px}}
+/* Trilha */
+.ini-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px;margin:0;padding:0;list-style:none;font:var(--type-body-sm);color:var(--text-muted)}
+.ini-crumbs li{display:inline-flex;align-items:center;gap:4px}
+.ini-crumbs a{color:var(--text-muted);text-decoration:none;padding:4px 2px;border-radius:var(--radius-xs)}
+.ini-crumbs a:hover{color:var(--text-link);text-decoration:underline}
+.ini-crumbs [aria-current]{color:var(--text-strong);font-weight:600;padding:4px 2px}
+/* Abas */
+.ini-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border-default);overflow-x:auto}
+.ini-tab{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 14px;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;background:none;font:600 15px/1 var(--font-text);color:var(--text-muted);cursor:pointer;white-space:nowrap;border-radius:var(--radius-sm) var(--radius-sm) 0 0}
+.ini-tab:hover,.ini-tab.is-hover{color:var(--text-strong);background:var(--action-ghost-hover)}
+.ini-tab[aria-selected="true"]{color:var(--text-strong);border-bottom-color:var(--action-primary)}
+.ini-tab:focus-visible,.ini-tab.is-focus{outline:var(--focus-width) solid var(--focus-ring);outline-offset:-3px}
+/* Lista de aulas */
+.ini-lessons{display:flex;flex-direction:column;min-width:0}
+.ini-lessons__title{margin:0 0 8px;padding:0 12px}
+.ini-lessons__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.ini-lesson{display:flex;gap:12px;align-items:flex-start;width:100%;min-height:52px;padding:10px 12px;border:0;border-radius:var(--radius-md);background:none;text-align:left;cursor:pointer;color:var(--text-body);font:var(--type-body-sm)}
+.ini-lesson:hover,.ini-lesson.is-hover{background:var(--action-ghost-hover)}
+.ini-lesson__icon{margin-top:1px;color:var(--text-muted)}
+.ini-lesson--done .ini-lesson__icon{color:var(--feedback-success)}
+.ini-lesson--current,.ini-lesson--current:hover{background:var(--surface-selected);color:var(--text-strong)}
+.ini-lesson--current .ini-lesson__icon{color:var(--action-primary)}
+.ini-lesson--current .ini-lesson__name{font-weight:600}
+.ini-lesson--locked{color:var(--text-muted);cursor:not-allowed}
+.ini-lesson--locked:hover{background:none}
+.ini-lesson__text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ini-lesson__name{font:400 15px/1.35 var(--font-text)}
+.ini-lesson__meta{font:var(--type-caption);color:var(--text-muted)}

@@ -1,0 +1,12 @@
+<!-- @dsCard group="Formulários" height=250 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>TextField</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-stack', style: { maxWidth: 420 } }, h(G.TextField, { label: 'Título do anúncio', hint: 'Diga o que é e o principal diferencial.', counter: '33/70', defaultValue: 'Apartamento com varanda, 2 quartos' }), h(G.TextField, { label: 'Preço', prefix: 'R$', suffix: '/mês', defaultValue: '2.300' }), h(G.TextField, { label: 'CEP', error: 'Informe um CEP com 8 números.', defaultValue: '0123' })));
+</script>
+</body>
+</html>

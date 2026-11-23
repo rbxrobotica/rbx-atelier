@@ -36,6 +36,11 @@
 //     scripts it loads, and a <script charset> may not name another one.
 // The lockfile is written in both cases, unless no script is pinned.
 //
+// The pages of the archive directories are left out (archive.mjs): they are
+// copies of published artifacts, kept as they were. A symbolic link is
+// reported there as anywhere else, and a page outside the archive that loads
+// a script from it is a problem, because the lint does not read that script.
+//
 // Out of reach: what page code loads at run time; whether the integrity hash
 // matches what unpkg serves (the browser checks that on load); what the web
 // server decides when it serves a file (an encoding or a type announced in a
@@ -45,7 +50,8 @@
 // Usage, from the repository root:
 //   node .github/guardrails/cdn-scripts.mjs <path of the osv-scanner.json to write>
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative } from 'node:path';
+import { isArchived } from './archive.mjs';
 import { HTML, SVG, attribute, elements, holdsJson, lower, scriptKind, strip } from './html.mjs';
 import { PAGE_COUNT, isLinted, otherOrigins, repositoryPaths } from './repository-origin.mjs';
 
@@ -149,7 +155,7 @@ export function pageFindings(page) {
       if (!urls.length) {
         // A file of the repository. An empty address loads nothing.
         if (address !== '' && !holdsJson(element) && !repositoryPaths(address).every(isLinted)) {
-          found.push({ line, text: address, problems: ['is a file of the repository that the lint does not read: it reads .js, .mjs, .cjs and .jsx files outside node_modules'] });
+          found.push({ line, text: address, problems: ['is a file of the repository that the lint does not read: it reads .js, .mjs, .cjs and .jsx files outside node_modules and outside the archive directories'] });
         }
         continue;
       }
@@ -185,8 +191,10 @@ export function pageFindings(page) {
 }
 
 // The HTML files under `directory`, and the symbolic links met on the way,
-// which are reported and never followed.
-export function walk(directory) {
+// which are reported and never followed. `root` is the root of the
+// repository: the pages of its archive directories are left out, and the
+// links there are reported like the others.
+export function walk(directory, root = directory) {
   const found = { pages: [], links: [] };
   // eslint-disable-next-line security/detect-non-literal-fs-filename -- walks the checkout from the working directory; no input names a path
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
@@ -195,10 +203,10 @@ export function walk(directory) {
     if (entry.isSymbolicLink()) {
       found.links.push(path);
     } else if (entry.isDirectory()) {
-      const below = walk(path);
+      const below = walk(path, root);
       found.pages.push(...below.pages);
       found.links.push(...below.links);
-    } else if (entry.isFile() && /\.html?$/i.test(entry.name)) {
+    } else if (entry.isFile() && /\.html?$/i.test(entry.name) && !isArchived(relative(root, path))) {
       found.pages.push(path);
     }
   }

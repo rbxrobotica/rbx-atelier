@@ -1,0 +1,19 @@
+{
+ "title": "Engenharia de Loop",
+ "url": "https://claude.ai/artifact/TMiNRLhRhXsaWC2VFZem3T",
+ "type": null,
+ "version": "1788221652-67b7",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 18893,
+   "sha256": "874cd602e9f6d3a8c8e59812ae773c83d11ab43f3326d978b6782491ddb7955b"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "previous_backup_path": "claude-design/engenharia-de-loop"
+}

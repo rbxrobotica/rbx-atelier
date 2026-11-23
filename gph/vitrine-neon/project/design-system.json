@@ -1,0 +1,95 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-28T21:55:00-03:00"
+  },
+  "title": "GPH Vitrine Néon",
+  "namespace": "GphNeon",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "sections": {},
+  "groups": [
+    "Marca",
+    "Legado"
+  ],
+  "assetGroups": {
+    "Legado": {
+      "name": "Legado",
+      "tile": "l",
+      "order": [
+        "legado-logo-whatsapp.png",
+        "legado-home-desktop.jpg",
+        "legado-home-celular.jpg"
+      ],
+      "files": {
+        "legado-home-desktop.jpg": {
+          "name": "legado-home-desktop.jpg",
+          "blob": "2c3d0738cb7f9a606ac1cb1fc11f478a",
+          "size": 20718,
+          "type": "image/jpeg"
+        },
+        "legado-home-celular.jpg": {
+          "name": "legado-home-celular.jpg",
+          "blob": "87e177d2131666ecdeae4adf3d33fae2",
+          "size": 19262,
+          "type": "image/jpeg"
+        },
+        "legado-logo-whatsapp.png": {
+          "name": "legado-logo-whatsapp.png",
+          "blob": "dd2c1a2799a803cc1e4eb6a5d80e124e",
+          "size": 57293,
+          "type": "image/png"
+        }
+      }
+    },
+    "Marca": {
+      "name": "Marca",
+      "tile": "m",
+      "order": [
+        "gph-simbolo.svg",
+        "gph-icone-512.png",
+        "gph-favicon-32.png"
+      ],
+      "files": {
+        "gph-simbolo.svg": {
+          "name": "gph-simbolo.svg",
+          "blob": "7b22227b603afca93f1c5410d3604392",
+          "size": 420,
+          "type": "image/svg+xml"
+        },
+        "gph-icone-512.png": {
+          "name": "gph-icone-512.png",
+          "blob": "65465a64c9dc9a01e83c33529cd57bb9",
+          "size": 6280,
+          "type": "image/png"
+        },
+        "gph-favicon-32.png": {
+          "name": "gph-favicon-32.png",
+          "blob": "ab2051faba5d690e9a6ed382ed0ceb6c",
+          "size": 1001,
+          "type": "image/png"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Leandro Damasio",
+    "at": "2026-10-29T22:50:00-03:00",
+    "via": "Claude Code",
+    "note": "Decisão confirmada: ground do produto é a noite roxa; vinho (noite-funda) só nas peças de marca"
+  }
+}

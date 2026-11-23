@@ -1,0 +1,106 @@
+/* GPH · gerado de tokens.json */
+:root, [data-theme="light"] {
+  --wall: #f4f4f2;
+  --surface: #ffffff;
+  --sunken: #eaeae6;
+  --line: #dcdcd6;
+  --field: #83837c;
+  --ink: #15161a;
+  --ink-2: #44454c;
+  --ink-3: #5f6068;
+  --klein: #1f3ab0;
+  --klein-strong: #172d8a;
+  --klein-soft: #e7ebfb;
+  --on-klein: #ffffff;
+  --ouro: #c08b2c;
+  --ouro-ink: #7a5414;
+  --ouro-soft: #f8eed8;
+  --ponto: #d7352b;
+  --ok: #1f6b45;
+  --ok-soft: #e5f2ea;
+  --warn: #8a5a00;
+  --warn-soft: #fbf1dc;
+  --err: #b3261e;
+  --err-soft: #fcebea;
+  --scrim: #0a0b0d8f;
+  --focus: var(--klein);
+  --link: var(--klein);
+  --shadow-1: 0 1px 2px rgba(21,22,26,0.06);
+  --shadow-2: 0 10px 28px rgba(21,22,26,0.10);
+  --shadow-3: 0 24px 64px rgba(21,22,26,0.22);
+}
+[data-theme="dark"] {
+  --wall: #101114;
+  --surface: #191a1f;
+  --sunken: #0a0b0d;
+  --line: #2b2c33;
+  --field: #747680;
+  --ink: #f1f1ee;
+  --ink-2: #c5c6cd;
+  --ink-3: #9d9ea7;
+  --klein: #8fa3ff;
+  --klein-strong: #b9c5ff;
+  --klein-soft: #1a2147;
+  --on-klein: #0b1029;
+  --ouro: #e3b65c;
+  --ouro-ink: #f2d08f;
+  --ouro-soft: #382a0e;
+  --ponto: #ff6a5c;
+  --ok: #7ed3a1;
+  --ok-soft: #13301f;
+  --warn: #e8b65a;
+  --warn-soft: #33270c;
+  --err: #ff8a80;
+  --err-soft: #3b1513;
+  --scrim: #000000b3;
+  --focus: var(--klein);
+  --link: var(--klein);
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-2: 0 10px 28px rgba(0,0,0,0.55);
+  --shadow-3: 0 24px 64px rgba(0,0,0,0.7);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-none: 0px;
+  --radius-s: 3px;
+  --radius-m: 6px;
+  --radius-l: 12px;
+  --radius-pill: 999px;
+  --control-s: 36px;
+  --control-m: 44px;
+  --control-l: 52px;
+  --container: 1240px;
+  --measure: 68ch;
+  --nav-height: 64px;
+  --bp-s: 640px;
+  --bp-m: 960px;
+  --bp-l: 1280px;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --z-nav: 20;
+  --z-overlay: 40;
+  --z-toast: 50;
+  --font-display: "Familjen Grotesk", "Archivo", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-narrow: "Archivo Narrow", "Archivo", "Arial Narrow", sans-serif-condensed, sans-serif;
+}
+.display-xl { font-family: var(--font-display); font-size: 64px; line-height: 68px; font-weight: 600; letter-spacing: -0.02em; }
+.display-l { font-family: var(--font-display); font-size: 44px; line-height: 50px; font-weight: 600; letter-spacing: -0.015em; }
+.title-1 { font-family: var(--font-display); font-size: 32px; line-height: 38px; font-weight: 600; letter-spacing: -0.01em; }
+.title-2 { font-family: var(--font-display); font-size: 22px; line-height: 28px; font-weight: 600; }
+.body-l { font-family: var(--font-sans); font-size: 18px; line-height: 28px; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; }
+.body-strong { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 600; }
+.small { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.label { font-family: var(--font-narrow); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; }
+.price { font-family: var(--font-narrow); font-size: 20px; line-height: 24px; font-weight: 600; }
+.price-l { font-family: var(--font-narrow); font-size: 34px; line-height: 38px; font-weight: 600; letter-spacing: -0.01em; }

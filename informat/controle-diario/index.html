@@ -1,0 +1,1307 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Informat Controle Diário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --base:#f4f6f3;--surface:#ffffff;--sunken:#e8ece7;--line:#d5dcd6;--field:#7b877f;
+  --ink:#111a15;--ink-2:#3e4a43;--ink-3:#56625b;
+  --placa:#1b5e3b;--on-placa:#ffffff;--placa-strong:#134a2e;--placa-soft:#e3f0e8;
+  --mascara:#1b5e3b;--serigrafia:#f7faf8;
+  --cobre:#b4652a;--cobre-via:#e09a5f;--cobre-ink:#8a4a17;--cobre-soft:#f6e7da;
+  --info:#1d4f91;--info-soft:#e2eaf5;--warn:#8a5a00;--warn-soft:#fbf1dc;
+  --ok:#1e6b45;--ok-soft:#e5f2ea;--err:#a3283a;--err-soft:#fbedef;
+  --scrim:rgba(17,26,21,.56);
+  --chart-real:#b4652a;--chart-meta:#56625b;
+  --shadow-1:0 1px 2px rgba(17,26,21,.06),0 4px 12px rgba(17,26,21,.06);
+  --shadow-2:0 8px 28px rgba(17,26,21,.18);
+  --sans:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --r-s:4px;--r-m:8px;--r-l:12px;
+  --gutter:clamp(16px,4vw,48px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --base:#0e1411;--surface:#151c18;--sunken:#0a0f0c;--line:#26302a;--field:#6b7a71;
+    --ink:#e9efea;--ink-2:#b9c4bd;--ink-3:#94a099;
+    --placa:#74d19b;--on-placa:#0e1411;--placa-strong:#9be3b8;--placa-soft:#17301f;
+    --serigrafia:#e9f2ec;
+    --cobre:#e09a5f;--cobre-ink:#f0b88a;--cobre-soft:#3a2414;
+    --info:#8db4f0;--info-soft:#16243a;--warn:#e8b65a;--warn-soft:#33270c;
+    --ok:#7fd3a0;--ok-soft:#14301f;--err:#f08a98;--err-soft:#3a1419;
+    --scrim:rgba(0,0,0,.64);
+    --chart-real:#c87b40;--chart-meta:#6f7b74;
+    --shadow-1:0 1px 2px rgba(0,0,0,.4);--shadow-2:0 8px 28px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --base:#0e1411;--surface:#151c18;--sunken:#0a0f0c;--line:#26302a;--field:#6b7a71;
+  --ink:#e9efea;--ink-2:#b9c4bd;--ink-3:#94a099;
+  --placa:#74d19b;--on-placa:#0e1411;--placa-strong:#9be3b8;--placa-soft:#17301f;
+  --serigrafia:#e9f2ec;
+  --cobre:#e09a5f;--cobre-ink:#f0b88a;--cobre-soft:#3a2414;
+  --info:#8db4f0;--info-soft:#16243a;--warn:#e8b65a;--warn-soft:#33270c;
+  --ok:#7fd3a0;--ok-soft:#14301f;--err:#f08a98;--err-soft:#3a1419;
+  --scrim:rgba(0,0,0,.64);
+  --chart-real:#c87b40;--chart-meta:#6f7b74;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4);--shadow-2:0 8px 28px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+body{background:var(--base);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.small{font-size:14px;line-height:20px}
+.muted{color:var(--ink-3)}
+.num{font-variant-numeric:tabular-nums}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.ic-s{width:16px;height:16px}
+
+/* faixa de marca */
+.band{background:var(--mascara);color:var(--serigrafia);padding-block:20px 18px;position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:repeating-linear-gradient(90deg,var(--cobre-via) 0 28px,transparent 28px 40px);opacity:.55}
+.band .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:34px;height:34px}
+.brand-name{font-weight:800;font-size:26px;line-height:1;letter-spacing:-.01em}
+.brand-sub{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-top:4px}
+.band-meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.band-meta .phase{font-weight:700;font-size:18px}
+.band-meta .sync{font-family:var(--mono);font-size:12px;letter-spacing:.04em;opacity:.85}
+@media (max-width:640px){.band-meta{align-items:flex-start;text-align:left}}
+
+/* abas */
+nav.tabs{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{background:none;border:0;padding:14px 14px 12px;font-weight:600;color:var(--ink-2);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--cobre)}
+nav.tabs button:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--placa);outline-offset:2px}
+
+main{padding-block:28px 72px}
+section.tab{display:flex;flex-direction:column;gap:28px}
+.banner{border:1px solid var(--line);border-left:4px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:var(--r-m);display:flex;gap:10px;align-items:flex-start}
+.banner.err{border-left-color:var(--err);background:var(--err-soft)}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-height:118px}
+.tile .v{font-weight:800;font-size:30px;line-height:36px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.tile .s{font-size:14px;line-height:20px;color:var(--ink-2)}
+.tile.lead{background:var(--placa-soft);border-color:transparent}
+.bar{height:8px;border-radius:999px;background:var(--sunken);overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--cobre);border-radius:999px}
+.bar.over i{background:var(--err)}
+.chan{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline}
+.chan .bar{grid-column:1/-1;margin-top:0}
+.chans{display:flex;flex-direction:column;gap:14px}
+
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:var(--r-s);font-weight:600;white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft)}
+.t-warn{color:var(--warn);background:var(--warn-soft)}
+.t-err{color:var(--err);background:var(--err-soft)}
+.t-info{color:var(--info);background:var(--info-soft)}
+.t-neutral{color:var(--ink-2);background:var(--sunken)}
+.hip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cobre-ink);background:var(--cobre-soft);padding:2px 6px;border-radius:var(--r-s);font-weight:600}
+
+/* grid principal */
+.cols{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.card-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card-h h2{font-size:22px;line-height:28px;font-weight:700}
+.card-h p{color:var(--ink-2);font-size:14px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sec-h h2{font-size:22px;line-height:28px}
+
+/* alertas */
+.alerts{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.alert{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;padding:12px 14px;border-radius:var(--r-m);border:1px solid var(--line);background:var(--surface)}
+.alert .ico{margin-top:2px}
+.alert.crit{border-left:4px solid var(--err)}.alert.crit .ico{color:var(--err)}
+.alert.warn{border-left:4px solid var(--warn)}.alert.warn .ico{color:var(--warn)}
+.alert.info{border-left:4px solid var(--info)}.alert.info .ico{color:var(--info)}
+.alert .tt{font-weight:600}
+.alert .dd{font-size:14px;line-height:20px;color:var(--ink-2)}
+.alert .go{font-size:14px}
+
+/* ações manuais */
+.acts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.act{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:10px 0;border-top:1px dashed var(--line)}
+.act:first-child{border-top:0}
+.act input[type=checkbox]{width:20px;height:20px;margin-top:2px;accent-color:var(--placa)}
+.act .tx{font-weight:600}
+.act.done .tx{text-decoration:line-through;color:var(--ink-3);font-weight:400}
+.act .meta{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:14px;color:var(--ink-3);margin-top:2px;align-items:center}
+.grp{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:8px;display:flex;gap:8px;align-items:center}
+.grp::after{content:"";flex:1;border-top:1px solid var(--line)}
+
+/* formulários */
+form{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--ink-2)}
+label.f .hint{font-weight:400;color:var(--ink-3)}
+input[type=text],input[type=number],input[type=date],select,textarea{background:var(--surface);border:1px solid var(--field);border-radius:var(--r-m);padding:9px 11px;min-height:42px;width:100%;color:var(--ink);font-weight:400}
+textarea{min-height:72px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--placa);outline-offset:1px;border-color:var(--placa)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 16px;border-radius:var(--r-m);border:1px solid var(--field);background:var(--surface);color:var(--ink);font-weight:600;cursor:pointer;transition:background .12s}
+.btn:hover{background:var(--sunken)}
+.btn.primary{background:var(--placa);border-color:var(--placa);color:var(--on-placa)}
+.btn.primary:hover{background:var(--placa-strong);border-color:var(--placa-strong)}
+.btn.ghost{border-color:transparent;background:transparent}
+.btn.ghost:hover{background:var(--sunken)}
+.btn.sm{min-height:34px;padding:4px 10px;font-size:14px}
+.btn.danger{color:var(--err)}
+.btn[data-armed]{background:var(--err);border-color:var(--err);color:var(--surface)}
+.btn:disabled{background:var(--sunken);color:var(--ink-3);border-color:var(--line);cursor:not-allowed}
+.checks{display:flex;flex-wrap:wrap;gap:6px}
+.checks label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--field);border-radius:var(--r-m);padding:6px 10px;font-weight:600;font-size:14px;cursor:pointer}
+.checks input{accent-color:var(--placa)}
+
+/* tabelas */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-l);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:20px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px dashed var(--line)}
+th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:600;background:var(--sunken);border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+td.num,td.r{font-variant-numeric:tabular-nums;white-space:nowrap}
+.osn{font-family:var(--mono);font-size:15px;color:var(--cobre-ink);font-weight:600;white-space:nowrap}
+td select{min-height:34px;padding:4px 8px;font-size:14px;min-width:170px}
+tr.off td{color:var(--ink-3)}
+tr.today td{background:var(--placa-soft)}
+.empty{padding:28px 16px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:6px;align-items:center}
+.empty .ic{width:24px;height:24px;color:var(--ink-3)}
+.pos{color:var(--ok)}.neg{color:var(--err)}
+
+/* gráfico */
+.chart-wrap{position:relative}
+.chart-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{display:inline-block;width:22px;height:0;border-top:2px solid}
+.sw.real{border-color:var(--chart-real)}
+.sw.meta{border-color:var(--chart-meta);border-top-style:dashed}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--surface);border-radius:var(--r-m);padding:8px 10px;font-size:13px;line-height:18px;box-shadow:var(--shadow-2);white-space:nowrap;transform:translate(-50%,-100%);display:none;z-index:2}
+.tip b{font-family:var(--mono);font-weight:600}
+
+/* diálogo */
+dialog{border:0;border-radius:var(--r-l);padding:0;background:var(--surface);color:var(--ink);width:min(560px,calc(100vw - 32px));box-shadow:var(--shadow-2);max-height:calc(100vh - 48px)}
+dialog::backdrop{background:var(--scrim)}
+dialog form{padding:22px}
+dialog h3{font-size:22px;line-height:28px}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:10px 16px;border-radius:var(--r-m);box-shadow:var(--shadow-2);font-weight:600;z-index:20;max-width:calc(100vw - 32px)}
+.toast.err{background:var(--err)}
+.ro .w{display:none!important}
+details summary{cursor:pointer;font-weight:600;color:var(--ink-2)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:14px}
+.kv dt{color:var(--ink-3)}.kv dd{margin:0;font-variant-numeric:tabular-nums}
+.note{font-size:14px;line-height:20px;color:var(--ink-2);max-width:68ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="13.5" y="13" width="7" height="16" rx="1.5" fill="var(--serigrafia)"/><path d="M10 13h10.5v4H10z" fill="var(--serigrafia)"/><circle cx="17" cy="6.5" r="3.4" fill="none" stroke="var(--cobre-via)" stroke-width="2.4"/></svg>
+      <div>
+        <div class="brand-name">Informat</div>
+        <div class="brand-sub">Controle diário de receita</div>
+      </div>
+    </div>
+    <div class="band-meta">
+      <div class="phase" id="phase">Carregando</div>
+      <div class="sync" id="sync">Conectando ao banco</div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Seções">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="t-hoje" data-tab="hoje" aria-selected="true">Hoje</button>
+    <button role="tab" id="t-os" data-tab="os" aria-selected="false">Atendimentos</button>
+    <button role="tab" id="t-diario" data-tab="diario" aria-selected="false">Diário</button>
+    <button role="tab" id="t-mkt" data-tab="mkt" aria-selected="false">Marketing</button>
+    <button role="tab" id="t-plano" data-tab="plano" aria-selected="false">Plano 90 dias</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div id="banners" style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px"></div>
+
+  <!-- HOJE -->
+  <section class="tab" id="tab-hoje" role="tabpanel" aria-labelledby="t-hoje">
+    <div class="tiles" id="tiles"></div>
+    <div class="cols">
+      <div class="card">
+        <div class="card-h"><h2>Ações urgentes</h2><p id="alerts-count"></p></div>
+        <ul class="alerts" id="alerts"></ul>
+        <div class="grp">Lista de ações</div>
+        <ul class="acts" id="acts"></ul>
+        <details id="acts-done-wrap"><summary id="acts-done-sum">Concluídas</summary><ul class="acts" id="acts-done"></ul></details>
+        <form id="f-acao" class="w" autocomplete="off">
+          <div class="grp">Nova ação</div>
+          <label class="f">O que precisa ser feito
+            <input type="text" id="a-texto" required maxlength="200" placeholder="Ex.: ligar para os 5 contatos da lista de indicação">
+          </label>
+          <div class="row">
+            <label class="f">Prioridade
+              <select id="a-prio"><option value="urgente">Urgente</option><option value="hoje" selected>Hoje</option><option value="semana">Esta semana</option></select>
+            </label>
+            <label class="f">Responsável
+              <input type="text" id="a-resp" list="pessoas" maxlength="40" placeholder="Flavia">
+            </label>
+            <label class="f">Prazo
+              <input type="date" id="a-prazo">
+            </label>
+          </div>
+          <div class="btns"><button class="btn primary" type="submit">Adicionar ação</button></div>
+        </form>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:24px;min-width:0">
+        <div class="card w">
+          <div class="card-h"><h2>Lançar agora</h2></div>
+          <div class="btns">
+            <button class="btn primary" type="button" data-open="os-new">Novo atendimento</button>
+            <button class="btn" type="button" data-open="rec-new">Registrar recebimento</button>
+            <button class="btn" type="button" data-open="gasto-new">Registrar gasto</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>Diário de hoje</h2><p id="diario-hoje-data"></p></div>
+          <form id="f-diario-hoje" autocomplete="off">
+            <div class="row">
+              <label class="f">Contatos ativos feitos <span class="hint">mensagens, ligações, visitas</span>
+                <input type="number" id="dh-contatos" min="0" step="1" inputmode="numeric">
+              </label>
+              <label class="f">Horas trabalhadas
+                <input type="number" id="dh-horas" min="0" step="0.5" inputmode="decimal">
+              </label>
+            </div>
+            <label class="f">O que avançou hoje
+              <textarea id="dh-avancou" maxlength="1200"></textarea>
+            </label>
+            <label class="f">O que travou e o que precisa para destravar
+              <textarea id="dh-bloqueio" maxlength="1200"></textarea>
+            </label>
+            <div class="btns w"><button class="btn primary" type="submit">Salvar diário</button><span class="small muted" id="dh-status"></span></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTOS -->
+  <section class="tab" id="tab-os" role="tabpanel" aria-labelledby="t-os" hidden>
+    <div class="sec-h">
+      <h2>Atendimentos</h2>
+      <div class="btns">
+        <label class="small" for="os-filtro" style="color:var(--ink-2);font-weight:600">Mostrar</label>
+        <select id="os-filtro" style="width:auto;min-height:38px">
+          <option value="abertos">Em aberto</option>
+          <option value="todos">Todos</option>
+        </select>
+        <button class="btn primary w" type="button" data-open="os-new">Novo atendimento</button>
+      </div>
+    </div>
+    <div class="tiles" id="funil-tiles"></div>
+    <div class="tw"><table>
+      <thead><tr><th>OS</th><th>Cliente</th><th>Serviço</th><th class="r">Valor</th><th class="r">Recebido</th><th>Etapa</th><th>Próximo passo</th><th>Parado</th><th></th></tr></thead>
+      <tbody id="os-body"></tbody>
+    </table></div>
+
+    <div class="sec-h" style="margin-top:12px">
+      <h2>Recebimentos</h2>
+      <button class="btn w" type="button" data-open="rec-new">Registrar recebimento</button>
+    </div>
+    <div class="tw"><table>
+      <thead><tr><th>Data</th><th>Cliente</th><th>OS</th><th>Forma</th><th>Descrição</th><th class="r">Valor</th><th></th></tr></thead>
+      <tbody id="rec-body"></tbody>
+    </table></div>
+  </section>
+
+  <!-- DIÁRIO -->
+  <section class="tab" id="tab-diario" role="tabpanel" aria-labelledby="t-diario" hidden>
+    <div class="sec-h">
+      <h2>Diário de bordo</h2>
+      <p class="note">Um dia por linha. A meta do dia é a meta do mês dividida pelos dias de atendimento. Contatos, orçamentos e aprovados vêm dos atendimentos; prospecção, horas e notas vêm do diário.</p>
+    </div>
+    <div class="tw"><table>
+      <thead><tr><th>Dia</th><th class="r">Meta do dia</th><th class="r">Recebido</th><th class="r">Diferença</th><th class="r">Novos contatos</th><th class="r">Orçamentos</th><th class="r">Aprovados</th><th class="r">Prospecção</th><th class="r">Horas</th><th>Notas</th><th></th></tr></thead>
+      <tbody id="diario-body"></tbody>
+    </table></div>
+  </section>
+
+  <!-- MARKETING -->
+  <section class="tab" id="tab-mkt" role="tabpanel" aria-labelledby="t-mkt" hidden>
+    <div class="sec-h">
+      <h2>Marketing e custos</h2>
+      <button class="btn primary w" type="button" data-open="gasto-new">Registrar gasto</button>
+    </div>
+    <div class="tiles" id="mkt-tiles"></div>
+    <div class="cols">
+      <div class="card">
+        <div class="card-h"><h2>Verba por canal</h2><p id="mkt-teto-sub"></p></div>
+        <div class="chans" id="mkt-chans"></div>
+        <p class="note">Lance os gastos dos anúncios uma vez por semana, com o valor do relatório do Google Ads e da Meta. A data do lançamento é o último dia do período.</p>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>Regra de corte</h2></div>
+        <p class="note" id="mkt-regra"></p>
+      </div>
+    </div>
+    <div class="sec-h"><h2>De onde vêm os clientes</h2><p class="note">Origem de cada atendimento cruzada com o gasto do canal. Canais sem gasto aparecem como orgânicos.</p></div>
+    <div class="tw"><table>
+      <thead><tr><th>Origem</th><th class="r">Gasto</th><th class="r">Contatos</th><th class="r">Clientes pagos</th><th class="r">Recebido</th><th class="r">Custo por contato</th><th class="r">Custo por cliente</th><th class="r">Retorno</th></tr></thead>
+      <tbody id="origem-body"></tbody>
+    </table></div>
+    <div class="sec-h"><h2>Gastos lançados</h2></div>
+    <div class="tw"><table>
+      <thead><tr><th>Data</th><th>Categoria</th><th>Descrição</th><th class="r">Valor</th><th></th></tr></thead>
+      <tbody id="gastos-body"></tbody>
+    </table></div>
+  </section>
+
+  <!-- PLANO -->
+  <section class="tab" id="tab-plano" role="tabpanel" aria-labelledby="t-plano" hidden>
+    <div class="card">
+      <div class="card-h"><h2>Fluxo de receita</h2><p id="chart-sub"></p></div>
+      <div class="legend"><span><i class="sw meta"></i>Meta acumulada</span><span><i class="sw real"></i>Recebido acumulado</span></div>
+      <div class="chart-wrap" id="chart"><div class="tip" id="tip"></div></div>
+    </div>
+
+    <div class="sec-h"><h2>Funil reverso por mês</h2><p class="note">Quanto precisa entrar no funil para a meta sair. Ticket médio, conversões e horas vêm das premissas abaixo.</p></div>
+    <div class="tw"><table>
+      <thead><tr><th>Mês</th><th>Período</th><th class="r">Meta</th><th class="r">Recebido</th><th class="r">Dias de atendimento</th><th class="r">Meta por dia</th><th class="r">Atendimentos</th><th class="r">Orçamentos</th><th class="r">Contatos</th><th class="r">Contatos por dia</th><th class="r">Horas necessárias</th><th>Capacidade</th></tr></thead>
+      <tbody id="funil-body"></tbody>
+    </table></div>
+    <dl class="kv" id="plano-kv"></dl>
+
+    <div class="card">
+      <div class="card-h"><h2>Premissas</h2><p id="cfg-status"></p></div>
+      <p class="note">Preços, conversões e horas são hipóteses até a decisão das pendências de preço e operação. Troque os valores e salve: todo o painel recalcula.</p>
+      <form id="f-cfg" autocomplete="off">
+        <div class="row">
+          <label class="f">Início da operação<input type="date" id="c-inicio" required></label>
+          <label class="f">Meta mês 1 (R$)<input type="number" id="c-m1" min="0" step="100" required></label>
+          <label class="f">Meta mês 2 (R$)<input type="number" id="c-m2" min="0" step="100" required></label>
+          <label class="f">Meta mês 3 (R$)<input type="number" id="c-m3" min="0" step="100" required></label>
+        </div>
+        <div class="f" style="display:flex;flex-direction:column;gap:6px">
+          <span class="small" style="font-weight:600;color:var(--ink-2)">Dias de atendimento <span class="hip">Hipótese</span></span>
+          <div class="checks" id="c-dias"></div>
+        </div>
+        <label class="f">Feriados e dias sem atendimento <span class="hint">um por linha, no formato 20/11/2026 Consciência Negra. Inclua os feriados da sua cidade.</span>
+          <textarea id="c-feriados" rows="5"></textarea>
+        </label>
+        <div class="row">
+          <label class="f">Contato vira orçamento (%) <span class="hip" style="align-self:flex-start">Hipótese</span><input type="number" id="c-conv1" min="1" max="100" step="1" required></label>
+          <label class="f">Orçamento é aprovado (%) <span class="hip" style="align-self:flex-start">Hipótese</span><input type="number" id="c-conv2" min="1" max="100" step="1" required></label>
+          <label class="f">Horas de bancada por semana <span class="hip" style="align-self:flex-start">Hipótese</span><input type="number" id="c-horas" min="1" step="1" required></label>
+          <label class="f">Meta de contatos ativos por dia<input type="number" id="c-contatos" min="0" step="1" required></label>
+        </div>
+        <div class="grp">Marketing</div>
+        <div class="row">
+          <label class="f">Região de atendimento<input type="text" id="c-regiao" maxlength="120"></label>
+          <label class="f">Teto de marketing (R$)<input type="number" id="c-mteto" min="0" step="50" required></label>
+          <label class="f">Limite de custo por cliente (R$)<input type="number" id="c-cac" min="1" step="1" required></label>
+        </div>
+        <div class="row">
+          <label class="f">Google Ads (R$)<input type="number" id="c-mp-google" min="0" step="50"></label>
+          <label class="f">Meta: Instagram e Facebook (R$)<input type="number" id="c-mp-meta" min="0" step="50"></label>
+          <label class="f">Outro marketing ou reserva (R$)<input type="number" id="c-mp-outro" min="0" step="50"></label>
+        </div>
+        <div class="grp">Serviços e mix <span class="hip">Hipótese</span></div>
+        <div class="tw"><table>
+          <thead><tr><th>Serviço</th><th class="r">Preço (R$)</th><th class="r">Mix (%)</th><th class="r">Horas</th><th></th></tr></thead>
+          <tbody id="c-servicos"></tbody>
+        </table></div>
+        <div class="btns"><button class="btn sm" type="button" id="c-add-serv">Adicionar serviço</button><span class="small muted" id="c-mix"></span></div>
+        <div class="btns w"><button class="btn primary" type="submit">Salvar premissas</button><button class="btn ghost" type="button" id="c-reset">Descartar alterações</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<datalist id="pessoas"><option value="Flavia"><option value="Leandro"></datalist>
+
+<!-- diálogo atendimento -->
+<dialog id="dlg-os">
+  <form id="f-os" autocomplete="off">
+    <div class="dlg-h"><h3 id="os-title">Novo atendimento</h3><button class="btn ghost sm" type="button" data-close aria-label="Fechar"></button></div>
+    <div class="row">
+      <label class="f">Cliente <span class="hint">nome ou apelido, sem telefone</span><input type="text" id="o-cliente" required maxlength="80"></label>
+      <label class="f">Como chegou
+        <select id="o-origem" required></select>
+      </label>
+    </div>
+    <div class="row">
+      <label class="f">Serviço<select id="o-servico"></select></label>
+      <label class="f">Valor da OS (R$)<input type="number" id="o-valor" min="0" step="0.01" inputmode="decimal"></label>
+    </div>
+    <label class="f">Problema ou escopo<textarea id="o-desc" maxlength="1200" placeholder="Ex.: notebook desliga sozinho depois de 10 minutos"></textarea></label>
+    <div class="row">
+      <label class="f">Etapa<select id="o-etapa"></select></label>
+      <label class="f">Prazo do próximo passo<input type="date" id="o-prazo"></label>
+    </div>
+    <label class="f">Próximo passo<input type="text" id="o-prox" maxlength="160" placeholder="Ex.: enviar orçamento por WhatsApp"></label>
+    <div class="btns" style="justify-content:space-between">
+      <button class="btn danger ghost" type="button" id="o-del" hidden>Excluir atendimento</button>
+      <div class="btns" style="margin-left:auto"><button class="btn" type="button" data-close>Cancelar</button><button class="btn primary" type="submit" id="o-save">Salvar</button></div>
+    </div>
+  </form>
+</dialog>
+
+<!-- diálogo recebimento -->
+<dialog id="dlg-rec">
+  <form id="f-rec" autocomplete="off">
+    <div class="dlg-h"><h3>Registrar recebimento</h3><button class="btn ghost sm" type="button" data-close aria-label="Fechar"></button></div>
+    <p class="small muted" id="r-ctx"></p>
+    <div class="row">
+      <label class="f">Data<input type="date" id="r-data" required></label>
+      <label class="f">Valor (R$)<input type="number" id="r-valor" min="0.01" step="0.01" required inputmode="decimal"></label>
+      <label class="f">Forma
+        <select id="r-forma"><option>Pix</option><option>Dinheiro</option><option>Cartão</option><option>Transferência</option><option>Boleto</option></select>
+      </label>
+    </div>
+    <div class="row">
+      <label class="f">Cliente<input type="text" id="r-cliente" maxlength="80"></label>
+      <label class="f">Atendimento<select id="r-os"></select></label>
+    </div>
+    <label class="f">Descrição<input type="text" id="r-desc" maxlength="160" placeholder="Ex.: sinal de 50%"></label>
+    <div class="btns" style="justify-content:flex-end"><button class="btn" type="button" data-close>Cancelar</button><button class="btn primary" type="submit">Registrar</button></div>
+  </form>
+</dialog>
+
+<!-- diálogo diário -->
+<dialog id="dlg-diario">
+  <form id="f-diario" autocomplete="off">
+    <div class="dlg-h"><h3 id="d-title">Diário</h3><button class="btn ghost sm" type="button" data-close aria-label="Fechar"></button></div>
+    <div class="row">
+      <label class="f">Contatos ativos feitos<input type="number" id="d-contatos" min="0" step="1" inputmode="numeric"></label>
+      <label class="f">Horas trabalhadas<input type="number" id="d-horas" min="0" step="0.5" inputmode="decimal"></label>
+    </div>
+    <label class="f">O que avançou<textarea id="d-avancou" maxlength="1200"></textarea></label>
+    <label class="f">O que travou<textarea id="d-bloqueio" maxlength="1200"></textarea></label>
+    <div class="btns" style="justify-content:flex-end"><button class="btn" type="button" data-close>Cancelar</button><button class="btn primary w" type="submit">Salvar diário</button></div>
+  </form>
+</dialog>
+
+<!-- diálogo gasto -->
+<dialog id="dlg-gasto">
+  <form id="f-gasto" autocomplete="off">
+    <div class="dlg-h"><h3>Registrar gasto</h3><button class="btn ghost sm" type="button" data-close aria-label="Fechar"></button></div>
+    <div class="row">
+      <label class="f">Data<input type="date" id="g-data" required></label>
+      <label class="f">Valor (R$)<input type="number" id="g-valor" min="0.01" step="0.01" required inputmode="decimal"></label>
+    </div>
+    <label class="f">Categoria<select id="g-cat" required></select></label>
+    <label class="f">Descrição<input type="text" id="g-desc" maxlength="160" placeholder="Ex.: Google Ads, semana de 16 a 22/11"></label>
+    <div class="btns" style="justify-content:flex-end"><button class="btn" type="button" data-close>Cancelar</button><button class="btn primary" type="submit">Registrar</button></div>
+  </form>
+</dialog>
+
+<script>
+(() => {
+"use strict";
+const ICONS = {"file-text":["M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8Z","M14 3v5h5","M8.5 13L15.5 13","M8.5 16.5L13.5 16.5"],"search":["M4 10.5a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0 -13 0","M15.25 15.25L20.5 20.5"],"hourglass":["M6.5 3L17.5 3","M6.5 21L17.5 21","M7.5 3v3.2c0 1.2.6 2.3 1.6 3L12 12l-2.9 2.8a3.8 3.8 0 0 0-1.6 3V21","M16.5 3v3.2c0 1.2-.6 2.3-1.6 3L12 12l2.9 2.8c1 .7 1.6 1.8 1.6 3V21"],"check":["M5 12.5L9.5 17L19 7.5"],"wrench":["M11.38 10.36L4.5 17.23A1.6 1.6 0 0 0 6.77 19.5L13.64 12.62A4.2 4.2 0 1 0 19.13 7.13L16.67 9.6L14.4 7.33L16.87 4.87A4.2 4.2 0 1 0 11.38 10.36"],"package":["M3.5 7.5L12 3L20.5 7.5L20.5 16.5L12 21L3.5 16.5Z","M3.5 7.5L12 12L20.5 7.5","M12 12L12 21"],"check-circle":["M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0","M8 12.5L11 15.5L16.5 9.5"],"x-circle":["M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0","M9 9L15 15","M15 9L9 15"],"alert-triangle":["M12 3.5L21.5 20L2.5 20Z","M12 9.5L12 14","M12 17h.01"],"info":["M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0","M12 11L12 16.5","M12 7.75h.01"],"clock":["M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0","M12 7L12 12L15.5 14"],"plus":["M12 5L12 19","M5 12L19 12"],"x":["M6 6L18 18","M18 6L6 18"],"calendar":["M5 5h14a1.5 1.5 0 0 1 1.5 1.5v12.5a1.5 1.5 0 0 1 -1.5 1.5h-14a1.5 1.5 0 0 1 -1.5 -1.5v-12.5a1.5 1.5 0 0 1 1.5 -1.5Z","M3.5 10L20.5 10","M8 3L8 7","M16 3L16 7"]};
+
+/* Usadas só enquanto o banco não tem premissas salvas. */
+const DEFAULT_CONFIG = {
+  inicio: "2026-11-16",
+  metas: [5000, 7500, 10000],
+  dias: [1, 2, 3, 4, 5, 6],
+  feriados: [
+    { data: "2026-11-20", nome: "Consciência Negra" },
+    { data: "2026-12-25", nome: "Natal" },
+    { data: "2027-01-01", nome: "Confraternização Universal" },
+    { data: "2027-02-08", nome: "Carnaval" },
+    { data: "2027-02-09", nome: "Carnaval" }
+  ],
+  convOrcamento: 70,
+  convAprovacao: 60,
+  horasSemana: 20,
+  contatosDia: 10,
+  osInicial: 1,
+  regiao: "Entorno da Praça 14 Bis",
+  marketingTeto: 2000,
+  marketingPlano: { "Google Ads": 1300, "Meta Ads": 400, "Outro marketing": 300 },
+  cacMax: 45,
+  servicos: [
+    { id: "formatacao", nome: "Formatação com backup", preco: 180, mix: 35, horas: 2.5 },
+    { id: "limpeza", nome: "Limpeza e manutenção preventiva", preco: 150, mix: 15, horas: 1.5 },
+    { id: "upgrade", nome: "Upgrade de SSD ou memória (mão de obra)", preco: 120, mix: 20, horas: 1 },
+    { id: "reparo", nome: "Reparo de notebook ou PC", preco: 300, mix: 15, horas: 3 },
+    { id: "linux", nome: "Consultoria Linux (pacote 3 h)", preco: 450, mix: 10, horas: 3 },
+    { id: "suporte", nome: "Suporte mensal para empresa", preco: 500, mix: 5, horas: 4 }
+  ]
+};
+
+const ETAPAS = [
+  { k: "contato", l: "Contato recebido", tone: "info", ic: "file-text" },
+  { k: "diagnostico", l: "Em diagnóstico", tone: "info", ic: "search" },
+  { k: "orcamento", l: "Orçamento enviado", tone: "warn", ic: "hourglass" },
+  { k: "execucao", l: "Aprovado, em execução", tone: "info", ic: "wrench" },
+  { k: "entregue", l: "Entregue, a receber", tone: "warn", ic: "package" },
+  { k: "pago", l: "Pago", tone: "ok", ic: "check-circle" },
+  { k: "perdido", l: "Perdido ou recusado", tone: "err", ic: "x-circle" }
+];
+const ET = Object.fromEntries(ETAPAS.map(e => [e.k, e]));
+const CANAIS_MKT = ["Google Ads", "Meta Ads", "Outro marketing"];
+const CANAL_LABEL = { "Google Ads": "Google Ads", "Meta Ads": "Meta: Instagram e Facebook", "Outro marketing": "Outro marketing ou reserva" };
+const ORIGENS = [
+  { k: "Google Ads", canal: "Google Ads" },
+  { k: "Google Maps ou busca", canal: null },
+  { k: "Anúncio no Instagram ou Facebook", canal: "Meta Ads" },
+  { k: "Instagram ou Facebook orgânico", canal: null },
+  { k: "Panfleto ou placa", canal: "Outro marketing" },
+  { k: "Indicação", canal: null },
+  { k: "Rede pessoal", canal: null },
+  { k: "Empresa (prospecção)", canal: null },
+  { k: "Outro", canal: null }
+];
+const CATEGORIAS = [...CANAIS_MKT, "Peças", "Ferramentas e bancada", "Taxas e impostos", "Outros custos"];
+const ABERTAS = ["contato", "diagnostico", "orcamento", "execucao", "entregue"];
+const WD = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+const WDL = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+
+const S = {
+  cfg: clone(DEFAULT_CONFIG), cfgSaved: false,
+  os: [], rec: [], diario: {}, acoes: [], gastos: [],
+  db: null, canWrite: true, conn: "connecting",
+  loaded: { cfg: false, os: false, rec: false, diario: false, acoes: false, gastos: false },
+  cfgDirty: false, dhDirty: false
+};
+
+/* utilitários */
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pad = n => String(n).padStart(2, "0");
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parse = s => { const [y, m, d] = String(s).split("-").map(Number); return new Date(y, m - 1, d); };
+const addDays = (s, n) => { const d = parse(s); d.setDate(d.getDate() + n); return iso(d); };
+const addMonths = (s, n) => { const d = parse(s); const day = d.getDate(); d.setDate(1); d.setMonth(d.getMonth() + n); const last = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate(); d.setDate(Math.min(day, last)); return iso(d); };
+const diff = (a, b) => Math.round((parse(b) - parse(a)) / 86400000);
+const today = () => iso(new Date());
+const fmtD = s => { const d = parse(s); return `${pad(d.getDate())}/${pad(d.getMonth() + 1)}`; };
+const fmtDY = s => { const d = parse(s); return `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()}`; };
+const fmtWD = s => `${WD[parse(s).getDay()]} ${fmtD(s)}`;
+const nf0 = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 0, maximumFractionDigits: 0 });
+const nf2 = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const brl = v => { v = Number(v) || 0; return (Math.abs(Math.round(v * 100) % 100) ? nf2 : nf0).format(v); };
+const brlK = v => v >= 1000 ? `R$ ${(v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} mil` : nf0.format(v);
+const n1 = v => (Number(v) || 0).toLocaleString("pt-BR", { maximumFractionDigits: 1 });
+const osNum = n => `OS-${String(n).padStart(4, "0")}`;
+const icon = (name, cls = "ic") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${(ICONS[name] || []).map(d => `<path d="${d}"/>`).join("")}</svg>`;
+const plural = (n, s, p) => `${n} ${n === 1 ? s : p}`;
+
+/* modelo */
+function feriadoSet(cfg) { return new Set((cfg.feriados || []).map(f => f.data)); }
+function isWork(d, cfg, fs) { return (cfg.dias || []).includes(parse(d).getDay()) && !fs.has(d); }
+function periods(cfg) {
+  const fs = feriadoSet(cfg), out = [];
+  for (let i = 0; i < 3; i++) {
+    const ini = addMonths(cfg.inicio, i), fim = addDays(addMonths(cfg.inicio, i + 1), -1), dias = [];
+    for (let d = ini; d <= fim; d = addDays(d, 1)) if (isWork(d, cfg, fs)) dias.push(d);
+    out.push({ i, ini, fim, meta: Number(cfg.metas?.[i]) || 0, dias, corridos: diff(ini, fim) + 1 });
+  }
+  return out;
+}
+function mixStats(cfg) {
+  const sv = (cfg.servicos || []).filter(s => Number(s.mix) > 0);
+  const tot = sv.reduce((a, s) => a + Number(s.mix), 0) || 1;
+  const ticket = sv.reduce((a, s) => a + Number(s.preco) * Number(s.mix), 0) / tot;
+  const horas = sv.reduce((a, s) => a + Number(s.horas) * Number(s.mix), 0) / tot;
+  return { ticket: ticket || 1, horas: horas || 0, mixTotal: (cfg.servicos || []).reduce((a, s) => a + (Number(s.mix) || 0), 0) };
+}
+function recByOS() { const m = {}; for (const r of S.rec) if (r.osId) m[r.osId] = (m[r.osId] || 0) + (Number(r.valor) || 0); return m; }
+function recByDay() { const m = {}; for (const r of S.rec) m[r.data] = (m[r.data] || 0) + (Number(r.valor) || 0); return m; }
+function sumRange(byDay, a, b) { let s = 0; for (const k in byDay) if (k >= a && k <= b) s += byDay[k]; return s; }
+function servicoNome(id) { return (S.cfg.servicos || []).find(s => s.id === id)?.nome || (id ? id : "Sem serviço"); }
+
+function derive() {
+  const cfg = S.cfg, P = periods(cfg), t = today(), fs = feriadoSet(cfg);
+  const byDay = recByDay(), byOS = recByOS(), mx = mixStats(cfg);
+  const fimTotal = P[2].fim;
+  for (const p of P) {
+    p.realizado = sumRange(byDay, p.ini, p.fim);
+    p.metaDia = p.dias.length ? p.meta / p.dias.length : 0;
+    p.atend = p.meta / mx.ticket;
+    p.orc = p.atend / (cfg.convAprovacao / 100);
+    p.leads = p.orc / (cfg.convOrcamento / 100);
+    p.leadsDia = p.dias.length ? p.leads / p.dias.length : 0;
+    p.horasNec = p.atend * mx.horas;
+    p.horasDisp = cfg.horasSemana * p.corridos / 7;
+  }
+  const fase = t < cfg.inicio ? "antes" : t > fimTotal ? "depois" : "durante";
+  const cur = P.find(p => t >= p.ini && t <= p.fim) || null;
+  const D = { cfg, P, t, fs, byDay, byOS, mx, fase, cur, fimTotal, hojeUtil: isWork(t, cfg, fs) };
+  if (cur) {
+    const antes = cur.dias.filter(d => d < t), rest = cur.dias.filter(d => d >= t);
+    const realAteOntem = sumRange(byDay, cur.ini, addDays(t, -1));
+    D.recHoje = byDay[t] || 0;
+    D.metaHoje = rest.length ? Math.max(0, (cur.meta - realAteOntem) / rest.length) : 0;
+    D.esperadoAteOntem = cur.metaDia * antes.length;
+    D.falta = D.esperadoAteOntem - (realAteOntem + D.recHoje);
+    D.diaUtilN = antes.length + (D.hojeUtil ? 1 : 0);
+    D.restantes = rest.length;
+    D.faltaMes = Math.max(0, cur.meta - cur.realizado);
+    if (D.falta <= 0) D.ritmo = -D.falta > cur.metaDia ? { l: "Adiantado", tone: "ok" } : { l: "No ritmo", tone: "ok" };
+    else if (D.falta <= cur.metaDia) D.ritmo = { l: "Leve atraso", tone: "warn" };
+    else D.ritmo = { l: "Atrás do ritmo", tone: "err" };
+  }
+  // funil aberto
+  let aberto = 0;
+  for (const o of S.os) if (["orcamento", "execucao", "entregue"].includes(o.etapa)) aberto += Math.max(0, (Number(o.valor) || 0) - (byOS[o.id] || 0));
+  D.aberto = aberto;
+  return D;
+}
+
+/* marketing */
+function mktStats(D) {
+  const byCat = {}; let ultimoMkt = null, totalGastos = 0;
+  for (const g of S.gastos) {
+    const v = Number(g.valor) || 0; byCat[g.categoria] = (byCat[g.categoria] || 0) + v; totalGastos += v;
+    if (CANAIS_MKT.includes(g.categoria) && (!ultimoMkt || g.data > ultimoMkt)) ultimoMkt = g.data;
+  }
+  const origem = {};
+  for (const o of ORIGENS) origem[o.k] = { k: o.k, canal: o.canal, contatos: 0, pagos: 0, receita: 0 };
+  for (const o of S.os) {
+    const k = o.origem || "Outro";
+    if (!origem[k]) origem[k] = { k, canal: null, contatos: 0, pagos: 0, receita: 0 };
+    origem[k].contatos++; if (o.etapa === "pago") origem[k].pagos++; origem[k].receita += D.byOS[o.id] || 0;
+  }
+  const canal = {};
+  for (const c of CANAIS_MKT) {
+    const os = Object.values(origem).filter(x => x.canal === c);
+    canal[c] = { gasto: byCat[c] || 0, planejado: Number(D.cfg.marketingPlano?.[c]) || 0, contatos: os.reduce((a, x) => a + x.contatos, 0), pagos: os.reduce((a, x) => a + x.pagos, 0), receita: os.reduce((a, x) => a + x.receita, 0) };
+  }
+  const total = CANAIS_MKT.reduce((a, c) => a + canal[c].gasto, 0);
+  const totalRec = S.rec.reduce((a, r) => a + (Number(r.valor) || 0), 0);
+  return { byCat, origem, canal, total, totalGastos, totalRec, ultimoMkt };
+}
+
+/* ações urgentes calculadas */
+function alerts(D) {
+  const out = [], t = D.t, cfg = D.cfg;
+  if (D.fase === "antes") {
+    const n = diff(t, cfg.inicio);
+    out.push({ sev: "info", ic: "calendar", tt: `Faltam ${plural(n, "dia", "dias")} para o início (${fmtWD(cfg.inicio)})`, dd: `Até lá, o foco é deixar preço, canal de contato e lista de contatos prontos para faturar ${brl(D.P[0].meta)} no primeiro mês.` });
+  }
+  if (D.cur && D.falta > 0) {
+    const n = Math.ceil(D.falta / D.mx.ticket);
+    out.push({ sev: D.ritmo.tone === "err" ? "crit" : "warn", ic: "alert-triangle", tt: `Faltam ${brl(D.falta)} para voltar ao ritmo do mês ${D.cur.i + 1}`, dd: `Equivale a ${plural(n, "atendimento", "atendimentos")} de ticket médio ${brl(D.mx.ticket)}. Feche primeiro os orçamentos em aberto, depois prospecte.` });
+  }
+  if (D.cur && D.faltaMes > 0 && D.aberto < D.faltaMes && D.cur.dias.some(d => d <= t)) {
+    out.push({ sev: "warn", ic: "search", tt: `O funil aberto (${brl(D.aberto)}) não cobre o que falta no mês (${brl(D.faltaMes)})`, dd: `Gere novos contatos hoje: a meta é ${n1(D.cur.leadsDia)} contatos novos por dia de atendimento.` });
+  }
+  const byOS = D.byOS;
+  for (const o of S.os) {
+    const saldo = (Number(o.valor) || 0) - (byOS[o.id] || 0);
+    const ref = `${osNum(o.numero)} · ${o.cliente || "sem nome"}`;
+    if (o.etapa === "entregue" && saldo > 0) out.push({ sev: "crit", ic: "package", tt: `Receber ${brl(saldo)} de ${o.cliente || "cliente"}`, dd: `${ref}. Equipamento entregue e ainda não pago.`, os: o.id });
+    if (o.etapa === "orcamento") {
+      const desde = o.etapas?.orcamento || o.criadoEm;
+      const dias = desde ? diff(desde, t) : 0;
+      if (dias >= 2) out.push({ sev: "warn", ic: "hourglass", tt: `Cobrar resposta do orçamento de ${o.cliente || "cliente"}`, dd: `${ref} · ${brl(o.valor)} · enviado há ${plural(dias, "dia", "dias")}.`, os: o.id });
+    }
+    if (o.etapa === "contato") {
+      const dias = o.criadoEm ? diff(o.criadoEm, t) : 0;
+      if (dias >= 1) out.push({ sev: "warn", ic: "file-text", tt: `Responder ${o.cliente || "contato"}`, dd: `${ref} · contato recebido há ${plural(dias, "dia", "dias")} e ainda sem diagnóstico.`, os: o.id });
+    }
+    if (ABERTAS.includes(o.etapa) && o.prazo && o.prazo <= t && o.proximoPasso) {
+      out.push({ sev: o.prazo < t ? "crit" : "warn", ic: "clock", tt: o.prazo < t ? `Próximo passo atrasado: ${o.proximoPasso}` : `Próximo passo vence hoje: ${o.proximoPasso}`, dd: `${ref} · prazo ${fmtD(o.prazo)}.`, os: o.id });
+    }
+    if (["diagnostico", "execucao"].includes(o.etapa) && o.atualizadoEm) {
+      const dias = diff(o.atualizadoEm.slice(0, 10), t);
+      if (dias >= 3) out.push({ sev: "warn", ic: "wrench", tt: `${osNum(o.numero)} parada há ${plural(dias, "dia", "dias")}`, dd: `${o.cliente || "cliente"} · ${ET[o.etapa].l}. Atualize o cliente ou mude a etapa.`, os: o.id });
+    }
+  }
+  if (D.fase !== "depois") {
+    let d = addDays(t, -1), guard = 0;
+    while (guard++ < 10 && d >= cfg.inicio && !isWork(d, cfg, D.fs)) d = addDays(d, -1);
+    if (d >= cfg.inicio && !S.diario[d]) out.push({ sev: "info", ic: "calendar", tt: `Preencher o diário de ${fmtWD(d)}`, dd: "Sem diário não dá para saber o que gerou ou travou a receita do dia.", diario: d });
+  }
+  if (D.fase === "durante" && D.hojeUtil) {
+    const feitos = Number(S.diario[t]?.contatosAtivos) || 0;
+    if (feitos < cfg.contatosDia) out.push({ sev: "info", ic: "search", tt: `Fazer mais ${cfg.contatosDia - feitos} contatos ativos hoje`, dd: `Meta de ${cfg.contatosDia} por dia. Registre no diário de hoje.` });
+  }
+  const mk = mktStats(D), teto = Number(cfg.marketingTeto) || 0;
+  if (teto && mk.total > teto) out.push({ sev: "crit", ic: "alert-triangle", tt: `Marketing passou do teto: ${brl(mk.total)} de ${brl(teto)}`, dd: "Pause os anúncios até decidirem juntos se o teto muda." });
+  else if (teto && mk.total >= teto * 0.8) out.push({ sev: "warn", ic: "alert-triangle", tt: `Marketing em ${Math.round(mk.total / teto * 100)}% do teto`, dd: `Restam ${brl(teto - mk.total)}. Concentre no canal com menor custo por cliente.` });
+  for (const c of CANAIS_MKT) {
+    const k = mk.canal[c], nome = CANAL_LABEL[c];
+    if (k.planejado && k.gasto > k.planejado) out.push({ sev: "warn", ic: "alert-triangle", tt: `${nome} passou da verba planejada`, dd: `${brl(k.gasto)} de ${brl(k.planejado)}. Ajuste o orçamento diário na plataforma.` });
+    if (k.gasto >= 150 && k.contatos === 0) out.push({ sev: "warn", ic: "search", tt: `${nome}: ${brl(k.gasto)} gastos sem nenhum contato`, dd: "Revise palavras-chave, raio e o texto do anúncio, ou pause." });
+    else if (k.gasto >= 200 && k.pagos > 0 && k.gasto / k.pagos > cfg.cacMax) out.push({ sev: "warn", ic: "alert-triangle", tt: `${nome}: custo por cliente de ${brl(k.gasto / k.pagos)}`, dd: `Acima do limite de ${brl(cfg.cacMax)}. Ajuste o anúncio ou mova a verba para o canal que paga.` });
+  }
+  if (D.fase === "durante" && teto && diff(cfg.inicio, t) >= 7 && (!mk.ultimoMkt || diff(mk.ultimoMkt, t) >= 7)) out.push({ sev: "info", ic: "calendar", tt: "Lançar os gastos da semana dos anúncios", dd: "Os valores estão nos relatórios do Google Ads e da Meta. Sem eles o custo por cliente fica errado." });
+  const rank = { crit: 0, warn: 1, info: 2 };
+  return out.sort((a, b) => rank[a.sev] - rank[b.sev]);
+}
+
+/* render */
+function render() {
+  const D = derive();
+  document.body.classList.toggle("ro", !S.canWrite || !S.db);
+  renderHeader(D); renderBanners(); renderTiles(D); renderAlerts(D); renderActs(D);
+  renderDiarioHoje(D); renderOS(D); renderRec(); renderDiario(D); renderMkt(D); renderPlano(D);
+  if (!S.cfgDirty && !document.activeElement?.closest?.("#f-cfg")) fillCfgForm();
+  if (!$("#dlg-os").open) renderServicoOptions();
+}
+
+function renderHeader(D) {
+  let ph;
+  if (D.fase === "antes") ph = `Início em ${plural(diff(D.t, D.cfg.inicio), "dia", "dias")} · ${fmtD(D.cfg.inicio)}`;
+  else if (D.fase === "depois") ph = `Ciclo de 90 dias encerrado em ${fmtD(D.fimTotal)}`;
+  else ph = `Mês ${D.cur.i + 1} · dia de atendimento ${D.diaUtilN} de ${D.cur.dias.length}`;
+  $("#phase").textContent = ph;
+  const s = { connecting: "Conectando ao banco", ok: "Dados sincronizados", stale: "Dados podem estar desatualizados", off: "Sem banco: nada será salvo" }[S.conn];
+  $("#sync").textContent = `${WDL[parse(D.t).getDay()]}, ${fmtDY(D.t)} · ${s}`;
+}
+
+function renderBanners() {
+  const b = [];
+  if (S.conn === "off") b.push(`<div class="banner err">${icon("x-circle")}<div><b>O banco deste painel não está disponível nesta visualização.</b> Os números usam as premissas padrão e nenhum lançamento será salvo. Abra o painel em claude.ai com sua conta.</div></div>`);
+  else if (S.conn === "stale") b.push(`<div class="banner">${icon("clock")}<div>Os dados ainda não chegaram do banco. Confira a conexão; o painel atualiza sozinho quando chegarem.</div></div>`);
+  if (S.db && !S.canWrite) b.push(`<div class="banner">${icon("info")}<div>Você está vendo em modo leitura. Peça acesso de edição ao dono do painel para lançar dados.</div></div>`);
+  if (S.db && S.loaded.cfg && !S.cfgSaved) b.push(`<div class="banner">${icon("info")}<div>As premissas ainda não foram salvas no banco. Revise na aba Plano 90 dias e clique em Salvar premissas.</div></div>`);
+  $("#banners").innerHTML = b.join("");
+}
+
+function tile(label, v, s, extra = "", cls = "") { return `<div class="tile ${cls}"><span class="label">${label}</span><span class="v">${v}</span><span class="s">${s}</span>${extra}</div>`; }
+
+function renderTiles(D) {
+  const P = D.P, h = [];
+  if (D.fase === "antes") {
+    h.push(tile("Início", fmtD(D.cfg.inicio), `${WDL[parse(D.cfg.inicio).getDay()]} · faltam ${plural(diff(D.t, D.cfg.inicio), "dia", "dias")}`, "", "lead"));
+    h.push(tile("Meta do mês 1", brl(P[0].meta), `${fmtD(P[0].ini)} a ${fmtD(P[0].fim)} · ${P[0].dias.length} dias de atendimento`));
+    h.push(tile("Meta por dia", brl(P[0].metaDia), `no mês 1 · sobe para ${brl(P[1].metaDia)} no mês 2 e ${brl(P[2].metaDia)} no mês 3`));
+    h.push(tile("Atendimentos no mês 1", Math.ceil(P[0].atend), `${n1(P[0].atend / P[0].dias.length)} por dia · ticket médio ${brl(D.mx.ticket)}`));
+  } else if (D.fase === "depois") {
+    const tot = P.reduce((a, p) => a + p.realizado, 0), meta = P.reduce((a, p) => a + p.meta, 0);
+    P.forEach(p => h.push(tile(`Mês ${p.i + 1}`, brl(p.realizado), `meta ${brl(p.meta)} · ${Math.round(p.realizado / (p.meta || 1) * 100)}%`)));
+    h.push(tile("90 dias", brl(tot), `meta ${brl(meta)} · ${Math.round(tot / (meta || 1) * 100)}%`, "", "lead"));
+  } else {
+    const c = D.cur, pct = Math.min(100, c.realizado / (c.meta || 1) * 100);
+    h.push(tile("Meta de hoje", D.hojeUtil ? brl(D.metaHoje) : "Sem atendimento", D.hojeUtil ? `recalculada: falta ${brl(D.faltaMes)} em ${plural(D.restantes, "dia", "dias")}` : `hoje não é dia de atendimento · próximos dias pedem ${brl(D.metaHoje)}`, "", "lead"));
+    h.push(tile("Recebido hoje", brl(D.recHoje), D.hojeUtil ? (D.recHoje >= D.metaHoje ? "meta de hoje batida" : `faltam ${brl(D.metaHoje - D.recHoje)} para a meta de hoje`) : "lançamentos de hoje"));
+    h.push(tile(`Mês ${c.i + 1}`, brl(c.realizado), `de ${brl(c.meta)} · ${Math.round(pct)}% · até ${fmtD(c.fim)}`, `<div class="bar" role="img" aria-label="${Math.round(pct)}% da meta do mês"><i style="width:${pct}%"></i></div>`));
+    h.push(tile("Ritmo", `<span class="pill t-${D.ritmo.tone}">${icon(D.ritmo.tone === "ok" ? "check" : "alert-triangle", "ic ic-s")}${D.ritmo.l}</span>`, D.falta > 0 ? `${brl(D.falta)} abaixo do esperado até hoje` : `${brl(-D.falta)} acima do esperado até hoje`));
+  }
+  $("#tiles").innerHTML = h.join("");
+}
+
+function renderAlerts(D) {
+  const a = alerts(D);
+  $("#alerts-count").textContent = a.length ? plural(a.length, "alerta calculado", "alertas calculados") : "";
+  $("#alerts").innerHTML = a.length ? a.map(x => `<li class="alert ${x.sev}"><span class="ico">${icon(x.ic)}</span><div><div class="tt">${esc(x.tt)}</div><div class="dd">${esc(x.dd)}</div></div>${x.os ? `<button class="btn ghost sm go w" type="button" data-edit-os="${esc(x.os)}">Abrir</button>` : x.diario ? `<button class="btn ghost sm go w" type="button" data-edit-diario="${esc(x.diario)}">Preencher</button>` : "<span></span>"}</li>`).join("")
+    : `<li class="empty">${icon("check-circle")}<span>Nenhum alerta agora. Siga a lista de ações abaixo.</span></li>`;
+}
+
+function renderActs(D) {
+  const t = D.t, pend = S.acoes.filter(a => !a.feita), done = S.acoes.filter(a => a.feita).sort((a, b) => String(b.feitaEm || "").localeCompare(String(a.feitaEm || "")));
+  const order = { urgente: 0, hoje: 1, semana: 2 };
+  pend.sort((a, b) => (order[a.prioridade] ?? 3) - (order[b.prioridade] ?? 3) || String(a.prazo || "9").localeCompare(String(b.prazo || "9")));
+  const groups = [["urgente", "Urgente"], ["hoje", "Hoje"], ["semana", "Esta semana"]];
+  let h = "";
+  for (const [k, l] of groups) {
+    const g = pend.filter(a => (a.prioridade || "hoje") === k);
+    if (!g.length) continue;
+    h += `<li class="grp">${l} · ${g.length}</li>` + g.map(a => actRow(a, t)).join("");
+  }
+  $("#acts").innerHTML = h || `<li class="empty">${icon("check")}<span>Nenhuma ação pendente.</span></li>`;
+  $("#acts-done-sum").textContent = `Concluídas · ${done.length}`;
+  $("#acts-done-wrap").hidden = !done.length;
+  $("#acts-done").innerHTML = done.slice(0, 30).map(a => actRow(a, t)).join("");
+}
+function actRow(a, t) {
+  const late = !a.feita && a.prazo && a.prazo < t, due = !a.feita && a.prazo === t;
+  const tag = late ? `<span class="pill t-err">Atrasada</span>` : due ? `<span class="pill t-warn">Vence hoje</span>` : "";
+  return `<li class="act ${a.feita ? "done" : ""}"><input type="checkbox" ${a.feita ? "checked" : ""} data-toggle-acao="${esc(a.id)}" aria-label="Concluir: ${esc(a.texto)}" ${S.canWrite && S.db ? "" : "disabled"}><div><div class="tx">${esc(a.texto)}</div><div class="meta">${tag}${a.responsavel ? `<span>${esc(a.responsavel)}</span>` : ""}${a.prazo ? `<span class="mono">até ${fmtD(a.prazo)}</span>` : ""}${a.feita && a.feitaEm ? `<span>feita ${fmtD(a.feitaEm.slice(0, 10))}</span>` : ""}</div></div><button class="btn ghost sm danger w" type="button" data-del-acao="${esc(a.id)}">Excluir</button></li>`;
+}
+
+function renderDiarioHoje(D) {
+  $("#diario-hoje-data").textContent = fmtWD(D.t);
+  if (S.dhDirty || document.activeElement?.closest?.("#f-diario-hoje")) return;
+  const d = S.diario[D.t] || {};
+  $("#dh-contatos").value = d.contatosAtivos ?? "";
+  $("#dh-horas").value = d.horas ?? "";
+  $("#dh-avancou").value = d.avancou ?? "";
+  $("#dh-bloqueio").value = d.bloqueio ?? "";
+  $("#dh-status").textContent = d.atualizadoEm ? `salvo ${d.atualizadoEm.slice(11, 16)}` : "";
+}
+
+function etapaSelect(o) {
+  return `<select data-etapa-os="${esc(o.id)}" aria-label="Etapa de ${esc(osNum(o.numero))}" ${S.canWrite && S.db ? "" : "disabled"}>${ETAPAS.map(e => `<option value="${e.k}" ${e.k === o.etapa ? "selected" : ""}>${e.l}</option>`).join("")}</select>`;
+}
+function renderOS(D) {
+  const f = $("#os-filtro").value, byOS = D.byOS, t = D.t;
+  const counts = Object.fromEntries(ETAPAS.map(e => [e.k, 0]));
+  for (const o of S.os) counts[o.etapa] = (counts[o.etapa] || 0) + 1;
+  const sel = $("#os-filtro");
+  const cur = sel.value;
+  if (document.activeElement !== sel) sel.innerHTML = `<option value="abertos">Em aberto (${S.os.filter(o => ABERTAS.includes(o.etapa)).length})</option><option value="todos">Todos (${S.os.length})</option>` + ETAPAS.map(e => `<option value="${e.k}">${e.l} (${counts[e.k] || 0})</option>`).join("");
+  sel.value = cur || "abertos";
+  const list = S.os.filter(o => f === "todos" ? true : f === "abertos" ? ABERTAS.includes(o.etapa) : o.etapa === f).sort((a, b) => (b.numero || 0) - (a.numero || 0));
+  const fechados = S.os.filter(o => o.etapa === "pago" || o.etapa === "perdido");
+  const ganhos = S.os.filter(o => o.etapa === "pago").length;
+  const orcados = S.os.filter(o => o.etapas?.orcamento).length;
+  const aprov = S.os.filter(o => o.etapas?.execucao).length;
+  const ft = [];
+  ft.push(tile("Funil aberto", brl(D.aberto), "orçamentos, execução e a receber"));
+  ft.push(tile("Atendimentos em aberto", S.os.filter(o => ABERTAS.includes(o.etapa)).length, `${counts.contato} contatos · ${counts.diagnostico} em diagnóstico · ${counts.orcamento} orçamentos`));
+  ft.push(tile("Aprovação de orçamentos", orcados ? `${Math.round(aprov / orcados * 100)}%` : "Sem dados", `${aprov} de ${orcados} orçamentos · premissa ${D.cfg.convAprovacao}%`));
+  const pagos = S.os.filter(o => o.etapa === "pago");
+  const tk = pagos.length ? pagos.reduce((a, o) => a + (byOS[o.id] || Number(o.valor) || 0), 0) / pagos.length : 0;
+  ft.push(tile("Ticket médio real", pagos.length ? brl(tk) : "Sem dados", `${plural(ganhos, "OS paga", "OS pagas")} · premissa ${brl(D.mx.ticket)}`));
+  $("#funil-tiles").innerHTML = ft.join("");
+  if (!list.length) {
+    $("#os-body").innerHTML = `<tr><td colspan="9"><div class="empty">${icon("file-text")}<b>Nenhum atendimento ${f === "todos" ? "registrado" : "nesta etapa"}</b><span>Todo pedido de atendimento entra aqui como OS, mesmo que ainda seja só uma conversa.</span></div></td></tr>`;
+    return;
+  }
+  $("#os-body").innerHTML = list.map(o => {
+    const rec = byOS[o.id] || 0, parado = o.atualizadoEm ? diff(o.atualizadoEm.slice(0, 10), t) : 0;
+    const late = o.prazo && o.prazo < t && ABERTAS.includes(o.etapa);
+    return `<tr><td class="osn">${osNum(o.numero)}</td><td>${esc(o.cliente)}<div class="small muted">${esc(o.origem || "")}</div></td><td>${esc(servicoNome(o.servico))}</td><td class="r">${brl(o.valor)}</td><td class="r">${rec ? brl(rec) : "<span class='muted'>0</span>"}</td><td>${etapaSelect(o)}</td><td>${esc(o.proximoPasso || "")}${o.prazo ? `<div class="small ${late ? "neg" : "muted"} mono">até ${fmtD(o.prazo)}${late ? " · atrasado" : ""}</div>` : ""}</td><td class="num">${ABERTAS.includes(o.etapa) ? plural(parado, "dia", "dias") : "<span class='muted'>fechado</span>"}</td><td><div class="btns" style="flex-wrap:nowrap"><button class="btn ghost sm" type="button" data-edit-os="${esc(o.id)}">Editar</button>${(Number(o.valor) || 0) > rec && o.etapa !== "perdido" ? `<button class="btn sm w" type="button" data-rec-os="${esc(o.id)}">Receber</button>` : ""}</div></td></tr>`;
+  }).join("");
+}
+
+function renderRec() {
+  const list = [...S.rec].sort((a, b) => String(b.data).localeCompare(String(a.data)) || String(b.criadoEm || "").localeCompare(String(a.criadoEm || "")));
+  if (!list.length) { $("#rec-body").innerHTML = `<tr><td colspan="7"><div class="empty">${icon("check-circle")}<b>Nenhum recebimento ainda</b><span>Registre cada valor no dia em que entrou no caixa: é isso que conta para a meta.</span></div></td></tr>`; return; }
+  const osById = Object.fromEntries(S.os.map(o => [o.id, o]));
+  $("#rec-body").innerHTML = list.map(r => `<tr><td class="num">${fmtWD(r.data)}</td><td>${esc(r.cliente || "")}</td><td class="osn">${r.osId && osById[r.osId] ? osNum(osById[r.osId].numero) : "<span class='muted'>avulso</span>"}</td><td>${esc(r.forma || "")}</td><td>${esc(r.descricao || "")}</td><td class="r">${brl(r.valor)}</td><td><button class="btn ghost sm danger w" type="button" data-del-rec="${esc(r.id)}">Excluir</button></td></tr>`).join("");
+}
+
+function renderDiario(D) {
+  const cfg = D.cfg, t = D.t, P = D.P;
+  const keys = new Set(Object.keys(S.diario));
+  for (const r of S.rec) keys.add(r.data);
+  for (const o of S.os) { if (o.criadoEm) keys.add(o.criadoEm); for (const k in (o.etapas || {})) keys.add(o.etapas[k]); }
+  const lim = t < D.fimTotal ? t : D.fimTotal;
+  for (let d = cfg.inicio; d <= lim; d = addDays(d, 1)) if (isWork(d, cfg, D.fs)) keys.add(d);
+  keys.add(t);
+  const days = [...keys].filter(Boolean).filter(d => d <= t).sort().reverse();
+  const novos = {}, orc = {}, apr = {};
+  for (const o of S.os) {
+    if (o.criadoEm) novos[o.criadoEm] = (novos[o.criadoEm] || 0) + 1;
+    if (o.etapas?.orcamento) orc[o.etapas.orcamento] = (orc[o.etapas.orcamento] || 0) + 1;
+    if (o.etapas?.execucao) apr[o.etapas.execucao] = (apr[o.etapas.execucao] || 0) + 1;
+  }
+  $("#diario-body").innerHTML = days.map(d => {
+    const p = P.find(p => d >= p.ini && d <= p.fim), util = isWork(d, cfg, D.fs);
+    const meta = p && util ? p.metaDia : 0, rec = D.byDay[d] || 0, dif = rec - meta;
+    const di = S.diario[d] || {};
+    const notas = [di.avancou && `<div>${esc(di.avancou)}</div>`, di.bloqueio && `<div class="neg">Travou: ${esc(di.bloqueio)}</div>`].filter(Boolean).join("");
+    const fer = (cfg.feriados || []).find(f => f.data === d);
+    const pre = d < cfg.inicio;
+    return `<tr class="${d === t ? "today" : ""} ${!util && !pre ? "off" : ""}"><td class="num"><b>${fmtWD(d)}</b>${pre ? `<div class="small muted">pré-lançamento</div>` : fer ? `<div class="small muted">${esc(fer.nome)}</div>` : !util ? `<div class="small muted">sem atendimento</div>` : ""}</td><td class="r">${meta ? brl(meta) : "<span class='muted'>0</span>"}</td><td class="r">${brl(rec)}</td><td class="r ${meta ? (dif >= 0 ? "pos" : "neg") : ""}">${meta || rec ? (dif >= 0 ? "+" : "") + brl(dif) : ""}</td><td class="r">${novos[d] || 0}</td><td class="r">${orc[d] || 0}</td><td class="r">${apr[d] || 0}</td><td class="r">${di.contatosAtivos ?? "<span class='muted'>0</span>"}</td><td class="r">${di.horas != null && di.horas !== "" ? n1(di.horas) : ""}</td><td style="min-width:220px">${notas || (util && !pre && d < t ? "<span class='muted'>Diário não preenchido</span>" : "")}</td><td><button class="btn ghost sm" type="button" data-edit-diario="${d}">${S.diario[d] ? "Editar" : "Preencher"}</button></td></tr>`;
+  }).join("");
+}
+
+function renderMkt(D) {
+  const mk = mktStats(D), cfg = D.cfg, teto = Number(cfg.marketingTeto) || 0;
+  const pct = teto ? Math.min(100, mk.total / teto * 100) : 0;
+  const pagos = CANAIS_MKT.reduce((a, c) => a + mk.canal[c].pagos, 0), contatos = CANAIS_MKT.reduce((a, c) => a + mk.canal[c].contatos, 0);
+  const res = mk.totalRec - mk.totalGastos;
+  $("#mkt-tiles").innerHTML = [
+    tile("Marketing gasto", brl(mk.total), `de ${brl(teto)} · restam ${brl(Math.max(0, teto - mk.total))}`, `<div class="bar ${mk.total > teto ? "over" : ""}" role="img" aria-label="${Math.round(pct)}% do teto"><i style="width:${pct}%"></i></div>`, "lead"),
+    tile("Custo por contato", contatos ? brl(mk.total / contatos) : "Sem dados", `${plural(contatos, "contato vindo", "contatos vindos")} de anúncio ou panfleto`),
+    tile("Custo por cliente pago", pagos ? brl(mk.total / pagos) : "Sem dados", `limite ${brl(cfg.cacMax)} · ${plural(pagos, "cliente pago", "clientes pagos")} de canal pago`),
+    tile("Resultado acumulado", `<span class="${res < 0 ? "neg" : ""}">${brl(res)}</span>`, `recebido ${brl(mk.totalRec)} menos gastos ${brl(mk.totalGastos)}`)
+  ].join("");
+  $("#mkt-teto-sub").textContent = `${cfg.regiao || ""}`;
+  $("#mkt-chans").innerHTML = CANAIS_MKT.map(c => {
+    const k = mk.canal[c], p = k.planejado ? Math.min(100, k.gasto / k.planejado * 100) : 0;
+    return `<div class="chan"><b>${esc(CANAL_LABEL[c])}</b><span class="num small">${brl(k.gasto)} de ${brl(k.planejado)}</span><div class="bar ${k.planejado && k.gasto > k.planejado ? "over" : ""}"><i style="width:${p}%"></i></div></div>`;
+  }).join("");
+  const tk = mixStats(cfg).ticket, conv = cfg.convOrcamento * cfg.convAprovacao / 10000;
+  $("#mkt-regra").textContent = `Um canal paga quando cada cliente pago custa até ${brl(cfg.cacMax)}, cerca de ${Math.round(cfg.cacMax / tk * 100)}% do ticket médio de ${brl(tk)}. Com a conversão das premissas (${Math.round(conv * 100)}% dos contatos viram cliente pago), isso dá até ${brl(cfg.cacMax * conv)} por contato. Se um canal ficar acima disso por duas semanas, ajuste o anúncio ou mova a verba. Com esse limite, ${brl(teto)} compram até ${Math.floor(teto / cfg.cacMax)} clientes; o resto da meta vem de indicação, Google Maps e empresas.`;
+  const rows = Object.values(mk.origem);
+  $("#origem-body").innerHTML = rows.map(o => {
+    const g = o.canal ? mk.canal[o.canal].gasto : 0;
+    return `<tr class="${!o.contatos && !g ? "off" : ""}"><td><b>${esc(o.k)}</b>${o.canal ? "" : `<div class="small muted">orgânico</div>`}</td><td class="r">${o.canal ? brl(g) : "<span class='muted'>0</span>"}</td><td class="r">${o.contatos}</td><td class="r">${o.pagos}</td><td class="r">${brl(o.receita)}</td><td class="r">${o.canal && o.contatos ? brl(g / o.contatos) : ""}</td><td class="r ${o.canal && o.pagos && g / o.pagos > cfg.cacMax ? "neg" : ""}">${o.canal && o.pagos ? brl(g / o.pagos) : ""}</td><td class="r">${o.canal && g ? n1(o.receita / g) + "x" : ""}</td></tr>`;
+  }).join("");
+  const list = [...S.gastos].sort((a, b) => String(b.data).localeCompare(String(a.data)) || String(b.criadoEm || "").localeCompare(String(a.criadoEm || "")));
+  $("#gastos-body").innerHTML = list.length ? list.map(g => `<tr><td class="num">${fmtWD(g.data)}</td><td>${esc(g.categoria)}</td><td>${esc(g.descricao || "")}</td><td class="r">${brl(g.valor)}</td><td><button class="btn ghost sm danger w" type="button" data-del-gasto="${esc(g.id)}">Excluir</button></td></tr>`).join("")
+    : `<tr><td colspan="5"><div class="empty">${icon("file-text")}<b>Nenhum gasto lançado</b><span>Anúncios, peças, ferramentas e taxas entram aqui. É o que separa faturamento de resultado.</span></div></td></tr>`;
+}
+
+function renderPlano(D) {
+  const P = D.P, mx = D.mx, cfg = D.cfg;
+  $("#funil-body").innerHTML = P.map(p => {
+    const ratio = p.horasNec / (p.horasDisp || 1);
+    const cap = ratio <= 0.85 ? `<span class="pill t-ok">${icon("check", "ic ic-s")}Cabe</span>` : ratio <= 1 ? `<span class="pill t-warn">${icon("alert-triangle", "ic ic-s")}No limite</span>` : `<span class="pill t-err">${icon("x-circle", "ic ic-s")}Não cabe</span>`;
+    return `<tr><td><b>Mês ${p.i + 1}</b></td><td class="num">${fmtD(p.ini)} a ${fmtD(p.fim)}</td><td class="r">${brl(p.meta)}</td><td class="r">${brl(p.realizado)}</td><td class="r">${p.dias.length}</td><td class="r">${brl(p.metaDia)}</td><td class="r">${Math.ceil(p.atend)}</td><td class="r">${Math.ceil(p.orc)}</td><td class="r">${Math.ceil(p.leads)}</td><td class="r">${n1(p.leadsDia)}</td><td class="r">${Math.round(p.horasNec)} h de ${Math.round(p.horasDisp)} h</td><td>${cap}</td></tr>`;
+  }).join("");
+  const tot = P.reduce((a, p) => a + p.meta, 0);
+  $("#plano-kv").innerHTML = `<dt>Ticket médio do mix</dt><dd>${brl(mx.ticket)}</dd><dt>Horas médias por atendimento</dt><dd>${n1(mx.horas)} h</dd><dt>Conversão total contato → pago</dt><dd>${Math.round(cfg.convOrcamento * cfg.convAprovacao / 100)}%</dd><dt>Meta dos 90 dias</dt><dd>${brl(tot)}</dd>`;
+  $("#chart-sub").textContent = `${fmtD(P[0].ini)} a ${fmtD(P[2].fim)} · meta total ${brl(tot)}`;
+  drawChart(D);
+}
+
+/* gráfico: meta acumulada x recebido acumulado */
+let chartD = null;
+function drawChart(D) {
+  chartD = D;
+  const box = $("#chart"), W = Math.max(300, box.clientWidth || 700), H = W < 520 ? 240 : 300;
+  const m = { l: 56, r: W < 520 ? 16 : 112, t: 30, b: 32 };
+  const P = D.P, ini = P[0].ini, fim = P[2].fim, N = diff(ini, fim);
+  const days = []; let mc = 0, rc = 0;
+  for (let i = 0; i <= N; i++) {
+    const d = addDays(ini, i), p = P.find(p => d >= p.ini && d <= p.fim);
+    if (p && isWork(d, D.cfg, D.fs)) mc += p.metaDia;
+    rc += D.byDay[d] || 0;
+    days.push({ d, meta: mc, real: d <= D.t ? rc : null });
+  }
+  const tot = mc, maxV = Math.max(tot, rc) || 1;
+  const step = maxV > 20000 ? 5000 : maxV > 8000 ? 2500 : 1000;
+  const yMax = Math.ceil(maxV / step) * step;
+  const x = i => m.l + (W - m.l - m.r) * (i / (N || 1));
+  const y = v => H - m.b - (H - m.t - m.b) * (v / yMax);
+  let g = "";
+  for (let v = 0; v <= yMax; v += step) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="12" fill="var(--ink-3)" font-family="var(--mono)">${v === 0 ? "0" : (v / 1000).toLocaleString("pt-BR") + " mil"}</text>`;
+  P.forEach(p => {
+    const i = diff(ini, p.ini), xi = x(i);
+    g += `<line x1="${xi}" x2="${xi}" y1="${m.t - 14}" y2="${H - m.b}" stroke="var(--line)" stroke-dasharray="2 3"/><text x="${xi + 6}" y="${m.t - 4}" font-size="12" fill="var(--ink-2)" font-family="var(--mono)">${W < 520 ? `M${p.i + 1}` : `MÊS ${p.i + 1} · ${brlK(p.meta)}`}</text><text x="${xi}" y="${H - m.b + 18}" font-size="12" fill="var(--ink-3)" font-family="var(--mono)" text-anchor="${p.i === 0 ? "start" : "middle"}">${fmtD(p.ini)}</text>`;
+  });
+  g += `<text x="${x(N)}" y="${H - m.b + 18}" font-size="12" fill="var(--ink-3)" font-family="var(--mono)" text-anchor="end">${fmtD(fim)}</text>`;
+  const pm = days.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.meta).toFixed(1)}`).join("");
+  const rd = days.filter(p => p.real != null);
+  const pr = rd.map((p, i) => `${i ? "L" : "M"}${x(diff(ini, p.d)).toFixed(1)},${y(p.real).toFixed(1)}`).join("");
+  g += `<path d="${pm}" fill="none" stroke="var(--chart-meta)" stroke-width="2" stroke-dasharray="5 4"/>`;
+  if (rd.length) {
+    const last = rd[rd.length - 1], li = diff(ini, last.d);
+    g += `<path d="${pr}L${x(li).toFixed(1)},${y(0)}L${x(0)},${y(0)}Z" fill="var(--chart-real)" opacity=".12"/><path d="${pr}" fill="none" stroke="var(--chart-real)" stroke-width="2" stroke-linejoin="round"/><circle cx="${x(li)}" cy="${y(last.real)}" r="4.5" fill="var(--chart-real)" stroke="var(--surface)" stroke-width="2"/>`;
+    if (W >= 520) g += `<text x="${Math.min(x(li) + 10, W - m.r + 4)}" y="${y(last.real) - 8}" font-size="13" font-weight="600" fill="var(--ink)">${brl(last.real)}</text>`;
+  } else if (D.t < ini) {
+    g += `<text x="${m.l + 8}" y="${y(0) - 10}" font-size="13" fill="var(--ink-2)">O recebido aparece aqui a partir de ${fmtD(ini)}</text>`;
+  }
+  if (W >= 520) g += `<text x="${W - m.r + 8}" y="${y(tot) + 4}" font-size="13" fill="var(--ink-2)">Meta ${brlK(tot)}</text>`;
+  g += `<line id="xh" x1="0" x2="0" y1="${m.t}" y2="${H - m.b}" stroke="var(--ink-3)" stroke-width="1" opacity="0"/><rect id="hit" x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent"/>`;
+  let svg = box.querySelector("svg");
+  if (!svg) { svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"); box.appendChild(svg); svg.setAttribute("role", "img"); }
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("aria-label", `Meta acumulada até ${brl(tot)} em ${fmtD(fim)}; recebido acumulado ${brl(rc)}.`);
+  svg.innerHTML = g;
+  const hit = svg.querySelector("#hit"), xh = svg.querySelector("#xh"), tip = $("#tip");
+  const move = ev => {
+    const r = svg.getBoundingClientRect(), sx = (ev.clientX - r.left) * (W / r.width);
+    const i = Math.max(0, Math.min(N, Math.round((sx - m.l) / (W - m.l - m.r) * N))), p = days[i];
+    xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("opacity", ".6");
+    tip.innerHTML = `<b>${fmtWD(p.d)}</b><br>Meta acumulada ${brl(p.meta)}${p.real != null ? `<br>Recebido acumulado ${brl(p.real)}` : ""}`;
+    tip.style.display = "block";
+    const px = x(i) * (r.width / W), py = y(Math.max(p.meta, p.real || 0)) * (r.height / H) - 10;
+    tip.style.left = Math.max(80, Math.min(r.width - 80, px)) + "px"; tip.style.top = Math.max(40, py) + "px";
+  };
+  hit.addEventListener("pointermove", move);
+  hit.addEventListener("pointerdown", move);
+  hit.addEventListener("pointerleave", () => { tip.style.display = "none"; xh.setAttribute("opacity", "0"); });
+}
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => chartD && drawChart(chartD), 120); });
+
+/* premissas */
+function fillCfgForm() {
+  const c = S.cfg;
+  $("#c-inicio").value = c.inicio;
+  $("#c-m1").value = c.metas[0]; $("#c-m2").value = c.metas[1]; $("#c-m3").value = c.metas[2];
+  $("#c-dias").innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => `<label><input type="checkbox" id="c-dia-${d}" value="${d}" ${c.dias.includes(d) ? "checked" : ""}>${WD[d]}</label>`).join("");
+  $("#c-feriados").value = (c.feriados || []).map(f => `${fmtDY(f.data)} ${f.nome || ""}`.trim()).join("\n");
+  $("#c-conv1").value = c.convOrcamento; $("#c-conv2").value = c.convAprovacao;
+  $("#c-horas").value = c.horasSemana; $("#c-contatos").value = c.contatosDia;
+  $("#c-regiao").value = c.regiao || ""; $("#c-mteto").value = c.marketingTeto; $("#c-cac").value = c.cacMax;
+  $("#c-mp-google").value = c.marketingPlano["Google Ads"] ?? 0; $("#c-mp-meta").value = c.marketingPlano["Meta Ads"] ?? 0; $("#c-mp-outro").value = c.marketingPlano["Outro marketing"] ?? 0;
+  $("#c-servicos").innerHTML = (c.servicos || []).map((s, i) => servRow(s, i)).join("");
+  updateMix();
+  $("#cfg-status").textContent = S.cfgSaved ? "Salvas no banco" : "Ainda não salvas";
+}
+function servRow(s, i) {
+  return `<tr data-sid="${esc(s.id)}"><td style="min-width:220px"><input type="text" id="sv-n-${i}" value="${esc(s.nome)}" aria-label="Nome do serviço" maxlength="80"></td><td class="r"><input type="number" id="sv-p-${i}" value="${s.preco}" min="0" step="10" aria-label="Preço" style="width:110px;text-align:right"></td><td class="r"><input type="number" id="sv-m-${i}" value="${s.mix}" min="0" max="100" step="1" aria-label="Mix" style="width:90px;text-align:right"></td><td class="r"><input type="number" id="sv-h-${i}" value="${s.horas}" min="0" step="0.5" aria-label="Horas" style="width:90px;text-align:right"></td><td><button class="btn ghost sm danger" type="button" data-del-serv>Remover</button></td></tr>`;
+}
+function readCfgForm() {
+  const feriados = [];
+  for (const line of $("#c-feriados").value.split("\n")) {
+    const m = line.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s*(.*)/);
+    if (m) feriados.push({ data: `${m[3]}-${pad(+m[2])}-${pad(+m[1])}`, nome: m[4].trim() });
+  }
+  const servicos = $$("#c-servicos tr").map((tr, i) => {
+    const [n, p, mx, h] = $$("input", tr).map(x => x.value);
+    return { id: tr.dataset.sid || ("s" + Date.now().toString(36) + i), nome: n.trim() || "Serviço", preco: +p || 0, mix: +mx || 0, horas: +h || 0 };
+  });
+  return {
+    inicio: $("#c-inicio").value || DEFAULT_CONFIG.inicio,
+    metas: [+$("#c-m1").value || 0, +$("#c-m2").value || 0, +$("#c-m3").value || 0],
+    dias: $$("#c-dias input:checked").map(x => +x.value),
+    feriados: feriados.sort((a, b) => a.data.localeCompare(b.data)),
+    convOrcamento: Math.min(100, Math.max(1, +$("#c-conv1").value || 1)),
+    convAprovacao: Math.min(100, Math.max(1, +$("#c-conv2").value || 1)),
+    horasSemana: Math.max(1, +$("#c-horas").value || 1),
+    contatosDia: Math.max(0, +$("#c-contatos").value || 0),
+    osInicial: S.cfg.osInicial || 1,
+    regiao: $("#c-regiao").value.trim(),
+    marketingTeto: Math.max(0, +$("#c-mteto").value || 0),
+    cacMax: Math.max(1, +$("#c-cac").value || 1),
+    marketingPlano: { "Google Ads": +$("#c-mp-google").value || 0, "Meta Ads": +$("#c-mp-meta").value || 0, "Outro marketing": +$("#c-mp-outro").value || 0 },
+    servicos
+  };
+}
+function updateMix() {
+  const tot = $$("#c-servicos tr").reduce((a, tr) => a + (+$$("input", tr)[2].value || 0), 0);
+  $("#c-mix").textContent = tot === 100 ? "Mix soma 100%" : `Mix soma ${tot}%: o cálculo usa a proporção entre os serviços`;
+}
+function normalizeCfg(d) {
+  const c = Object.assign(clone(DEFAULT_CONFIG), clone(d || {}));
+  if (!Array.isArray(c.metas) || c.metas.length < 3) c.metas = DEFAULT_CONFIG.metas.slice();
+  if (!Array.isArray(c.dias)) c.dias = DEFAULT_CONFIG.dias.slice();
+  if (!Array.isArray(c.feriados)) c.feriados = [];
+  if (!Array.isArray(c.servicos) || !c.servicos.length) c.servicos = clone(DEFAULT_CONFIG.servicos);
+  if (!c.marketingPlano || typeof c.marketingPlano !== "object") c.marketingPlano = clone(DEFAULT_CONFIG.marketingPlano);
+  return c;
+}
+function renderServicoOptions() {
+  const sel = $("#o-servico"), v = sel.value;
+  sel.innerHTML = `<option value="">Sem serviço definido</option>` + (S.cfg.servicos || []).map(s => `<option value="${esc(s.id)}">${esc(s.nome)} · ${brl(s.preco)}</option>`).join("");
+  sel.value = v;
+}
+$("#o-etapa").innerHTML = ETAPAS.map(e => `<option value="${e.k}">${e.l}</option>`).join("");
+
+/* escrita */
+function toast(msg, err) {
+  const el = document.createElement("div"); el.className = "toast" + (err ? " err" : ""); el.setAttribute("role", "status"); el.textContent = msg;
+  document.body.appendChild(el); setTimeout(() => el.remove(), err ? 5200 : 2600);
+}
+async function write(fn, ok) {
+  if (!S.db) { toast("Sem banco nesta visualização: nada foi salvo.", true); return false; }
+  try { await fn(S.db); if (ok) toast(ok); return true; }
+  catch (e) {
+    if (e?.code === "invalid_argument") { S.canWrite = false; render(); toast("Seu acesso a este painel é só de leitura.", true); }
+    else if (e?.code === "quota_exceeded") toast("O banco do painel está cheio. Exclua registros antigos para continuar.", true);
+    else if (e?.code === "unavailable") { await new Promise(r => setTimeout(r, 600 + Math.random() * 800)); try { await fn(S.db); if (ok) toast(ok); return true; } catch { toast("Não foi possível salvar agora. Tente de novo em instantes.", true); } }
+    else toast("Não foi possível salvar. Tente de novo.", true);
+    return false;
+  }
+}
+const nowISO = () => { const d = new Date(); return `${iso(d)}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; };
+
+/* diálogos */
+let editingOS = null, recFromStage = null;
+function fillOrigem(v) {
+  const extra = v && !ORIGENS.some(o => o.k === v) ? `<option>${esc(v)}</option>` : "";
+  $("#o-origem").innerHTML = `<option value="">Escolha como o cliente chegou</option>` + ORIGENS.map(o => `<option>${esc(o.k)}</option>`).join("") + extra;
+  $("#o-origem").value = v || "";
+}
+$("#g-cat").innerHTML = CATEGORIAS.map(c => `<option value="${esc(c)}">${esc(CANAL_LABEL[c] || c)}</option>`).join("");
+function openGasto() {
+  $("#g-data").value = today(); $("#g-valor").value = ""; $("#g-cat").value = "Google Ads"; $("#g-desc").value = "";
+  $("#dlg-gasto").showModal();
+}
+$("#f-gasto").addEventListener("submit", async e => {
+  e.preventDefault();
+  const body = { data: $("#g-data").value, valor: Math.round((+$("#g-valor").value || 0) * 100) / 100, categoria: $("#g-cat").value, descricao: $("#g-desc").value.trim(), criadoEm: nowISO() };
+  if (!body.data || body.valor <= 0) { toast("Informe a data e um valor maior que zero.", true); return; }
+  if (await write(db => db.collection("gastos").add(body), `Gasto de ${brl(body.valor)} registrado`)) $("#dlg-gasto").close();
+});
+function openOS(id) {
+  const o = id ? S.os.find(x => x.id === id) : null;
+  editingOS = o ? o.id : null;
+  $("#os-title").textContent = o ? `${osNum(o.numero)} · ${o.cliente || ""}` : "Novo atendimento";
+  $("#o-cliente").value = o?.cliente || ""; fillOrigem(o?.origem || "");
+  renderServicoOptions();
+  $("#o-servico").value = o?.servico || ""; $("#o-valor").value = o?.valor ?? "";
+  $("#o-desc").value = o?.descricao || ""; $("#o-etapa").value = o?.etapa || "contato";
+  $("#o-prazo").value = o?.prazo || ""; $("#o-prox").value = o?.proximoPasso || "";
+  $("#o-del").hidden = !o || !S.canWrite || !S.db; disarm($("#o-del"));
+  $("#o-save").hidden = !S.canWrite || !S.db;
+  $("#dlg-os").showModal();
+}
+function openRec(osId, fromStage) {
+  const o = osId ? S.os.find(x => x.id === osId) : null, byOS = recByOS();
+  recFromStage = fromStage ? osId : null;
+  $("#r-os").innerHTML = `<option value="">Avulso, sem OS</option>` + S.os.filter(x => x.etapa !== "perdido").sort((a, b) => b.numero - a.numero).map(x => `<option value="${esc(x.id)}">${osNum(x.numero)} · ${esc(x.cliente || "")}</option>`).join("");
+  $("#r-os").value = o ? o.id : "";
+  $("#r-data").value = today();
+  const saldo = o ? Math.max(0, (Number(o.valor) || 0) - (byOS[o.id] || 0)) : "";
+  $("#r-valor").value = saldo || "";
+  $("#r-cliente").value = o?.cliente || "";
+  $("#r-desc").value = o ? servicoNome(o.servico) : "";
+  $("#r-ctx").textContent = o ? `${osNum(o.numero)} · valor ${brl(o.valor)} · já recebido ${brl(byOS[o.id] || 0)}` : "Conta para a meta no dia em que o dinheiro entrou.";
+  $("#dlg-rec").showModal();
+}
+let editingDiario = null;
+function openDiario(d) {
+  editingDiario = d; const di = S.diario[d] || {};
+  $("#d-title").textContent = `Diário · ${fmtWD(d)}`;
+  $("#d-contatos").value = di.contatosAtivos ?? ""; $("#d-horas").value = di.horas ?? "";
+  $("#d-avancou").value = di.avancou ?? ""; $("#d-bloqueio").value = di.bloqueio ?? "";
+  $("#dlg-diario").showModal();
+}
+$$("dialog").forEach(dl => {
+  $$("[data-close]", dl).forEach(b => { if (!b.textContent) b.innerHTML = icon("x"); b.addEventListener("click", () => dl.close()); });
+  dl.addEventListener("close", () => { if (dl.id === "dlg-rec" && recFromStage) { recFromStage = null; render(); } });
+});
+function arm(btn, label, fn) {
+  if (btn.dataset.armed) { disarm(btn); fn(); return; }
+  btn.dataset.armed = "1"; btn.dataset.orig = btn.textContent; btn.textContent = label;
+  clearTimeout(btn._t); btn._t = setTimeout(() => disarm(btn), 4000);
+}
+function disarm(btn) { if (!btn) return; if (btn.dataset.orig) btn.textContent = btn.dataset.orig; delete btn.dataset.armed; delete btn.dataset.orig; clearTimeout(btn._t); }
+
+function nextNumero() { return Math.max((S.cfg.osInicial || 1) - 1, ...S.os.map(o => Number(o.numero) || 0)) + 1; }
+
+$("#f-os").addEventListener("submit", async e => {
+  e.preventDefault();
+  const etapa = $("#o-etapa").value, t = today();
+  const body = { cliente: $("#o-cliente").value.trim(), origem: $("#o-origem").value, servico: $("#o-servico").value, valor: +$("#o-valor").value || 0, descricao: $("#o-desc").value.trim(), etapa, prazo: $("#o-prazo").value || "", proximoPasso: $("#o-prox").value.trim(), atualizadoEm: nowISO() };
+  const id = editingOS, numero = id ? null : nextNumero();
+  const ok = await write(async db => {
+    if (id) {
+      const prev = S.os.find(o => o.id === id);
+      if (prev && !prev.etapas?.[etapa]) body.etapas = { [etapa]: t };
+      await db.doc("os/" + id).update(body);
+    } else {
+      body.numero = numero; body.criadoEm = t; body.etapas = { contato: t };
+      if (etapa !== "contato") body.etapas[etapa] = t;
+      await db.collection("os").add(body);
+    }
+  }, id ? "Atendimento atualizado" : `${osNum(numero)} aberta`);
+  if (ok) $("#dlg-os").close();
+  if (ok && etapa === "pago" && id) { const o = S.os.find(x => x.id === id); if (o && (Number(o.valor) || 0) > (recByOS()[id] || 0)) setTimeout(() => openRec(id, false), 50); }
+});
+$("#o-del").addEventListener("click", e => arm(e.currentTarget, "Confirmar exclusão", async () => {
+  const id = editingOS;
+  if (await write(db => db.doc("os/" + id).delete(), "Atendimento excluído")) $("#dlg-os").close();
+}));
+$("#o-servico").addEventListener("change", e => { const s = S.cfg.servicos.find(x => x.id === e.target.value); if (s && !$("#o-valor").value) $("#o-valor").value = s.preco; });
+
+$("#f-rec").addEventListener("submit", async e => {
+  e.preventDefault();
+  const osId = $("#r-os").value || null;
+  const body = { data: $("#r-data").value, valor: Math.round((+$("#r-valor").value || 0) * 100) / 100, forma: $("#r-forma").value, cliente: $("#r-cliente").value.trim(), descricao: $("#r-desc").value.trim(), osId, criadoEm: nowISO() };
+  if (!body.data || body.valor <= 0) { toast("Informe a data e um valor maior que zero.", true); return; }
+  const fromStage = recFromStage;
+  const ok = await write(async db => {
+    await db.collection("recebimentos").add(body);
+    if (fromStage) { const o = S.os.find(x => x.id === fromStage), up = { etapa: "pago", atualizadoEm: nowISO() }; if (!o?.etapas?.pago) up.etapas = { pago: body.data }; await db.doc("os/" + fromStage).update(up); }
+  }, `Recebimento de ${brl(body.valor)} registrado`);
+  if (ok) { recFromStage = null; $("#dlg-rec").close(); }
+});
+$("#r-os").addEventListener("change", e => { const o = S.os.find(x => x.id === e.target.value); if (o) { $("#r-cliente").value = o.cliente || ""; const s = Math.max(0, (Number(o.valor) || 0) - (recByOS()[o.id] || 0)); if (s) $("#r-valor").value = s; } });
+
+async function saveDiario(d, body) {
+  return write(async db => { await db.doc("diario/" + d).set({ ...body, atualizadoEm: nowISO() }); }, `Diário de ${fmtD(d)} salvo`);
+}
+function diarioBody(prefix) {
+  const c = $(`#${prefix}-contatos`).value, h = $(`#${prefix}-horas`).value;
+  return { contatosAtivos: c === "" ? null : Math.max(0, Math.round(+c)), horas: h === "" ? null : Math.max(0, +h), avancou: $(`#${prefix}-avancou`).value.trim(), bloqueio: $(`#${prefix}-bloqueio`).value.trim() };
+}
+$("#f-diario-hoje").addEventListener("submit", async e => { e.preventDefault(); if (await saveDiario(today(), diarioBody("dh"))) { S.dhDirty = false; render(); } });
+$("#f-diario-hoje").addEventListener("input", () => { S.dhDirty = true; $("#dh-status").textContent = "alterações não salvas"; });
+$("#f-diario").addEventListener("submit", async e => { e.preventDefault(); if (await saveDiario(editingDiario, diarioBody("d"))) { if (editingDiario === today()) S.dhDirty = false; $("#dlg-diario").close(); } });
+
+$("#f-acao").addEventListener("submit", async e => {
+  e.preventDefault();
+  const body = { texto: $("#a-texto").value.trim(), prioridade: $("#a-prio").value, responsavel: $("#a-resp").value.trim(), prazo: $("#a-prazo").value || "", feita: false, criadaEm: nowISO() };
+  if (!body.texto) return;
+  if (await write(db => db.collection("acoes").add(body), "Ação adicionada")) { $("#a-texto").value = ""; $("#a-prazo").value = ""; }
+});
+
+$("#f-cfg").addEventListener("input", e => { S.cfgDirty = true; $("#cfg-status").textContent = "Alterações não salvas"; if (e.target.closest("#c-servicos")) updateMix(); });
+$("#f-cfg").addEventListener("submit", async e => {
+  e.preventDefault();
+  const c = readCfgForm();
+  if (!c.dias.length) { toast("Marque pelo menos um dia de atendimento.", true); return; }
+  if (await write(db => db.doc("config/plano").set(c), "Premissas salvas")) { S.cfgDirty = false; }
+});
+$("#c-reset").addEventListener("click", () => { S.cfgDirty = false; fillCfgForm(); });
+$("#c-add-serv").addEventListener("click", () => {
+  const i = $$("#c-servicos tr").length;
+  $("#c-servicos").insertAdjacentHTML("beforeend", servRow({ id: "s" + Date.now().toString(36), nome: "", preco: 0, mix: 0, horas: 1 }, i));
+  S.cfgDirty = true; $("#cfg-status").textContent = "Alterações não salvas"; updateMix();
+  $(`#sv-n-${i}`)?.focus();
+});
+
+/* cliques delegados */
+document.addEventListener("click", e => {
+  const b = e.target.closest("button, [data-tab]"); if (!b) return;
+  if (b.dataset.tab) return showTab(b.dataset.tab);
+  if (b.dataset.open === "os-new") return openOS(null);
+  if (b.dataset.open === "rec-new") return openRec(null, false);
+  if (b.dataset.open === "gasto-new") return openGasto();
+  if (b.dataset.delGasto) return arm(b, "Confirmar", () => write(db => db.doc("gastos/" + b.dataset.delGasto).delete(), "Gasto excluído"));
+  if (b.dataset.editOs) return openOS(b.dataset.editOs);
+  if (b.dataset.recOs) return openRec(b.dataset.recOs, false);
+  if (b.dataset.editDiario) return openDiario(b.dataset.editDiario);
+  if (b.dataset.delRec) return arm(b, "Confirmar", () => write(db => db.doc("recebimentos/" + b.dataset.delRec).delete(), "Recebimento excluído"));
+  if (b.dataset.delAcao) return arm(b, "Confirmar", () => write(db => db.doc("acoes/" + b.dataset.delAcao).delete(), "Ação excluída"));
+  if (b.hasAttribute("data-del-serv")) { b.closest("tr").remove(); S.cfgDirty = true; $("#cfg-status").textContent = "Alterações não salvas"; updateMix(); }
+});
+document.addEventListener("change", async e => {
+  const t = e.target;
+  if (t.dataset.toggleAcao) {
+    const id = t.dataset.toggleAcao, feita = t.checked;
+    await write(db => db.doc("acoes/" + id).update({ feita, feitaEm: feita ? nowISO() : "" }), feita ? "Ação concluída" : "Ação reaberta");
+  }
+  if (t.dataset.etapaOs) {
+    const id = t.dataset.etapaOs, etapa = t.value, o = S.os.find(x => x.id === id);
+    if (etapa === "pago" && o && (Number(o.valor) || 0) > (recByOS()[id] || 0)) { openRec(id, true); return; }
+    const up = { etapa, atualizadoEm: nowISO() }; if (!o?.etapas?.[etapa]) up.etapas = { [etapa]: today() };
+    await write(db => db.doc("os/" + id).update(up), `${o ? osNum(o.numero) : "OS"} em ${ET[etapa].l}`);
+  }
+  if (t.id === "os-filtro") render();
+});
+
+/* abas */
+const TABS = ["hoje", "os", "diario", "mkt", "plano"];
+function showTab(k) {
+  if (!TABS.includes(k)) k = "hoje";
+  TABS.forEach(t => { $("#tab-" + t).hidden = t !== k; $("#t-" + t).setAttribute("aria-selected", String(t === k)); });
+  try { localStorage.setItem("inf-tab", k); } catch {}
+  if (k === "plano" && chartD) drawChart(chartD);
+}
+let first = location.hash.replace("#", "");
+if (!TABS.includes(first)) { try { first = localStorage.getItem("inf-tab") || "hoje"; } catch { first = "hoje"; } }
+showTab(first);
+render();
+
+/* banco */
+(async () => {
+  const use = window.claude?.use ? n => window.claude.use(n).catch(() => null) : async () => null;
+  const [db, user] = await Promise.all([use("db"), use("user")]);
+  if (!db) { S.conn = "off"; render(); return; }
+  S.db = db;
+  if (user) { try { const c = await user.can("data.write"); if (c === false) S.canWrite = false; } catch {} }
+  const timer = setTimeout(() => { if (S.conn === "connecting") { S.conn = "stale"; render(); } }, 10000);
+  const mark = (k, snap) => {
+    if (!snap.metadata.fromCache) S.loaded[k] = true;
+    if (Object.values(S.loaded).every(Boolean)) { S.conn = "ok"; clearTimeout(timer); }
+    render();
+  };
+  const onErr = e => { clearTimeout(timer); S.conn = e?.code === "revoked" || e?.code === "not_granted" ? "off" : "stale"; if (S.conn === "off") S.db = null; render(); };
+  db.doc("config/plano").onSnapshot(s => { if (s.exists) { S.cfg = normalizeCfg(s.data()); S.cfgSaved = true; } else S.cfgSaved = false; mark("cfg", s); }, onErr);
+  db.collection("os").onSnapshot(q => { S.os = q.docs.map(d => ({ id: d.id, ...clone(d.data()) })); mark("os", q); }, onErr);
+  db.collection("recebimentos").onSnapshot(q => { S.rec = q.docs.map(d => ({ id: d.id, ...clone(d.data()) })); mark("rec", q); }, onErr);
+  db.collection("diario").onSnapshot(q => { const m = {}; q.docs.forEach(d => { m[d.id] = clone(d.data()); }); S.diario = m; mark("diario", q); }, onErr);
+  db.collection("gastos").onSnapshot(q => { S.gastos = q.docs.map(d => ({ id: d.id, ...clone(d.data()) })); mark("gastos", q); }, onErr);
+  db.collection("acoes").onSnapshot(q => { S.acoes = q.docs.map(d => ({ id: d.id, ...clone(d.data()) })); mark("acoes", q); }, onErr);
+})();
+
+/* virada do dia com a página aberta */
+let lastDay = today();
+setInterval(() => { if (today() !== lastDay) { lastDay = today(); S.dhDirty = false; render(); } }, 60000);
+})();
+</script>
+
+</body></html>

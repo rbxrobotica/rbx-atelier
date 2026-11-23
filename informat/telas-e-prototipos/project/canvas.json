@@ -1,0 +1,232 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-10T00:08:28Z"
+ },
+ "title": "Informat · Telas e Protótipos",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1280,
+   "h": 3450,
+   "title": "Início · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Servico.dc.html": {
+   "x": 1360,
+   "y": 0,
+   "w": 1280,
+   "h": 2300,
+   "title": "Página de serviço · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Solicitar.dc.html": {
+   "x": 2720,
+   "y": 0,
+   "w": 1280,
+   "h": 2400,
+   "title": "Solicitar atendimento · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Atendimento.dc.html": {
+   "x": 4080,
+   "y": 0,
+   "w": 1280,
+   "h": 1950,
+   "title": "Presencial ou remoto · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Orcamento.dc.html": {
+   "x": 5440,
+   "y": 0,
+   "w": 1280,
+   "h": 1850,
+   "title": "Diagnóstico e orçamento · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Aprovacao.dc.html": {
+   "x": 6800,
+   "y": 0,
+   "w": 1280,
+   "h": 2400,
+   "title": "Aprovação do escopo · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Acompanhamento.dc.html": {
+   "x": 8160,
+   "y": 0,
+   "w": 1280,
+   "h": 2050,
+   "title": "Acompanhamento · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Entrega.dc.html": {
+   "x": 9520,
+   "y": 0,
+   "w": 1280,
+   "h": 2350,
+   "title": "Entrega e pós-atendimento · desktop",
+   "expand": "fill",
+   "is_interactive": true
+  },
+  "Main-mobile.dc.html": {
+   "x": 0,
+   "y": 3900,
+   "w": 390,
+   "h": 6600,
+   "title": "Início · celular",
+   "is_interactive": true
+  },
+  "Servico-mobile.dc.html": {
+   "x": 1360,
+   "y": 3900,
+   "w": 390,
+   "h": 4100,
+   "title": "Página de serviço · celular",
+   "is_interactive": true
+  },
+  "Solicitar-mobile.dc.html": {
+   "x": 2720,
+   "y": 3900,
+   "w": 390,
+   "h": 4000,
+   "title": "Solicitar atendimento · celular",
+   "is_interactive": true
+  },
+  "Atendimento-mobile.dc.html": {
+   "x": 4080,
+   "y": 3900,
+   "w": 390,
+   "h": 3400,
+   "title": "Presencial ou remoto · celular",
+   "is_interactive": true
+  },
+  "Orcamento-mobile.dc.html": {
+   "x": 5440,
+   "y": 3900,
+   "w": 390,
+   "h": 3600,
+   "title": "Diagnóstico e orçamento · celular",
+   "is_interactive": true
+  },
+  "Aprovacao-mobile.dc.html": {
+   "x": 6800,
+   "y": 3900,
+   "w": 390,
+   "h": 4100,
+   "title": "Aprovação do escopo · celular",
+   "is_interactive": true
+  },
+  "Acompanhamento-mobile.dc.html": {
+   "x": 8160,
+   "y": 3900,
+   "w": 390,
+   "h": 3700,
+   "title": "Acompanhamento · celular",
+   "is_interactive": true
+  },
+  "Entrega-mobile.dc.html": {
+   "x": 9520,
+   "y": 3900,
+   "w": 390,
+   "h": 4000,
+   "title": "Entrega e pós-atendimento · celular",
+   "is_interactive": true
+  },
+  "Marca-Logotipos.dc.html": {
+   "x": 0,
+   "y": 10920,
+   "w": 1440,
+   "h": 900,
+   "title": "Logotipos e símbolo"
+  },
+  "Marca-Direcoes.dc.html": {
+   "x": 1520,
+   "y": 10920,
+   "w": 1440,
+   "h": 900,
+   "title": "Direções A e B"
+  },
+  "Marca-Aplicacoes.dc.html": {
+   "x": 3040,
+   "y": 10920,
+   "w": 1440,
+   "h": 900,
+   "title": "Aplicações: site e atendimento"
+  },
+  "Anuncio.dc.html": {
+   "x": 4560,
+   "y": 10920,
+   "w": 1080,
+   "h": 1080,
+   "title": "Anúncio 1080 x 1080"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Servico.dc.html",
+  "Solicitar.dc.html",
+  "Atendimento.dc.html",
+  "Orcamento.dc.html",
+  "Aprovacao.dc.html",
+  "Acompanhamento.dc.html",
+  "Entrega.dc.html",
+  "Main-mobile.dc.html",
+  "Servico-mobile.dc.html",
+  "Solicitar-mobile.dc.html",
+  "Atendimento-mobile.dc.html",
+  "Orcamento-mobile.dc.html",
+  "Aprovacao-mobile.dc.html",
+  "Acompanhamento-mobile.dc.html",
+  "Entrega-mobile.dc.html",
+  "Marca-Logotipos.dc.html",
+  "Marca-Direcoes.dc.html",
+  "Marca-Aplicacoes.dc.html",
+  "Anuncio.dc.html"
+ ],
+ "notes": {
+  "desktop": {
+   "x": 0,
+   "y": -300,
+   "text": "Desktop",
+   "kind": "title1",
+   "maxW": 10800
+  },
+  "mobile": {
+   "x": 0,
+   "y": 3600,
+   "text": "Mobile",
+   "kind": "title1",
+   "maxW": 10800
+  },
+  "marca": {
+   "x": 0,
+   "y": 10620,
+   "text": "Marca",
+   "kind": "title1",
+   "maxW": 5720
+  }
+ },
+ "designSystems": [
+  {
+   "title": "Informat Design System",
+   "namespace": "informat",
+   "artifact": "https://claude.ai/artifact/P91WvNUejSguDTQduP8iV4",
+   "version": "1791590627-1696",
+   "copiedAt": "2026-10-10T00:08:28Z"
+  }
+ ]
+}

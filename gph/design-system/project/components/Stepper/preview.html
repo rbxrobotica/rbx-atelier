@@ -1,0 +1,12 @@
+<!-- @dsCard group="Navegação" height=96 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Stepper</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { style: { padding: 16 } }, h(G.Stepper, { current: 2 })));
+</script>
+</body>
+</html>

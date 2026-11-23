@@ -1,0 +1,19 @@
+{
+ "title": "RBX Relations Design System",
+ "url": "https://claude.ai/artifact/XEZWaQmuzETPTdWsLLiKU4",
+ "type": null,
+ "version": "1788047895-7b58",
+ "listed_at": "2026-11-19T00:00:00Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 2286932,
+   "sha256": "e10ce99749034e9db3f8ef90561c2898d4a3923b2eb9f96947751cc42bddd445"
+  }
+ ],
+ "skipped": [],
+ "assets": [],
+ "failures": [],
+ "notes": "single page, no published files; asset listing unavailable (capability_disabled: version does not declare assets)",
+ "previous_backup_path": "claude-design/rbx-relations-design-system"
+}

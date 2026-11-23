@@ -1,0 +1,12 @@
+<!-- @dsCard group="Status" height=64 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>StatusBadge</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { className: 'gph-row' }, ['rascunho','em-revisao','publicado','pausado','expirado','vendido','indisponivel','recusado'].map(function (s) { return h(G.StatusBadge, { key: s, status: s }); })));
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{
+ "title": "Olha Escola — Atelier",
+ "url": "https://claude.ai/artifact/FLNEP9Uhb7GL228tdnPJSB",
+ "type": "Design",
+ "version": "1795099372-7ae8",
+ "listed_version": "1791923936-79e8",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "project/Composer.dc.html",
+   "bytes": 6105,
+   "sha256": "c3b7771c676fe9ca7c7c99c9f1632bc17c598b321c87c756b4bac6f60b813aa0"
+  },
+  {
+   "path": "project/DirecaoB.dc.html",
+   "bytes": 790,
+   "sha256": "842e1bee3fea05b6384873c6f18e4ee0e3435b685ad6f523e1bbd9bb4b10a38e"
+  },
+  {
+   "path": "project/DirecaoC.dc.html",
+   "bytes": 776,
+   "sha256": "f2d81e63d10c3e7cb4208172cf045efe5e009fcdaf0b6bdd6a2d56ab44726c53"
+  },
+  {
+   "path": "project/Escolha.dc.html",
+   "bytes": 4542,
+   "sha256": "6e54eae2a56effc73fc80a4ed7bb9bfc0697311b48f3d6f55861eaa70e96f832"
+  },
+  {
+   "path": "project/Inicio.dc.html",
+   "bytes": 4196,
+   "sha256": "68c3ac4e48f44df66fa21acb7867e8f4d579ce1b2edcb148794e252838891dc2"
+  },
+  {
+   "path": "project/Main.dc.html",
+   "bytes": 7508,
+   "sha256": "c91efc731e9ca201ff26702d1af6543ebbf6c892a04b37fdc8fabbed1e8a19bf"
+  },
+  {
+   "path": "project/Marca.dc.html",
+   "bytes": 4555,
+   "sha256": "d74341f84ba01c0ec2aabbe03075328166e474b7586865923112cb60b147c4c6"
+  },
+  {
+   "path": "project/Mural.dc.html",
+   "bytes": 4388,
+   "sha256": "83688fa7dcbd402eaa2fa6d05d23f2caf422093b53ea25c1d8ffaed4ccd147e4"
+  },
+  {
+   "path": "project/Recibo.dc.html",
+   "bytes": 4512,
+   "sha256": "9a21afae731c24699b6b4c292d95c5723c15fe55b1af82e59f48ada0ba3f1ad9"
+  },
+  {
+   "path": "project/canvas.json",
+   "bytes": 1477,
+   "sha256": "ef02cb79b16a669640d26bf2e04bcac79baf769fb084dd4bd0d6dc002c86b1ee"
+  }
+ ],
+ "skipped": [
+  "artifact-type/** (14 files)",
+  "SKILL.md",
+  "index.html"
+ ],
+ "assets": [
+  {
+   "id": "73d8714b8322cc7cc1f385d78884c277",
+   "type": "image/svg+xml",
+   "bytes": 14063,
+   "sha256": "e97c8f4f8fee770b824d956b8f9065695ed12240cef68bd9c802fc1388c5a13f",
+   "uploaded_at": "2026-10-13T20:34:40.849201Z"
+  },
+  {
+   "id": "59196ec890384ce3721307222a9ef172",
+   "type": "image/svg+xml",
+   "bytes": 5220,
+   "sha256": "4cc3c6db38b837c6875d18984eb4f0ff4f9e5cc162839c5e1e905993890da89f",
+   "uploaded_at": "2026-10-13T20:34:41.661682Z"
+  },
+  {
+   "id": "61a4a25fa9f2260e28e6d5f543f6f7c4",
+   "type": "image/svg+xml",
+   "bytes": 285,
+   "sha256": "8dd73c10ab534f286148a91995e3d4bc8f1ee027762033387e976da387b76bb4",
+   "uploaded_at": "2026-10-13T20:34:42.374382Z"
+  },
+  {
+   "id": "ccc3a4aa038afa874eca801f238b045a",
+   "type": "image/svg+xml",
+   "bytes": 1169,
+   "sha256": "10a67496442722da81c47a13420ad6b25c4e6a2cdd35f6f24d157e980a8923c1",
+   "uploaded_at": "2026-10-13T20:34:43.05559Z"
+  },
+  {
+   "id": "84721d6322140302d4b71d39677e9bdb",
+   "type": "image/svg+xml",
+   "bytes": 918,
+   "sha256": "300a73ba38ffdd75824e23af121a661ebc577f666126ed6a03664751c2ea55c3",
+   "uploaded_at": "2026-10-13T20:34:43.879622Z"
+  },
+  {
+   "id": "8d893a43d5c75db5a4fa1e28ddd73eee",
+   "type": "image/svg+xml",
+   "bytes": 1033,
+   "sha256": "2e5e12f17ffa41fa8186fcf2066ce0e2031d90a4823e5ad27f7ccba1f0b2a8d6",
+   "uploaded_at": "2026-10-13T20:34:44.629434Z"
+  },
+  {
+   "id": "7c798317a2e9b70d38542ca71e54d94b",
+   "type": "image/svg+xml",
+   "bytes": 396,
+   "sha256": "df85e5d26c59cb86021f09ba47a8bf8726b89351a201aa60e36d75f912f47714",
+   "uploaded_at": "2026-10-13T20:34:45.454402Z"
+  },
+  {
+   "id": "10cffeb2a83d04defe4e826d096f22d7",
+   "type": "image/png",
+   "bytes": 54733,
+   "sha256": "b74693f4432197b5944223c9a4b2b86fa6e1cd877a0eb154f375f544543bdb48",
+   "uploaded_at": "2026-10-13T20:34:46.23051Z"
+  },
+  {
+   "id": "769566727c20f5c4922d9e376f0d8021",
+   "type": "image/png",
+   "bytes": 98089,
+   "sha256": "722cd168edbb9e0419f0db86d681be269317600e11dc83f392130f336d9b50d7",
+   "uploaded_at": "2026-10-13T20:34:46.994297Z"
+  },
+  {
+   "id": "69b269f5b12a3841ea44bbc04820af2e",
+   "type": "image/png",
+   "bytes": 158443,
+   "sha256": "6b3028f72705488f3ad5bf87b0ca9b0bbf475bd297d0996d57984fdbe2fdb145",
+   "uploaded_at": "2026-10-13T20:34:47.836351Z"
+  },
+  {
+   "id": "baea4a051b656f483840be3634d175fc",
+   "type": "image/png",
+   "bytes": 164410,
+   "sha256": "ab387d3cb9b91849255cd103ac10420fb9d2cc132c1281d03223a59c9acadff7",
+   "uploaded_at": "2026-10-13T20:34:48.703439Z"
+  }
+ ],
+ "failures": [],
+ "previous_backup_path": "claude-design/olha-escola-atelier"
+}

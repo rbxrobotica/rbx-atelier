@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Informat · Acompanhamento da OS-0427</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/informat/tokens.css">
+<link rel="stylesheet" href="ds/informat/components/bundle.css">
+<script src="ds/informat/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&family=Atkinson+Hyperlegible+Mono:wght@400;500;600&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="container-type: inline-size; background: var(--base); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 24px;">
+<x-import component-from-global-scope="Informat.NavBar" links="{{nav}}" cta="{{cta}}" sign-in="{{signIn}}" logo-href="{{h.inicio}}" compact="{{isMobile}}"></x-import>
+<main>
+<section style="padding: clamp(24px, 3cqi, 40px) clamp(16px, 4cqi, 48px) clamp(56px, 6.25cqi, 80px);">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+<nav aria-label="Caminho">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; line-height: 20px; color: var(--ink-2);">
+<li><a href="{{h.acompanhamento}}" style="color: var(--placa);">Minhas OS</a></li>
+<li aria-hidden="true">/</li>
+<li aria-current="page" style="font-family: var(--font-mono);">OS-0427</li>
+</ol>
+</nav>
+<x-import component-from-global-scope="Informat.Toast" tone="ok" on-close="{{noop}}">Pagamento confirmado pela RBX. A execução da <span style="white-space: nowrap;">OS-0427</span> começou.</x-import>
+<x-import component-from-global-scope="Informat.OsHeader" os-number="OS-0427" status="em-execucao" title="Notebook que desliga sozinho (Exemplo)" meta="{{osMeta}}"></x-import>
+<div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 3cqi, 40px); align-items: flex-start;">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+<section aria-labelledby="etapas" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: clamp(20px, 2.5cqi, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<h2 id="etapas" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Etapas</h2>
+<x-import component-from-global-scope="Informat.ServiceTimeline" stages="{{etapas}}"></x-import>
+<a href="{{h.entrega}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--placa); font-weight: 600;">Ver como fica a entrega (próxima etapa)<x-import component-from-global-scope="Informat.Icon" name="arrow-right" size="{{n20}}"></x-import></a>
+</section>
+<section aria-labelledby="combinado" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: clamp(20px, 2.5cqi, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<h2 id="combinado" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">O que foi combinado</h2>
+<dl style="margin: 0; display: flex; flex-direction: column;">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px dashed var(--line);"><dt class="inf-label">Escopo aprovado</dt><dd style="margin: 0;">Troca do disco por SSD, reinstalação do sistema e programas da lista <span style="color: var(--ink-3); font-family: var(--font-mono); font-size: 14px;">· em <span class="inf-ph">[DATA]</span></span></dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0;"><dt class="inf-label">Backup e dados</dt><dd style="margin: 0;">Backup só das pastas indicadas: Documentos e Fotos (Exemplo) <span style="color: var(--ink-3); font-family: var(--font-mono); font-size: 14px;">· combinado em <span class="inf-ph">[DATA]</span> com <span class="inf-ph">[NOME]</span></span></dd></div>
+</dl>
+</section>
+</div>
+
+<section aria-labelledby="mensagens" style="flex: 1.4 1 440px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: clamp(20px, 2.5cqi, 32px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<h2 id="mensagens" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Mensagens da OS</h2>
+<p style="margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-2);">Mensagens enviadas pela central RBX. Avisos também chegam por <span class="inf-ph">[CANAL]</span>.</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{mensagens}}" as="msg" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--base);">
+<p style="margin: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px;"><strong style="font-weight: 600;">{{msg.author}}</strong><span style="font-family: var(--font-mono); font-size: 14px; line-height: 20px; color: var(--ink-3);">{{msg.time}}</span></p>
+<p style="margin: 0; color: var(--ink);">{{msg.text}}</p>
+</li>
+</sc-for>
+</ol>
+<form style="display: flex; flex-direction: column; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line);">
+<x-import component-from-global-scope="Informat.TextField" label="Escreva uma mensagem" multiline="{{yes}}" rows="{{n3}}" hint="A Informat responde por aqui. Não envie senhas."></x-import>
+<div style="display: flex; justify-content: flex-end;">
+<x-import component-from-global-scope="Informat.Button" variant="primary" icon-right="arrow-right" type="button">Enviar mensagem</x-import>
+</div>
+</form>
+</section>
+</div>
+</div>
+</section>
+</main>
+<x-import component-from-global-scope="Informat.SiteFooter" promise="{{promise}}" columns="{{footerCols}}" compact="{{isMobile}}"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"device": {"editor": "enum", "options": ["desktop", "mobile"], "default": "desktop"}, "$preview": {"width": 1280, "height": 2050}}'>
+class Component extends DCLogic {
+pageVals(current, area) {
+  var m = (this.props.device ?? 'desktop') === 'mobile';
+  var s = m ? '-mobile' : '';
+  var f = function (n) { return n + s + '.dc.html'; };
+  var h = { inicio: f('Main'), servico: f('Servico'), solicitar: f('Solicitar'), atendimento: f('Atendimento'),
+    orcamento: f('Orcamento'), aprovacao: f('Aprovacao'), acompanhamento: f('Acompanhamento'), entrega: f('Entrega') };
+  var pub = [
+    { label: 'Serviços', href: h.servico, current: current === 'servico' },
+    { label: 'Como funciona', href: current === 'inicio' ? '#como-funciona' : h.inicio },
+    { label: 'Acompanhar OS', href: h.acompanhamento }
+  ];
+  var app = [
+    { label: 'Minhas OS', href: h.acompanhamento, current: true },
+    { label: 'Serviços', href: h.servico },
+    { label: 'Mensagens', href: h.acompanhamento + '' }
+  ];
+  return {
+    m: m, isMobile: m, notMobile: !m, h: h,
+    nav: area ? app : pub,
+    cta: { label: 'Solicitar atendimento', href: h.solicitar },
+    signIn: area ? { label: 'Minha conta', href: '#conta', icon: 'user' } : { label: 'Entrar', href: h.acompanhamento },
+    timelineOrientation: m ? 'vertical' : 'horizontal',
+    promise: 'Assistência técnica e consultoria Linux que mostra o diagnóstico e o orçamento antes de mexer no seu computador.',
+    footerCols: [
+      { title: 'Serviços', links: [{ label: 'Computador pronto para usar', href: h.servico }, { label: 'Manutenção e reparo', href: '#reparo' }, { label: 'Linux', href: '#linux' }] },
+      { title: 'Atendimento', links: [{ label: 'Como funciona', href: h.inicio }, { label: 'Acompanhar OS', href: h.acompanhamento }, { label: 'Entrar com sua conta RBX', href: h.acompanhamento }] },
+      { title: 'Contato', links: [{ label: '[TELEFONE]', icon: 'phone' }, { label: '[E-MAIL]', icon: 'mail' }, { label: '[CIDADE]', icon: 'map-pin' }, { label: '[HORÁRIO]', icon: 'clock' }] }
+    ]
+  };
+}
+
+renderVals() {
+  var p = this.pageVals('acompanhamento', true);
+  p.yes = true; p.n3 = 3; p.n20 = 20;
+  p.noop = function () {};
+  p.osMeta = [
+    { label: 'Aberta em', value: '[DATA]' },
+    { label: 'Equipamento', value: 'Notebook · [MARCA E MODELO]' },
+    { label: 'Atendimento', value: 'Presencial · [CIDADE]' },
+    { label: 'Previsão de entrega', value: '[PRAZO]' }
+  ];
+  p.etapas = [
+    { title: 'Solicitação', description: 'Recebemos a descrição e duas fotos.', time: '[DATA] · [HORA]', state: 'done' },
+    { title: 'Diagnóstico', description: 'Disco com setores defeituosos; memória e temperatura normais.', time: '[DATA] · [HORA]', state: 'done' },
+    { title: 'Orçamento aprovado', description: 'Escopo, backup e pagamento confirmados.', time: '[DATA] · [HORA]', state: 'done' },
+    { title: 'Execução', description: 'Backup das pastas combinadas, troca do disco e reinstalação.', time: 'Desde [DATA]', state: 'current' },
+    { title: 'Entrega e pós-atendimento', description: 'Testes de entrega, relatório e garantia de [PRAZO].', state: 'pending' }
+  ];
+  p.mensagens = [
+    { author: 'Informat', time: '[DATA] · [HORA]', text: 'Recebemos a sua solicitação. O número da sua ordem de serviço é OS-0427.' },
+    { author: 'Informat', time: '[DATA] · [HORA]', text: 'Diagnóstico pronto: o disco tem setores com defeito. O orçamento está na OS, válido até [PRAZO]. Nada será feito antes da sua aprovação.' },
+    { author: 'Você', time: '[DATA] · [HORA]', text: 'As pastas que importam são Documentos e Fotos. (Exemplo)' },
+    { author: 'Informat', time: '[DATA] · [HORA]', text: 'Combinado registrado: backup de Documentos e Fotos antes da troca do disco. A execução começou.' }
+  ];
+  return p;
+}
+}
+</script>
+</body>
+</html>

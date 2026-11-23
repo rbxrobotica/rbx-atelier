@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Satwake · Especificação de implementação</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F0;color:#1E2227;font-family:'IBM Plex Sans',system-ui,sans-serif}
+a{color:#26456B}
+.lbl{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#626873}
+.serif{font-family:'Newsreader',Georgia,serif}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.card{background:#FFFFFF;border:1px solid #DAD5CA;border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:14px}
+pre{margin:0;background:#1E2227;color:#F7F5F0;border-radius:8px;padding:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap}
+td,th{text-align:left;padding:10px 12px;border-bottom:1px solid #DAD5CA;font-size:14px;vertical-align:top}
+th{font-weight:600;background:#EEEAE1}
+li{margin-bottom:6px}
+</style>
+</helmet>
+<div style="width: 1600px; height: 2900px; box-sizing: border-box; padding: 80px; display: flex; flex-direction: column; gap: 40px; background: #F7F5F0">
+
+<header style="display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #DAD5CA; padding-bottom: 28px">
+<span class="lbl">Especificação para o ecossistema RBX · v0.1</span>
+<h1 class="serif" style="margin: 0; font-size: 52px; font-weight: 500">Como isto vira código</h1>
+<p style="margin: 0; max-width: 980px; font-size: 17px; line-height: 1.6; color: #474D56">Alvo: o repositório rbx-landing-briefing-btc (SvelteKit 5 em Bun) passa a ser o motor único de landings do Satwake, servindo satwake.com e *.satwake.com. Decisões duráveis estão nas ADR-0615 e ADR-0616; os detalhes visuais ficam neste canvas e em tokens.json.</p>
+</header>
+
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div class="card">
+<span class="lbl">1 · Motor de landings</span>
+<ol style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6">
+<li>hooks.server resolve o host: satwake.com usa a campanha evergreen; &lt;slug&gt;.satwake.com carrega o registro aprovado daquele slug.</li>
+<li>Slug sem registro aprovado ou encerrado: 301 para satwake.com preservando a query.</li>
+<li>Seções são componentes fixos; o registro escolhe variantes e textos, nunca HTML livre.</li>
+<li>Registros vêm do armazenamento interino no rbx-growth, somente leitura, no build ou por fetch assinado.</li>
+<li>Uma imagem, um deploy. Nenhum repositório ou build por landing.</li>
+</ol>
+</div>
+<div class="card">
+<span class="lbl">2 · Registro de campanha (exemplo)</span>
+<pre>campaign_id: sw-2026-c01-preparo
+version: 1
+cycle_id: sw-cycle-2026-01
+host: preparo.satwake.com
+status: approved
+audience: {id: aud-daily-btc, hypothesis: "acompanha BTC todo dia"}
+argument:
+  promise: "Prepare o dia antes de abrir o gráfico."
+  claims: [clm-delivery-07h, clm-10-sections, clm-no-signals]
+offer: {plan_id: briefing-pro-monthly-brl, price_brl: 39}
+cta:
+  primary: {label: "Assinar Pro", event: cta_click}
+  secondary: {label: "Ler um trecho real", event: cta_click}
+creatives: [cr-c01-feed-v1, cr-c01-story-v1]
+channel: meta
+hero_variant: phone-sample</pre>
+</div>
+</section>
+
+<section class="card">
+<span class="lbl">3 · Componentes e arquivos</span>
+<table style="border-collapse: collapse; width: 100%">
+<thead><tr><th scope="col">Componente</th><th scope="col">Arquivo Svelte</th><th scope="col">Variantes pelo registro</th><th scope="col">Estado atual</th></tr></thead>
+<tbody>
+<tr><td>Header</td><td class="mono">Header.svelte</td><td>CTA do cabeçalho</td><td>existe, renomear marca</td></tr>
+<tr><td>Hero</td><td class="mono">Hero.svelte</td><td>eyebrow, título, subtítulo, CTAs, mídia (phone-sample, table-sample, artifacts)</td><td>existe, reescrever</td></tr>
+<tr><td>Faixa de provas</td><td class="mono">ProofStrip.svelte</td><td>fixa: 10 seções, 6 artefatos, 07h, PT e EN</td><td>novo</td></tr>
+<tr><td>Benefícios</td><td class="mono">Benefits.svelte</td><td>ordem e destaque dos seis</td><td>novo, substitui Artifacts</td></tr>
+<tr><td>Como funciona</td><td class="mono">HowItWorks.svelte</td><td>nenhuma</td><td>novo</td></tr>
+<tr><td>Amostra</td><td class="mono">Sample.svelte</td><td>seções exibidas; edição de referência</td><td>existe, trocar esquemático por trecho real</td></tr>
+<tr><td>Dez seções</td><td class="mono">Sections.svelte</td><td>nenhuma</td><td>novo</td></tr>
+<tr><td>Para quem é</td><td class="mono">ForWhom.svelte</td><td>ordem dos itens</td><td>existe</td></tr>
+<tr><td>Free e Pro</td><td class="mono">Compare.svelte</td><td>nenhuma</td><td>novo</td></tr>
+<tr><td>Planos e checkout</td><td class="mono">Pricing.svelte, SubscribeSection.svelte</td><td>plano pré-selecionado</td><td>existem, restilizar, adicionar consentimento</td></tr>
+<tr><td>FAQ, aviso, CTA final, rodapé</td><td class="mono">Faq, Disclaimer, FinalCta, Footer</td><td>perguntas extras por campanha</td><td>existem, FinalCta novo</td></tr>
+<tr><td>CTA fixo no mobile</td><td class="mono">StickyCta.svelte</td><td>rótulo</td><td>novo</td></tr>
+</tbody>
+</table>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div class="card">
+<span class="lbl">4 · Tokens e fontes</span>
+<ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6">
+<li>tokens.json é a fonte; tokens.css é gerado com prefixo --sw-. Nenhuma cor literal nos componentes.</li>
+<li>Fontes servidas pelo próprio domínio (Newsreader, IBM Plex Sans, IBM Plex Mono, subset latin), sem requisição a terceiros, por privacidade e velocidade.</li>
+<li>font-display: swap; pré-carregar só Newsreader 500 e Plex Sans 400.</li>
+<li>Algarismos tabulares (font-variant-numeric: tabular-nums) em preços e dados.</li>
+</ul>
+</div>
+<div class="card">
+<span class="lbl">5 · Mensuração (ADR-0616 seções 4 e 5)</span>
+<ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6">
+<li>Eventos Plausible atuais mantidos: pageview, cta_click, form_start, form_submit, form_success, form_error, plan_select, billing_toggle.</li>
+<li>Toda chamada ganha as propriedades campaign_id, campaign_version e host.</li>
+<li>O snapshot de atribuição (campanha, versão, criativo, público, UTMs, host, referrer, primeiro e último toque) vai no corpo do checkout e do lead para o rbx-commerce.</li>
+<li>Pagamento confirmado só a partir do webhook no rbx-commerce.</li>
+<li>Nenhum pixel de anúncio sem revisão; conversão para plataforma só por adaptador do Commerce, sem dado pessoal bruto.</li>
+</ul>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div class="card">
+<span class="lbl">6 · Conformidade e acessibilidade</span>
+<ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6">
+<li>tests/compliance.test.ts continua obrigatório e passa a rodar sobre cada registro de campanha, não só sobre content.ts.</li>
+<li>Aviso legal idêntico ao validado em rbx-market-briefing; teste compara texto exato.</li>
+<li>Sem depoimentos, números de assinantes, resultados ou preço riscado até existir evidência e decisão.</li>
+<li>Critérios WCAG 2.2 AA do canvas de design system; axe no CI e teste manual de teclado.</li>
+</ul>
+</div>
+<div class="card">
+<span class="lbl">7 · Ativos exportáveis</span>
+<ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6">
+<li>Logotipo completo, claro e escuro (SVG); símbolo (SVG); ícone de app 512 e favicon 32 (SVG e PNG).</li>
+<li>Imagem social 1200×630 por campanha, gerada do hero.</li>
+<li>Anúncios feed 1080×1350 e story 1080×1920 a partir das pranchetas deste canvas.</li>
+<li>Arquivos editáveis: este canvas; os SVGs e tokens.json versionados no repositório de ativos de marca.</li>
+</ul>
+</div>
+</section>
+
+<section class="card" style="border: 2px solid #8A5A00">
+<span class="lbl" style="color: #8A5A00">8 · A confirmar antes de publicar</span>
+<ol style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; columns: 2; column-gap: 40px">
+<li>O WhatsApp diário é só para Pro? O código de entrega busca telefones no Commerce; a regra por plano não está documentada.</li>
+<li>O e-mail ainda entrega a edição? A landing atual diz e-mail; o pipeline entrega por WhatsApp.</li>
+<li>"Dias úteis": existe edição em 20/09/2026, um sábado. Confirmar o compromisso público.</li>
+<li>Os templates do WhatsApp citam o nome antigo? Um nome novo pode exigir reenvio à Meta.</li>
+<li>Página de retorno do Pix (estado 4) precisa de endpoint de status no rbx-commerce.</li>
+<li>Team: o checkout atual vende assentos na landing ou só sob contato?</li>
+<li>Busca de marca Satwake no INPI antes do primeiro anúncio pago.</li>
+<li>Revisão jurídica da primeira peça paga (ADR-0615 seção 5.4).</li>
+</ol>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":2900}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

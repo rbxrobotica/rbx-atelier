@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Informat · Presencial ou remoto</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/informat/tokens.css">
+<link rel="stylesheet" href="ds/informat/components/bundle.css">
+<script src="ds/informat/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&family=Atkinson+Hyperlegible+Mono:wght@400;500;600&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="container-type: inline-size; background: var(--base); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 24px;">
+<x-import component-from-global-scope="Informat.NavBar" links="{{nav}}" cta="{{cta}}" sign-in="{{signIn}}" logo-href="{{h.inicio}}" compact="{{isMobile}}"></x-import>
+<main>
+<section style="padding: clamp(24px, 3cqi, 48px) clamp(16px, 4cqi, 48px) clamp(56px, 6.25cqi, 80px);">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(32px, 4cqi, 56px); align-items: flex-start;">
+<div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p class="inf-label" style="margin: 0; color: var(--cobre-ink);">Solicitação · passo 2 de 2</p>
+<h1 style="margin: 0; font-size: clamp(32px, 3.2cqi, 40px); line-height: 1.15; font-weight: 800; letter-spacing: -0.015em;">Como prefere ser atendido?</h1>
+<p style="margin: 0; max-width: 60ch; font-size: 18px; line-height: 28px; color: var(--ink-2);">Você pode mudar depois do diagnóstico, se o problema pedir outro caminho.</p>
+</div>
+
+<x-import component-from-global-scope="Informat.ChoiceCard" legend="Modo de atendimento" options="{{modos}}" default-value="presencial"></x-import>
+
+<section aria-labelledby="remoto-quando" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+<h2 id="remoto-quando" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Quando o remoto funciona</h2>
+<span class="inf-tag">Hipótese de escopo remoto</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p class="inf-label" style="margin: 0; color: var(--ok);">Funciona</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--ok); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="check-circle" size="{{n20}}"></x-import></span><span>Instalar e configurar programas no Linux</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--ok); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="check-circle" size="{{n20}}"></x-import></span><span>Migrar arquivos com o equipamento ligado e conectado</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--ok); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="check-circle" size="{{n20}}"></x-import></span><span>Consultoria sobre servidores domésticos e dual boot</span></li>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<p class="inf-label" style="margin: 0; color: var(--err);">Não funciona</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--err); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="x-circle" size="{{n20}}"></x-import></span><span>Equipamento que não liga</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--err); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="x-circle" size="{{n20}}"></x-import></span><span>Troca de peças, limpeza ou reparo</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--err); flex: none;"><x-import component-from-global-scope="Informat.Icon" name="x-circle" size="{{n20}}"></x-import></span><span>Formatar um disco com defeito</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="cobertura" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<div style="display: flex; gap: 12px; align-items: center;">
+<span style="color: var(--placa);"><x-import component-from-global-scope="Informat.Icon" name="map-pin" size="{{n24}}"></x-import></span>
+<h2 id="cobertura" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Onde atendemos</h2>
+</div>
+<p style="margin: 0; color: var(--ink-2);">Atendimento presencial em <span class="inf-ph">[CIDADE]</span> e região, num raio de <span class="inf-ph">[RAIO]</span>.</p>
+<div style="max-width: 320px;">
+<x-import component-from-global-scope="Informat.TextField" label="CEP do atendimento" mono="{{yes}}" placeholder="00000-000" hint="Para confirmar se o endereço está na área de atendimento."></x-import>
+</div>
+<x-import component-from-global-scope="Informat.Alert" tone="neutral" title="Coleta e entrega do equipamento">Condições a definir: <span class="inf-ph">[A DEFINIR]</span>.</x-import>
+</section>
+
+<section aria-labelledby="agenda" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<div style="display: flex; gap: 12px; align-items: center;">
+<span style="color: var(--placa);"><x-import component-from-global-scope="Informat.Icon" name="calendar" size="{{n24}}"></x-import></span>
+<h2 id="agenda" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Escolha um horário</h2>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-2);">Horários de atendimento: <span class="inf-ph">[HORÁRIO]</span>. A agenda real vem da disponibilidade da Informat.</p>
+<div role="group" aria-label="Horários disponíveis" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 8px;">
+<sc-for list="{{slots}}" as="s" hint-placeholder-count="6">
+<sc-if value="{{s.pressed}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-pressed="true" onClick="{{s.pick}}" style="min-height: 52px; padding: 8px 12px; border: 2px solid var(--placa); border-radius: 8px; background: var(--placa-soft); color: var(--placa-strong); font-family: var(--font-mono); font-size: 14px; line-height: 20px; font-weight: 600; cursor: pointer;">{{s.label}}</button>
+</sc-if>
+<sc-if value="{{s.idle}}" hint-placeholder-val="{{true}}">
+<button type="button" aria-pressed="false" onClick="{{s.pick}}" style="min-height: 52px; padding: 8px 12px; border: 1px solid var(--field); border-radius: 8px; background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 14px; line-height: 20px; cursor: pointer;">{{s.label}}</button>
+</sc-if>
+</sc-for>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap-reverse; gap: 12px; justify-content: space-between; align-items: center;">
+<x-import component-from-global-scope="Informat.Button" variant="secondary" href="{{h.solicitar}}" icon-left="chevron-left">Voltar</x-import>
+<x-import component-from-global-scope="Informat.Button" variant="primary" size="l" href="{{h.orcamento}}" icon-right="arrow-right">Enviar solicitação</x-import>
+</div>
+</div>
+
+<aside aria-labelledby="resumo" style="flex: 1 1 300px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;">
+<h2 id="resumo" style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700;">Sua solicitação</h2>
+<dl style="margin: 0; display: flex; flex-direction: column;">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px dashed var(--line);"><dt class="inf-label">Equipamento</dt><dd style="margin: 0;">Notebook</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px dashed var(--line);"><dt class="inf-label">Serviço</dt><dd style="margin: 0;">Manutenção e reparo</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px dashed var(--line);"><dt class="inf-label">Problema</dt><dd style="margin: 0; color: var(--ink-2);">Desliga sozinho depois de uns 20 minutos de uso. (Exemplo)</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 0;"><dt class="inf-label">Fotos</dt><dd style="margin: 0; font-family: var(--font-mono); font-size: 14px;">2 arquivos</dd></div>
+</dl>
+<p style="margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-2);">Ao enviar, a OS é aberta e você recebe o número por mensagem da central RBX.</p>
+</aside>
+</div>
+</section>
+</main>
+<x-import component-from-global-scope="Informat.SiteFooter" promise="{{promise}}" columns="{{footerCols}}" compact="{{isMobile}}"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"device": {"editor": "enum", "options": ["desktop", "mobile"], "default": "desktop"}, "$preview": {"width": 1280, "height": 1950}}'>
+class Component extends DCLogic {
+pageVals(current, area) {
+  var m = (this.props.device ?? 'desktop') === 'mobile';
+  var s = m ? '-mobile' : '';
+  var f = function (n) { return n + s + '.dc.html'; };
+  var h = { inicio: f('Main'), servico: f('Servico'), solicitar: f('Solicitar'), atendimento: f('Atendimento'),
+    orcamento: f('Orcamento'), aprovacao: f('Aprovacao'), acompanhamento: f('Acompanhamento'), entrega: f('Entrega') };
+  var pub = [
+    { label: 'Serviços', href: h.servico, current: current === 'servico' },
+    { label: 'Como funciona', href: current === 'inicio' ? '#como-funciona' : h.inicio },
+    { label: 'Acompanhar OS', href: h.acompanhamento }
+  ];
+  var app = [
+    { label: 'Minhas OS', href: h.acompanhamento, current: true },
+    { label: 'Serviços', href: h.servico },
+    { label: 'Mensagens', href: h.acompanhamento + '' }
+  ];
+  return {
+    m: m, isMobile: m, notMobile: !m, h: h,
+    nav: area ? app : pub,
+    cta: { label: 'Solicitar atendimento', href: h.solicitar },
+    signIn: area ? { label: 'Minha conta', href: '#conta', icon: 'user' } : { label: 'Entrar', href: h.acompanhamento },
+    timelineOrientation: m ? 'vertical' : 'horizontal',
+    promise: 'Assistência técnica e consultoria Linux que mostra o diagnóstico e o orçamento antes de mexer no seu computador.',
+    footerCols: [
+      { title: 'Serviços', links: [{ label: 'Computador pronto para usar', href: h.servico }, { label: 'Manutenção e reparo', href: '#reparo' }, { label: 'Linux', href: '#linux' }] },
+      { title: 'Atendimento', links: [{ label: 'Como funciona', href: h.inicio }, { label: 'Acompanhar OS', href: h.acompanhamento }, { label: 'Entrar com sua conta RBX', href: h.acompanhamento }] },
+      { title: 'Contato', links: [{ label: '[TELEFONE]', icon: 'phone' }, { label: '[E-MAIL]', icon: 'mail' }, { label: '[CIDADE]', icon: 'map-pin' }, { label: '[HORÁRIO]', icon: 'clock' }] }
+    ]
+  };
+}
+
+renderVals() {
+  var p = this.pageVals('atendimento', false);
+  var self = this;
+  var picked = (this.state && this.state.slot != null) ? this.state.slot : 1;
+  p.yes = true; p.n20 = 20; p.n24 = 24;
+  p.modos = [
+    { value: 'presencial', title: 'Presencial', icon: 'home', description: 'No endereço combinado. Serve para qualquer serviço, inclusive reparo de hardware.', meta: '[CIDADE] e região' },
+    { value: 'remoto', title: 'Remoto', icon: 'video', tag: 'Hipótese', description: 'Por acesso remoto que você autoriza. Serve para Linux e configuração de programas, não para reparo de hardware.' }
+  ];
+  p.slots = [0, 1, 2, 3, 4, 5].map(function (i) {
+    return { label: '[DIA] · [HORÁRIO]', pressed: picked === i, idle: picked !== i, pick: function () { self.setState({ slot: i }); } };
+  });
+  return p;
+}
+}
+</script>
+</body>
+</html>

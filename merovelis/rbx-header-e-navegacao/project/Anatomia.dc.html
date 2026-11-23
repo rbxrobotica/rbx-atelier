@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Anatomia do header e tokens</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Archivo:wdth,wght@125,700&display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;line-height:1}
+.tok{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.02em;line-height:1.5;color:#b8bcc2}
+.tok b{font-weight:500;color:#22e5e5}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1000px; box-sizing: border-box; padding: 48px; background: #07080a; color: #ececec; font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.5; display: flex; flex-direction: column; gap: 40px; -webkit-font-smoothing: antialiased;">
+
+  <section style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: start;">
+    <div style="grid-column: span 8; display: flex; flex-direction: column; gap: 16px;">
+      <span class="mono" style="color: #7a7f87;">Anatomia · três faixas</span>
+      <div style="display: flex; gap: 16px; align-items: stretch;">
+        <div style="width: 64px; display: flex; flex-direction: column; flex-shrink: 0;">
+          <div class="tok" style="height: 72px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; border-right: 1px solid #3a4048;">72</div>
+          <div class="tok" style="height: 48px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; border-right: 1px solid #3a4048;">48</div>
+          <div class="tok" style="height: 44px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; border-right: 1px solid #3a4048;">44</div>
+          <div class="tok" style="height: 56px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; border-right: 1px solid #3a4048; color: #7a7f87;">24 + 32</div>
+        </div>
+        <div style="flex-grow: 1; border: 1px solid #24282e; border-radius: 4px; overflow: hidden; background: #07080a;">
+          <div style="height: 72px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+            <span style="display: inline-flex; align-items: center; gap: 12px;"><svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true"><path d="M30 8 H56 V34 L34 56 H8 V30 Z" fill="#22e5e5"></path></svg><span style="display: flex; flex-direction: column; gap: 3px;"><span style="font: 700 17px/1 'Archivo', 'Inter', sans-serif; font-stretch: 125%; letter-spacing: -0.02em; color: #ececec;">RBX</span><span class="mono" style="font-size: 9px; letter-spacing: 0.2em; color: #7a7f87;">Systems</span></span></span>
+            <span style="display: flex; align-items: center; gap: 24px;"><span class="mono" style="display: flex; gap: 2px;"><span style="color: #ececec; padding: 8px; box-shadow: inset 0 -1px 0 #22e5e5;">PT</span><span style="color: #4a4f56; padding: 8px 0;">/</span><span style="color: #7a7f87; padding: 8px;">EN</span></span><span class="mono" style="background: #22e5e5; color: #07080a; padding: 10px 16px; border-radius: 2px;">Contato</span></span>
+          </div>
+          <div style="height: 48px; padding: 0 24px; display: flex; gap: 32px; font-size: 15px; font-weight: 500; border-bottom: 1px solid #24282e;">
+            <span style="display: flex; align-items: center; color: #7a7f87;">Empresa</span>
+            <span style="display: flex; align-items: center; color: #7a7f87;">Soluções</span>
+            <span style="display: flex; align-items: center; color: #ececec; box-shadow: inset 0 -1px 0 #22e5e5;">Produtos</span>
+            <span style="display: flex; align-items: center; color: #7a7f87;">Parceria</span>
+            <span style="display: flex; align-items: center; color: #7a7f87;">Journal</span>
+          </div>
+          <div style="height: 44px; padding: 0 24px; display: flex; align-items: center; background: #0d0f12; border-bottom: 1px solid #24282e; font-size: 14px;">
+            <span style="color: #7a7f87; padding-right: 16px;">Visão geral</span>
+            <span style="display: flex; align-items: center; height: 20px; border-left: 1px solid #24282e;"><span style="color: #ececec; padding: 0 16px 3px; margin-bottom: -3px; box-shadow: inset 0 -1px 0 #22e5e5;">Robson</span></span>
+            <span style="display: flex; align-items: center; height: 20px; border-left: 1px solid #24282e;"><span style="color: #7a7f87; padding: 0 16px;">Briefing BTC</span></span>
+            <span style="display: flex; align-items: center; height: 20px; border-left: 1px solid #24282e;"><span style="color: #7a7f87; padding: 0 16px;">Strategos</span></span>
+          </div>
+          <div class="mono" style="height: 56px; padding: 24px 24px 0; display: flex; align-items: flex-start; gap: 8px; color: #7a7f87; box-sizing: border-box;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg>
+            <span style="color: #4a4f56;">›</span><span>Produtos</span><span style="color: #4a4f56;">›</span><span style="color: #ececec; padding-bottom: 2px; box-shadow: inset 0 -1px 0 #0b6e6e;">Robson</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="grid-column: span 4; display: flex; flex-direction: column; gap: 16px;">
+      <span class="mono" style="color: #7a7f87;">Tokens por faixa</span>
+      <div class="tok" style="display: flex; flex-direction: column; gap: 10px;">
+        <div><b>header-row</b> 72px · lockup 28px · <b>eyebrow</b> PT / EN · <b>cta</b> + <b>on-cta</b></div>
+        <div><b>nav-row</b> 48px · <b>nav-primary</b> 15px 500 · gap <b>s-6</b> 32px · ativo <b>fg-0</b> + 1px <b>cyan-brand</b></div>
+        <div><b>band-row</b> 44px · fundo <b>bg-1</b> · <b>nav-secondary</b> 14px · divisor 1px <b>border</b> · padding <b>s-4</b></div>
+        <div><b>breadcrumb</b> mono 11px 0.14em caixa alta · <b>fg-2</b> · separador <b>fg-3</b> · atual <b>fg-0</b> + 1px <b>cyan-dim</b></div>
+        <div>largura <b>nav-w</b> 1280px · margem <b>gutter</b> 24px · sem blur, sem sombra, borda <b>border</b> embaixo</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <span class="mono" style="color: #7a7f87;">Mapa de seções · 23 páginas em 5 seções, Contato vira CTA, Aviso Legal fica no rodapé</span>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
+      <div style="background: #0d0f12; border: 1px solid #24282e; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 15px; font-weight: 500; color: #ececec; padding-bottom: 10px; border-bottom: 1px solid #24282e;">Empresa</span>
+        <span style="color: #b8bcc2;">Sobre</span><span style="color: #b8bcc2;">História</span><span style="color: #b8bcc2;">Equipe</span><span style="color: #b8bcc2;">Carreiras</span><span style="color: #b8bcc2;">Manifesto</span><span style="color: #b8bcc2;">Trust</span>
+      </div>
+      <div style="background: #0d0f12; border: 1px solid #24282e; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 15px; font-weight: 500; color: #ececec; padding-bottom: 10px; border-bottom: 1px solid #24282e;">Soluções</span>
+        <span style="color: #b8bcc2;">Soluções</span><span style="color: #b8bcc2;">Cases</span><span style="color: #b8bcc2;">Atelier</span>
+      </div>
+      <div style="background: #0d0f12; border: 1px solid #22e5e5; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 15px; font-weight: 500; color: #ececec; padding-bottom: 10px; border-bottom: 1px solid #24282e;">Produtos</span>
+        <span style="color: #b8bcc2;">Visão geral</span><span style="color: #ececec; box-shadow: inset 0 -1px 0 #22e5e5; align-self: flex-start; padding-bottom: 2px;">Robson</span><span style="color: #b8bcc2;">Briefing BTC</span><span style="color: #b8bcc2;">Strategos</span><span style="color: #b8bcc2;">Verentir</span><span style="color: #b8bcc2;">Kulinaryos</span>
+      </div>
+      <div style="background: #0d0f12; border: 1px solid #24282e; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 15px; font-weight: 500; color: #ececec; padding-bottom: 10px; border-bottom: 1px solid #24282e;">Parceria</span>
+        <span style="color: #b8bcc2;">Parceria de engenharia</span>
+      </div>
+      <div style="background: #0d0f12; border: 1px solid #24282e; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 15px; font-weight: 500; color: #ececec; padding-bottom: 10px; border-bottom: 1px solid #24282e;">Journal</span>
+        <span style="color: #b8bcc2;">Journal</span><span style="color: #b8bcc2;">Changelog</span><span style="color: #b8bcc2;">Newsroom</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px;">
+    <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 16px;">
+      <span class="mono" style="color: #7a7f87;">Estados · sublinhado no lugar da pílula</span>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Repouso</span><div style="height: 48px; display: flex; align-items: center; border-bottom: 1px solid #24282e; font-size: 15px; font-weight: 500; color: #7a7f87;">Produtos</div></div>
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Hover</span><div style="height: 48px; display: flex; align-items: center; border-bottom: 1px solid #24282e; font-size: 15px; font-weight: 500; color: #ececec;">Produtos</div></div>
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Ativo</span><div style="height: 48px; display: flex; align-items: center; border-bottom: 1px solid #24282e; font-size: 15px; font-weight: 500; color: #ececec; box-shadow: inset 0 -1px 0 #22e5e5;">Produtos</div></div>
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Foco</span><div style="height: 48px; display: flex; align-items: center; border-bottom: 1px solid #24282e; font-size: 15px; font-weight: 500; color: #ececec;"><span style="box-shadow: 0 0 0 2px #22e5e5; border-radius: 2px; padding: 4px 8px;">Produtos</span></div></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Antes · pílula preenchida</span><div style="height: 48px; display: flex; align-items: center;"><span class="mono" style="color: #22e5e5; background: rgba(0, 255, 255, 0.08); border: 1px solid #0b6e6e; border-radius: 999px; padding: 6px 12px;">Produtos</span></div></div>
+        <div style="display: flex; flex-direction: column; gap: 8px;"><span class="mono" style="color: #4a4f56;">Depois · texto e linha</span><div style="height: 48px; display: flex; align-items: center;"><span style="font-size: 15px; font-weight: 500; color: #ececec; box-shadow: inset 0 -1px 0 #22e5e5; padding-bottom: 14px; margin-bottom: -14px;">Produtos</span></div></div>
+      </div>
+    </div>
+    <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px;">
+      <span class="mono" style="color: #7a7f87;">Tema claro · mesmos nomes, outros valores</span>
+      <div style="background: #ffffff; border: 1px solid #dcdcdc; border-radius: 4px; overflow: hidden; color: #1c1c1c;">
+        <div style="height: 48px; padding: 0 20px; display: flex; gap: 24px; font-size: 15px; font-weight: 500; border-bottom: 1px solid #dcdcdc;">
+          <span style="display: flex; align-items: center; color: #6b6b6b;">Empresa</span>
+          <span style="display: flex; align-items: center; color: #1c1c1c; box-shadow: inset 0 -1px 0 #0f8f8f;">Produtos</span>
+          <span style="display: flex; align-items: center; color: #6b6b6b;">Journal</span>
+          <span class="mono" style="margin-left: auto; align-self: center; background: #084f4f; color: #ffffff; padding: 10px 16px; border-radius: 2px;">Contato</span>
+        </div>
+        <div style="height: 44px; padding: 0 20px; display: flex; align-items: center; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; font-size: 14px;">
+          <span style="color: #6b6b6b; padding-right: 16px;">Visão geral</span>
+          <span style="display: flex; align-items: center; height: 20px; border-left: 1px solid #dcdcdc;"><span style="color: #1c1c1c; padding: 0 16px 3px; margin-bottom: -3px; box-shadow: inset 0 -1px 0 #0f8f8f;">Robson</span></span>
+          <span style="display: flex; align-items: center; height: 20px; border-left: 1px solid #dcdcdc;"><span style="color: #6b6b6b; padding: 0 16px;">Briefing BTC</span></span>
+        </div>
+        <div class="mono" style="padding: 20px; display: flex; gap: 8px; color: #6b6b6b;"><span style="color: #b8b8b8;">›</span><span>Produtos</span><span style="color: #b8b8b8;">›</span><span style="color: #1c1c1c; padding-bottom: 2px; box-shadow: inset 0 -1px 0 #084f4f;">Robson</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

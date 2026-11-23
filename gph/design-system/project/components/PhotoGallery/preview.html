@@ -1,0 +1,12 @@
+<!-- @dsCard group="Anúncios" height=460 -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>PhotoGallery</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var G = window.Gph, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById("root")).render(h('div', { style: { maxWidth: 560, padding: 16 } }, h(G.PhotoGallery, { category: 'Imóveis', total: 12 })));
+</script>
+</body>
+</html>

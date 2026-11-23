@@ -1,0 +1,58 @@
+<!-- @dsCard group="Telas" height=3600 width=1200 subtitle="Tela real montada só com os componentes · tema claro · 1200 px" page -->
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PaginaInicial · prévia</title>
+<style>
+  body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--font-sans); }
+  .pv { box-sizing: border-box; padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-start; }
+  .pv-col { box-sizing: border-box; padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .pv-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .pv-stack { display: flex; flex-direction: column; }
+  .pv-split > [data-theme], .pv-stack > [data-theme] { background: var(--fundo); color: var(--texto); min-width: 0; }
+  .pv-cap { margin: 0; flex-basis: 100%; font-size: var(--fs-label); line-height: var(--lh-label); font-weight: var(--fw-semibold); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--texto-2); }
+  .pv-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: var(--space-2); }
+  .pv-icon { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: var(--space-2); border-radius: var(--radius-s); font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--texto-2); text-align: center; overflow-wrap: anywhere; }
+  .pv-box { box-sizing: border-box; min-height: var(--control-l); padding: var(--space-3); border-radius: var(--radius-m); background: var(--marca-suave); color: var(--marca-forte); font-size: var(--fs-small); font-weight: var(--fw-semibold); display: grid; place-content: center; }
+</style>
+</head>
+<body>
+<div class="pv-stack"><div data-theme="claro" id="t-claro"></div></div>
+<script>
+  var I = window.Iteruno;
+  function el(root, cls, html) { var d = document.createElement('div'); if (cls) d.className = cls; if (html) d.innerHTML = html; root.appendChild(d); return d; }
+  function cap(root, t) { var p = document.createElement('p'); p.className = 'pv-cap'; p.textContent = t; root.appendChild(p); return p; }
+  function m(C, target, props) { return I.mount(C, { target: target, props: props || {} }); }
+  function demo(root, tema) {
+
+    var r = el(root, 'pv-stack');
+    m(I.NavBar, r, { current: '/', links: [{ label: 'Início', href: '/' }, { label: 'Serviços', href: '/servicos' }, { label: 'Cursos', href: '/cursos' }, { label: 'Sobre', href: '/sobre' }, { label: 'Contato', href: '/contato' }], cta: { label: 'Chamar no WhatsApp', href: '#', icon: 'whatsapp' } });
+    m(I.Hero, r, { eyebrow: 'Iteruno Tecnologias · São Paulo · desde 2021', title: 'Tecnologia que funciona, explicada sem jargão.', text: 'Suporte e manutenção de computadores, sites e cursos para quem não tem equipe de TI. Resolvemos o problema e explicamos o que foi feito.', primary: { label: 'Chamar no WhatsApp', href: '#', icon: 'whatsapp' }, secondary: { label: 'Ver serviços', href: '#servicos', icon: 'arrow-right' } });
+    m(I.Section, el(r, null), { id: 'servicos', tone: 'superficie', eyebrow: 'Serviços', title: 'Três frentes, um jeito de trabalhar', lead: 'Diagnosticar, explicar e resolver. Você entende o que foi feito e quanto custa antes de aprovar.', children: I.html('<div class="itr-grid itr-grid--3" id="pv-home-serv-' + tema + '"></div>') });
+    var gs = document.getElementById('pv-home-serv-' + tema);
+    m(I.ServiceCard, gs, { title: 'Suporte & Manutenção', icon: 'wrench', description: 'Computadores e notebooks: formatação, limpeza, upgrade, remoção de vírus, redes.', items: ['Diagnóstico com explicação', 'Backup combinado antes de mexer', 'Atendimento remoto ou no local'], href: '#' });
+    m(I.ServiceCard, gs, { title: 'Sites', icon: 'globe', description: 'Sites rápidos e simples de manter para negócios locais.', items: ['Domínio e hospedagem orientados', 'Páginas que carregam em segundos', 'Você aprende a atualizar'], href: '#' });
+    m(I.ServiceCard, gs, { title: 'Cursos', icon: 'book-open', description: 'Informática do dia a dia, sem jargão, em turmas pequenas.', items: ['Presencial ou online', 'Apostila própria', 'Certificado de participação'], href: '#' });
+    m(I.Section, el(r, null), { eyebrow: 'Planos', title: 'Quanto custa', lead: 'Valores de referência. O orçamento é fechado antes de qualquer serviço.', children: I.html('<div class="itr-grid itr-grid--3" id="pv-home-plan-' + tema + '"></div>') });
+    var gp = document.getElementById('pv-home-plan-' + tema);
+    m(I.PriceCard, gp, { name: 'Visita avulsa', description: 'Para resolver um problema pontual.', price: '[[CONFIRMAR preço]]', period: 'por visita', items: ['Diagnóstico incluído', 'Até 2 h de atendimento', 'Relatório do que foi feito'], action: { label: 'Pedir visita', href: '#' } });
+    m(I.PriceCard, gp, { name: 'Plano mensal', description: 'Para quem depende do computador todo dia.', price: '[[CONFIRMAR preço]]', period: 'por mês', featured: true, items: ['Atendimento prioritário', 'Suporte remoto ilimitado', 'Uma visita por mês incluída', 'Backup acompanhado'], action: { label: 'Assinar plano', href: '#', icon: 'whatsapp' } });
+    m(I.PriceCard, gp, { name: 'Site', description: 'Site institucional de até 5 páginas.', price: '[[CONFIRMAR preço]]', items: ['Design do sistema Iteruno', 'Hospedagem orientada', 'Treinamento para atualizar'], action: { label: 'Pedir orçamento', href: '#' } });
+    m(I.Section, el(r, null), { tone: 'superficie', eyebrow: 'Cursos', title: 'Próximas turmas', children: I.html('<div class="itr-grid itr-grid--3" id="pv-home-curso-' + tema + '"></div>') });
+    var gc = document.getElementById('pv-home-curso-' + tema);
+    m(I.CourseCard, gc, { title: 'Informática básica', description: 'Do zero ao e-mail, documentos e segurança no dia a dia.', format: 'Presencial', duration: '16 h · 8 encontros', next: '[[CONFIRMAR data]]', seats: '6 vagas', action: { label: 'Reservar vaga', href: '#' } });
+    m(I.CourseCard, gc, { title: 'Manutenção de computadores', description: 'Hardware, formatação e diagnóstico para iniciantes.', format: 'Presencial', duration: '24 h · 12 encontros', next: '[[CONFIRMAR data]]', badge: { label: 'Novo', tone: 'marca' }, seats: 'Poucas vagas', seatsTone: 'aviso', action: { label: 'Reservar vaga', href: '#' } });
+    m(I.CourseCard, gc, { title: 'Linux para o dia a dia', icon: 'terminal', description: 'Instalar, usar e manter um Linux no notebook.', format: 'Online', duration: '12 h · 6 encontros', next: 'Sob demanda', action: { label: 'Tenho interesse', href: '#' } });
+    m(I.Section, el(r, null), { eyebrow: 'Clientes', title: 'Quem já chamou a Iteruno', children: I.html('<div class="itr-grid itr-grid--2" id="pv-home-dep-' + tema + '"></div>') });
+    var gd = document.getElementById('pv-home-dep-' + tema);
+    m(I.Testimonial, gd, { quote: 'Explicaram o que estava errado antes de mexer e o notebook voltou mais rápido do que era.', name: '[[CONFIRMAR nome]]', role: '[[CONFIRMAR papel]] · depoimento com autorização' });
+    m(I.Testimonial, gd, { quote: 'O site ficou pronto em duas semanas e eu mesma atualizo os horários.', name: '[[CONFIRMAR nome]]', role: '[[CONFIRMAR papel]] · depoimento com autorização' });
+    m(I.Section, el(r, null), { tone: 'superficie', narrow: true, eyebrow: 'Dúvidas', title: 'Perguntas frequentes', children: I.html('<div id="pv-home-faq-' + tema + '"></div>') });
+    m(I.Accordion, document.getElementById('pv-home-faq-' + tema), { exclusive: true, items: [{ title: 'Vocês atendem em casa?', content: 'Sim. Atendemos no local em São Paulo com hora marcada, ou remotamente quando o problema permite.', open: true }, { title: 'Quanto custa o diagnóstico?', content: '[[CONFIRMAR política de diagnóstico]]' }, { title: 'Meus dados ficam seguros?', content: 'Nada é apagado sem combinar o backup antes. Você escolhe o que copiar.' }, { title: 'Emitem nota fiscal?', content: '[[CONFIRMAR nota fiscal]]' }] });
+    m(I.ContactCTA, r, { text: 'Conte o que aconteceu. A gente responde em até um dia útil e explica o próximo passo.', whatsapp: '[[CONFIRMAR 5511900000000]]', email: 'contact@rbxsystems.ch', meta: 'Segunda a sexta, 9h às 18h · [[CONFIRMAR horário]]' });
+    m(I.Footer, r, { promise: 'Tecnologia que funciona, explicada sem jargão.', columns: [{ title: 'Serviços', links: [{ label: 'Suporte & Manutenção', href: '#' }, { label: 'Sites', href: '#' }, { label: 'Cursos', href: '#' }] }, { title: 'Iteruno', links: [{ label: 'Sobre', href: '#' }, { label: 'Contato', href: '#' }, { label: 'Política de privacidade', href: '#' }, { label: 'Instagram', href: '#', icon: 'external-link' }] }], contact: { whatsapp: '[[CONFIRMAR (11) 9 0000-0000]]', whatsappHref: '#', email: 'contact@rbxsystems.ch', address: 'São Paulo, SP · [[CONFIRMAR bairro]]', hours: 'Seg. a sex., 9h às 18h' }, legal: 'CNPJ [[CONFIRMAR]]', year: 2026 });
+
+  }
+  demo(document.getElementById('t-claro'), 'claro');
+</script>
+</body>
+</html>

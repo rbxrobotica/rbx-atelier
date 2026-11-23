@@ -1,0 +1,21 @@
+{
+ "title": "Máquina de Vendas RBX",
+ "url": "https://claude.ai/artifact/MxrKXBAHmjQh4J8vf39aWc",
+ "type": null,
+ "version": "1790401036-0090",
+ "listed_version": "1790401036-0090",
+ "listed_at": "2026-11-19T14:46:10Z",
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 95413,
+   "sha256": "788d87d3f68f5f35d6575424dfa7e03c720abaeb0db762c5534d2b7cea3aed63"
+  }
+ ],
+ "assets": [],
+ "failures": [],
+ "notes": [
+  "untyped single page; assets capability not declared (asset list unavailable)"
+ ],
+ "previous_backup_path": "claude-design/maquina-de-vendas-rbx"
+}

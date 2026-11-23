@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta: página de produto Robson</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400&family=Archivo:wdth,wght@125,700&display=swap">
+<style>
+body{margin:0}
+.rbx{--bg-0:#07080a;--bg-1:#0d0f12;--bg-2:#13161a;--bg-3:#1a1e23;--fg-0:#ececec;--fg-1:#b8bcc2;--fg-2:#7a7f87;--fg-3:#4a4f56;--border:#24282e;--border-strong:#3a4048;--cyan-brand:#22e5e5;--cyan-signal:#00ffff;--cyan-muted:#06b6b6;--cyan-dim:#0b6e6e;--cyan-subtle:rgba(0,255,255,0.08);--cta:#22e5e5;--on-cta:#07080a;--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--font-serif:'Newsreader',Georgia,serif;--font-wordmark:'Archivo','Inter',sans-serif}
+.rbx.scheme-light{--bg-0:#ffffff;--bg-1:#f4f4f4;--bg-2:#fafafa;--bg-3:#ededed;--fg-0:#1c1c1c;--fg-1:#4e4e4e;--fg-2:#6b6b6b;--fg-3:#b8b8b8;--border:#dcdcdc;--border-strong:#b8b8b8;--cyan-brand:#0f8f8f;--cyan-signal:#0a7f7f;--cyan-muted:#0b6e6e;--cyan-dim:#084f4f;--cyan-subtle:rgba(11,110,110,0.08);--cta:#084f4f;--on-cta:#ffffff}
+.rbx a{color:inherit;text-decoration:none}
+.rbx a:hover{color:var(--fg-0)}
+.rbx a:focus-visible{outline:none;box-shadow:0 0 0 2px var(--cyan-brand)}
+.rbx .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;line-height:1}
+.rbx.display-serif .title{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.01em;line-height:1.08}
+.rbx .cta:hover{background:var(--cyan-signal);color:#07080a}
+.rbx .card-link:hover{color:var(--cyan-muted)}
+</style>
+</helmet>
+<div class="rbx scheme-{{scheme}} display-{{display}}" style="min-height: 100%; background: var(--bg-0); color: var(--fg-0); font-family: var(--font-sans); font-size: 15px; line-height: 1.55; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased;">
+
+  <header style="background: var(--bg-0); border-bottom: 1px solid var(--border);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-sizing: border-box;">
+      <a href="#" aria-label="RBX Systems, início" style="display: flex; align-items: center; gap: 12px;">
+        <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true"><path d="M30 8 H56 V34 L34 56 H8 V30 Z" style="fill: var(--cyan-brand);"></path></svg>
+        <span style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font: 700 17px/1 var(--font-wordmark); font-stretch: 125%; letter-spacing: -0.02em; color: var(--fg-0);">RBX</span>
+          <span class="eyebrow" style="font-size: 9px; letter-spacing: 0.2em; color: var(--fg-2);">Systems</span>
+        </span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <div class="eyebrow" role="group" aria-label="Idioma" style="display: flex; align-items: center; gap: 2px;">
+          <a href="#" aria-current="true" style="color: var(--fg-0); padding: 8px; box-shadow: inset 0 -1px 0 var(--cyan-brand);">PT</a>
+          <span aria-hidden="true" style="color: var(--fg-3);">/</span>
+          <a href="#" style="color: var(--fg-2); padding: 8px;">EN</a>
+        </div>
+        <a class="eyebrow cta" href="#" style="background: var(--cta); color: var(--on-cta); padding: 10px 16px; border-radius: 2px;">Contato</a>
+      </div>
+    </div>
+    <nav aria-label="Principal" style="max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 32px; height: 48px; font-size: 15px; font-weight: 500;">
+        <li style="display: flex;"><a href="#" style="display: flex; align-items: center; color: var(--fg-2);">Empresa</a></li>
+        <li style="display: flex;"><a href="#" style="display: flex; align-items: center; color: var(--fg-2);">Soluções</a></li>
+        <li style="display: flex;"><a href="#" aria-current="true" style="display: flex; align-items: center; color: var(--fg-0); box-shadow: inset 0 -1px 0 var(--cyan-brand);">Produtos</a></li>
+        <li style="display: flex;"><a href="#" style="display: flex; align-items: center; color: var(--fg-2);">Parceria</a></li>
+        <li style="display: flex;"><a href="#" style="display: flex; align-items: center; color: var(--fg-2);">Journal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div style="background: var(--bg-1); border-bottom: 1px solid var(--border);">
+    <nav aria-label="Produtos" style="max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; min-height: 44px; font-size: 14px;">
+        <li style="display: flex; align-items: center; height: 20px;"><a href="#" style="color: var(--fg-2); padding: 0 16px 0 0;">Visão geral</a></li>
+        <li style="display: flex; align-items: center; height: 20px; border-left: 1px solid var(--border);"><a href="#" aria-current="page" style="color: var(--fg-0); padding: 0 16px 3px; margin-bottom: -3px; box-shadow: inset 0 -1px 0 var(--cyan-brand);">Robson</a></li>
+        <li style="display: flex; align-items: center; height: 20px; border-left: 1px solid var(--border);"><a href="#" style="color: var(--fg-2); padding: 0 16px;">Briefing BTC</a></li>
+        <li style="display: flex; align-items: center; height: 20px; border-left: 1px solid var(--border);"><a href="#" style="color: var(--fg-2); padding: 0 16px;">Strategos</a></li>
+        <li style="display: flex; align-items: center; height: 20px; border-left: 1px solid var(--border);"><a href="#" style="color: var(--fg-2); padding: 0 16px;">Verentir</a></li>
+        <li style="display: flex; align-items: center; height: 20px; border-left: 1px solid var(--border);"><a href="#" style="color: var(--fg-2); padding: 0 16px;">Kulinaryos</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main style="max-width: 1280px; width: 100%; margin: 0 auto; padding: 24px 24px 96px; box-sizing: border-box; flex-grow: 1;">
+    <nav class="eyebrow" aria-label="Caminho" style="color: var(--fg-2); margin-bottom: 48px;">
+      <ol style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <li style="display: flex;"><a href="#" aria-label="Início" style="display: inline-flex; color: var(--fg-2);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v10h14V10"></path></svg></a></li>
+        <li aria-hidden="true" style="color: var(--fg-3);">›</li>
+        <li><a href="#" style="color: var(--fg-2);">Produtos</a></li>
+        <li aria-hidden="true" style="color: var(--fg-3);">›</li>
+        <li><span aria-current="page" style="color: var(--fg-0); padding-bottom: 2px; box-shadow: inset 0 -1px 0 var(--cyan-dim);">Robson</span></li>
+      </ol>
+    </nav>
+
+    <header style="max-width: 672px; display: flex; flex-direction: column; margin-bottom: 56px;">
+      <span class="eyebrow" style="color: var(--fg-2);">Produto</span>
+      <h1 class="title" style="margin: 8px 0 16px; font-size: 52px; font-weight: 300; line-height: 1.1; letter-spacing: -0.015em; color: var(--fg-0);">Robson</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 300; color: var(--fg-0);">Sistema de negociação algorítmica operado pela RBX, com regras de risco explícitas e uma API pública de leitura para acompanhar o que ele faz.</p>
+    </header>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+      <section style="flex: 999 1 560px; min-width: 0; max-width: 672px; display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0 0 4px; font-size: 28px; font-weight: 400; line-height: 1.25; letter-spacing: -0.015em; color: var(--fg-0);">Como funciona</h2>
+        <p style="margin: 0; color: var(--fg-1);">O Robson opera com regras escritas antes da primeira ordem: limites explícitos por posição e por mês, e um estado mensal que decide se o sistema pode seguir ou precisa parar.</p>
+        <p style="margin: 0; color: var(--fg-1);">Tudo o que ele faz fica legível de fora. Uma API pública de leitura expõe o estado e o histórico, e o Journal registra o que mudou e por quê, mês a mês, inclusive quando o resultado não é bom.</p>
+        <h2 style="margin: 24px 0 4px; font-size: 28px; font-weight: 400; line-height: 1.25; letter-spacing: -0.015em; color: var(--fg-0);">O que você pode acompanhar</h2>
+        <ul style="margin: 0; padding: 0 0 0 20px; color: var(--fg-1); display: flex; flex-direction: column; gap: 8px;">
+          <li>Estado mensal e regras de risco em vigor.</li>
+          <li>Histórico de decisões e dos motivos de cada parada.</li>
+          <li>Mudanças de software publicadas no Changelog.</li>
+        </ul>
+      </section>
+      <aside style="flex: 1 1 280px; max-width: 360px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box;">
+        <span class="eyebrow" style="color: var(--fg-2);">Acompanhar</span>
+        <a class="card-link" href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--fg-0);"><span>API pública de leitura</span><span style="font-family: var(--font-mono); font-size: 13px; color: var(--fg-2);">api.robson.rbx.ia.br</span></a>
+        <a class="card-link" href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--fg-0);"><span>Journal do Robson</span><span style="font-family: var(--font-mono); font-size: 13px; color: var(--fg-2);">/journal/tag/robson</span></a>
+        <a class="card-link" href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; color: var(--fg-0);"><span>Changelog</span><span style="font-family: var(--font-mono); font-size: 13px; color: var(--fg-2);">/changelog</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid var(--border);">
+    <div class="eyebrow" style="max-width: 1280px; margin: 0 auto; padding: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--fg-2); box-sizing: border-box;">
+      <span>© 2026 RBX Systems</span>
+      <a href="#" style="color: var(--fg-2);">Aviso Legal</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["dark","light"],"default":"dark","section":"Tema"},"display":{"editor":"enum","options":["sans","serif"],"default":"sans","section":"Tipografia"},"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      scheme: this.props.scheme ?? 'dark',
+      display: this.props.display ?? 'sans'
+    };
+  }
+}
+</script>
+</body>
+</html>

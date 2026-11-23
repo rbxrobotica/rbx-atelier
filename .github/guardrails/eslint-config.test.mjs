@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { ESLint } from 'eslint';
+import { ARCHIVE_DIRECTORIES } from './archive.mjs';
 
 const eslint = new ESLint({
   cwd: fileURLToPath(new URL('../../', import.meta.url)),
@@ -177,6 +178,18 @@ test('a file read by a computed path passes only in the six listed scripts and t
   ]) {
     assert.deepEqual(await rules(code, file), [rule], file);
   }
+});
+
+test('the archive directories are left out, whole, and nothing else is', async () => {
+  for (const directory of ARCHIVE_DIRECTORIES) {
+    for (const file of ['app.js', 'artifact/project/components/bundle.js', 'artifact/project/page.html', 'artifact/index.HTML']) {
+      assert.equal(await eslint.isPathIgnored(`${directory}/${file}`), true, `${directory}/${file}`);
+    }
+  }
+  for (const file of ['sample.mjs', 'initelo.js', 'initelo-site/app.js', 'design-systems/initelo/app.js', 'design-systems/satwake/creative-review/scripts/server.mjs', 'docs/gph/page.html', '.github/guardrails/archive.mjs']) {
+    assert.equal(await eslint.isPathIgnored(file), false, file);
+  }
+  assert.deepEqual(await rules('eval(input);', 'design-systems/initelo/app.js'), ['no-eval']);
 });
 
 test('a disable directive that disables nothing is an error', async () => {

@@ -1,0 +1,32 @@
+<!-- @dsCard group="Ações" height=96 subtitle="Primário, secundário, terciário, foco, desabilitado" -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+.row{display:flex;align-items:center;gap:var(--s-5);padding:var(--s-5);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:var(--s-2);text-transform:uppercase;padding:10px var(--s-4);border-radius:var(--radius-sm);border:1px solid transparent;text-decoration:none;cursor:pointer;line-height:1}
+.btn:focus-visible{outline:none;box-shadow:var(--ring-focus)}
+.primary{background:var(--cta);color:var(--on-cta)}
+.primary:hover{background:var(--cyan-signal)}
+.secondary{background:var(--cyan-subtle);border-color:var(--cyan-dim);color:var(--cyan-muted)}
+.secondary:hover{border-color:var(--cyan-brand)}
+.tertiary{font:400 15px/1.2 var(--font-sans);text-transform:none;letter-spacing:0;padding:0;border:0;border-radius:0;color:var(--fg-0);box-shadow:inset 0 -1px 0 var(--border-strong)}
+.tertiary:hover{color:var(--cyan-muted);box-shadow:inset 0 -1px 0 var(--cyan-brand)}
+.focus{box-shadow:var(--ring-focus)}
+.disabled{background:var(--bg-2);color:var(--fg-3);border-color:var(--border);cursor:not-allowed}
+</style>
+</head>
+<body>
+<div class="row">
+  <button class="btn eyebrow primary" type="button">Contato</button>
+  <button class="btn eyebrow secondary" type="button">Ver documentação</button>
+  <a class="btn tertiary" href="#">Ler o manifesto</a>
+  <button class="btn eyebrow primary focus" type="button">Com foco</button>
+  <button class="btn eyebrow disabled" type="button" disabled>Enviando</button>
+</div>
+</body>
+</html>
