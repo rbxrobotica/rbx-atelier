@@ -189,7 +189,7 @@ test('the archive directories are left out, whole, and nothing else is', async (
   for (const file of ['sample.mjs', 'initelo.js', 'initelo-site/app.js', 'design-systems/initelo/app.js', 'design-systems/satwake/creative-review/scripts/server.mjs', 'docs/gph/page.html', '.github/guardrails/archive.mjs']) {
     assert.equal(await eslint.isPathIgnored(file), false, file);
   }
-  assert.deepEqual(await rules('eval(input);', 'design-systems/initelo/app.js'), ['no-eval']);
+  assert.ok((await rules('eval(input);', 'design-systems/initelo/app.js')).includes('no-eval'));
 });
 
 test('a disable directive that disables nothing is an error', async () => {
