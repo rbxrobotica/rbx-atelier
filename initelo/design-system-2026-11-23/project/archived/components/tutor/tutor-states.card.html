@@ -1,0 +1,14 @@
+<!-- @dsCard group="Initelo — Design System" viewport="760x1110" name="Tutor de IA — pergunta sugerida, espera, erro e conferência" subtitle="Ficha de pergunta, IA escrevendo, falha com nova tentativa e lista de conferência em andamento e concluída" -->
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tutor de IA — pergunta sugerida, espera, erro e conferência</title><link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="../../guidelines/card.css"><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script><script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script><script src="../../_ds_bundle.js"></script></head><body><div id="root"></div><script type="text/babel">const {TutorPanel,PromptSuggestion,VerifyChecklist}=window.IniteloDesignSystem_b8cd96;
+const items=[{id:'a',label:'Os valores são os mesmos que você informou?',detail:'Aluguel R$ 1.450,00 · energia R$ 186,40'},{id:'b',label:'A soma das despesas confere?',detail:'R$ 3.083,65'},{id:'c',label:'A IA presumiu algo que você não disse?'}];
+function Card(){return <div className="g2" style={{alignItems:'start'}}>
+<div className="col" style={{gap:16}}>
+<PromptSuggestion onUse={function(){}}>Meu salário de R$ 4.200,00 entra no dia 5. Monte uma tabela com o saldo depois de cada pagamento e mostre as contas que você fez.</PromptSuggestion>
+<div style={{height:400}}><TutorPanel messages={[{id:'1',from:'student',text:'Quanto sobra no fim do mês?'}]} loading/></div>
+</div>
+<div className="col" style={{gap:16}}>
+<VerifyChecklist description="Compare a resposta da IA com a sua tabela." items={items} defaultChecked={['a']}/>
+<VerifyChecklist items={items.slice(0,2)} defaultChecked={['a','b']} doneDescription="Agora a decisão é sua."/>
+<div style={{height:250}}><TutorPanel messages={[{id:'1',from:'student',text:'Quanto sobra no fim do mês?'}]} error="A conexão caiu antes de a resposta chegar." onRetry={function(){}}/></div>
+</div></div>;}
+ReactDOM.createRoot(document.getElementById("root")).render(<Card/>);</script></body></html>

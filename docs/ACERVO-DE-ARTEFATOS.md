@@ -2,7 +2,7 @@
 
 Cópias dos artefatos publicados no claude.ai (Claude Design, Design System, Design, Docs e páginas próprias), guardadas para consulta. Cada projeto tem uma pasta na raiz do repositório e cada artefato uma subpasta: `<projeto>/<artefato>/`.
 
-As cópias foram tiradas em 19 de novembro de 2026, porque o claude.ai/design standalone fecha em 14 de dezembro de 2026. O Initelo Design System entrou em 22 de novembro de 2026.
+As cópias foram tiradas em 19 de novembro de 2026, porque o claude.ai/design standalone fecha em 14 de dezembro de 2026. O Initelo Design System entrou em 22 de novembro de 2026. Em 23 de novembro de 2026 entrou a versão dele com o tema escuro.
 
 Estas pastas são acervo: ninguém as executa nem as serve a partir deste repositório. Os design systems em uso continuam em `design-systems/`, e a marca e a voz em `brand-voltage/` e `brand-voice/`. Quando um projeto aparece nos dois lugares, vale o que está nessas três pastas.
 
@@ -63,6 +63,7 @@ O lint de segurança e a leitura de scripts de CDN deixam estas pastas de fora, 
 | Pasta | Título | Tipo | Arquivos | Assets | Link original |
 |---|---|---|---|---|---|
 | `initelo/design-system/` | Initelo Design System | Design System | 211 | 0 | https://claude.ai/artifact/B71osy1venY5CQUQsfsFiC |
+| `initelo/design-system-2026-11-23/` | Initelo Design System, com o tema escuro “Lamparina” (proposta) | Design System | 211 | 0 | https://claude.ai/artifact/B71osy1venY5CQUQsfsFiC |
 
 ### Iteruno — `iteruno/`
 

@@ -1,0 +1,44 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "notes": {
+      "files": {},
+      "name": "notes",
+      "order": []
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-11-22T20:12:26.100Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": [
+      "project/ui_kits/plataforma/README.md"
+    ]
+  },
+  "groups": [
+    "notes"
+  ],
+  "layout": "files",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18.3.1"
+    },
+    {
+      "name": "react-dom",
+      "version": "18.3.1"
+    }
+  ],
+  "namespace": "IniteloDesignSystem_b8cd96",
+  "sections": {},
+  "title": "Initelo Design System",
+  "lastChange": {
+    "by": "Leandro",
+    "via": "Claude Code",
+    "at": "2026-11-23T05:06:45Z",
+    "note": "Tema escuro “Lamparina” (proposta): segundo tema em tokens.json e componentes ligados aos tokens semânticos."
+  }
+}

@@ -1,0 +1,32 @@
+<!-- @dsCard group="Core" height=88 -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>IconButton — preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Source+Sans+3:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<style>
+body{padding:16px 20px}
+/* O chão da prévia acompanha o tema: a sombra espalhada pinta o quadro inteiro com surface-page. */
+#ds-preview{background:var(--surface-page);color:var(--text-body);box-shadow:0 0 0 100vmax var(--surface-page)}
+p{margin:0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.col{display:flex;flex-direction:column;gap:12px}
+.g2,.g3,.g4{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lbl{font:var(--type-overline);letter-spacing:var(--tracking-overline);text-transform:uppercase;color:var(--text-muted);margin:0 0 8px}
+.state{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.state>small{font:var(--type-caption);color:var(--text-muted)}
+.tile{border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--surface-card);padding:16px}
+.ic{display:flex;align-items:center;gap:8px;font:var(--type-body-sm);font-size:14px;color:var(--text-body)}
+.ic svg{color:var(--action-primary);flex:none}
+</style>
+</head>
+<body>
+<div id="ds-preview"></div>
+<script>
+const { IconButton } = window.IniteloDesignSystem_b8cd96;
+ReactDOM.createRoot(document.getElementById("ds-preview")).render(/* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "row" }, /* @__PURE__ */ React.createElement(IconButton, { icon: "x", label: "Fechar" }), /* @__PURE__ */ React.createElement(IconButton, { icon: "menu", label: "Abrir menu", variant: "outlined" }), /* @__PURE__ */ React.createElement(IconButton, { icon: "copy", label: "Copiar", variant: "outlined", className: "is-focus" }))));
+</script>
+</body>
+</html>
